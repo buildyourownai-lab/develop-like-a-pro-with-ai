@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch02",
+  "number": 2,
+  "title": "2장. Claude가 제대로 만들었는지 확인합니다",
+  "manuscript": "book/05-chapter-02.md",
+  "manuscript_sha256": "a86c62238d9a03d0b527cc6eb412b70844616e2ba26dce3008118f70a972681b",
+  "outcome": "공식 기준 자료와 보고서를 대조하고 반복 확인할 Test를 만듭니다.",
+  "project": "movie-report",
+  "start_state": "1장의 생성 코드와 열어본 Excel 보고서가 있습니다.",
+  "previously_completed_features": "보고서 구성·생성 코드·출처",
+  "required_services": [
+    "kobis"
+  ],
+  "required_accounts_permissions": [],
+  "tools_and_packages": [
+    "Python",
+    "테스트 도구"
+  ],
+  "new_features": "보관한 기준 자료·완료 조건·Test·검증 범위",
+  "out_of_scope": "일부 원본 대조와 전체 원본 검증을 혼동하거나 Test 기대값을 보고서에 맞춰 바꾸지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch02-g01",
+      "title": "완료 조건",
+      "criterion": "비교할 연도·항목·단위·범위를 먼저 정함",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "비교할 연도·항목·단위·범위를 먼저 정함. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch02-g02",
+      "title": "기준 자료",
+      "criterion": "출처와 조회 조건을 확인한 자료를 보관",
+      "required": true,
+      "depends_on": [
+        "ch02-g01"
+      ],
+      "evidence_types": [
+        "official-source"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "출처와 조회 조건을 확인한 자료를 보관. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch02-g03",
+      "title": "직접 대조",
+      "criterion": "공식 원본과 선택한 항목을 대조하고 범위를 남김",
+      "required": true,
+      "depends_on": [
+        "ch02-g02"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "공식 원본과 선택한 항목을 대조하고 범위를 남김. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch02-g04",
+      "title": "Test 구현",
+      "criterion": "보관한 자료와 보고서를 비교하는 검사 작성",
+      "required": true,
+      "depends_on": [
+        "ch02-g03"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "보관한 자료와 보고서를 비교하는 검사 작성. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch02-g05",
+      "title": "실행 결과",
+      "criterion": "관련 Test 실행 결과 확인",
+      "required": true,
+      "depends_on": [
+        "ch02-g04"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "관련 Test 실행 결과 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch02-g06",
+      "title": "범위 설명",
+      "criterion": "Test가 확인하지 않은 항목을 구분",
+      "required": true,
+      "depends_on": [
+        "ch02-g05"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "Test가 확인하지 않은 항목을 구분. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "3장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "기준 자료 자체를 잘못 가져오면 보고서와 기준 자료가 함께 틀릴 수 있습니다. 사람이 확인한 출처와 자동 비교한 범위를 따로 남깁니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch02",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H02-01",
+      "symptom": "Test는 통과했는데 불안함",
+      "levels": [
+        "무엇과 무엇을 비교했는지 먼저 봅니다.",
+        "공식 웹 원본 대조인지 로컬 기준본 대조인지 구분합니다.",
+        "검사 대상의 연도·행 수·필드와 기준 파일 출처를 확인합니다."
+      ],
+      "solution": "확인하지 않은 항목에 별도 완료 조건을 세웁니다. 기존 PASS를 전체 정확성 인증으로 확대하지 않습니다."
+    },
+    {
+      "id": "H02-02",
+      "symptom": "권한 화면에서 막힘",
+      "levels": [
+        "반복 작업인지 외부 상태를 바꾸는지 구분하세요.",
+        "하려는 명령의 대상과 변경 범위를 읽습니다.",
+        "허용·확인·금지 중 어떤 수준인지 실제로 한 작업을 기준으로 판단합니다."
+      ],
+      "solution": "예상하지 않은 설치·삭제·외부 전송이면 멈춰 이유를 묻습니다. 전체 권한 해제를 정답으로 사용하지 않습니다."
+    }
+  ],
+  "required_credentials": [],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  }
+}

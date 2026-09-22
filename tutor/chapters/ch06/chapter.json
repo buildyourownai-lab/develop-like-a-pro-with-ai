@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch06",
+  "number": 6,
+  "title": "6장. 아파트 실거래가와 위치 정보를 가져옵니다",
+  "manuscript": "book/10-chapter-06.md",
+  "manuscript_sha256": "dd88f403eed0f69ed665c927965cd896d0ce808f23e6fd8957a26519fd54311c",
+  "outcome": "국토교통부 실거래와 Kakao 위치 자료를 프로젝트에서 가져옵니다.",
+  "project": "apartment-explorer",
+  "start_state": "새 apartment-explorer 프로젝트를 만들 단계이며 앞 PART 작업은 별도 보존합니다.",
+  "previously_completed_features": "공통 작업 원칙·기록과 복구",
+  "required_services": [
+    "github",
+    "data-go-kr",
+    "kakao"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "github",
+      "details": "../../services/github.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "data-go-kr",
+      "details": "../../services/data-go-kr.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "kakao",
+      "details": "../../services/kakao.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "Node.js",
+    "TypeScript",
+    "Next.js",
+    "프로젝트 Test"
+  ],
+  "new_features": "새 환경·두 API·Secret·실제 응답·응답 예시 Test",
+  "out_of_scope": "키를 대화·Git에 노출하거나 아직 검색 기능·웹 화면을 먼저 만들지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch06-g01",
+      "title": "작업 환경",
+      "criterion": "폴더·Node.js·기본 프로젝트·Git 연결 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "폴더·Node.js·기본 프로젝트·Git 연결 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch06-g02",
+      "title": "실거래 키",
+      "criterion": "정확한 API 신청과 본인 서비스키 준비",
+      "required": true,
+      "depends_on": [
+        "ch06-g01"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "정확한 API 신청과 본인 서비스키 준비. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch06-g03",
+      "title": "Kakao 키",
+      "criterion": "Local API용 앱과 REST API 키 준비",
+      "required": true,
+      "depends_on": [
+        "ch06-g02"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "Local API용 앱과 REST API 키 준비. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch06-g04",
+      "title": "비밀값 대응",
+      "criterion": "코드가 읽는 이름과 로컬 보관 위치 확인",
+      "required": true,
+      "depends_on": [
+        "ch06-g03"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "코드가 읽는 이름과 로컬 보관 위치 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch06-g05",
+      "title": "실제 연결",
+      "criterion": "두 API를 실제 호출하고 응답 확인",
+      "required": true,
+      "depends_on": [
+        "ch06-g04"
+      ],
+      "evidence_types": [
+        "live-api",
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "verify_instructions": "두 API를 실제 호출하고 응답 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch06-g06",
+      "title": "응답 검사",
+      "criterion": "저장한 응답 예시로 파싱과 예외를 검사",
+      "required": true,
+      "depends_on": [
+        "ch06-g05"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "저장한 응답 예시로 파싱과 예외를 검사. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "7장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "키를 발급받았다는 것, 값이 저장됐다는 것, 인증이 성공했다는 것은 별개입니다. URL 인코딩을 오류 원인으로 미리 단정하지 않습니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch06",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H06-01",
+      "symptom": "서비스키를 넣었는데 인증 오류",
+      "levels": [
+        "신청한 API와 현재 호출 API가 같은지 봅니다.",
+        "활용 승인·키 종류·실제 응답 코드부터 나눕니다.",
+        "원본 키와 요청 조립 단계의 인코딩 횟수를 값 노출 없이 확인합니다."
+      ],
+      "solution": "승인 상태와 코드의 키 처리 방식을 맞추고 최소 호출로 다시 확인합니다. 오류 메시지에 키가 있으면 가린 뒤 전달합니다."
+    },
+    {
+      "id": "H06-02",
+      "symptom": "Test PASS인데 실제 연결이 안 됨",
+      "levels": [
+        "어떤 입력으로 검사했는지 확인합니다.",
+        "저장한 응답 예시와 실제 네트워크 요청을 구분합니다.",
+        "현재 실행 환경의 변수 이름·값 존재·응답 코드를 확인합니다."
+      ],
+      "solution": "응답 처리 Test와 별도로 실제 API 연결을 확인합니다. 시험 응답 통과를 인증 성공으로 기록하지 않습니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "github",
+      "kind": "account",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/github.md"
+    },
+    {
+      "provider": "data-go-kr",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/data-go-kr.md"
+    },
+    {
+      "provider": "kakao",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/kakao.md"
+    }
+  ],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  }
+}

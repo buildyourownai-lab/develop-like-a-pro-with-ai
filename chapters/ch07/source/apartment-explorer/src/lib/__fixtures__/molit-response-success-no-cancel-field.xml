@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <header>
+    <resultCode>00</resultCode>
+    <resultMsg>NORMAL SERVICE.</resultMsg>
+  </header>
+  <body>
+    <items>
+      <item>
+        <aptNm>기본아파트</aptNm>
+        <umdNm>기본동</umdNm>
+        <jibun>10-2</jibun>
+        <aptDong>105</aptDong>
+        <floor>7</floor>
+        <excluUseAr>76.34</excluUseAr>
+        <buildYear>2012</buildYear>
+        <dealYear>2026</dealYear>
+        <dealMonth>6</dealMonth>
+        <dealDay>5</dealDay>
+        <dealAmount>71,000</dealAmount>
+      </item>
+    </items>
+    <numOfRows>10</numOfRows>
+    <pageNo>1</pageNo>
+    <totalCount>1</totalCount>
+  </body>
+</response>

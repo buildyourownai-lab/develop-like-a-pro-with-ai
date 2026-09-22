@@ -1,0 +1,49 @@
+{
+  "name": "ai-stock-briefing",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "refresh:dart-corp-map": "tsx scripts/refresh-dart-corp-map.ts",
+    "setup:secrets": "node scripts/setup-secrets.mjs",
+    "measure:chapter12": "node scripts/measure-chapter12.mjs",
+    "scan:secrets": "node scripts/scan-secrets.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "tsx --test tests/unit/*.test.ts",
+    "test:web": "playwright test tests/web.spec.ts",
+    "test:regression": "playwright test tests/regression.spec.ts",
+    "test:golden-path": "playwright test tests/golden-path.spec.ts",
+    "test:api": "tsx tests/api-contract.ts",
+    "test:chapter10:unit": "tsx --test tests/unit/filings.test.ts",
+    "test:chapter10:api": "tsx tests/chapter-10-api.ts",
+    "test:chapter10:e2e": "playwright test tests/chapter-10.spec.ts",
+    "test:chapter11:e2e": "playwright test tests/chapter-11.spec.ts",
+    "test:chapter12:e2e": "playwright test tests/chapter-12.spec.ts",
+    "test:chapter14:api": "tsx tests/chapter-14-api.ts",
+    "test:part3": "playwright test tests/part-3-golden-path.spec.ts",
+    "capture": "playwright test tests/capture.spec.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^2.17.1",
+    "next": "16.3.1",
+    "postgres": "^3.4.9",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "recharts": "^3.10.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.1",
+    "tsx": "^4.23.12",
+    "typescript": "^5"
+  }
+}

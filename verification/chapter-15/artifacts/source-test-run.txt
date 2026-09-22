@@ -1,0 +1,169 @@
+# 15장 Source를 빈 폴더에 놓고 준비와 Test를 실행한 결과
+
+$ npm ci
+
+added 396 packages, and audited 397 packages in 7s
+
+found 0 vulnerabilities
+
+$ npm test
+
+> ai-stock-briefing@0.1.0 pretest
+> next build
+
+▲ Next.js 16.3.3 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 1009ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.2s
+  Running TypeScript ...
+  Finished TypeScript in 4.3s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/3) ...
+✓ Generating static pages using 11 workers (3/3) in 254ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /api/market
+├ ƒ /api/stocks/[code]
+├ ƒ /api/stocks/[code]/briefing
+├ ƒ /api/stocks/[code]/disclosures
+├ ƒ /api/stocks/search
+├ ƒ /search
+├ ƒ /setup
+├ ƒ /stocks/[code]
+└ ƒ /stocks/[code]/disclosures
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> ai-stock-briefing@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 .
+
+
+ Test Files  10 passed (10)
+      Tests  111 passed (111)
+   Start at  22:18:55
+   Duration  18.01s (transform 556ms, setup 142ms, import 722ms, tests 15.63s, environment 1ms)
+
+$ npx playwright test
+
+
+Running 10 tests using 1 worker
+
+  ✓   1 tests/e2e/ai-briefing-flow.spec.ts:28:7 › AI 브리핑 화면 › 버튼을 누르기 전에는 실행되지 않고, 기존 화면(차트·공시·상세시세)은 그대로 보인다 (1.4s)
+  ✓   2 tests/e2e/ai-briefing-flow.spec.ts:46:7 › AI 브리핑 화면 › 핵심 브리핑 → 시장·가격 근거 → 최근 1년간 회사 공시 → 알 수 없는 것 순서로 나온다 (808ms)
+  ✓   3 tests/e2e/ai-briefing-flow.spec.ts:77:7 › AI 브리핑 화면 › 공시 목록에 DART 원문으로 가는 링크가 있고, 실제로 그 회사 문서가 열린다 (802ms)
+  ✓   4 tests/e2e/ai-briefing-flow.spec.ts:101:7 › AI 브리핑 화면 › AI 설명이 나오면 실제 목표주가 제시나 매수·매도 권유가 없다 (662ms)
+  ✓   5 tests/e2e/ai-briefing-flow.spec.ts:135:7 › AI 브리핑 화면 › Secret이 화면·요청 어디에도 노출되지 않는다 (663ms)
+  ✓   6 tests/e2e/market-flow.spec.ts:18:7 › 시장 화면 › 기준일·출처·순위 조건이 표시되고, 인증키는 어디에도 노출되지 않는다 (274ms)
+  ✓   7 tests/e2e/market-flow.spec.ts:39:7 › 시장 화면 › 등락률 순위의 종목을 누르면 상세·차트를 거쳐 다시 시장 화면으로 돌아온다 (1.4s)
+  ✓   8 tests/e2e/market-flow.spec.ts:63:7 › 시장 화면 › 검색 결과가 하나면 바로 상세 화면으로 가고, 다시 돌아올 수 있다 (979ms)
+  ✓   9 tests/e2e/market-flow.spec.ts:82:7 › 시장 화면 › 검색 결과가 여러 개면 목록에서 골라 상세 화면으로 갈 수 있다 (797ms)
+  ✓  10 tests/e2e/market-flow.spec.ts:100:7 › 시장 화면 › 존재하지 않는 종목을 검색하면 다시 시도할 방법을 알려준다 (401ms)
+
+  10 passed (15.6s)
+
+$ cd android && ./gradlew test
+
+(Build Task 목록 생략)
+
+> Task :app:compileDebugUnitTestKotlin
+> Task :app:compileDebugUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processDebugUnitTestJavaRes
+> Task :app:testDebugUnitTest
+> Task :app:compileReleaseUnitTestJavaWithJavac NO-SOURCE
+> Task :app:processReleaseUnitTestJavaRes
+> Task :app:testReleaseUnitTest
+> Task :app:test
+
+BUILD SUCCESSFUL in 20s
+53 actionable tasks: 53 executed
+
+$ grep -o 'tests="[0-9]*" skipped="[0-9]*" failures="[0-9]*" errors="[0-9]*"' app/build/test-results/testDebugUnitTest/TEST-*.xml
+
+TEST-com.aistockbriefing.android.DisclosureUiTest.xml:tests="3" skipped="0" failures="0" errors="0"
+TEST-com.aistockbriefing.android.ErrorMessagesTest.xml:tests="5" skipped="0" failures="0" errors="0"
+TEST-com.aistockbriefing.android.FormattersTest.xml:tests="7" skipped="0" failures="0" errors="0"
+
+$ cd ios && xcodebuild -project AiStockBriefing.xcodeproj -scheme AiStockBriefing -destination "platform=iOS Simulator,id=<iPhone 17 Pro>" test
+
+(Build Task 목록 생략)
+
+Test Suite 'All tests' started at 2026-08-31 22:25:40.710.
+Test Suite 'AiStockBriefingTests.xctest' started at 2026-08-31 22:25:40.711.
+Test Suite 'AiBriefingSectionTests' started at 2026-08-31 22:25:40.711.
+Test Case '-[AiStockBriefingTests.AiBriefingSectionTests testDescribeMarketComparisonForHigherMagnitude]' passed (0.002 seconds).
+Test Case '-[AiStockBriefingTests.AiBriefingSectionTests testDescribeMarketComparisonForLowerMagnitude]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.AiBriefingSectionTests testDescribeMarketComparisonForSimilarMagnitude]' passed (0.001 seconds).
+Test Suite 'AiBriefingSectionTests' passed at 2026-08-31 22:25:40.718.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 0.004 (0.007) seconds
+Test Suite 'ApiClientTests' started at 2026-08-31 22:25:40.718.
+Test Case '-[AiStockBriefingTests.ApiClientTests testEmptyBodyProducesUserReadableMessage]' passed (0.004 seconds).
+Test Case '-[AiStockBriefingTests.ApiClientTests testGetMarketDecodesSuccessResponse]' passed (0.004 seconds).
+Test Case '-[AiStockBriefingTests.ApiClientTests testGetMarketThrowsUserReadableErrorOnServerErrorBody]' passed (0.002 seconds).
+Test Case '-[AiStockBriefingTests.ApiClientTests testNetworkFailureMapsToConnectivityMessage]' passed (0.002 seconds).
+Test Case '-[AiStockBriefingTests.ApiClientTests testSearchSendsQueryParameter]' passed (0.005 seconds).
+Test Suite 'ApiClientTests' passed at 2026-08-31 22:25:40.738.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.017 (0.020) seconds
+Test Suite 'DisclosureUiTests' started at 2026-08-31 22:25:40.738.
+Test Case '-[AiStockBriefingTests.DisclosureUiTests testSubmitterLabelFallsBackToCompanyNameWhenBlank]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.DisclosureUiTests testSubmitterLabelUsesSubmitterWhenPresent]' passed (0.001 seconds).
+Test Suite 'DisclosureUiTests' passed at 2026-08-31 22:25:40.741.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'FormattersTests' started at 2026-08-31 22:25:40.742.
+Test Case '-[AiStockBriefingTests.FormattersTests testDirectionSymbolAndWord]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.FormattersTests testFormatBaseDateLabel]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.FormattersTests testFormatChangeRateSignAndTwoDecimals]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.FormattersTests testFormatChangeSignAndPrecision]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.FormattersTests testFormatDateTimeLabelConvertsUtcToSeoul]' passed (0.004 seconds).
+Test Case '-[AiStockBriefingTests.FormattersTests testFormatIndexValueHasNoUnit]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.FormattersTests testFormatPriceRoundsAndGroups]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.FormattersTests testFormatTradingValueDividesAndRounds]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.FormattersTests testFormatVolume]' passed (0.001 seconds).
+Test Suite 'FormattersTests' passed at 2026-08-31 22:25:40.759.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.013 (0.017) seconds
+Test Suite 'ModelDecodingTests' started at 2026-08-31 22:25:40.760.
+Test Case '-[AiStockBriefingTests.ModelDecodingTests testBriefingResponseDecodingWithRateLimited]' passed (0.020 seconds).
+Test Case '-[AiStockBriefingTests.ModelDecodingTests testDecodeOrThrowDecodesNormalResponseEvenWithoutErrorKey]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.ModelDecodingTests testDecodeOrThrowDoesNotThrowWhenErrorKeyIsNotAlone]' passed (0.002 seconds).
+Test Case '-[AiStockBriefingTests.ModelDecodingTests testDecodeOrThrowThrowsOnTopLevelErrorOnly]' passed (0.001 seconds).
+Test Case '-[AiStockBriefingTests.ModelDecodingTests testDisclosuresResponseDecoding]' passed (0.005 seconds).
+Test Case '-[AiStockBriefingTests.ModelDecodingTests testMarketOverviewDecoding]' passed (0.004 seconds).
+Test Case '-[AiStockBriefingTests.ModelDecodingTests testStockDetailDecodingWithNestedErrorFields]' passed (0.006 seconds).
+Test Suite 'ModelDecodingTests' passed at 2026-08-31 22:25:40.802.
+	 Executed 7 tests, with 0 failures (0 unexpected) in 0.039 (0.043) seconds
+Test Suite 'AiStockBriefingTests.xctest' passed at 2026-08-31 22:25:40.803.
+	 Executed 26 tests, with 0 failures (0 unexpected) in 0.076 (0.092) seconds
+Test Suite 'All tests' passed at 2026-08-31 22:25:40.803.
+	 Executed 26 tests, with 0 failures (0 unexpected) in 0.076 (0.093) seconds
+
+Test Suite 'All tests' started at 2026-08-31 22:25:45.129.
+Test Suite 'AiStockBriefingUITests.xctest' started at 2026-08-31 22:25:45.130.
+Test Suite 'AiStockBriefingUITests' started at 2026-08-31 22:25:45.130.
+Test Case '-[AiStockBriefingUITests.AiStockBriefingUITests testFullFlowWithFixtures]' passed (32.343 seconds).
+Test Case '-[AiStockBriefingUITests.AiStockBriefingUITests testMarketScreenLoadsWithoutFixtures]' passed (5.237 seconds).
+Test Case '-[AiStockBriefingUITests.AiStockBriefingUITests testSearchNavigatesToSearchScreenWithoutFixtures]' passed (8.383 seconds).
+Test Suite 'AiStockBriefingUITests' passed at 2026-08-31 22:26:31.097.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 45.963 (45.967) seconds
+Test Suite 'AiStockBriefingUITests.xctest' passed at 2026-08-31 22:26:31.098.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 45.963 (45.968) seconds
+Test Suite 'All tests' passed at 2026-08-31 22:26:31.099.
+	 Executed 3 tests, with 0 failures (0 unexpected) in 45.963 (45.970) seconds
+
+** TEST SUCCEEDED **
+
+DONE=0
+
+전체 165개: 웹서비스 111개 + 웹 화면 흐름 10개 + Android 앱 15개 + iPhone 앱 29개.
+이 장에서 새로 생긴 것은 iPhone 앱 29개다.

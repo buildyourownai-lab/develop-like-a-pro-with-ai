@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "chapter": 10,
+  "project": "ai-stock-briefing",
+  "manuscript_sha256": "a0a52f754b61256a0b94e2553f8f5ccff992fb1cd2c97a657ee33fa0f3e98506",
+  "entries": [
+    {
+      "id": "P10-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "ebfc3d9fabde88c3309b56a79b603f2d62a9003819eb1fc5ab7d8f1612d40fda",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "10장을 처음 시작하거나 현재 장의 시작 조건을 확인해 달라고 요청할 때",
+      "before": "9장의 시장·검색·종목·차트가 있습니다. 이미 확인된 장·프로젝트는 다시 묻지 않고 현재 기록과 실제 상태를 대조합니다.",
+      "after": "목표·현재 프로젝트·선행 상태·첫 행동 하나를 확인합니다. 시작 안내만으로 구현·설치·프로젝트 교체를 하지 않습니다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P10-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "a354b090a3d639e23f8909f2aeb3521c725cb1c7c86d4087d98534a59ea191fd",
+      "title": "OpenDART API Key를 준비합니다",
+      "target": "coding-assistant",
+      "kind": "conditional",
+      "when": "독자가 OpenDART 인증키 신청 화면에서 항목 도움을 요청할 때만",
+      "before": "독자가 공식 인증키 신청 화면을 열었는지 확인합니다. 이미 발급받았다면 재신청하지 않고 개인정보·비밀번호는 직접 입력합니다.",
+      "after": "개인 사용 실습에 필요한 입력·선택을 안내하고 발급 결과는 독자가 이용현황에서 확인합니다.",
+      "objective_ids": [
+        "ch10-g01"
+      ]
+    },
+    {
+      "id": "P10-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "a6a10f56d113dd6ce943f3bd1349a19f45f69e83174fa4874e8b2fb7a06d22ba",
+      "title": "OpenDART API Key를 준비합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "OpenDART 인증키 발급 후 프로젝트의 안전한 입력 위치를 준비할 때",
+      "before": "독자가 신청을 마치고 인증키 신청/관리→오픈API 이용현황에서 API Key 발급을 확인했는지 봅니다. 현재 프로젝트는 ai-stock-briefing입니다.",
+      "after": "안전한 입력 위치와 변수 이름을 알려주고 독자가 값을 직접 입력하도록 안내합니다.",
+      "objective_ids": [
+        "ch10-g01"
+      ]
+    },
+    {
+      "id": "P10-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "93ec260f35c576c2dc4df4d548c9413b98f30ea811edaab3b3f3870b48d974e3",
+      "title": "OpenDART API Key를 준비합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "독자가 OpenDART 키를 직접 입력한 뒤 노출 여부를 확인할 때",
+      "before": "앞에서 안내한 위치에 실제 값을 직접 입력했는지 확인합니다. 값을 대화로 요청하지 않습니다.",
+      "after": "코드·Git·브라우저의 실제 키 비노출을 확인합니다. 인증 성공과는 구분합니다.",
+      "objective_ids": [
+        "ch10-g01"
+      ]
+    },
+    {
+      "id": "P10-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "77f2454be9e0f51e3ec430e4d70b381f2c034e82c02ad3960cbe598d34757c0a",
+      "title": "준비한 API Key로 공시를 연결합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "9장의 SK하이닉스 상세 화면에 실제 공시를 처음 연결할 때",
+      "before": "9장의 시장·검색·종목·차트와 OpenDART 키 준비·노출 검사를 확인합니다.",
+      "after": "실제 최근 1년 공시의 접수일·제목·제출인·원문 링크와 조회 결과를 확인합니다.",
+      "objective_ids": [
+        "ch10-g02",
+        "ch10-g03"
+      ]
+    },
+    {
+      "id": "P10-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "45f37ee648a27b986b57ccbdcf6b5d83b45e9ff14f1bfb4ebbc9940334e5dbc5",
+      "title": "같은 회사라도 서비스마다 번호가 다릅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "종목과 OpenDART 회사의 연결 근거를 확인하고 일반화할 때",
+      "before": "실제 공시 연결과 현재 종목코드를 확인합니다. 회사 이름만 비슷하다고 선택하지 않습니다.",
+      "after": "공식 고유번호 자료에서 000660의 실제 연결과 다른 종목에도 쓸 매핑을 확인합니다.",
+      "objective_ids": [
+        "ch10-g02"
+      ]
+    },
+    {
+      "id": "P10-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "3f43a97f05d6de9050f13f104a1d8453fe95b713fb95513b687bb5e496259a1a",
+      "title": "최근 공시부터 보여줍니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "종목 상세에서 최근 공시 5건과 전체 보기 길을 만들 때",
+      "before": "회사 매핑과 최근 1년 실제 공시 목록을 확인합니다.",
+      "after": "최근 5건·전체 건수·기간·전체 보기와 정상 0건·실패 구분, 기존 가격 화면 보존을 확인합니다.",
+      "objective_ids": [
+        "ch10-g03",
+        "ch10-g06"
+      ]
+    },
+    {
+      "id": "P10-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "ab0381a1460d2829c19e9fe610643094c869ac83418ecc7d61d4117ef8776a20",
+      "title": "수백 건은 나눠서 살펴봅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "최근 공시에서 전체 공시 화면으로 이동하도록 만들 때",
+      "before": "최근 공시와 같은 회사·최근 1년 범위인지 확인합니다.",
+      "after": "실제 전체 목록·100건 페이지 이동·원문 새 창을 확인합니다. 다음 단계의 유형 필터가 아직 없어도 정상입니다.",
+      "objective_ids": [
+        "ch10-g03",
+        "ch10-g05"
+      ]
+    },
+    {
+      "id": "P10-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "7b92399f2685b7d7aefb23a980c9a03d4abaf061ebf14d33ea15d16f03ddaff6",
+      "title": "공시 유형으로 좁혀 봅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "전체 목록을 보존하면서 공식 공시 유형으로 좁혀볼 때",
+      "before": "전체 공시 페이지와 실제 목록을 확인합니다. 제목으로 임의 분류하지 않습니다.",
+      "after": "공식 유형 선택·실제 유형별 건수·전체 목록 보존을 확인합니다.",
+      "objective_ids": [
+        "ch10-g04"
+      ]
+    },
+    {
+      "id": "P10-10",
+      "source": "prompts.md",
+      "block_index": 10,
+      "sha256": "1f2f8a3719e62b93738bb2b67e05356e052b69ad177515ec56c52bf73a4c0d7a",
+      "title": "차트에는 두 유형만 표시합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "주가 차트 아래에 정기공시·주요사항보고 시점을 연결할 때",
+      "before": "최근 1년 가격 차트와 공식 공시 유형을 확인합니다.",
+      "after": "두 유형만 별도 띠에 표시되는지, 휴장일 처리·표식 선택·실제 공시 정보와 링크를 확인합니다.",
+      "objective_ids": [
+        "ch10-g04",
+        "ch10-g05"
+      ]
+    },
+    {
+      "id": "P10-11",
+      "source": "prompts.md",
+      "block_index": 11,
+      "sha256": "3c8b454038220b60eb437a0e9d87f7c34b2253a0f43c6e7b43c967282dba4a49",
+      "title": "화면에서 DART 원문까지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "최근·전체·차트의 공시에서 실제 DART 원문 접근을 확인할 때",
+      "before": "실제 공시 접수번호와 연결한 회사·날짜를 확인합니다.",
+      "after": "원문 실제 접근과 새 창 열림, 같은 회사·날짜·공시인지 직접 대조합니다.",
+      "objective_ids": [
+        "ch10-g05"
+      ]
+    },
+    {
+      "id": "P10-12",
+      "source": "prompts.md",
+      "block_index": 12,
+      "sha256": "5c242f40dea6bf67d0d7f2298b7d576901263918c1139a59d0f4b9769cc8840c",
+      "title": "새로 붙인 공시 기능을 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "추가한 공시 전체 흐름과 기존 9장 기능을 검사할 때",
+      "before": "회사 매핑·최근/전체 목록·공식 유형·페이지·차트 표식·원문 연결을 확인합니다.",
+      "after": "새 Test와 기존 회귀 결과, 실제 브라우저 흐름·0건/오류 구분·키 비노출을 확인합니다.",
+      "objective_ids": [
+        "ch10-g01",
+        "ch10-g02",
+        "ch10-g03",
+        "ch10-g04",
+        "ch10-g05",
+        "ch10-g06"
+      ]
+    },
+    {
+      "id": "P10-13",
+      "source": "prompts.md",
+      "block_index": 13,
+      "sha256": "3665dbc2a9360380f48e93d85fe9f20048366ccde7253af6cba5d571fc616849",
+      "title": "새로 붙인 공시 기능을 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "공시 기능과 기존 화면을 확인한 뒤 로컬 정상 기록을 남길 때",
+      "before": "실제 공시·원문·브라우저와 Test 결과를 구분합니다. 이번 정본은 GitHub 전송을 명시적으로 금지합니다.",
+      "after": "정상 Git 기록을 확인하고 push하지 않습니다.",
+      "objective_ids": [
+        "ch10-g06"
+      ]
+    },
+    {
+      "id": "P10-14",
+      "source": "prompts.md",
+      "block_index": 14,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "10장의 실습 결과를 장별 완료 조건과 대조할 때",
+      "before": "앞 단계 실행 결과와 사람이 직접 확인할 항목을 확인합니다. 요청문을 보여주거나 실행했다고 완료로 세지 않습니다.",
+      "after": "명세의 실제 근거와 미확인을 나눠 판단합니다. 결과가 미확인이면 다음 장으로 자동 진행하지 않습니다.",
+      "objective_ids": [
+        "ch10-g01",
+        "ch10-g02",
+        "ch10-g03",
+        "ch10-g04",
+        "ch10-g05",
+        "ch10-g06"
+      ]
+    }
+  ]
+}

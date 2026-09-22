@@ -1,0 +1,19 @@
+{
+  "meta": { "total_count": 2 },
+  "documents": [
+    {
+      "place_name": "테스트역",
+      "category_name": "교통,수송 > 지하철,전철 > 서울 지하철 > 테스트호선",
+      "road_address_name": "서울 강남구 테스트로 1",
+      "address_name": "서울 강남구 테스트동 1",
+      "distance": "320"
+    },
+    {
+      "place_name": "샘플역",
+      "category_name": "교통,수송 > 지하철,전철 > 서울 지하철 > 샘플호선",
+      "road_address_name": "서울 강남구 테스트로 50",
+      "address_name": "서울 강남구 테스트동 50",
+      "distance": "890"
+    }
+  ]
+}

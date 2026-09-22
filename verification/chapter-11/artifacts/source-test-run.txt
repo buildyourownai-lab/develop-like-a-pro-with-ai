@@ -1,0 +1,35 @@
+11장 Source를 빈 폴더에 단독으로 놓고 돌린 결과 --- ai-stock-briefing
+실행 2026-09-03
+
+받은 것: chapters/ch11/source/ai-stock-briefing 폴더 하나
+넣은 것: .env.local에 공공데이터포털 인증키, OpenDART 인증키, Gemini API Key
+
+1) 준비
+   npm ci                            성공
+
+2) production build (Test 전에 자동 실행)
+   next build                        성공, TypeScript 오류 없음
+   경로 /  ·  /search  ·  /stocks/[code]  ·  /stocks/[code]/disclosures
+
+3) 자동 검사
+   vitest run                        Test 파일 9개 / 92개 통과 (실패 0)
+   playwright test                   10개 통과 (실패 0)
+   합계                              102개 통과
+
+   이 장에서 새로 생긴 검사만 따로 실행
+   vitest run tests/briefing-actions.test.ts tests/briefing-facts.test.ts \
+              tests/briefing-verify.test.ts tests/gemini-briefing-api.test.ts
+                                     49개 통과
+   playwright test tests/e2e/ai-briefing-flow.spec.ts
+                                     5개 통과
+   이 장에서 새로 생긴 검사 합계      54개
+
+   검사는 실제 금융위원회·OpenDART 응답과 실제 Gemini 호출까지 확인한다.
+
+4) 실제 화면
+   production build로 서버를 띄워 데스크톱 1440x900과 휴대전화 390x844에서
+   AI 브리핑 만들기를 눌러 확인
+     네 영역(핵심 브리핑 / 프로그램이 확인한 사실 / 최근 1년간 회사 공시 /
+     현재 근거만으로 알 수 없는 것)이 모두 있고 순서가 맞음    두 크기 모두 예
+     출처(금융위원회 · OpenDART) 표시                          두 크기 모두 예
+     DART 원문 링크                                            두 크기 모두 있음

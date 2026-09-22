@@ -1,0 +1,13 @@
+
+> ai-media-works@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 <chapter-source>
+
+
+ Test Files  27 passed (27)
+      Tests  332 passed (332)
+   Start at  23:19:42
+   Duration  1.40s (transform 2.55s, setup 0ms, import 4.32s, tests 1.19s, environment 9ms)
+

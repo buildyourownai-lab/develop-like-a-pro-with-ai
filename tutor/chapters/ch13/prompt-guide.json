@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "chapter": 13,
+  "project": "ai-stock-briefing",
+  "manuscript_sha256": "e2ce5984aa9fb95b51abecc9f0904a11925485ca8bcffeb3565eaebe8c3c9129",
+  "entries": [
+    {
+      "id": "P13-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "bb3b292a12afa21d7391944120d1d11424c76ad78c887301b2aa8c688ec5a3e0",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P13-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "9ebf8af08d93e94f196fa193a7602cb684645b65846d078fdef4906a4021f910",
+      "title": "기존 프로젝트를 그대로 이어갑니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "기존 서비스 재사용 조사",
+      "before": "12장 서비스와 앱 확장 목적 확인.",
+      "after": "재사용·새 화면·보안 경계 조사; 제품 코드 불변",
+      "objective_ids": [
+        "ch13-g01",
+        "ch13-g02"
+      ]
+    },
+    {
+      "id": "P13-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "397665803037798981ee55a68dc3bb05aabc18976a085899da72856636ef511c",
+      "title": "세 화면에서 숫자의 의미를 같게 유지합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "공통 데이터·품질 계획",
+      "before": "독자가 포함·제외 기능과 작은 화면 우선순위를 결정했는지 확인.",
+      "after": "기준일·단위·원문·근거·Secret 경계 계획",
+      "objective_ids": [
+        "ch13-g03",
+        "ch13-g04",
+        "ch13-g05"
+      ]
+    },
+    {
+      "id": "P13-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "2125cd8d9bb2ffa7ce1fbe9cb5b41218015821175a755c254053fd2d03b2aabe",
+      "title": "Claude가 계획을 정리하고 다시 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "결정한 앱 계획 문서화",
+      "before": "앱 목적·범위·화면·권한·완료 기준에 대한 독자 결정 확인.",
+      "after": "프로젝트 안 계획 문서와 실제 구현 정합; 앱 코드 미작성",
+      "objective_ids": [
+        "ch13-g01",
+        "ch13-g02",
+        "ch13-g03",
+        "ch13-g04",
+        "ch13-g05",
+        "ch13-g06"
+      ]
+    },
+    {
+      "id": "P13-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "3665dbc2a9360380f48e93d85fe9f20048366ccde7253af6cba5d571fc616849",
+      "title": "Claude가 계획을 정리하고 다시 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "확인한 계획 Git 기록",
+      "before": "계획 검토 결과와 현재 변경 확인.",
+      "after": "로컬 Git 기록; GitHub 전송 없음",
+      "objective_ids": [
+        "ch13-g06"
+      ]
+    },
+    {
+      "id": "P13-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "video": "artifacts/chapter-17/failures/damaged-short.mp4",
+  "policy": "prototypes/youtube-shorts/chapter-17/review-policy.json",
+  "status": "FAIL",
+  "gate": "NOT READY",
+  "checks": [
+    {
+      "name": "file_exists",
+      "status": "PASS",
+      "actual": "artifacts/chapter-17/failures/damaged-short.mp4",
+      "expected": "non-empty file"
+    },
+    {
+      "name": "duration",
+      "status": "PASS",
+      "actual": 52.933,
+      "expected": "40..90 seconds"
+    },
+    {
+      "name": "video_stream",
+      "status": "PASS",
+      "actual": 1,
+      "expected": "exactly 1 video stream"
+    },
+    {
+      "name": "audio_stream",
+      "status": "FAIL",
+      "actual": 0,
+      "expected": "exactly 1 audio stream"
+    },
+    {
+      "name": "resolution",
+      "status": "PASS",
+      "actual": "1080x1920",
+      "expected": "1080x1920"
+    },
+    {
+      "name": "portrait_ratio",
+      "status": "PASS",
+      "actual": 0.5625,
+      "expected": "9:16 portrait"
+    },
+    {
+      "name": "video_codec",
+      "status": "PASS",
+      "actual": "h264",
+      "expected": "h264"
+    },
+    {
+      "name": "audio_codec",
+      "status": "FAIL",
+      "actual": null,
+      "expected": "aac"
+    },
+    {
+      "name": "full_decode",
+      "status": "PASS",
+      "actual": "no decode error",
+      "expected": "whole file decodes without errors"
+    },
+    {
+      "name": "audible_signal",
+      "status": "FAIL",
+      "actual": {
+        "mean_volume_db": null
+      },
+      "expected": "mean volume at least -45 dB"
+    },
+    {
+      "name": "unexpected_black_frames",
+      "status": "FAIL",
+      "actual": [
+        {
+          "start": 0.0,
+          "end": 3.0,
+          "duration": 3.0
+        }
+      ],
+      "expected": "no black segment lasting 1.5 seconds or more"
+    },
+    {
+      "name": "contact_sheet",
+      "status": "PASS",
+      "actual": "artifacts/chapter-17/contact-sheet-damaged.png",
+      "expected": "generated for AI visual review"
+    },
+    {
+      "name": "ai_visual_review",
+      "status": "FAIL",
+      "actual": {
+        "reviewer": "AI Reviewer",
+        "missing": [],
+        "failed": [
+          "subtitles_present_and_readable",
+          "subjects_not_severely_cropped",
+          "no_obvious_visual_corruption"
+        ]
+      },
+      "expected": "all required visual judgments are true"
+    }
+  ],
+  "contact_sheet": "artifacts/chapter-17/contact-sheet-damaged.png",
+  "boundary": "UPLOAD READY is a pre-upload QA result, not permission to publish."
+}

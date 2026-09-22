@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1244" height="570" viewBox="-22 135 1244 570" role="img" aria-labelledby="title desc">
+<title id="title">확인된 자료와 일반 설명을 구분합니다</title><desc id="desc">서버가 확보한 사실과 Gemini의 일반 개념 설명은 별개 영역입니다. 설계용 도식이며 실제 실행 화면이 아닙니다.</desc><rect x="-22" y="135" width="1244" height="570" fill="#FFFFFF" />
+<g font-family="Arial,'Noto Sans KR',sans-serif" fill="#18212F"><rect x="48" y="205" width="530" height="315" rx="24" fill="url(#autoBg)" stroke="#D3DFEB" stroke-width="2" filter="url(#shadow)" /><text x="76" y="258" font-size="27" fill="#397D72" font-weight="700">확인된 자료</text><text x="76" y="310" font-size="22">서버가 확인하거나 계산한 값</text><text x="76" y="361" font-size="22">종목 · 수치 · 단위 · 가격 기준일</text><text x="76" y="411" font-size="22">실제 조회 기간 · 공시 · 원문 출처</text><text x="76" y="474" font-size="22">자료의 기준일과 조회 시각을 구분</text>
+<rect x="622" y="205" width="530" height="315" rx="24" fill="url(#inputBg)" stroke="#D3DFEB" stroke-width="2" filter="url(#shadow)" /><text x="650" y="258" font-size="27" fill="#255B8E" font-weight="700">AI 일반 설명</text><text x="650" y="310" font-size="22">Gemini가 설명하는 개념과 원리</text><text x="650" y="361" font-size="22">자료 이해에 필요한 일반 지식</text><text x="650" y="411" font-size="22">미확인 기업 현황·원인은 제외</text><text x="650" y="474" font-size="22">“최신 확인 자료가 아닙니다” 표시</text>
+<text x="48" y="574" font-size="22">일반 질문 → 일반 설명만 · 종목 질문 → 관련 확인 자료부터</text><text x="48" y="624" font-size="22">출처가 맞아도 설명의 해석은 따로 확인합니다.</text></g><defs><filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#1F2937" flood-opacity=".10" />
+  </filter>
+  <linearGradient id="inputBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#F4F8FF" /><stop offset="1" stop-color="#E6F0FF" />
+  </linearGradient>
+  <linearGradient id="autoBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#F3FBF8" /><stop offset="1" stop-color="#E6F6F0" />
+  </linearGradient>
+  <linearGradient id="humanBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#FFF9EF" /><stop offset="1" stop-color="#FFF0D8" />
+  </linearGradient>
+  <linearGradient id="noneBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#FAF8FF" /><stop offset="1" stop-color="#F0E8FF" />
+  </linearGradient>
+</defs></svg>

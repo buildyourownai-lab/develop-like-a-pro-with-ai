@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.book-tutor-state/
+source-registry.local.json
+.env
+.env.*
+.secrets/

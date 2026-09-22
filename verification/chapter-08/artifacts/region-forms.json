@@ -1,0 +1,80 @@
+{
+  "requestedFrom": "https://apartment-explorer.vercel.app/api/search",
+  "확인한 것": "같은 아파트를 법정동 이름, 행정동 이름, 도로명주소로 각각 입력했을 때 모두 같은 조회 지역으로 연결되는지",
+  "공통 조건": {
+    "minAreaM2": 80,
+    "maxAreaM2": 90,
+    "minPriceManwon": 200000,
+    "maxPriceManwon": 300000,
+    "maxSubwayDistanceM": 800,
+    "maxElementaryDistanceM": 1000
+  },
+  "결과": [
+    {
+      "입력한 지역": "서울 강남구 대치동",
+      "이름": "법정동 이름",
+      "연결된 조회 지역": "서울 강남구 대치동",
+      "지역코드": "11680",
+      "법정동": "대치동",
+      "조회 기준일": "2026-08-29",
+      "조회 기간": {
+        "from": "2025-08-29",
+        "to": "2026-08-29"
+      },
+      "건수": {
+        "rawRowsInExactPeriod": 2918,
+        "cancelledTransactions": 165,
+        "regionAreaNormalRows": 95,
+        "apartmentsWithRegionAreaTransactions": 26,
+        "noPriceRangeMatchApartments": 19,
+        "lifestyleFailedApartments": 0,
+        "addressUnmatchedApartments": 0,
+        "candidates": 7
+      }
+    },
+    {
+      "입력한 지역": "서울 강남구 대치2동",
+      "이름": "행정동 이름",
+      "연결된 조회 지역": "서울 강남구 대치동",
+      "지역코드": "11680",
+      "법정동": "대치동",
+      "조회 기준일": "2026-08-29",
+      "조회 기간": {
+        "from": "2025-08-29",
+        "to": "2026-08-29"
+      },
+      "건수": {
+        "rawRowsInExactPeriod": 2918,
+        "cancelledTransactions": 165,
+        "regionAreaNormalRows": 95,
+        "apartmentsWithRegionAreaTransactions": 26,
+        "noPriceRangeMatchApartments": 19,
+        "lifestyleFailedApartments": 0,
+        "addressUnmatchedApartments": 0,
+        "candidates": 7
+      }
+    },
+    {
+      "입력한 지역": "서울 강남구 삼성로 212",
+      "이름": "도로명주소",
+      "연결된 조회 지역": "서울 강남구 대치동",
+      "지역코드": "11680",
+      "법정동": "대치동",
+      "조회 기준일": "2026-08-29",
+      "조회 기간": {
+        "from": "2025-08-29",
+        "to": "2026-08-29"
+      },
+      "건수": {
+        "rawRowsInExactPeriod": 2918,
+        "cancelledTransactions": 165,
+        "regionAreaNormalRows": 95,
+        "apartmentsWithRegionAreaTransactions": 26,
+        "noPriceRangeMatchApartments": 19,
+        "lifestyleFailedApartments": 0,
+        "addressUnmatchedApartments": 0,
+        "candidates": 7
+      }
+    }
+  ]
+}

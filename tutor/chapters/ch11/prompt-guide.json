@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "chapter": 11,
+  "project": "ai-stock-briefing",
+  "manuscript_sha256": "95bee08d8327fb47c1c1d2046bd7e6b49646ceb90cf1add4b536e0573f27115c",
+  "entries": [
+    {
+      "id": "P11-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "4c70ab5b45a6f281c511be53a6fea5f3404e1bbe43ec3ad898d04fb2ed22404c",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P11-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "1d6341872d11266ab1d03613bd12e3e180ca4df0825246b42ea6dc03b4d91575",
+      "title": "Gemini를 사용할 준비를 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Gemini 입력 위치 준비",
+      "before": "독자가 실제 Gemini 키를 발급받았는지 확인. 값은 받지 않음.",
+      "after": "안전한 입력 위치와 서버 전용 보관 안내",
+      "objective_ids": [
+        "ch11-g01"
+      ]
+    },
+    {
+      "id": "P11-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "2364f41b125d752353fc943729d7779845b18eaea7e9b1229aaa270bb4a12906",
+      "title": "Gemini를 사용할 준비를 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "키를 직접 입력한 뒤 노출 검사",
+      "before": "앞에서 안내한 입력 위치에 독자가 키를 저장했는지 확인.",
+      "after": "코드·Git·브라우저 노출 검사와 미확인 범위",
+      "objective_ids": [
+        "ch11-g01"
+      ]
+    },
+    {
+      "id": "P11-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "4b1ea0337474592f33bb505facb3d2566017da1e5a52b413e5239133aaba9044",
+      "title": "Gemini는 우리 서버를 통해 부릅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "브리핑 서버 호출 구현",
+      "before": "키 입력·노출 확인과 현재 모델 지원·계정 한도 확인.",
+      "after": "버튼 실행과 지정 모델 서버 연결; 모델 미지원은 교체하지 않고 보고",
+      "objective_ids": [
+        "ch11-g03"
+      ]
+    },
+    {
+      "id": "P11-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "362e31a22c709ba769bed0e4e6bc2960e1a4cddcff3066745072ba79697a77b9",
+      "title": "AI에게 넘기기 전에, 자료부터 정리합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "AI에 전달할 근거 준비",
+      "before": "9~10장 시장·종목·차트·공시가 실제로 작동하는지 확인.",
+      "after": "출처·기준일·계산값이 있는 근거 묶음",
+      "objective_ids": [
+        "ch11-g02"
+      ]
+    },
+    {
+      "id": "P11-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "8236e16411b9fcf281091a2b929bde5746d2f1344d25c59166b9cbfeb31f17b9",
+      "title": "확인된 사실과 AI 설명을 나눕니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "사실과 AI 설명 화면 구성",
+      "before": "현재 근거 묶음과 브리핑 응답 확인.",
+      "after": "사실·설명 분리와 근거 ID·모델·공시 원문 표시",
+      "objective_ids": [
+        "ch11-g03",
+        "ch11-g04"
+      ]
+    },
+    {
+      "id": "P11-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "a0af6f32885fc53e86097eba7f65ed8d8a406a9152aa2e38da12b5939317d8a0",
+      "title": "알 수 없는 것은 모른다고 말하게 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "알 수 없는 것과 금지 범위 구현",
+      "before": "브리핑 화면과 제공 근거 확인.",
+      "after": "한계 영역과 투자 판단·인과 추정 금지",
+      "objective_ids": [
+        "ch11-g04"
+      ]
+    },
+    {
+      "id": "P11-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "b8416a7e5d2068a15c23a91fe22ce9d02a06c376a8cf7ee6ad4f8c1e8b2a08d9",
+      "title": "AI가 만든 답도 그대로 믿지 않습니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "모델 출력 검증 구현",
+      "before": "모델에 실제 전달하는 자료와 문장 확인.",
+      "after": "근거 밖 수치·금지 내용 거부; 허용된 기간 표현 보존",
+      "objective_ids": [
+        "ch11-g04"
+      ]
+    },
+    {
+      "id": "P11-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "235ccce57ec1e5dc3d6a0247b726e3fd154f0b6346286dcc9928d60e91e7f940",
+      "title": "AI가 실패해도 주가와 공시는 그대로 봅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "AI 실패 격리 구현",
+      "before": "기존 시장·검색·차트·공시와 브리핑 경계 확인.",
+      "after": "기존 기능 유지와 이해 가능한 실패 안내",
+      "objective_ids": [
+        "ch11-g05"
+      ]
+    },
+    {
+      "id": "P11-10",
+      "source": "prompts.md",
+      "block_index": 10,
+      "sha256": "f7714e6ddd4f2ceea0ad5e1ef10a421179d47fcca602e01fd4391ebbe12d16dc",
+      "title": "문장보다 지켜야 할 조건을 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "로컬 실제 브리핑과 회귀 확인",
+      "before": "앞선 브리핑 구현 결과와 필요한 실제 연결 확인.",
+      "after": "실제 SK하이닉스·자동 검사·브라우저 확인을 구분",
+      "objective_ids": [
+        "ch11-g03",
+        "ch11-g04",
+        "ch11-g05"
+      ]
+    },
+    {
+      "id": "P11-11",
+      "source": "prompts.md",
+      "block_index": 11,
+      "sha256": "a2bc2625dc0563c5659c1fd7059d6de075250db733fd924d378545df2b87f165",
+      "title": "완성한 서비스를 인터넷에 공개합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Vercel 입력 전에 변수 이름 조사",
+      "before": "현재 저장소 전송과 Vercel 프로젝트 Import 상태 확인. 입력할 키 값은 요구하지 않음.",
+      "after": "코드가 읽는 이름·파일·입력 위치 표; 수동 등록은 별도",
+      "objective_ids": [
+        "ch11-g06"
+      ]
+    },
+    {
+      "id": "P11-12",
+      "source": "prompts.md",
+      "block_index": 12,
+      "sha256": "407244a1e8e1e59d4843781dbd00213dd0d8c37c18bdf9fd83459dd12e9122ff",
+      "title": "실제 주소에서 처음부터 다시 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Production 전체 흐름 검증",
+      "before": "독자가 세 서비스 키를 Production에 등록하고 배포가 끝났는지 확인.",
+      "after": "실제 시장부터 브리핑까지 흐름 및 검사 결과",
+      "objective_ids": [
+        "ch11-g07"
+      ]
+    },
+    {
+      "id": "P11-13",
+      "source": "prompts.md",
+      "block_index": 13,
+      "sha256": "f1ec4306f23d21d1426da2e41f0b0b68bb7ef7ca9f8fa4a891509622c77f38e1",
+      "title": "실제 주소에서 처음부터 다시 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "검증한 변경을 기록하고 전송",
+      "before": "대상 GitHub 저장소와 현재 변경·운영 검증 확인. 이 정본 실행 요청의 전송 범위 확인.",
+      "after": "GitHub 전송·새 배포와 마지막 브리핑 동작 확인",
+      "objective_ids": [
+        "ch11-g07"
+      ]
+    },
+    {
+      "id": "P11-15",
+      "source": "prompts.md",
+      "block_index": 14,
+      "sha256": "84e39d26d3895a9a17d115ad5e3000c762edcfa85d96b5b28ee7e286bdd80936",
+      "title": "나중에 모델을 교체해야 한다면",
+      "target": "coding-assistant",
+      "kind": "conditional",
+      "when": "현재 모델 미지원·한도 변경으로 교체가 필요할 때만",
+      "before": "현재 모델·계정 조건 확인. 새 모델 선택과 유료 전환 판단은 독자에게 남김.",
+      "after": "선택한 모델의 실제 브리핑·화면 표시·관련 검사",
+      "objective_ids": [
+        "ch11-g01",
+        "ch11-g03",
+        "ch11-g04"
+      ]
+    },
+    {
+      "id": "P11-16",
+      "source": "prompts.md",
+      "block_index": 15,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    }
+  ]
+}

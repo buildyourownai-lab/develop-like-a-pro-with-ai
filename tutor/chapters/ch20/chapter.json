@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-part6-services-20260913",
+  "id": "ch20",
+  "number": 20,
+  "title": "20장. 허용한 댓글에만 자동으로 답하게 합니다",
+  "manuscript": "book/28-chapter-20.md",
+  "manuscript_sha256": "230c3b8159d8aece0cf50d294ef32ffc18e98cc9d7ff3f85e3a16a6eda263222",
+  "outcome": "승인한 영상·종류·시간 범위에서 자동답글을 보내고, 중복·결과 미확인·중지를 실제로 확인합니다.",
+  "project": "ai-media-works",
+  "start_state": "19장의 로컬 조회·분류·초안·두 검사가 준비돼 있고 댓글 사용이 가능한 내 영상 한 편이 있습니다.",
+  "previously_completed_features": "19장의 댓글 조회·분류·초안·검사. 기존 OAuth 앱·Gemini 계정. Vercel·Supabase 경험",
+  "required_services": [
+    "youtube",
+    "google-cloud",
+    "gemini",
+    "supabase",
+    "vercel"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "youtube",
+      "details": "../../services/youtube.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "google-cloud",
+      "details": "../../services/google-cloud.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "gemini",
+      "details": "../../services/gemini.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "supabase",
+      "details": "../../services/supabase.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "vercel",
+      "details": "../../services/vercel.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "Node.js",
+    "기존 Next.js 서버",
+    "DB의 원자적 상태 관리",
+    "Supabase Cron·Vault"
+  ],
+  "new_features": "제한된 답글 전송, 시작 시각·기록·동시 실행 잠금, 예약·중지·재개",
+  "out_of_scope": "Google Chat·원격 Worker·경영 보고·영상 자동 제작·소개 댓글·댓글 삭제·차단·전체 채널 운영·공개 관리 UI를 추가하지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch20-r2-g01",
+      "title": "권한·배포 경계",
+      "criterion": "실제 youtube.force-ssl 승인과 채널, 서버 전용 비밀값, Production의 로컬 화면 차단을 확인합니다.",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "live-api"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "실제 youtube.force-ssl 승인과 채널, 서버 전용 비밀값, Production의 로컬 화면 차단을 확인합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch20-r2-g02",
+      "title": "후보 범위",
+      "criterion": "기준 시각·최근 7일·한 영상·최상위 댓글·페이지 재개·자기 댓글 제외를 시험합니다.",
+      "required": true,
+      "depends_on": [
+        "ch20-r2-g01"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "기준 시각·최근 7일·한 영상·최상위 댓글·페이지 재개·자기 댓글 제외를 시험합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch20-r2-g03",
+      "title": "중복·미확인",
+      "criterion": "동시 선점·여러 댓글 순차 전송·전송 후 응답 단절·저장 실패 때 재전송하지 않는지 격리 시험합니다.",
+      "required": true,
+      "depends_on": [
+        "ch20-r2-g02"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "동시 선점·여러 댓글 순차 전송·전송 후 응답 단절·저장 실패 때 재전송하지 않는지 격리 시험합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch20-r2-g04",
+      "title": "한 건의 전송",
+      "criterion": "승인한 같은 시험 댓글의 실제 답글과 기록 ID를 대조하고 재실행에서 추가 전송이 없는지 봅니다.",
+      "required": true,
+      "depends_on": [
+        "ch20-r2-g03"
+      ],
+      "evidence_types": [
+        "external-confirmation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": null,
+      "evidence_semantics": "observed-exercise-at-recorded-time",
+      "verify_instructions": "승인한 같은 시험 댓글의 실제 답글과 기록 ID를 대조하고 재실행에서 추가 전송이 없는지 봅니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch20-r2-g05",
+      "title": "실제 예약",
+      "criterion": "사전 승인한 자동 범위에서 예약이 실제 호출하고 처리한 기록을 확인합니다. 등록만으로 완료하지 않습니다.",
+      "required": true,
+      "depends_on": [
+        "ch20-r2-g04"
+      ],
+      "evidence_types": [
+        "external-confirmation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": null,
+      "evidence_semantics": "observed-exercise-at-recorded-time",
+      "verify_instructions": "사전 승인한 자동 범위에서 예약이 실제 호출하고 처리한 기록을 확인합니다. 등록만으로 완료하지 않습니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch20-r2-g06",
+      "title": "중지·보존",
+      "criterion": "자동 전송과 예약을 끈 뒤 실제 상태를 확인하고 시작 시각·기록이 남는지 확인합니다.",
+      "required": true,
+      "depends_on": [
+        "ch20-r2-g05"
+      ],
+      "evidence_types": [
+        "external-confirmation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "자동 전송과 예약을 끈 뒤 실제 상태를 확인하고 시작 시각·기록이 남는지 확인합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다. 일반 중지는 예약 전송만 끄며 새 수동 승인은 별도입니다. 결과 미확인 중단은 두 전송을 모두 막고 enable로 해제하지 않습니다. 30일이 지난 기록은 다음 예약 호출 때 삭제하며, 예약 호출을 없애면 남은 기록도 직접 정리합니다. 사람 확인 건수는 19장 화면에서 댓글을 재조회해 종류·이유를 확인합니다. 최신 20개보다 이전 댓글은 해당 영상의 YouTube 댓글 화면에서 직접 찾습니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "필수 목표의 실제 증거만 계산합니다. 장별 명세·관찰 기록·독자 상태를 구분하고, 선택 공개·실기기·실계정의 미실시를 전체 완료로 부풀리지 않습니다.",
+  "handoff": "댓글 자동화의 마지막 켜짐·꺼짐 상태를 명시합니다. 21장은 이 시스템과 독립적으로 ai-stock-briefing으로 돌아갑니다.",
+  "intentional_failure_policy": "격리된 시험 응답으로 오류를 주입합니다. 실계정 결과를 가장하지 않으며 실제 공개·게시·과금·삭제는 별도 승인 범위에서만 진행합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch20",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H20-ZERO",
+      "symptom": "첫 실행에 답글이 0건입니다.",
+      "levels": [
+        "첫 실행에서 무엇을 하기로 했는지 보세요.",
+        "기준 시각만 기록하는 단계라면 전송 0건이 정상입니다.",
+        "기준 시각 이후이면서 최근 7일, 승인 영상, 자동 대상인 댓글인지 확인합니다."
+      ],
+      "solution": "대상 준비는 기준 시각만 저장하고 전송하지 않습니다. 그 뒤 새 시험 댓글을 작성해 재조회하고 화면의 문장을 승인합니다. 예약 켜기는 별도 단계입니다. 모든 0건을 정상이라고 추정하지 않습니다."
+    },
+    {
+      "id": "H20-UNKNOWN",
+      "symptom": "전송 요청 뒤 응답이 끊겼습니다.",
+      "levels": [
+        "재전송보다 실제로 올라갔는지 확인하는 일이 먼저입니다.",
+        "결과 미확인 상태와 자동 전송 중지 여부를 보세요.",
+        "원래 댓글 ID로 comments.list의 실제 답글 페이지를 확인합니다. thread에 붙은 일부 답글만으로 판단하지 않습니다."
+      ],
+      "solution": "내 채널의 답글이 있으면 추가로 보내지 않습니다. 이번 시도의 결과인지 확정할 수 없으면 미확인을 유지하고 사람이 판단합니다."
+    },
+    {
+      "id": "H20-CRON",
+      "symptom": "예약은 성공인데 답글이 없습니다.",
+      "levels": [
+        "예약의 호출 성공과 작업의 성공을 나누어 보세요.",
+        "서버의 인증·후보·검사·실행 시간 중 어디서 멈췄는지 확인합니다.",
+        "최근 예약 실행 ID와 서버 처리 기록의 시간·대상·이유 코드를 대조합니다."
+      ],
+      "solution": "작업 결과를 확인한 뒤 해당 원인만 고칩니다. 토큰 만료·권한 철회·사용 한도는 재승인 또는 대기가 필요할 수 있고 무한 재시도하지 않습니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "youtube",
+      "kind": "existing-account-or-server-credential",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "inspect_current_project_code_before_configuration",
+      "official_procedure": "../../services/youtube.md"
+    },
+    {
+      "provider": "google-cloud",
+      "kind": "existing-account-or-server-credential",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "inspect_current_project_code_before_configuration",
+      "official_procedure": "../../services/google-cloud.md"
+    },
+    {
+      "provider": "gemini",
+      "kind": "existing-account-or-server-credential",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "inspect_current_project_code_before_configuration",
+      "official_procedure": "../../services/gemini.md"
+    },
+    {
+      "provider": "supabase",
+      "kind": "existing-account-or-server-credential",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "inspect_current_project_code_before_configuration",
+      "official_procedure": "../../services/supabase.md"
+    },
+    {
+      "provider": "vercel",
+      "kind": "existing-account-or-server-credential",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "inspect_current_project_code_before_configuration",
+      "official_procedure": "../../services/vercel.md"
+    }
+  ],
+  "oauth_scope_requirements": [
+    "youtube.force-ssl for comments.insert; consent and activation are separate"
+  ],
+  "special_expected_states": [
+    "target preparation: baseline only; schedule remains off; no writes",
+    "uncertain send: pause, no automatic retry",
+    "shutdown: preserve state and baseline"
+  ],
+  "next_chapter_conditions": [
+    "댓글 자동화의 마지막 켜짐·꺼짐 상태를 명시합니다. 21장은 이 시스템과 독립적으로 ai-stock-briefing으로 돌아갑니다."
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": true
+  },
+  "module_revision": "part6-services-v1",
+  "new_part6_execution_status": "local-verified; live and capture evidence tracked separately",
+  "source_reference_status": "current-edition-source-provided; verify local binding before use",
+  "illustrations": [
+    "assets/chapter-20/figure-20-01-bounded-automation.svg",
+    "assets/chapter-20/figure-20-02-send-and-reconcile.svg",
+    "assets/chapter-20/figure-20-03-pause-and-resume.svg"
+  ],
+  "screenshot_slots": [
+    "S20-01",
+    "S20-02"
+  ],
+  "screenshot_state": "See chapter verification; screenshots do not complete reader objectives"
+}

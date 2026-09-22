@@ -1,0 +1,584 @@
+/*
+  아파트 찾기 · 디자인 시스템
+  ------------------------------------------------------------------
+  이 서비스의 값은 예쁜 카드가 아니라 "공식 실거래 자료로 확인했다"는 점이다.
+  그래서 색을 크게 칠하지 않고, 글자 크기와 여백으로 중요도를 표현한다.
+  강조색은 하나만 두고 버튼·링크·선택·초점에만 쓴다.
+*/
+
+:root {
+  /* 중립 계열 한 벌. 배경부터 본문까지 이 안에서만 고른다. */
+  --n0: #ffffff;
+  --n50: #f6f6f5;
+  --n75: #f1f1ef;
+  --n100: #eaeae7;
+  --n200: #e0e0dc;
+  --n300: #cdcdc8;
+  --faint: #8b8b85;
+  --muted: #67675f;
+  --ink-soft: #3c3c36;
+  --ink: #1a1a17;
+
+  /* 절제된 강조색 하나. 큰 면적에 칠하지 않는다. */
+  --accent: #0f5d4d;
+  --accent-dark: #0a4739;
+  --accent-tint: #eff4f2;
+  --accent-ring: rgba(15, 93, 77, .16);
+
+  --danger: #ad3a31;
+  --danger-tint: #fbf3f2;
+
+  --radius-lg: 12px;
+  --radius: 8px;
+  --radius-sm: 6px;
+
+  /* 그림자는 카드가 종이 위에 놓인 정도로만 쓴다. */
+  --shadow: 0 1px 2px rgba(26, 26, 23, .04);
+
+  --sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard",
+    "Noto Sans KR", "Malgun Gothic", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--n50);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: -.005em;
+  -webkit-font-smoothing: antialiased;
+  /* 한글은 단어 단위로 줄바꿈해야 읽힌다. 긴 단지명은 어디서든 끊어 넘긴다. */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+h1, h2, h3, p, dd, dl, fieldset, legend, figure { margin: 0; }
+ul { margin: 0; }
+fieldset { min-width: 0; padding: 0; border: 0; }
+button, input { font: inherit; color: inherit; }
+
+a { color: var(--accent); text-underline-offset: 2px; }
+
+/* 초점은 마우스 사용자에게는 숨기고 키보드 사용자에게는 분명히 보인다. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- 지면 ---------- */
+
+main {
+  width: min(1000px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 56px 0 96px;
+}
+
+/* ---------- 머리말 ---------- */
+
+.hero { margin-bottom: 26px; }
+
+.eyebrow {
+  margin-bottom: 8px;
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+/*
+  제목이 화면을 지배하면 랜딩페이지가 된다.
+  이 화면의 주인공은 검색 조건이므로 제목은 업무 도구 수준으로 둔다.
+*/
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+
+.hero-copy {
+  max-width: 62ch;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ---------- 검색 조건 ---------- */
+
+.search-panel {
+  border: 1px solid var(--n200);
+  border-radius: var(--radius-lg);
+  background: var(--n0);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--n100);
+}
+
+.panel-head h2 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.panel-note { color: var(--faint); font-size: 12.5px; }
+
+/*
+  조건을 한 줄로 늘어놓으면 기본 HTML Form처럼 보인다.
+  뜻이 같은 것끼리 묶고 묶음 사이에만 선을 둔다.
+*/
+.group {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  gap: 0 28px;
+  padding: 22px 24px;
+}
+
+.group + .group { border-top: 1px solid var(--n100); }
+
+.group-head { padding-top: 2px; }
+
+.group legend, .group-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+
+.group-note {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+.group-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 18px;
+}
+
+.group-fields .wide { grid-column: 1 / -1; }
+
+/* 조건 입력칸 */
+
+.search-panel label {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0 6px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+/* 단위·범위 안내는 이름 옆에 작게 붙여 입력값과 분리한다. */
+.search-panel label span {
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.search-panel input {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 7px;
+  padding: 10px 12px;
+  border: 1px solid var(--n300);
+  border-radius: var(--radius);
+  background: var(--n0);
+  font-size: 15px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  outline: none;
+  transition: border-color .12s, box-shadow .12s;
+}
+
+/* 숫자칸을 글자칸만큼 늘리면 빈 상자처럼 보인다. 값이 들어갈 만큼만 준다. */
+.group-fields label:not(.wide) input { max-width: 240px; }
+
+.search-panel input:hover { border-color: #b6b6b0; }
+
+.search-panel input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.search-panel input:disabled { background: var(--n75); color: var(--faint); }
+
+.panel-foot {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  border-top: 1px solid var(--n100);
+  background: var(--n50);
+}
+
+.search-button {
+  flex: none;
+  min-height: 42px;
+  padding: 0 22px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--n0);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  cursor: pointer;
+  transition: background .12s, border-color .12s;
+}
+
+.search-button:hover:not(:disabled) { background: var(--accent-dark); border-color: var(--accent-dark); }
+
+.search-button:disabled { background: var(--faint); border-color: var(--faint); cursor: progress; }
+
+.panel-hint { color: var(--faint); font-size: 12.5px; line-height: 1.55; }
+
+/* ---------- 검색 결과 ---------- */
+
+.results { margin-top: 34px; }
+
+.results-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--n200);
+}
+
+.results-head h2 {
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -.025em;
+}
+
+/* 기준일·기간·출처는 한 번만, 결과 머리에 조용히 둔다. */
+.results-basis {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.results-note {
+  max-width: 30ch;
+  color: var(--faint);
+  font-size: 12.5px;
+  line-height: 1.55;
+  text-align: right;
+}
+
+/*
+  grid 항목의 최소 너비는 기본이 min-content다.
+  거래 표처럼 넓은 내용이 안에 있으면 카드가 화면보다 넓어져 페이지가 옆으로 밀린다.
+*/
+.result-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+/* ---------- 후보 카드 ---------- */
+
+/*
+  카드는 모두 같은 자리에 같은 항목을 둔다.
+  그래서 위아래로 훑기만 해도 후보끼리 비교된다. 순위를 매기지는 않는다.
+*/
+.result-card {
+  min-width: 0;
+  padding: 20px 22px 18px;
+  border: 1px solid var(--n200);
+  border-radius: var(--radius-lg);
+  background: var(--n0);
+}
+
+.result-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.result-title h3 {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -.03em;
+}
+
+.result-title p {
+  margin-top: 3px;
+  color: var(--faint);
+  font-size: 12.5px;
+}
+
+/* 배지 대신 조용한 근거 한 줄로 둔다. */
+.count-badge {
+  flex: none;
+  color: var(--muted);
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* 이 카드에서 가장 중요한 값. 색이 아니라 크기로 앞세운다. */
+.headline {
+  margin-top: 16px;
+  padding: 13px 0 15px;
+  border-top: 1px solid var(--n100);
+  border-bottom: 1px solid var(--n100);
+}
+
+.headline dt {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.headline dd {
+  margin-top: 3px;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px 20px;
+  margin-top: 15px;
+}
+
+.facts > div { min-width: 0; }
+
+.facts dt {
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.facts dd {
+  margin-top: 3px;
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+}
+
+.facts dd b { color: var(--ink); font-weight: 700; }
+
+.card-actions { margin-top: 16px; }
+
+.detail-button {
+  padding: 7px 13px;
+  border: 1px solid var(--n300);
+  border-radius: var(--radius);
+  background: var(--n0);
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color .12s, background .12s, color .12s;
+}
+
+.detail-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-tint);
+  color: var(--accent);
+}
+
+/* ---------- 거래 상세 ---------- */
+
+.transactions {
+  max-width: 620px;
+  margin-top: 14px;
+  border: 1px solid var(--n100);
+  border-radius: var(--radius);
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 460px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th:nth-child(1), td:nth-child(1) { width: 27%; }
+th:nth-child(2), td:nth-child(2) { width: 30%; }
+th:nth-child(3), td:nth-child(3) { width: 25%; }
+th:nth-child(4), td:nth-child(4) { width: 18%; }
+
+th, td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--n100);
+  text-align: left;
+  font-size: 13.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+thead th {
+  background: var(--n75);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+td { color: var(--ink-soft); }
+
+th.num, td.num { text-align: right; }
+
+tbody tr:last-child td { border-bottom: 0; }
+
+/* ---------- 상태 ---------- */
+
+.status {
+  padding: 20px 22px;
+  border: 1px solid var(--n200);
+  border-radius: var(--radius-lg);
+  background: var(--n0);
+}
+
+.status strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.status p {
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.status.error { border-color: #e6cdc9; background: var(--danger-tint); }
+
+.status.error strong { color: var(--danger); }
+
+.region-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.region-suggestions button {
+  padding: 7px 11px;
+  border: 1px solid #d8aaa3;
+  border-radius: var(--radius);
+  background: var(--n0);
+  color: var(--danger);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.region-suggestions button:hover { border-color: var(--danger); }
+
+/* ---------- 출처와 한계 ---------- */
+
+.source-note {
+  margin-top: 16px;
+  color: var(--faint);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.limitations {
+  margin-top: 26px;
+  padding: 20px 22px;
+  border: 1px solid var(--n200);
+  border-radius: var(--radius-lg);
+  background: var(--n75);
+}
+
+.limitations h2 {
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.limitations ul {
+  padding-left: 17px;
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.75;
+}
+
+/* ---------- 좁은 화면 ---------- */
+
+@media (max-width: 900px) {
+  main { width: calc(100% - 40px); padding: 44px 0 72px; }
+
+  /* 묶음 제목을 왼쪽에 세워 두면 폭이 부족하다. 위로 올린다. */
+  .group { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .results-head { align-items: flex-start; flex-direction: column; gap: 10px; }
+  .results-note { max-width: none; text-align: left; }
+}
+
+@media (max-width: 620px) {
+  main { width: calc(100% - 32px); padding: 36px 0 64px; }
+
+  h1 { font-size: 26px; }
+  .hero-copy { font-size: 14.5px; }
+
+  .panel-head { flex-direction: column; gap: 4px; }
+  .group { padding: 18px 18px; }
+
+  /* 모바일에서는 짝을 억지로 나란히 두지 않고 위에서 아래로 쌓는다. */
+  .group-fields { grid-template-columns: minmax(0, 1fr); }
+
+  .panel-foot { flex-direction: column; align-items: stretch; gap: 12px; padding: 16px 18px; }
+  .search-button { width: 100%; min-height: 48px; }
+
+  .result-card { padding: 18px; }
+
+  /* 핵심 정보가 먼저 보이도록 단지명과 근거를 위아래로 둔다. */
+  .result-heading { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .count-badge { order: -1; }
+
+  .headline dd { font-size: 21px; }
+
+  .facts { grid-template-columns: minmax(0, 1fr); gap: 13px; }
+
+  /* 좁은 화면에서 표를 옆으로 밀지 않는다. 글자와 여백을 줄여 네 칸을 모두 보여 준다. */
+  .transactions { max-width: none; }
+  table { min-width: 0; }
+  th, td { padding: 8px 9px; font-size: 12.5px; }
+  th:nth-child(1), td:nth-child(1) { width: 30%; }
+  th:nth-child(2), td:nth-child(2) { width: 34%; }
+  th:nth-child(3), td:nth-child(3) { width: 23%; }
+  th:nth-child(4), td:nth-child(4) { width: 13%; }
+
+  .detail-button, .card-actions { width: 100%; }
+
+  .status, .limitations { padding: 18px; }
+}

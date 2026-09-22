@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch10",
+  "number": 10,
+  "title": "10장. 이 회사는 최근 무엇을 공시했을까?",
+  "manuscript": "book/15-chapter-10.md",
+  "manuscript_sha256": "a0a52f754b61256a0b94e2553f8f5ccff992fb1cd2c97a657ee33fa0f3e98506",
+  "outcome": "종목과 공식 공시·원문을 연결합니다.",
+  "project": "ai-stock-briefing",
+  "start_state": "9장의 시장·검색·종목·차트가 있습니다.",
+  "previously_completed_features": "공식 시세와 웹 화면",
+  "required_services": [
+    "opendart",
+    "data-go-kr"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "opendart",
+      "details": "../../services/opendart.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "data-go-kr",
+      "details": "../../services/data-go-kr.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "기존 Next.js 프로젝트"
+  ],
+  "new_features": "OpenDART 키·기업 식별·공시 유형·원문·차트 마커",
+  "out_of_scope": "주가와 공시가 같은 시기에 있다는 이유로 원인이나 투자 판단을 단정하지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch10-g01",
+      "title": "DART 준비",
+      "criterion": "OpenDART 인증키와 안전한 입력 위치 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "OpenDART 인증키와 안전한 입력 위치 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch10-g02",
+      "title": "기업 식별",
+      "criterion": "종목코드와 고유 기업코드 매핑 확인",
+      "required": true,
+      "depends_on": [
+        "ch10-g01"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "종목코드와 고유 기업코드 매핑 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch10-g03",
+      "title": "공시 목록",
+      "criterion": "조회 기간·최근·전체 공시를 구분",
+      "required": true,
+      "depends_on": [
+        "ch10-g02"
+      ],
+      "evidence_types": [
+        "live-api",
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "verify_instructions": "조회 기간·최근·전체 공시를 구분. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch10-g04",
+      "title": "유형 필터",
+      "criterion": "공식 공시 유형으로 범위를 선택",
+      "required": true,
+      "depends_on": [
+        "ch10-g03"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "공식 공시 유형으로 범위를 선택. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch10-g05",
+      "title": "원문·마커",
+      "criterion": "같은 공시의 원문과 날짜를 연결",
+      "required": true,
+      "depends_on": [
+        "ch10-g04"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "같은 공시의 원문과 날짜를 연결. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch10-g06",
+      "title": "0건·회귀",
+      "criterion": "공시 없음과 조회 실패 및 기존 기능 확인",
+      "required": true,
+      "depends_on": [
+        "ch10-g05"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "공시 없음과 조회 실패 및 기존 기능 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "11장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "종목코드와 OpenDART 기업 고유코드는 같은 값이 아닙니다. 마커의 날짜와 원문 링크가 같은 공시를 가리켜야 합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch10",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H10-01",
+      "symptom": "종목은 있는데 공시 조회 실패",
+      "levels": [
+        "두 서비스에서 회사를 부르는 코드가 다른지 봅니다.",
+        "종목코드와 기업 고유코드의 대응을 확인합니다.",
+        "매핑 결과와 요청 기간·공시 유형·오류 응답을 나눕니다."
+      ],
+      "solution": "공식 매핑으로 확인한 코드만 쓰고 후보를 추측하지 않습니다. 응답 성공의 0건이면 정상 빈 목록으로 표시합니다."
+    },
+    {
+      "id": "H10-02",
+      "symptom": "공시 이후 주가가 올랐음",
+      "levels": [
+        "시간상의 인접과 원인 설명은 다릅니다.",
+        "표시된 공시 날짜와 차트 기간부터 맞춥니다.",
+        "원문이 실제로 어떤 사실을 공시했는지 확인합니다."
+      ],
+      "solution": "확인된 시간과 내용까지만 설명하고 상승 원인·투자 추천으로 확장하지 않습니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "opendart",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/opendart.md"
+    },
+    {
+      "provider": "data-go-kr",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": false,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/data-go-kr.md"
+    }
+  ],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": true
+  }
+}

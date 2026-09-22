@@ -1,0 +1,17 @@
+node_modules/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+out/
+.vercel/
+.env
+.env.*
+!.env.example
+.DS_Store
+coverage/
+test-results/
+*.log
+.local/
+.secrets/
+*token*.json
+*client_secret*.json

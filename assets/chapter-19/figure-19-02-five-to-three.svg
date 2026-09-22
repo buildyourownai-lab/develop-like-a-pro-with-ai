@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" role="img" aria-labelledby="title desc">
+<defs>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#1F2937" flood-opacity=".10"/>
+  </filter>
+  <linearGradient id="inputBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#F4F8FF"/><stop offset="1" stop-color="#E6F0FF"/>
+  </linearGradient>
+  <linearGradient id="autoBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#F3FBF8"/><stop offset="1" stop-color="#E6F6F0"/>
+  </linearGradient>
+  <linearGradient id="humanBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#FFF9EF"/><stop offset="1" stop-color="#FFF0D8"/>
+  </linearGradient>
+  <linearGradient id="noneBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#FAF8FF"/><stop offset="1" stop-color="#F0E8FF"/>
+  </linearGradient>
+</defs>
+<title id="title">다섯 종류를 세 가지 처리 수준으로 나눕니다</title>
+<desc id="desc">AI의 분류는 제안입니다. 실행 범위는 미리 정한 규칙이 결정합니다. 이 그림은 실행 화면이 아니라 설명용 벡터 도식입니다.</desc>
+
+<rect width="1440" height="860" fill="#FFFFFF"/>
+
+<text x="720" y="78" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="42" font-weight="700" fill="#18212F">다섯 종류를 세 가지 처리 수준으로 나눕니다</text>
+<text x="720" y="116" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#667085">AI의 분류는 제안입니다. 실행 범위는 미리 정한 규칙이 결정합니다</text>
+
+<!-- Input group -->
+<rect x="70" y="190" width="465" height="510" rx="32" fill="#FAFCFF" stroke="#E1E8F1" stroke-width="2" filter="url(#shadow)"/>
+<text x="105" y="235" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#255B8E">댓글 5종</text>
+<text x="105" y="266" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" fill="#667085">AI가 먼저 분류하고, 규칙이 실행 범위를 결정</text>
+
+<g font-family="Arial,'Noto Sans KR',sans-serif">
+  <rect x="105" y="292" width="395" height="62" rx="18" fill="url(#inputBg)" stroke="#BFD6EE" stroke-width="2"/>
+  <text x="130" y="331" font-size="22" font-weight="700" fill="#18212F">일반 반응</text>
+  <rect x="105" y="367" width="395" height="62" rx="18" fill="url(#inputBg)" stroke="#BFD6EE" stroke-width="2"/>
+  <text x="130" y="406" font-size="22" font-weight="700" fill="#18212F">후속 요청</text>
+  <rect x="105" y="442" width="395" height="62" rx="18" fill="url(#inputBg)" stroke="#BFD6EE" stroke-width="2"/>
+  <text x="130" y="481" font-size="22" font-weight="700" fill="#18212F">질문</text>
+  <rect x="105" y="517" width="395" height="62" rx="18" fill="url(#inputBg)" stroke="#BFD6EE" stroke-width="2"/>
+  <text x="130" y="556" font-size="22" font-weight="700" fill="#18212F">사실 지적 · 운영 불만</text>
+  <rect x="105" y="592" width="395" height="62" rx="18" fill="url(#inputBg)" stroke="#BFD6EE" stroke-width="2"/>
+  <text x="130" y="631" font-size="22" font-weight="700" fill="#18212F">스팸 · 부적절</text>
+</g>
+
+<!-- Output group -->
+<rect x="820" y="190" width="550" height="510" rx="32" fill="#FCFBFF" stroke="#E4E0ED" stroke-width="2" filter="url(#shadow)"/>
+<text x="855" y="235" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#684493">처리 수준 3종</text>
+<text x="855" y="266" font-family="Arial,'Noto Sans KR',sans-serif" font-size="17" fill="#667085">정해진 규칙에 따라 처리 강도를 제한합니다</text>
+
+<rect x="855" y="292" width="480" height="112" rx="24" fill="url(#autoBg)" stroke="#A9D9CF" stroke-width="2"/>
+<circle cx="895" cy="330" r="16" fill="#D8F0E9"/>
+<text x="925" y="340" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#397D72">자동답글 후보</text>
+<text x="925" y="376" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#566171">짧은 인사만 · 두 검사 필요</text>
+
+<rect x="855" y="428" width="480" height="112" rx="24" fill="url(#humanBg)" stroke="#E8C58F" stroke-width="2"/>
+<circle cx="895" cy="466" r="16" fill="#FBE0AF"/>
+<text x="925" y="476" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#9A641E">사람이 확인</text>
+<text x="925" y="512" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#566171">사실 확인 · 판단 · 불확실한 분류</text>
+
+<rect x="855" y="564" width="480" height="92" rx="24" fill="url(#noneBg)" stroke="#C6B1EA" stroke-width="2"/>
+<circle cx="895" cy="596" r="16" fill="#E7DDF8"/>
+<text x="925" y="606" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#684493">답하지 않음</text>
+<text x="925" y="637" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" fill="#566171">삭제나 차단도 하지 않음</text>
+
+<!-- Mapping -->
+<g fill="none" stroke="#7EA9D2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M535 323 L842 332" stroke-width="4"/>
+  <path d="M842 332 L833 327 M842 332 L833 337" stroke-width="3"/>
+  <path d="M535 398 L842 370" stroke-width="4"/>
+  <path d="M842 370 L833 365 M842 370 L833 375" stroke-width="3"/>
+  <path d="M535 473 L842 468" stroke-width="4"/>
+  <path d="M842 468 L833 463 M842 468 L833 473" stroke-width="3"/>
+  <path d="M535 548 L842 506" stroke-width="4"/>
+  <path d="M842 506 L833 501 M842 506 L833 511" stroke-width="3"/>
+  <path d="M535 623 L842 610" stroke-width="4"/>
+  <path d="M842 610 L833 605 M842 610 L833 615" stroke-width="3"/>
+</g>
+
+<rect x="155" y="735" width="1130" height="68" rx="24" fill="#F8FAFC" stroke="#E5EAF0"/>
+<text x="720" y="778" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" font-weight="700" fill="#566171">어느 종류든 확실하지 않으면 자동 전송 대신 사람이 확인으로 내려갑니다.</text>
+
+</svg>

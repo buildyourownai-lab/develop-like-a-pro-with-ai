@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-part6-services-20260913",
+  "id": "ch21",
+  "number": 21,
+  "title": "21장. 내 주식서비스의 챗봇을 기획합니다",
+  "manuscript": "book/29-chapter-21.md",
+  "manuscript_sha256": "e921983d92c83de60b9d9dde074901b2eec14c328f86b685d54c3cb62f0e7940",
+  "project": "ai-stock-briefing",
+  "required_services": [],
+  "required_accounts_permissions": [],
+  "tools_and_packages": [
+    "기존 주식서비스 코드와 실행 방법 읽기",
+    "Markdown 기획서",
+    "필요한 SDK 공식 문서 확인"
+  ],
+  "new_features": "제품 기능 추가 없이 docs/ch21-chat-design.md에 기능·사용 흐름·디자인·재사용 연결표·구현 계획을 작성합니다.",
+  "out_of_scope": "투자 추천·매매·목표가·미래 가격 예측·공시 본문 수집·자유 웹 검색·RAG·벡터 DB·장기 대화 저장·새 회원/결제 시스템·별도 모바일 앱 수정은 제외합니다. 제품 코드·Test·컴포넌트·작동하는 목업은 만들거나 수정하지 않습니다. 챗봇 공개 운영 확장 실습·분산 사용량 저장소는 만들지 않습니다. 기존 브리핑 Cache는 유지합니다.",
+  "objectives": [
+    {
+      "id": "ch21-plan-build-v2-g01",
+      "title": "기존 상태",
+      "criterion": "기존 주식서비스·실행 방법·화면과 검색·차트·공시·브리핑·Database·Cache의 재사용 대상을 기획서에서 확인합니다.",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "기존 주식서비스·실행 방법·화면과 검색·차트·공시·브리핑·Database·Cache의 재사용 대상을 기획서에서 확인합니다. 실제 수행한 근거만 기록하며 확인 요청을 새 공개·게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch21-plan-build-v2-g02",
+      "title": "기능과 경계",
+      "criterion": "대표 질문·지원/제외 범위·확인된 자료와 AI 일반 설명을 정합니다. 일반 설명 표시만으로 특정 기업의 최신 사실을 허용하지 않습니다.",
+      "required": true,
+      "depends_on": [
+        "ch21-plan-build-v2-g01"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "대표 질문·지원/제외 범위·확인된 자료와 AI 일반 설명을 정합니다. 일반 설명 표시만으로 특정 기업의 최신 사실을 허용하지 않습니다. 실제 수행한 근거만 기록하며 확인 요청을 새 공개·게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch21-plan-build-v2-g03",
+      "title": "사용 흐름",
+      "criterion": "메인 질문 시작·실제 종목 확인·후보 최대 5개·선택 전 조회 금지·원래 질문 보관·상세 기본 대상과 대화 전환·최근 3회 왕복·늦은 응답 차단을 설계합니다.",
+      "required": true,
+      "depends_on": [
+        "ch21-plan-build-v2-g02"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "메인 질문 시작·실제 종목 확인·후보 최대 5개·선택 전 조회 금지·원래 질문 보관·상세 기본 대상과 대화 전환·최근 3회 왕복·늦은 응답 차단을 설계합니다. 실제 수행한 근거만 기록하며 확인 요청을 새 공개·게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch21-plan-build-v2-g04",
+      "title": "화면과 모바일",
+      "criterion": "플로팅 위치·데스크톱 오른쪽 레이어·모바일 웹 큰 레이어·현재 대상·답변 순서·키보드·안전 여백·닫기·포커스 복귀를 기존 디자인과 대조합니다. 설계도를 실행 화면으로 표시하지 않습니다.",
+      "required": true,
+      "depends_on": [
+        "ch21-plan-build-v2-g03"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "플로팅 위치·데스크톱 오른쪽 레이어·모바일 웹 큰 레이어·현재 대상·답변 순서·키보드·안전 여백·닫기·포커스 복귀를 기존 디자인과 대조합니다. 설계도를 실행 화면으로 표시하지 않습니다. 실제 수행한 근거만 기록하며 확인 요청을 새 공개·게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch21-plan-build-v2-g05",
+      "title": "기존 함수 연결",
+      "criterion": "세 조회 기능의 실제 함수·입력·결과·실패·Cache를 조사한 뒤 AI용 이름을 정합니다. 서울 날짜의 달력 1·3·12개월, 월말·실제 거래일·자료 부족을 정의하고 브리핑 Cache를 대화 저장소로 전용하지 않습니다.",
+      "required": true,
+      "depends_on": [
+        "ch21-plan-build-v2-g04"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "세 조회 기능의 실제 함수·입력·결과·실패·Cache를 조사한 뒤 AI용 이름을 정합니다. 서울 날짜의 달력 1·3·12개월, 월말·실제 거래일·자료 부족을 정의하고 브리핑 Cache를 대화 저장소로 전용하지 않습니다. 실제 수행한 근거만 기록하며 확인 요청을 새 공개·게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch21-plan-build-v2-g06",
+      "title": "구현 계획",
+      "criterion": "22장 단계·대표 질문·완료 기준·실패 시 다음 행동을 연결합니다. 질문 1,000자·최근 3회·초기 모델 3회/조회 4회/30초·중복 재사용·자동 재시도 금지·기본 활성화·명시적 false만 비활성화와 실제 자료·활성 상태 확인까지의 완료 범위를 계획합니다.",
+      "required": true,
+      "depends_on": [
+        "ch21-plan-build-v2-g05"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "22장 단계·대표 질문·완료 기준·실패 시 다음 행동을 연결합니다. 질문 1,000자·최근 3회·초기 모델 3회/조회 4회/30초·중복 재사용·자동 재시도 금지·기본 활성화·명시적 false만 비활성화와 실제 자료·활성 상태 확인까지의 완료 범위를 계획합니다. 실제 수행한 근거만 기록하며 확인 요청을 새 공개·게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch21-plan-build-v2-g07",
+      "title": "기획서 확정",
+      "criterion": "docs/ch21-chat-design.md의 기능·흐름·화면·연결표·구현 계획이 일치하고 결정·미확인·다음 검증을 구분하는지 확인합니다. 시작 상태와 비교해 제품 코드·Test가 바뀌지 않았는지 확인합니다.",
+      "required": true,
+      "depends_on": [
+        "ch21-plan-build-v2-g06"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "docs/ch21-chat-design.md의 기능·흐름·화면·연결표·구현 계획이 일치하고 결정·미확인·다음 검증을 구분하는지 확인합니다. 시작 상태와 비교해 제품 코드·Test가 바뀌지 않았는지 확인합니다. 실제 수행한 근거만 기록하며 확인 요청을 새 공개·게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "기획서의 필수 목표와 제품 코드·Test 불변을 실제 파일 조사로 확인합니다. 기획 완료에 챗봇 실행·실제 API·촬영을 요구하지 않으며 구현 성공으로 표시하지 않습니다. 이전 실행 목표의 근거는 새 목표에 자동 승계하지 않습니다.",
+  "handoff": "22장은 기획서와 기존 주식서비스에서 시작해 챗봇 전체를 구현합니다. 21장 완료 시 챗봇 코드는 없는 상태입니다.",
+  "intentional_failure_policy": "기획의 실패 상태와 다음 행동을 문서로 정의합니다. 시험을 위해 제품 코드나 외부 상태를 바꾸지 않습니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch21",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H21-PLAN",
+      "symptom": "기획서가 길어졌는데 무엇을 만들지 모르겠습니다.",
+      "levels": [
+        "대표 질문 하나와 이용자가 볼 결과를 먼저 연결해보세요.",
+        "기능 범위·사용 흐름·화면 배치에서 같은 질문을 따라가 보세요.",
+        "docs/ch21-chat-design.md에서 공시 질문의 종목 확인·후보 선택·답변·원문 링크·실패 시 행동이 연결되는지 확인합니다."
+      ],
+      "solution": "기획서를 기능 목록으로 늘리지 말고 질문→흐름→화면 결과→기존 함수→22장 검증의 연결표로 정리합니다. 제품 구현은 22장에서 합니다."
+    },
+    {
+      "id": "H21-REUSE",
+      "symptom": "기존 기능을 어디까지 재사용할지 모르겠습니다.",
+      "levels": [
+        "브리핑 전체보다 검색·가격·공시 하위 기능을 찾아보세요.",
+        "함수 위치와 입력·결과·실패·Cache를 한 줄씩 비교합니다.",
+        "1년 일봉 재사용과 1·3개월 계산 Adapter, 짧은 기간의 자료 부족 기준을 구분합니다."
+      ],
+      "solution": "실제 코드를 확인한 부분과 추가 구현할 부분을 나누고 AI용 세 기능 이름은 연결표 뒤에 정합니다."
+    }
+  ],
+  "required_credentials": [],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [
+    "planning complete: chatbot not implemented",
+    "unconfirmed function or external compatibility: record next verification action",
+    "product code and tests unchanged"
+  ],
+  "next_chapter_conditions": [
+    "22장은 기획서와 기존 주식서비스에서 시작해 챗봇 전체를 구현합니다. 21장 완료 시 챗봇 코드는 없는 상태입니다."
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  },
+  "module_revision": "plan-build-v2",
+  "new_part6_execution_status": "unverified-after-local-scope-reduction",
+  "source_reference_status": "unbound-for-plan-build-v2; previous implementation evidence must not be inherited",
+  "illustrations": [
+    "assets/chapter-21/figure-21-02-evidence-answer.svg",
+    "assets/chapter-21/figure-21-03-chat-layout.svg"
+  ],
+  "screenshot_slots": [],
+  "screenshot_state": "not-applicable-planning-only",
+  "will_complete_this_chapter": "docs/ch21-chat-design.md에 기능 범위·답변 구분·사용 흐름·화면 설계·재사용 연결표·22장 구현 순서와 완료 조건을 확정합니다.",
+  "carry_forward_state": "9~12장의 ai-stock-briefing으로 돌아옵니다. 기존 실행 방법과 설정을 재사용하며 14~15장 앱과 기존 작업을 보존합니다. 19~20장 완료는 선행 조건이 아닙니다.",
+  "carry_forward_features": "기존 시장·종목·차트·공시·브리핑과 DB·Cache. 실제 존재하는 공유 API",
+  "legacy_field_aliases": {
+    "note": "아래 세 항목은 will_complete_this_chapter·carry_forward_state·carry_forward_features와 같은 값을 가리키는 예전 이름입니다. 새 확인 근거를 추가하지 않습니다.",
+    "outcome": "will_complete_this_chapter",
+    "start_state": "carry_forward_state",
+    "previously_completed_features": "carry_forward_features"
+  },
+  "outcome": "docs/ch21-chat-design.md에 기능 범위·답변 구분·사용 흐름·화면 설계·재사용 연결표·22장 구현 순서와 완료 조건을 확정합니다.",
+  "start_state": "9~12장의 ai-stock-briefing으로 돌아옵니다. 기존 실행 방법과 설정을 재사용하며 14~15장 앱과 기존 작업을 보존합니다. 19~20장 완료는 선행 조건이 아닙니다.",
+  "previously_completed_features": "기존 시장·종목·차트·공시·브리핑과 DB·Cache. 실제 존재하는 공유 API"
+}

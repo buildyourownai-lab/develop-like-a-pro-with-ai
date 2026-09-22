@@ -1,0 +1,78 @@
+{
+  "chapter": 5,
+  "verified_on": "2026-08-29",
+  "what_was_measured": "4장을 끝낸 상태를 빈 폴더에 놓고 검사 8개 통과를 확인한 뒤, 같은 세션에서 5장 요청문을 순서대로 이어 붙였다. 2회 독립 실행.",
+  "prompts": {
+    "source": "chapters/ch05/prompts.md",
+    "modified": false
+  },
+  "starting_point": {
+    "source": "chapters/ch04/source/movie-report/",
+    "checks_before_start": "8/8 통과",
+    "common_claude_md_before_start": "4장까지의 공통 작업 원칙"
+  },
+  "same_in_both_runs": {
+    "ran_all_tests_before_recording_the_baseline": true,
+    "excluded_temporary_files_from_the_record": true,
+    "explained_what_was_recorded_and_what_was_left_out": true,
+    "diff_separated_the_changed_file_from_the_new_file": true,
+    "explained_what_reverts_and_what_stays_before_restoring": true,
+    "selective_restore_reverted_only_the_report": true,
+    "selective_restore_kept_the_new_note": true,
+    "tests_passed_again_after_the_restore": "8/8",
+    "common_claude_md_gained_two_new_principles_without_duplication": true,
+    "plan_mode_showed_a_plan_without_changing_any_file": true
+  },
+  "runs": [
+    {
+      "run": 1,
+      "existing_tests_total": 8,
+      "tests_before_recording": "8/8",
+      "tests_after_restore": "8/8",
+      "reverted": "movie-report-2024.xlsx의 요약 시트 행 높이 변경",
+      "kept": "notes/next-ideas.md",
+      "elapsed_seconds": 210,
+      "model": "us.anthropic.claude-sonnet-5"
+    },
+    {
+      "run": 2,
+      "existing_tests_total": 8,
+      "tests_before_recording": "8/8",
+      "tests_after_restore": "8/8",
+      "reverted": "movie-report-2024.xlsx의 요약 시트 행 높이 변경",
+      "kept": "notes/next-ideas.md",
+      "elapsed_seconds": 216,
+      "model": "us.anthropic.claude-sonnet-5"
+    }
+  ],
+  "plan_mode": {
+    "prompt": "경영진이 볼 요약본과 분석가가 볼 상세본으로 나누는 큰 변경",
+    "runs": 2,
+    "plan_contents": ["영향받는 파일", "작업 순서", "확인할 Test", "위험 요소"],
+    "files_changed": 0,
+    "checked_by": "계획 전후 프로젝트 파일 전체의 해시 비교"
+  },
+  "tests": {
+    "run_in_chapter_source": 8,
+    "added_in_this_chapter": 0,
+    "source": "chapters/ch05/source/movie-report/tests/"
+  },
+  "chapter_source_standalone_run": {
+    "report_created": true,
+    "first_sheet_title": "2024년 영화 흥행 TOP 20",
+    "tests": "8/8 통과"
+  },
+  "project_repository": {
+    "name": "movie-report",
+    "private": true,
+    "baseline_record_pushed": true
+  },
+  "completion_criteria": [
+    { "n": 1, "item": "기록하기 전에 Test 전체를 실행하고 통과를 확인한다", "result": "2/2 통과" },
+    { "n": 2, "item": "기록하면 안 되는 정보와 임시 파일을 골라내고 무엇을 제외했는지 설명한다", "result": "2/2 통과" },
+    { "n": 3, "item": "기록한 기준과 지금 상태를 비교해 바뀐 기존 파일과 새로 생긴 파일을 구분한다", "result": "2/2 통과" },
+    { "n": 4, "item": "되돌리기 전에 무엇이 되돌아가고 무엇이 남는지 먼저 설명한다", "result": "2/2 통과" },
+    { "n": 5, "item": "보고서만 기준 상태로 돌아가고 새 메모는 그대로 남는다", "result": "2/2 통과" },
+    { "n": 6, "item": "공통 CLAUDE.md에 새 원칙 두 개가 기존 내용을 지우거나 중복하지 않고 더해진다", "result": "2/2 통과" }
+  ]
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 배포 앱(release)의 기본 규칙: HTTPS만 허용한다. 개발 편의를 위해
+     이 파일에서 배포 앱의 보안을 낮추지 않는다. Emulator용 예외는
+     src/debug/res/xml/network_security_config.xml에 debug 빌드에만 따로 둔다. -->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

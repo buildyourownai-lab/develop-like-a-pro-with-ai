@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "chapter": 14,
+  "project": "ai-stock-briefing",
+  "manuscript_sha256": "d6e35520dd31e872d05050a8a109556cfb295c1aa4871e4e9bebd2311904c1c3",
+  "entries": [
+    {
+      "id": "P14-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "f2b4a6231d98a2911f50563c48c4526237c8de030442dc42486aaba0e38766fc",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P14-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "38a351ac6e562dfe6b14a5f1da8b6a2f66e154a5ad955ad79b5252b541d461be",
+      "title": "공식 Android 환경을 준비합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Android 개발환경 조사",
+      "before": "현재 컴퓨터와 13장 앱 계획 확인.",
+      "after": "공식 호환 조건과 설치 범위·용량·약관; 필요 설치는 승인 대기",
+      "objective_ids": [
+        "ch14-g01"
+      ]
+    },
+    {
+      "id": "P14-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "28615d6e74c29f74b9ec62816c737b3faa26ab71f01f3c3b756e02bfcee81854",
+      "title": "Claude에게 Android 앱 구현을 맡깁니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "계획한 Android 앱 구현",
+      "before": "13장 계획과 필요한 도구 준비 확인. 아직 승인하지 않은 설치는 자동 수행하지 않음.",
+      "after": "앱 Build·검사·기존 기능 보존과 Emulator 확인 준비",
+      "objective_ids": [
+        "ch14-g02"
+      ]
+    },
+    {
+      "id": "P14-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "883c490f57fadb9823862553c31c59532f5a6dd0060f52825e1751693eb63ce3",
+      "title": "Emulator에 앱을 설치하고 첫 화면을 엽니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Emulator 설치·실행",
+      "before": "앱 Build와 Emulator 준비 확인.",
+      "after": "첫 화면·실제 서버 자료와 독자의 직접 확인 흐름",
+      "objective_ids": [
+        "ch14-g01",
+        "ch14-g04"
+      ]
+    },
+    {
+      "id": "P14-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "20c2cc2503e6540b47770b5e2573ce59b8aa588554a5e9fe9df807659f2e356a",
+      "title": "연습용 연결과 실제 서비스 연결을 모두 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "개발용·Release 서버 연결",
+      "before": "Emulator 실행과 현재 저장소·Vercel 배포 확인.",
+      "after": "Production HTTPS 응답과 필요한 서버 변경 배포 반영",
+      "objective_ids": [
+        "ch14-g03"
+      ]
+    },
+    {
+      "id": "P14-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "f3e19bc46fea2eb43bae5154837c1f769c8229d9cafa50a7d55a4c116b106c78",
+      "title": "앱과 웹을 나란히 놓고 대조합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "웹과 앱 표현 대조",
+      "before": "독자가 검색·차트·공시·브리핑을 사용했는지 확인. 13장 앱 계획 범위 안에서 같은 종목·조회 시점·기간·정렬·페이지 조건으로 비교.",
+      "after": "동일 조건의 용어·값·정보 항목 차이와 앱만 수정한 결과. 합의한 앱 범위·표시 수 재량은 유지.",
+      "objective_ids": [
+        "ch14-g04",
+        "ch14-g05"
+      ]
+    },
+    {
+      "id": "P14-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "66c619252c8e569251b486bc42b1a7f734035170c9514f55fc704a136454401e",
+      "title": "자동 검사가 찾지 못한 불편을 발견합니다",
+      "target": "coding-assistant",
+      "kind": "conditional",
+      "when": "키보드 가림·상태 표시줄 겹침이 실제로 발생할 때만",
+      "before": "독자 화면에서 원문에 적힌 두 증상이 실제로 있는지 확인. 없는 증상을 주장하지 않음.",
+      "after": "필요한 수정 뒤 같은 검색·스크롤 흐름 재확인",
+      "objective_ids": [
+        "ch14-g05"
+      ]
+    },
+    {
+      "id": "P14-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "263c39ca73f820ec6e9526d89aa4c894e9586c31aabe71a3501641eb55530e9a",
+      "title": "앱에 Secret과 불필요한 권한이 없는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "앱 보안·권한·회귀 검증",
+      "before": "완성 앱과 실제 사용자 흐름 확인.",
+      "after": "Secret·불필요 권한 없음과 회귀 결과",
+      "objective_ids": [
+        "ch14-g05",
+        "ch14-g06"
+      ]
+    },
+    {
+      "id": "P14-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "d0ed590ae818c94e0c31b2a8ab2483408a17f06791f0a4c02c960a8130a193d8",
+      "title": "앱에 Secret과 불필요한 권한이 없는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "정상 Android 상태 Git 기록",
+      "before": "앱·서버·배포 반영 및 검사 결과 확인.",
+      "after": "로컬 Git 기록과 변경 요약; GitHub 전송 없음",
+      "objective_ids": [
+        "ch14-g06"
+      ]
+    },
+    {
+      "id": "P14-10",
+      "source": "prompts.md",
+      "block_index": 10,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    }
+  ]
+}

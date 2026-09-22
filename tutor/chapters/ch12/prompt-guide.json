@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "chapter": 12,
+  "project": "ai-stock-briefing",
+  "manuscript_sha256": "19908e437b94830356e448745be322848b1eb56aa0a0ed3ccb1010c564f47eb5",
+  "entries": [
+    {
+      "id": "P12-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "63335445ce98218170574ab3900a9ef75a1820de911e661a888e486df7763e53",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P12-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "ef2eea68d81bac2e008df588593d7e8aa74b34dbcd9ec1855810187f4397dde8",
+      "title": "Supabase Database를 준비합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "이번 장 Secret 입력창 준비",
+      "before": "현재 ai-stock-briefing과 기존 인증값 보관 방식 확인.",
+      "after": "로컬 입력 주소와 빈값 저장 시 기존값 보존",
+      "objective_ids": [
+        "ch12-g01",
+        "ch12-g03"
+      ]
+    },
+    {
+      "id": "P12-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "b98de26eada09728c1c4110d0952d9d60e981c5ddae70022c85a473e65d5e0b1",
+      "title": "서버와 Database는 가까운 지역을 선택합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Supabase 연결",
+      "before": "독자가 지역·현재 플랜을 확인하고 연결 문자열을 로컬 입력창에 저장했는지 확인.",
+      "after": "SUPABASE_DATABASE_URL 연결과 노출 검사",
+      "objective_ids": [
+        "ch12-g01"
+      ]
+    },
+    {
+      "id": "P12-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "fc0d6189c419109752d7e835e39de2ae10be184ecc2aca043ab2f375b0d9c522",
+      "title": "Database를 언제 다시 확인할지도 정합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "주식 저장·갱신 기준 구현",
+      "before": "Supabase 연결 결과 확인.",
+      "after": "기준일 탐색 1시간·자료 24시간 재사용과 만료 처리",
+      "objective_ids": [
+        "ch12-g02",
+        "ch12-g04"
+      ]
+    },
+    {
+      "id": "P12-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "2a97fb6026f2ec86f3af830bd93743f934cf30543c8354fe06f685cb826b2c6c",
+      "title": "Redis Cache를 준비합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Redis 연결",
+      "before": "독자가 Upstash 비용·지역을 확인하고 REST URL·쓰기 Token을 로컬 입력창에 저장했는지 확인.",
+      "after": "두 정본 변수로 Redis 연결과 노출 검사",
+      "objective_ids": [
+        "ch12-g03"
+      ]
+    },
+    {
+      "id": "P12-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "438b7648461417e393e86d06f0372b97c75eb749a9ed9559d0d2f1c040fe1f0a",
+      "title": "같은 조건일 때만 Cache를 다시 사용합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "브리핑 재사용 조건 구현",
+      "before": "Redis 연결과 11장의 현재 모델·구조화 브리핑 확인.",
+      "after": "근거·모델·프롬프트별 1시간 재사용과 품질 보존",
+      "objective_ids": [
+        "ch12-g04"
+      ]
+    },
+    {
+      "id": "P12-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "9fc2b7420ccbc99d01c70fbd6154e5f20bd57ed1edda53a1d09299558aa8c778",
+      "title": "한도에 도달했다면 계속 호출하지 않습니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "사용량 한도 처리 구현",
+      "before": "브리핑 Cache와 현재 한도 오류 처리 확인.",
+      "after": "추가 호출 차단·Cache 우선·버튼 대기 및 재활성화 검사",
+      "objective_ids": [
+        "ch12-g04"
+      ]
+    },
+    {
+      "id": "P12-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "786f1e87eee954432863fb4cd0c80d82eea076cbb9f19a466d9db8699d567f1a",
+      "title": "저장한 것을 실제로 다시 쓰는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "로컬 저장·재사용 검증",
+      "before": "DB·Cache·한도 처리가 구현됐는지 확인.",
+      "after": "실제 재사용·TTL·외부 호출 감소와 회귀 결과",
+      "objective_ids": [
+        "ch12-g04",
+        "ch12-g05"
+      ]
+    },
+    {
+      "id": "P12-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "7fd00ddcae1647c9fce3b828f6402ff7aec634bd9af2fb1cb0c0c4d6db44e4e7",
+      "title": "빨라져도 11장의 품질 기준은 그대로 지킵니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Cache 이후 품질 검증",
+      "before": "저장·재사용 결과 확인.",
+      "after": "사실·설명·한계·근거 ID·대표 공시 보존",
+      "objective_ids": [
+        "ch12-g06"
+      ]
+    },
+    {
+      "id": "P12-10",
+      "source": "prompts.md",
+      "block_index": 10,
+      "sha256": "95153eb53260b2e7d52ad3eb880911398993003d23bd95ef12756709d4babe26",
+      "title": "이 상태를 기록하고 실제 주소에 반영합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "환경 등록 후 전송·배포 확인",
+      "before": "독자가 Vercel Production에 정본 세 변수로 연결값을 등록했는지 확인. 등록했어라는 원문을 사실로 추정하지 않음.",
+      "after": "새 배포에서 같은 종목의 브리핑 버튼을 두 번 눌러 저장·재사용과 외부 호출 감소를 확인. 화면을 열기만 한 것을 브리핑 Cache 검증으로 세지 않음.",
+      "objective_ids": [
+        "ch12-g06"
+      ]
+    },
+    {
+      "id": "P12-11",
+      "source": "prompts.md",
+      "block_index": 11,
+      "sha256": "bdd2a06bffb5340fcacc9895d21baee89ce827fcd591db11890a047e3095fc76",
+      "title": "기본값 바꾸기 · 선택",
+      "target": "coding-assistant",
+      "kind": "conditional",
+      "when": "독자가 기본 동네 또는 종목을 바꾸고 싶을 때만",
+      "before": "기본 실습을 마친 뒤 독자가 선택한 변경인지 확인. 이 변경 없이도 다음 장으로 진행할 수 있음.",
+      "after": "선택한 기본값 표시. 별도 기능이나 추가 검증·배포 절차를 요구하지 않음.",
+      "objective_ids": [
+        "ch12-g06"
+      ]
+    },
+    {
+      "id": "P12-12",
+      "source": "prompts.md",
+      "block_index": 12,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    }
+  ]
+}

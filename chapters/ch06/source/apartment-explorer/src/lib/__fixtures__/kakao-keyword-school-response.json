@@ -1,0 +1,19 @@
+{
+  "meta": { "total_count": 2 },
+  "documents": [
+    {
+      "place_name": "테스트초등학교",
+      "category_name": "교육,학문 > 학교 > 초등학교",
+      "road_address_name": "서울 강남구 테스트로 20",
+      "address_name": "서울 강남구 테스트동 20",
+      "distance": "410"
+    },
+    {
+      "place_name": "샘플초등학교",
+      "category_name": "교육,학문 > 학교 > 초등학교",
+      "road_address_name": "서울 강남구 테스트로 77",
+      "address_name": "서울 강남구 테스트동 77",
+      "distance": "700"
+    }
+  ]
+}

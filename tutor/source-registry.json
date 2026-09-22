@@ -1,0 +1,242 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-part6-services-20260913",
+  "source_repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+  "availability_note": "실제 로컬 결합과 판본 확인 전에는 미연결입니다. 19~22장의 기존 원격 운영판 Source는 새 댓글·주식대화 실습을 대신하지 않습니다.",
+  "start_path_semantics": "start_path는 그 장의 START 묶음이 놓인 폴더를 source-root 기준 상대 경로로 적은 값입니다. 21장만 앞 장 FINISH가 아닌 자기 START 묶음(chapters/ch21/start)에서 시작하므로 이 값을 씁니다. 값이 없는 장은 앞 장 FINISH를 START로 보는 기존 규칙을 그대로 씁니다. 절대 경로·상위 경로(..)·source-root 밖으로 나가는 경로는 거부하며, 폴더가 없으면 START는 미연결로 남습니다. 선언된 START는 같은 위치의 표식(<폴더이름>-revision.json, 21장은 chapters/ch21/start-revision.json)으로 FINISH와 같은 수준의 검사를 통과해야만 연결됩니다. 표식이 없거나 JSON이 깨졌거나 폴더가 비었거나 project·required_revision·contract_revision·snapshot_role(START)·파일 해시가 어긋나면 START는 null로 두고 이유를 start_binding_note에 적으며, 앞 장 폴더로 대체하지 않습니다. 이 값은 경로 선언일 뿐이며 실행 확인(execution_verified)을 뜻하지 않습니다.",
+  "revision_semantics": "required_revision은 source-revision.json 표식이 따르는 Sourcepack 형식(part6-services-v1)이고, contract_revision은 장 계약·모듈 판본(21~22장 plan-build-v2)입니다. 두 값은 서로 다른 뜻이므로 함께 바꾸지 않습니다. 어느 값도 Source 연결이나 실행 확인을 뜻하지 않습니다.",
+  "chapters": {
+    "ch01": {
+      "project": "movie-report",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch01/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "새 프로젝트 또는 빈 시작 상태",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch02": {
+      "project": "movie-report",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch02/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch03": {
+      "project": "movie-report",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch03/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch04": {
+      "project": "movie-report",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch04/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch05": {
+      "project": "movie-report",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch05/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch06": {
+      "project": "apartment-explorer",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch06/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "새 프로젝트 또는 빈 시작 상태",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch07": {
+      "project": "apartment-explorer",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch07/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch08": {
+      "project": "apartment-explorer",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch08/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch09": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch09/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "새 프로젝트 또는 빈 시작 상태",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch10": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch10/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch11": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch11/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch12": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch12/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch13": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch13/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch14": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch14/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch15": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch15/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch16": {
+      "project": "ai-shorts-maker",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch16/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "새 프로젝트 또는 빈 시작 상태",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch17": {
+      "project": "ai-shorts-maker",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch17/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch18": {
+      "project": "ai-shorts-maker",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch18/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null
+    },
+    "ch19": {
+      "project": "ai-media-works",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch19/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "18장의 영상·검수·업로드 기록은 별도 영상 폴더에 보존하고, ai-media-works를 조사하거나 새로 준비합니다. 댓글이 허용된 적절한 시험 영상이 필요합니다.",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": "e8bad605807fb42d7a39640202f3d9ac9594605412bf555ad802f93bdbfbc7f2",
+      "required_revision": "part6-services-v1",
+      "proposed_public_path": "chapters/ch19/source/"
+    },
+    "ch20": {
+      "project": "ai-media-works",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch20/source",
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "19장의 로컬 조회·분류·초안·두 검사가 준비돼 있고 댓글 사용이 가능한 내 영상 한 편이 있습니다.",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": "ab3ae914298d07036ea408e540450b74934833c7d9cf7e31d33a85f90916b83b",
+      "required_revision": "part6-services-v1",
+      "proposed_public_path": "chapters/ch20/source/"
+    },
+    "ch21": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": null,
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "9~12장의 ai-stock-briefing으로 돌아옵니다. 기존 실행 방법과 설정을 재사용하며 14~15장 앱과 기존 작업을 보존합니다. 19~20장 완료는 선행 조건이 아닙니다.",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null,
+      "required_revision": "part6-services-v1",
+      "contract_revision": "plan-build-v2",
+      "start_path": "chapters/ch21/start",
+      "proposed_public_path": "chapters/ch21/source/"
+    },
+    "ch22": {
+      "project": "ai-stock-briefing",
+      "finish_expected_url": null,
+      "finish_local_path": null,
+      "start_local_path": null,
+      "start_expected": "21장의 docs/ch21-chat-design.md와 9~12장의 기존 주식서비스에서 시작합니다. 아직 챗봇 코드는 없습니다. 기존 금융위원회·OpenDART·Gemini 설정을 재사용합니다.",
+      "availability": "not_bound",
+      "execution_verified": false,
+      "source_hash": null,
+      "required_revision": "part6-services-v1",
+      "contract_revision": "plan-build-v2",
+      "proposed_public_path": "chapters/ch22/source/"
+    }
+  },
+  "part6_revision": "part6-services-v1"
+}

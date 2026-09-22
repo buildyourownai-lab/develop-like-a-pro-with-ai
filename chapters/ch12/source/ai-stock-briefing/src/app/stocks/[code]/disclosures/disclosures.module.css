@@ -1,0 +1,238 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: min(100%, 1080px);
+  margin: 0 auto;
+  padding: 32px 20px 72px;
+}
+.backLink {
+  align-self: flex-start;
+  padding: 8px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.searchForm {
+  display: flex;
+  gap: 8px;
+}
+.searchForm input {
+  min-width: 0;
+  flex: 1;
+  padding: 13px 14px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+}
+.searchForm button {
+  padding: 13px 20px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.filingHead,
+.tableCard {
+  padding: 24px;
+}
+.filingHead h1 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: 22px;
+}
+.tag {
+  padding: 4px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.filingRange {
+  margin: 0 0 14px;
+  color: var(--faint);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.filingTotal {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.filingTotal strong {
+  color: var(--text);
+}
+.filingTypes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filingTypes a {
+  display: inline-flex;
+  gap: 6px;
+  padding: 8px 13px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+.filingTypes a b {
+  color: var(--text);
+}
+.filingTypes a.on {
+  border-color: var(--filing);
+  background: var(--filing);
+  color: #fff;
+}
+.filingTypes a.on b {
+  color: #fff;
+}
+.filingNote {
+  margin: 10px 0 0;
+  color: var(--faint);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.tableCard {
+  overflow-x: auto;
+}
+.tableCard > header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.tableCard h2 {
+  margin: 0;
+  font-size: 16px;
+}
+.tableCard > header span {
+  color: var(--faint);
+  font-size: 12px;
+  text-align: right;
+}
+.filingTable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.filingTable th,
+.filingTable td {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.filingTable th {
+  border-bottom-color: var(--line-strong);
+  color: var(--muted);
+  font-size: 12px;
+}
+.filingTable th:nth-child(1),
+.filingTable td:nth-child(1) {
+  width: 104px;
+}
+.filingTable th:nth-child(3),
+.filingTable td:nth-child(3) {
+  width: 21%;
+}
+.filingTable th:nth-child(4),
+.filingTable td:nth-child(4) {
+  width: 116px;
+}
+.date {
+  color: var(--faint);
+}
+.noteCell {
+  color: var(--faint);
+  font-size: 12px !important;
+}
+.filingTable a {
+  color: var(--text);
+  font-weight: 600;
+}
+.pager {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 18px;
+}
+.pager a,
+.pager span {
+  min-width: 38px;
+  padding: 8px 11px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+}
+.pager .currentPage {
+  border-color: var(--filing);
+  background: var(--filing);
+  color: #fff;
+}
+.footer {
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.footer p {
+  margin: 2px;
+}
+.notice {
+  display: grid;
+  gap: 4px;
+  padding: 18px;
+  color: #8a281f;
+}
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 680px) {
+  .main {
+    padding: 18px 14px 48px;
+  }
+  .searchForm button {
+    padding: 13px 16px;
+  }
+  .filingHead,
+  .tableCard {
+    padding: 18px;
+  }
+  .filingTable {
+    min-width: 560px;
+  }
+}
+.tag {
+  border-radius: 6px;
+}

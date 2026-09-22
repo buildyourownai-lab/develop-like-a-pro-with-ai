@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch01",
+  "number": 1,
+  "title": "1장. 영화 흥행 기록으로 첫 Excel 보고서를 만들어봅니다",
+  "manuscript": "book/04-chapter-01.md",
+  "manuscript_sha256": "818219fe6fad1687574c0d6de0491e1800815c22131339c64c5ebf4879f74595",
+  "outcome": "공식 영화 흥행 자료로 만든 Excel 보고서를 열어 요청한 구성을 확인합니다.",
+  "project": "movie-report",
+  "start_state": "준비편에서 확인한 책 작업 공간. 영화 프로젝트와 보고서는 아직 없습니다.",
+  "previously_completed_features": "작업 폴더 선택과 AI에게 요청하는 방법",
+  "required_services": [
+    "kobis"
+  ],
+  "required_accounts_permissions": [],
+  "tools_and_packages": [
+    "Python",
+    "openpyxl",
+    "Excel 또는 호환 뷰어"
+  ],
+  "new_features": "보고서 생성 코드·결과 파일·출처 표기",
+  "out_of_scope": "TOP 20 숫자 전체를 검증했다고 주장하거나 2장의 Test를 미리 만들지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch01-g01",
+      "title": "프로젝트 위치",
+      "criterion": "movie-report 폴더와 생성 파일의 실제 위치를 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "movie-report 폴더와 생성 파일의 실제 위치를 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch01-g02",
+      "title": "공식 자료",
+      "criterion": "KOBIS의 기준 연도와 출처를 식별",
+      "required": true,
+      "depends_on": [
+        "ch01-g01"
+      ],
+      "evidence_types": [
+        "official-source"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "KOBIS의 기준 연도와 출처를 식별. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch01-g03",
+      "title": "보고서 생성",
+      "criterion": "생성 코드를 실행해 Excel 파일을 얻음",
+      "required": true,
+      "depends_on": [
+        "ch01-g02"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "생성 코드를 실행해 Excel 파일을 얻음. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch01-g04",
+      "title": "구성 확인",
+      "criterion": "표·요약·차트와 요청한 시트를 확인",
+      "required": true,
+      "depends_on": [
+        "ch01-g03"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "표·요약·차트와 요청한 시트를 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch01-g05",
+      "title": "직접 열기",
+      "criterion": "완성 파일을 실제 뷰어에서 열고 깨짐 여부 확인",
+      "required": true,
+      "depends_on": [
+        "ch01-g04"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "완성 파일을 실제 뷰어에서 열고 깨짐 여부 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch01-g06",
+      "title": "확인 범위",
+      "criterion": "파일 구성 확인과 숫자 정확성 검증이 다름을 설명",
+      "required": true,
+      "depends_on": [
+        "ch01-g05"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "파일 구성 확인과 숫자 정확성 검증이 다름을 설명. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "2장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "API 키를 전권 공통으로 발급받는 장이 아닙니다. 공식 자료 접근 상태와 내려받은 파일을 구분합니다. 숫자가 맞는지는 다음 장에서 검증합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch01",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H01-01",
+      "symptom": "파일을 찾지 못함",
+      "levels": [
+        "AI의 완료 문장 대신 실제 파일 위치를 확인하세요.",
+        "현재 선택한 프로젝트가 movie-report인지 봅니다.",
+        "생성된 .xlsx의 전체 경로와 마지막 실행 결과를 확인합니다."
+      ],
+      "solution": "파일이 있으면 그 파일 하나를 열고, 없다면 생성 단계의 오류부터 확인합니다. 작업 폴더를 임의로 바꾸지 않습니다."
+    },
+    {
+      "id": "H01-02",
+      "symptom": "보고서 모양이 예시와 다름",
+      "levels": [
+        "먼저 필요한 정보가 있는지 봅니다.",
+        "요청한 표·요약·차트와 출처를 각각 찾습니다.",
+        "모양 차이인지 파일 손상·항목 누락인지 구분합니다."
+      ],
+      "solution": "구성이 빠졌을 때만 해당 항목을 보완하고 다시 엽니다. 모양 차이를 숫자 오류로 판단하지 않습니다."
+    }
+  ],
+  "required_credentials": [],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  }
+}

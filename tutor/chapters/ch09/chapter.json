@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch09",
+  "number": 9,
+  "title": "9장. 국내 증시와 궁금한 종목을 한눈에 봅니다",
+  "manuscript": "book/14-chapter-09.md",
+  "manuscript_sha256": "dc6727e534b5ca72cf08670b10103efcb0aa847ff37f556c3050af48aa2081d5",
+  "outcome": "공식 시세로 시장과 종목·차트 화면을 만듭니다.",
+  "project": "ai-stock-briefing",
+  "start_state": "별도 주식 프로젝트를 시작하며 아파트 결과물은 그대로 둡니다.",
+  "previously_completed_features": "API·Secret·웹·배포의 작업 방식",
+  "required_services": [
+    "data-go-kr",
+    "github"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "data-go-kr",
+      "details": "../../services/data-go-kr.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "github",
+      "details": "../../services/github.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "Node.js",
+    "TypeScript",
+    "Next.js"
+  ],
+  "new_features": "금융위 시세·시장·검색·종목·차트·기준일",
+  "out_of_scope": "실시간 가격으로 오해시키거나 없는 지수·거래를 0으로 채우지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch09-g01",
+      "title": "프로젝트·키",
+      "criterion": "주식용 프로젝트와 정확한 시세 API 준비",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "주식용 프로젝트와 정확한 시세 API 준비. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch09-g02",
+      "title": "기준일",
+      "criterion": "확인 가능한 거래일과 단위·출처 표시",
+      "required": true,
+      "depends_on": [
+        "ch09-g01"
+      ],
+      "evidence_types": [
+        "live-api",
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "verify_instructions": "확인 가능한 거래일과 단위·출처 표시. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch09-g03",
+      "title": "시장 화면",
+      "criterion": "시장 정보와 상승·하락 목록 확인",
+      "required": true,
+      "depends_on": [
+        "ch09-g02"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "시장 정보와 상승·하락 목록 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch09-g04",
+      "title": "종목 검색",
+      "criterion": "종목명·종목코드로 원하는 회사를 찾음",
+      "required": true,
+      "depends_on": [
+        "ch09-g03"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "종목명·종목코드로 원하는 회사를 찾음. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch09-g05",
+      "title": "차트",
+      "criterion": "조회 기간과 가격·거래량을 구분",
+      "required": true,
+      "depends_on": [
+        "ch09-g04"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "조회 기간과 가격·거래량을 구분. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch09-g06",
+      "title": "예외·회귀",
+      "criterion": "휴장·빈 응답·오류와 기존 화면을 검사",
+      "required": true,
+      "depends_on": [
+        "ch09-g05"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "휴장·빈 응답·오류와 기존 화면을 검사. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "10장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "공식 API의 기준일과 화면을 연 날짜는 다를 수 있습니다. 현재 장의 진도는 사용자의 실제 프로젝트 기준으로 확인합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch09",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H09-01",
+      "symptom": "오늘 날짜의 시세가 없음",
+      "levels": [
+        "화면을 연 날짜와 자료의 기준일을 구분합니다.",
+        "휴장·자료 반영 지연·조회 실패를 나눕니다.",
+        "최근 확인 가능한 거래일과 원본 응답 날짜를 대조합니다."
+      ],
+      "solution": "실제 기준일을 표시하고 없음을 0으로 채우지 않습니다. 최신이라고 표시하려면 해당 기준일을 확인합니다."
+    },
+    {
+      "id": "H09-02",
+      "symptom": "다른 종목 값이 섞임",
+      "levels": [
+        "이름보다 공식 종목코드를 기준으로 봅니다.",
+        "검색에서 선택한 코드와 상세 요청 코드를 확인합니다.",
+        "기간·기준일·종목코드가 각 요청에서 같은지 봅니다."
+      ],
+      "solution": "한 종목의 화면에서 다른 종목 자료가 섞이는 연결만 수정하고 검색부터 회귀 검사합니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "data-go-kr",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/data-go-kr.md"
+    },
+    {
+      "provider": "github",
+      "kind": "account",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/github.md"
+    }
+  ],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": true
+  }
+}

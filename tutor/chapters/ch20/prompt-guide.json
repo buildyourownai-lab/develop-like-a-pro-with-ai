@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "chapter": 20,
+  "project": "ai-media-works",
+  "manuscript_sha256": "230c3b8159d8aece0cf50d294ef32ffc18e98cc9d7ff3f85e3a16a6eda263222",
+  "entries": [
+    {
+      "id": "P20-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "ff560be9fa41702083a8fa32b824e671cb4ccb677774b52da5eda13ef50533d1",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P20-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "de11fbc9f775050b3bd847b120797d734af37920df1996bd5ce36b26ec1edcbe",
+      "title": "읽기 승인과 쓰기 승인을 구분합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "실제 답글 권한 확인",
+      "before": "19장 대상 영상·계정과 현재 Token Scope 확인.",
+      "after": "필요한 경우만 OAuth 동의; 자동답글 꺼짐",
+      "objective_ids": [
+        "ch20-r2-g01"
+      ]
+    },
+    {
+      "id": "P20-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "3ad77b9148823dc605cfdc0c0687c9808ffd9eddb523c932445ad229ebc7236d",
+      "title": "실행할 서버와 처리 기록을 준비합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Vercel·Supabase 준비",
+      "before": "기존 계정·요금·별도 댓글 저장 공간 확인. 새 프로젝트·비용 선택은 독자 판단, 필요한 값은 안전한 위치에 직접 입력.",
+      "after": "코드 변수명·새 배포 연결·인증 경계; 자동전송 꺼짐",
+      "objective_ids": [
+        "ch20-r2-g01"
+      ]
+    },
+    {
+      "id": "P20-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "c9e0ccf12acb941520a3763e84f53200a4627dfdefe11e5ad7f050b7bf0104d8",
+      "title": "대상을 먼저 준비하고 기준 시각을 남깁니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "대상·기준 시각·기록 구현",
+      "before": "승인한 채널·영상과 DB 연결 확인.",
+      "after": "최초 기준 시각·후보 기간·페이지 이어읽기; 전송 없음",
+      "objective_ids": [
+        "ch20-r2-g02"
+      ]
+    },
+    {
+      "id": "P20-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "e72f3fc5773051fbc5048e76de885b385fea6bc771e35f0aa79f6510d24f25a3",
+      "title": "같은 댓글에 두 번 답하지 않게 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "중복·결과 미확인 처리 구현",
+      "before": "기준 시각·기록 구조·19장 두 검사 확인.",
+      "after": "동시 전송 제한·미확인 중지·실제 답글 대조·기록 보관",
+      "objective_ids": [
+        "ch20-r2-g03"
+      ]
+    },
+    {
+      "id": "P20-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "6b3144449cd39cf17b051cf0a77ee82d95e8f523080c0d67a4faffcd7abdbe12",
+      "title": "시험 댓글 한 건을 승인해 실제로 보냅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "수동 시험 Preview",
+      "before": "예약 꺼짐과 기준 시각 확인. 그 뒤 독자가 실제 시험 댓글을 작성할 차례를 안내. 작성 전 이미 남겼다고 가정하지 않음.",
+      "after": "시험 한 건의 원문·최종 초안·계정 Preview; 승인 전 무전송",
+      "objective_ids": [
+        "ch20-r2-g04"
+      ]
+    },
+    {
+      "id": "P20-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "9bf5e31c51513c181753d3f9cfc70fac2da2d56b6e83a289c4b0134708d2432f",
+      "title": "시험 댓글 한 건을 승인해 실제로 보냅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "시험 댓글 한 건 전송 승인",
+      "before": "독자가 직전 Preview의 실제 계정·영상·댓글·문장을 확인했고 그 한 건 전송을 요청하는지 확인. 이전 전송·미확인 기록이 있으면 실제 상태부터 확인.",
+      "after": "한 건 전송·실제 YouTube·저장 ID 대조; 예약 꺼짐",
+      "objective_ids": [
+        "ch20-r2-g04"
+      ]
+    },
+    {
+      "id": "P20-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "fa68762cd278bb5ec3981203d081cd565a8f1f73e6839c59bc8d3d6fd72a02a8",
+      "title": "시험 댓글 한 건을 승인해 실제로 보냅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "같은 시험 댓글의 무전송 재실행",
+      "before": "방금 보낸 동일 댓글과 실제 답글·기록 확보. 새 댓글을 만들어 대체하지 않음.",
+      "after": "추가 답글 0·시험 응답 동시성/미확인 중지 검사",
+      "objective_ids": [
+        "ch20-r2-g03",
+        "ch20-r2-g04"
+      ]
+    },
+    {
+      "id": "P20-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "246f8a9c43b2a5dfe3916a4a6f8096d4eebde4fbe7255f91e6446343a573bef1",
+      "title": "작은 범위로 예약 실행을 켭니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "예약 준비와 중지 시험",
+      "before": "실제 한 건 전송·중복 방지와 배포 연결 확인.",
+      "after": "10분 예약·조회 및 실행 시간 제한·인증·중지 방법; 활성화 없음",
+      "objective_ids": [
+        "ch20-r2-g05"
+      ]
+    },
+    {
+      "id": "P20-10",
+      "source": "prompts.md",
+      "block_index": 10,
+      "sha256": "7108372e8d9d9e6ea03851f6d078e819874f522663b33e11c680851b4bdb784f",
+      "title": "작은 범위로 예약 실행을 켭니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "확인한 범위의 예약 자동답글 승인",
+      "before": "독자가 대상·처리 조건·비용·중지 방법을 확인하고 실제 활성화를 요청하는지 확인. 미확인 전송 중지 상태면 해제하지 않음.",
+      "after": "독자가 누르지 않은 예약의 실제 완료; 0건과 실전송 구분",
+      "objective_ids": [
+        "ch20-r2-g05"
+      ]
+    },
+    {
+      "id": "P20-11",
+      "source": "prompts.md",
+      "block_index": 11,
+      "sha256": "4aa28f78280afc64dacb50a21f64067ab555d7cb81a5ff8eceee994f47b77a34",
+      "title": "자동화에는 멈추는 방법도 있어야 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "자동화 중지 요청 또는 실습 마무리",
+      "before": "현재 예약·전송 허용·진행 중 작업 확인.",
+      "after": "새 예약 전송 없음; 기존 답글·기준 시각·기록 보존",
+      "objective_ids": [
+        "ch20-r2-g06"
+      ]
+    },
+    {
+      "id": "P20-12",
+      "source": "prompts.md",
+      "block_index": 12,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    }
+  ]
+}

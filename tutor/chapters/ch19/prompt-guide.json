@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "chapter": 19,
+  "project": "ai-media-works",
+  "manuscript_sha256": "5c0ac8cf4586c3e809430ca82868ddd839bfb4baff9a517f816ad589db661483",
+  "entries": [
+    {
+      "id": "P19-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "7f086adad91bf89635d7a28ba9e24a5c5ddf7ff98314d23782a8217217ca4fd3",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P19-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "5aa80c32f609ceb76fe9fd0f0b821ca6f872c951a6a423e6fa1944cb61ada52b",
+      "title": "영상 프로젝트와 댓글 도구를 나눕니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "댓글 전용 프로젝트 준비",
+      "before": "독자가 ai-media-works 폴더를 Code 탭에서 선택했는지 확인. 기존 프로젝트 보존.",
+      "after": "로컬 기본 화면과 정확한 주소; 전송·배포 없음",
+      "objective_ids": [
+        "ch19-r2-g01"
+      ]
+    },
+    {
+      "id": "P19-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "dfdf20cfe2149c59cdb6d00d5246a491e17bf8f0eedea518d7ef157ae5733711",
+      "title": "댓글을 읽을 영상부터 고릅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "시험 영상 대상 확인",
+      "before": "독자가 자기 시험 영상의 공개 범위·댓글 설정을 확인하고 실제 주소를 제공할 준비인지 확인.",
+      "after": "영상·채널·댓글 사용 가능과 미확인 항목",
+      "objective_ids": [
+        "ch19-r2-g02"
+      ]
+    },
+    {
+      "id": "P19-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "8c783eeb9558183ced4dcc960f13f8a2787352bba60adee1feb21a2b21353d1e",
+      "title": "계정 연결과 AI 연결은 다른 준비입니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "댓글 전용 OAuth 준비",
+      "before": "18장 Cloud·Desktop Client와 실제 JSON 경로 확인. setup:youtube-comment-read 명령이 없으면 안전한 준비 Script와 package.json 명령을 먼저 구현·검사. <18장 client_secret JSON 경로>는 자리표시자이며 확인 없이 실행하지 않음.",
+      "after": "준비 명령 존재와 검사; 사람의 공식 OAuth 동의·별도 Token·채널 실제 응답, GET 조회만",
+      "objective_ids": [
+        "ch19-r2-g02"
+      ]
+    },
+    {
+      "id": "P19-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "c68f766410ff3050e2916c01a5c3f70d4c0de63d39aba369c3cf4f4e6cde7336",
+      "title": "계정 연결과 AI 연결은 다른 준비입니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Gemini 연결 준비",
+      "before": "현재 계정·모델·한도와 안전한 키 입력 위치 확인. 합성 문장 호출은 키 입력 뒤 수행.",
+      "after": "현재 SDK·모델·연결 성공과 데이터 조건; 실제 댓글 전달 없음",
+      "objective_ids": [
+        "ch19-r2-g02"
+      ]
+    },
+    {
+      "id": "P19-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "0724f4436dce1584ebe742466be3f77c4b9e538b6193ec5381650ca95ca8dacf",
+      "title": "먼저 읽어서 보여주기만 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "승인 영상 댓글 읽기",
+      "before": "자기 채널·영상·댓글 OAuth의 실제 연결 확인.",
+      "after": "최신 최상위 최대 20개·0건/오류/제외 구분; 로컬만 표시",
+      "objective_ids": [
+        "ch19-r2-g03",
+        "ch19-r2-g05"
+      ]
+    },
+    {
+      "id": "P19-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "b0da50c6699119031f1420061938a4fc5a753653927c92011e18ca46ecefd93d",
+      "title": "종류는 다섯 개, 맡길 일은 세 가지입니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "분류·초안 구현",
+      "before": "독자가 실제 댓글의 Gemini 처리 조건을 확인했는지 확인. 동의하기 어려우면 합성 시험만 사용하고 실제 연동은 미확인.",
+      "after": "다섯 종류·세 처리 수준과 제한된 초안; 전송 없음",
+      "objective_ids": [
+        "ch19-r2-g04"
+      ]
+    },
+    {
+      "id": "P19-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "83fb0f06b18635c96e6ecbe16970f2707ef425d7c00aefecd1b1edee43af8bdb",
+      "title": "그럴듯한 초안을 바로 승인하지 않습니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "초안 검사·미리보기 구현",
+      "before": "분류·초안 결과 확인.",
+      "after": "AI·프로그램 검사와 원문·결과 비교; 보내기 연결 없음",
+      "objective_ids": [
+        "ch19-r2-g04",
+        "ch19-r2-g06"
+      ]
+    },
+    {
+      "id": "P19-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "4400e24ee12b8ae7b00a0d4cefb25d6147606686b56a7703f3bba8a26c087471",
+      "title": "자동으로 답하면 안 되는 댓글도 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "경계 시험과 실제 연결 구분",
+      "before": "분류·초안·검사 구현 확인. 실제 댓글 처리 조건·현재 연결도 확인.",
+      "after": "합성 시험과 실제 조회·Gemini 결과 구분; 댓글 작성 0회",
+      "objective_ids": [
+        "ch19-r2-g04",
+        "ch19-r2-g05",
+        "ch19-r2-g06"
+      ]
+    },
+    {
+      "id": "P19-10",
+      "source": "prompts.md",
+      "block_index": 10,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    }
+  ]
+}

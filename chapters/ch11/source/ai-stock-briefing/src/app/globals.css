@@ -1,0 +1,75 @@
+:root {
+  --bg: #f4f6fa;
+  --card: #ffffff;
+  --line: #e3e8f0;
+  --line-strong: #cfd7e3;
+  --text: #10192b;
+  --muted: #5f6b80;
+  --faint: #8b95a6;
+  --accent: #1c48b8;
+  --accent-soft: #eef2fd;
+  --flat-soft: #f2f4f7;
+  --up: #c62828;
+  --up-soft: #fdeeee;
+  --down: #1256c4;
+  --down-soft: #ecf2fd;
+  --filing: #7a3fb8;
+  --filing-soft: #f4eefb;
+  --filing-line: #ddc9ef;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(16, 25, 43, 0.05), 0 8px 24px rgba(16, 25, 43, 0.05);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--accent); }
+button, input { font: inherit; }
+.market-change { font-weight: 700; font-variant-numeric: tabular-nums; }
+.market-change.up { color: var(--up); }
+.market-change.down { color: var(--down); }
+.market-change.flat { color: var(--muted); }
+
+/* 최종 프로젝트와 같은 최근 1년 주가 흐름 */
+.chart-card {
+  padding: 20px 20px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.chart-card > header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.chart-card > header h2 { margin: 0; font-size: 16px; }
+.chart-card > header .note { color: var(--faint); font-size: 12px; }
+.chart-toggle { display: inline-flex; border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; }
+.chart-toggle button { padding: 6px 14px; border: 0; background: var(--card); color: var(--muted); font-size: 13px; font-family: inherit; cursor: pointer; }
+.chart-toggle button + button { border-left: 1px solid var(--line-strong); }
+.chart-toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; font-weight: 600; }
+.chart-toggle button[aria-pressed="false"] { background: var(--card); color: var(--muted); font-weight: 400; }
+.chart-tooltip { border: 1px solid var(--line-strong); border-radius: 8px; background: rgba(255,255,255,.97); padding: 10px 12px; box-shadow: var(--shadow); font-size: 12px; font-variant-numeric: tabular-nums; }
+.chart-tooltip .date { font-weight: 700; margin-bottom: 5px; }
+.chart-tooltip dl { display: grid; grid-template-columns: auto auto; gap: 2px 12px; margin: 0; }
+.chart-tooltip dt { color: var(--muted); }
+.chart-tooltip dd { margin: 0; text-align: right; font-weight: 600; }
+.chart-label { margin: 10px 2px 0; color: var(--faint); font-size: 12px; }
+.chart-note { margin: 0 0 12px; padding: 9px 12px; border-radius: 8px; background: var(--flat-soft); color: var(--muted); font-size: 13px; line-height: 1.5; }
+.filing-band { margin-top: 6px; padding-top: 6px; border-top: 1px dashed var(--filing-line); }
+.filing-band .chart-label { margin: 0 2px 2px; color: var(--filing); font-weight: 600; }
+.filing-marker:hover circle { fill: #5c2794; }
+.filing-picked { margin: 10px 0 4px; border: 1px solid var(--filing-line); border-radius: 10px; background: var(--filing-soft); padding: 12px 14px; }
+.filing-picked-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.filing-picked-head strong { font-size: 14px; }
+.filing-picked-head button { border: 1px solid var(--filing-line); border-radius: 6px; background: var(--card); padding: 4px 10px; color: var(--muted); font-size: 12px; font-family: inherit; cursor: pointer; }
+.filing-picked ul { margin: 0; padding: 0; list-style: none; }
+.filing-picked li + li { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--filing-line); }
+.filing-picked .filing-meta { display: block; margin-bottom: 2px; color: var(--muted); font-size: 12px; }
+.filing-picked a { color: var(--text); font-weight: 600; font-size: 14px; line-height: 1.5; }

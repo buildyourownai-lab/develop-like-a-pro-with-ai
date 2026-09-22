@@ -1,0 +1,15 @@
+# 20장 공개 Source 재검증 — 2026-09-22
+
+$ npm test
+
+ Test Files  39 passed (39)
+      Tests  596 passed (596)
+
+$ npm run lint
+PASS
+
+$ npm run typecheck
+PASS
+
+$ npm run build
+PASS (12 routes)

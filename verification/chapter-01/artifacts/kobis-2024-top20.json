@@ -1,0 +1,186 @@
+{
+  "year": 2024,
+  "source": "https://www.kobis.or.kr/kobis/business/stat/offc/findYearlyBoxOfficeList.do",
+  "rows": [
+    {
+      "rank": 1,
+      "title": "파묘",
+      "release": "2024-02-22",
+      "revenue": 115148478414,
+      "share": "9.9%",
+      "audience": 11913725,
+      "screens": 2355
+    },
+    {
+      "rank": 2,
+      "title": "범죄도시4",
+      "release": "2024-04-24",
+      "revenue": 110038420734,
+      "share": "9.4%",
+      "audience": 11501621,
+      "screens": 2980
+    },
+    {
+      "rank": 3,
+      "title": "인사이드 아웃 2",
+      "release": "2024-06-12",
+      "revenue": 84509284036,
+      "share": "7.2%",
+      "audience": 8799013,
+      "screens": 2619
+    },
+    {
+      "rank": 4,
+      "title": "베테랑2",
+      "release": "2024-09-13",
+      "revenue": 72474035814,
+      "share": "6.2%",
+      "audience": 7525339,
+      "screens": 2691
+    },
+    {
+      "rank": 5,
+      "title": "파일럿",
+      "release": "2024-07-31",
+      "revenue": 43204079201,
+      "share": "3.7%",
+      "audience": 4718036,
+      "screens": 1956
+    },
+    {
+      "rank": 6,
+      "title": "웡카",
+      "release": "2024-01-31",
+      "revenue": 33956553189,
+      "share": "2.9%",
+      "audience": 3531468,
+      "screens": 1753
+    },
+    {
+      "rank": 7,
+      "title": "모아나 2",
+      "release": "2024-11-27",
+      "revenue": 31118051070,
+      "share": "2.7%",
+      "audience": 3372815,
+      "screens": 1985
+    },
+    {
+      "rank": 8,
+      "title": "소방관",
+      "release": "2024-12-04",
+      "revenue": 31161375290,
+      "share": "2.7%",
+      "audience": 3317296,
+      "screens": 1414
+    },
+    {
+      "rank": 9,
+      "title": "하얼빈",
+      "release": "2024-12-24",
+      "revenue": 26249028320,
+      "share": "2.2%",
+      "audience": 2755236,
+      "screens": 2125
+    },
+    {
+      "rank": 10,
+      "title": "탈주",
+      "release": "2024-07-03",
+      "revenue": 24230164596,
+      "share": "2.1%",
+      "audience": 2560938,
+      "screens": 1234
+    },
+    {
+      "rank": 11,
+      "title": "위키드",
+      "release": "2024-11-20",
+      "revenue": 20277702850,
+      "share": "1.7%",
+      "audience": 2059163,
+      "screens": 1803
+    },
+    {
+      "rank": 12,
+      "title": "듄: 파트2",
+      "release": "2024-02-28",
+      "revenue": 23639319949,
+      "share": "2.0%",
+      "audience": 2016202,
+      "screens": 1544
+    },
+    {
+      "rank": 13,
+      "title": "에이리언: 로물루스",
+      "release": "2024-08-14",
+      "revenue": 20443955430,
+      "share": "1.8%",
+      "audience": 2002033,
+      "screens": 1436
+    },
+    {
+      "rank": 14,
+      "title": "데드풀과 울버린",
+      "release": "2024-07-24",
+      "revenue": 20489875630,
+      "share": "1.8%",
+      "audience": 1977010,
+      "screens": 1948
+    },
+    {
+      "rank": 15,
+      "title": "핸섬가이즈",
+      "release": "2024-06-26",
+      "revenue": 16581767601,
+      "share": "1.4%",
+      "audience": 1774645,
+      "screens": 965
+    },
+    {
+      "rank": 16,
+      "title": "하이재킹",
+      "release": "2024-06-21",
+      "revenue": 16842739086,
+      "share": "1.4%",
+      "audience": 1773930,
+      "screens": 1155
+    },
+    {
+      "rank": 17,
+      "title": "쿵푸팬더4",
+      "release": "2024-04-10",
+      "revenue": 16534473152,
+      "share": "1.4%",
+      "audience": 1771601,
+      "screens": 2311
+    },
+    {
+      "rank": 18,
+      "title": "베놈: 라스트 댄스",
+      "release": "2024-10-23",
+      "revenue": 17253839788,
+      "share": "1.5%",
+      "audience": 1763723,
+      "screens": 1663
+    },
+    {
+      "rank": 19,
+      "title": "시민덕희",
+      "release": "2024-01-24",
+      "revenue": 16174180097,
+      "share": "1.4%",
+      "audience": 1715064,
+      "screens": 1272
+    },
+    {
+      "rank": 20,
+      "title": "퓨리오사: 매드맥스 사가",
+      "release": "2024-05-22",
+      "revenue": 16489584088,
+      "share": "1.4%",
+      "audience": 1605454,
+      "screens": 1442
+    }
+  ]
+}

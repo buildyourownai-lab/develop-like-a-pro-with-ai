@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "chapter": 5,
+  "project": "movie-report",
+  "manuscript_sha256": "54dc98cb08ebaab24afdef78fb6c418e0b7fd55f2f119a54a7d208688b90feef",
+  "entries": [
+    {
+      "id": "P05-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "832dac8f2be121c9596baa02d85c083851aef81fc7e40175886b1a855849d80b",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "5장을 처음 시작하거나 현재 장의 시작 조건을 확인해 달라고 요청할 때",
+      "before": "4장의 규칙과 정상 보고서·Test가 있습니다. 이미 확인된 장·프로젝트는 다시 묻지 않고 현재 기록과 실제 상태를 대조합니다.",
+      "after": "목표·현재 프로젝트·선행 상태·첫 행동 하나를 확인합니다. 시작 안내만으로 구현·설치·프로젝트 교체를 하지 않습니다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P05-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "d18a82d8c3178de4ffd1e935c5d04e9906ba21d795836abf9641da6c843e1ebe",
+      "title": "방금 한 변경은 빠르게 되돌립니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "최근 변경을 되돌리는 연습을 위해 제목을 크게 바꿀 때",
+      "before": "4장의 정상 보고서와 Test를 확인합니다. 이 변경은 뒤의 Checkpointing 연습 대상입니다.",
+      "after": "보고서 생성 코드가 바뀌었고 그 코드로 Excel을 다시 만들었는지 확인합니다. 독자가 커진 제목을 확인하도록 안내합니다. 아직 이전 상태로 되돌리지 않습니다.",
+      "objective_ids": [
+        "ch05-g01"
+      ]
+    },
+    {
+      "id": "P05-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "1fc9633a9099d710ecb2badbbd44c850cd762b56afecb0d79a97dbc751b58e63",
+      "title": "방금 한 변경은 빠르게 되돌립니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Checkpointing으로 코드를 되돌린 뒤 Excel 결과물을 다시 만들 때",
+      "before": "독자가 작성 중인 입력을 지우고 Esc 두 번으로 제목 변경 요청을 선택한 뒤 파일만 복구하고 대화는 유지했는지 확인합니다. 실제 복구 여부가 불명확하면 먼저 확인합니다.",
+      "after": "되돌린 코드로 생성한 Excel을 직접 열어 제목이 돌아왔는지 확인하고 관련 Test 결과를 확인합니다.",
+      "objective_ids": [
+        "ch05-g01"
+      ]
+    },
+    {
+      "id": "P05-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "9e7c6605eb12d98a83a165e75c93d5866900d4fd335475132d1d88408c6ec6fd",
+      "title": "잘되던 상태를 오래 남겨둡니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "복구한 정상 상태를 Git 기준으로 남길 때",
+      "before": "제목이 복구된 실제 Excel과 관련 Test를 확인합니다. 프로젝트 밖 공통 지침은 이 Git 기록에 포함되지 않습니다.",
+      "after": "관련 Test와 비밀값 검사 후 기록한 커밋과 포함·제외 파일을 확인합니다.",
+      "objective_ids": [
+        "ch05-g02"
+      ]
+    },
+    {
+      "id": "P05-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "6fdf6d932c8f905b2ca142bc03544ad1579bf43bf590d7175a8a2f159e43eb62",
+      "title": "되돌릴 변경과 남길 변경을 함께 만듭니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Git 정상 기록과 비교할 변경 및 보존할 새 메모를 만들 때",
+      "before": "방금 남긴 정상 커밋을 식별합니다. 기존 메모가 있다면 임의로 덮어쓰지 않도록 현재 파일을 확인합니다.",
+      "after": "요약 2행 높이 42의 코드·Excel 변경과 새 메모, Test·Diff를 확인합니다. 아직 복구하거나 새 메모를 지우지 않습니다.",
+      "objective_ids": [
+        "ch05-g03"
+      ]
+    },
+    {
+      "id": "P05-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "30b2e53c80f3a21acd85bc7db1084208c1033e0609a446f84c408b53757b722d",
+      "title": "필요한 변경만 이전 상태로 돌립니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Diff를 읽고 행 높이 변경만 선택적으로 복구할 때",
+      "before": "복구 기준 커밋과 행 높이 변경, 아직 기록하지 않은 notes/next-ideas.md를 구분합니다.",
+      "after": "코드와 Excel의 정상 행 높이, 기존 Test 전체 결과, 새 메모 보존을 확인합니다.",
+      "objective_ids": [
+        "ch05-g03",
+        "ch05-g04"
+      ]
+    },
+    {
+      "id": "P05-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "df5d08736b6d611ecd7384257cb4037d882206139af096865c7fb1da51bcd223",
+      "title": "GitHub 계정과 저장소를 준비합니다",
+      "target": "coding-assistant",
+      "kind": "conditional",
+      "when": "GitHub 가입을 진행하는 독자가 현재 화면의 도움을 요청할 때만",
+      "before": "독자가 GitHub 공식 가입 화면에 있는지 확인합니다. 비밀번호·인증번호는 직접 입력하며 이미 가입·로그인했다면 이 단계를 건너뜁니다.",
+      "after": "사람이 입력·인증할 다음 행동을 안내하고 로그인 완료 여부를 확인합니다.",
+      "objective_ids": [
+        "ch05-g05"
+      ]
+    },
+    {
+      "id": "P05-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "aa8bfe477ee0071a6fb95032548d9f37b72a780392561ff0d8225f1011235c7e",
+      "title": "GitHub 계정과 저장소를 준비합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "GitHub 로그인 후 movie-report 비공개 저장소를 처음 만들 때",
+      "before": "독자가 가입·로그인을 마쳤는지 확인합니다. 같은 프로젝트의 저장소가 이미 있다면 새로 만들지 말고 연결 상태를 확인합니다.",
+      "after": "movie-report 비공개 저장소의 실제 생성과 대상을 확인합니다. 파일은 아직 올리지 않습니다.",
+      "objective_ids": [
+        "ch05-g05"
+      ]
+    },
+    {
+      "id": "P05-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "5680e752c29d661fa539d59457f1a104f0c25246a186ba6d765a233bab060dfc",
+      "title": "내 정상 기록을 GitHub에 올립니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "준비한 비공개 저장소에 정상 Git 기록을 처음 보낼 때",
+      "before": "대상 movie-report 비공개 저장소와 현재 정상 커밋을 확인합니다. 기록하지 않은 새 파일과 전송할 기록을 구분합니다.",
+      "after": "비밀값 검사와 실제 push 결과, GitHub에 올라간 커밋·파일 범위를 확인합니다.",
+      "objective_ids": [
+        "ch05-g02",
+        "ch05-g05"
+      ]
+    },
+    {
+      "id": "P05-10",
+      "source": "prompts.md",
+      "block_index": 10,
+      "sha256": "c48fc0abef910ed2b62aba7ae0aac9c222e6abe7f07ab8f690bc74cb9c531ab5",
+      "title": "중요한 작업이 끝나면 정상 상태를 기록하게 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "정상 상태 기록과 작업 마무리 전송 원칙을 공통 지침에 추가할 때",
+      "before": "Git 기록·선택적 복구·원격 전송을 실제로 확인했고 기존 공통 지침을 보존할 수 있는지 봅니다.",
+      "after": "검사 후 주요 정상 상태 기록과 마무리 때 전송하는 공통 원칙이 중복 없이 추가됐는지 확인합니다.",
+      "objective_ids": [
+        "ch05-g02",
+        "ch05-g05"
+      ]
+    },
+    {
+      "id": "P05-11",
+      "source": "prompts.md",
+      "block_index": 11,
+      "sha256": "4e79b0d4052638c39a7ffb2f983a4467b0a184cfbf4ac979c6eba9301c066217",
+      "title": "중요한 작업이 끝나면 정상 상태를 기록하게 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "추가한 공통 원칙에 따라 이번 작업을 마무리하거나 새 연도 작업 후 다시 마무리할 때",
+      "before": "현재 미기록 변경과 대상 GitHub 저장소를 확인합니다. 본문은 새 연도 작업 뒤 이 요청을 다시 사용하므로 동일 문장이라는 이유만으로 막지 않습니다.",
+      "after": "Test·비밀값 검사·커밋·실제 원격 전송을 확인합니다. 추가 변경이 없다면 불필요한 기록을 만들지 않습니다.",
+      "objective_ids": [
+        "ch05-g02",
+        "ch05-g05"
+      ]
+    },
+    {
+      "id": "P05-12",
+      "source": "prompts.md",
+      "block_index": 12,
+      "sha256": "52aaf8143ebea4ae6e72f6b09b6009b4101bf3c65f3cb458ac039752039d2ecf",
+      "title": "이제 내가 고른 연도로 바꿉니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "2024년 자료를 보존하면서 본문의 2019년 보고서를 추가할 때",
+      "before": "기존 2024년 보고서·기준 자료·Test와 정상 기록을 확인합니다. 정본은 2019년 예시이며 다른 선택 연도로 임의 치환하지 않습니다.",
+      "after": "2019년 보고서·기준 자료·Test·출처·조회 시점과 2024년 자료 보존을 확인합니다. 이후 작업 마무리 요청으로 기록할 차례를 안내합니다.",
+      "objective_ids": [
+        "ch05-g06"
+      ]
+    },
+    {
+      "id": "P05-13",
+      "source": "prompts.md",
+      "block_index": 13,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "5장의 실습 결과를 장별 완료 조건과 대조할 때",
+      "before": "앞 단계 실행 결과와 사람이 직접 확인할 항목을 확인합니다. 요청문을 보여주거나 실행했다고 완료로 세지 않습니다.",
+      "after": "명세의 실제 근거와 미확인을 나눠 판단합니다. 결과가 미확인이면 다음 장으로 자동 진행하지 않습니다.",
+      "objective_ids": [
+        "ch05-g01",
+        "ch05-g02",
+        "ch05-g03",
+        "ch05-g04",
+        "ch05-g05",
+        "ch05-g06"
+      ]
+    }
+  ]
+}

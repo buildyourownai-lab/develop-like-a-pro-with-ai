@@ -1,0 +1,90 @@
+{
+  "title": "로마 콘크리트는 왜 2천 년을 버틸까?",
+  "description": "2천 년 전 로마 콘크리트의 석회 덩어리가 균열을 메우는 과정을 추적한다.",
+  "aspect_ratio": "9:16",
+  "expected_duration_seconds": 51,
+  "voice_direction": {
+    "voice": "Charon",
+    "tone": "calm, clear Korean documentary narration",
+    "delivery": "measured and natural, never theatrical, ominous, or sales-like"
+  },
+  "visual_bible": {
+    "style": "cinematic historical animation, painterly realism, restrained 2.5D motion, premium documentary",
+    "palette": "weathered travertine, warm amber sunlight, deep teal shadows, muted Pompeian red accents",
+    "texture": "subtle handmade paper grain and mineral texture, never cartoonish or glossy",
+    "camera": "slow deliberate dolly, macro push-in, no frantic movement",
+    "constraints": "no text, no watermark, no modern objects in Roman scenes, no fantasy costumes, no deformed architecture"
+  },
+  "scenes": [
+    {
+      "scene": 1,
+      "duration_seconds": 7,
+      "narration": "2천 년 전 로마인이 만든 콘크리트 건축물은 지금도 바람과 비를 버티고 있습니다. 어떻게 가능했을까요?",
+      "captions": ["2천 년을 버틴 콘크리트"],
+      "image_prompt": "Vertical establishing shot of a monumental ancient Roman concrete dome and arches after rainfall, historically grounded Roman architecture, wet stone reflecting warm sunrise, tiny human silhouettes for scale, cinematic historical animation, painterly realism, deep teal shadows, no text",
+      "motion_prompt": "Very slow aerial push toward the dome, rainwater dripping from the arch, faint mist moving through warm sunlight, architecture remains perfectly rigid"
+    },
+    {
+      "scene": 2,
+      "duration_seconds": 7,
+      "narration": "오랫동안 콘크리트 속 하얀 석회 덩어리는 재료를 서투르게 섞은 흔적으로 여겨졌습니다.",
+      "captions": ["실수의 흔적?"],
+      "image_prompt": "Extreme macro cutaway of ancient Roman concrete, rough volcanic aggregate and distinctive millimeter-scale white lime clasts embedded inside, museum-grade scientific visualization rendered as premium painterly animation, warm mineral palette, no labels, no text",
+      "motion_prompt": "Slow macro camera glide across the concrete cross-section, shallow depth of field shifts onto one white lime clast, no melting or morphing"
+    },
+    {
+      "scene": 3,
+      "duration_seconds": 8,
+      "narration": "그런데 2023년 연구진은 생석회를 고온에서 섞는 과정이 반응성 높은 석회 덩어리를 남겼다는 증거를 찾았습니다.",
+      "captions": ["생석회 + 고온 혼합"],
+      "image_prompt": "Ancient Roman builders hot-mixing lime, volcanic ash, aggregate and water in a timber construction yard, controlled steam rising from the mixture, historically plausible tunics and tools, cinematic historical animation, painterly realism, amber firelight and teal shadows, no text",
+      "motion_prompt": "Measured side dolly as workers stir the hot mineral mixture, gentle steam and dust move naturally, hands and tools remain anatomically stable"
+    },
+    {
+      "scene": 4,
+      "duration_seconds": 8,
+      "narration": "작은 균열이 이 덩어리를 지나고, 빗물이 스며들면 칼슘이 녹아 균열 안으로 흘러갑니다.",
+      "captions": ["균열 + 물 + 석회"],
+      "image_prompt": "Scientific macro cross-section of a hairline crack traveling through a white lime clast in ancient concrete as a thin ribbon of rainwater enters, physically plausible mineral structure, elegant cinematic educational animation, dark teal background, warm calcium highlights, no text",
+      "motion_prompt": "Camera follows a thin water front through the crack, tiny calcium-rich particles gently disperse into the water, preserve the concrete geometry"
+    },
+    {
+      "scene": 5,
+      "duration_seconds": 7,
+      "narration": "그 성분은 탄산칼슘으로 다시 결정화해 틈을 채우고, 물이 통과하는 길을 막습니다.",
+      "captions": ["균열을 채우는 결정"],
+      "image_prompt": "Elegant scientific macro view of pale calcium carbonate crystals gradually bridging a narrow crack in ancient concrete, realistic crystal growth, premium cinematic educational animation, restrained amber glow against deep teal mineral shadows, no text",
+      "motion_prompt": "Slow time-lapse crystal growth bridges the crack from both sides until the narrow channel closes, subtle camera push-in, no explosive effects"
+    },
+    {
+      "scene": 6,
+      "duration_seconds": 7,
+      "narration": "연구진이 만든 시험편의 균열은 2주 안에 메워졌지만, 생석회가 없는 시험편은 계속 물이 새어 나왔습니다.",
+      "captions": ["2주 후", "한쪽만 멈춘 물"],
+      "image_prompt": "Split-screen scientific experiment with two cracked concrete blocks under gentle water flow, left hot-mixed sample sealed and dry below, right control sample still leaking, clean premium documentary animation, realistic materials, no labels, no text",
+      "motion_prompt": "Locked camera, water stops beneath the healed left sample while droplets continue beneath the right control, concrete remains rigid and consistent"
+    },
+    {
+      "scene": 7,
+      "duration_seconds": 7,
+      "narration": "로마 건축의 모든 비밀이 풀린 것은 아닙니다. 하지만 오래 버티는 재료의 핵심은, 안 깨지는 것만이 아니라 스스로 틈을 메우는 데 있었습니다.",
+      "captions": ["강도보다 회복력"],
+      "image_prompt": "Final majestic vertical shot inside an ancient Roman concrete dome, a shaft of warm sunlight crosses weathered coffers after rain, enduring architecture, cinematic historical animation, sophisticated painterly realism, restrained amber and teal palette, no text",
+      "motion_prompt": "Slow crane upward following the sunlight toward the oculus, a few rain droplets fall, end on stable monumental architecture"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Hot mixing: Mechanistic insights into the durability of ancient Roman concrete",
+      "publisher": "Science Advances",
+      "year": 2023,
+      "url": "https://www.science.org/doi/10.1126/sciadv.add1602"
+    },
+    {
+      "title": "Riddle solved: Why was Roman concrete so durable?",
+      "publisher": "MIT News",
+      "year": 2023,
+      "url": "https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106"
+    }
+  ]
+}

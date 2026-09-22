@@ -1,0 +1,12 @@
+{
+  "id": "vercel",
+  "name": "Vercel",
+  "official_entry": "https://vercel.com/dashboard",
+  "purpose": "서비스 배포와 서버 환경변수",
+  "procedure": "대상 GitHub 저장소만 연결합니다. 실제 서버 코드의 이름을 해당 프로젝트·환경에 넣고 새 배포 뒤 기능을 확인합니다.",
+  "checked_live_in_this_delivery": false,
+  "cost_policy": "현재 공식 플랜과 계정 화면에서 확인. 무료·무제한을 고정 보장하지 않음",
+  "secret_policy": "실제 값은 사람이 안전한 입력 위치에 직접 입력. 대화·Git·로그·공개 자료에는 이름과 존재 여부만 기록.",
+  "success_check": "설정 존재와 실제 동작을 구분해 현재 프로젝트에서 필요한 최소 기능을 확인",
+  "failure_check": "정확한 응답·계정·프로젝트·환경·권한을 나누어 원인을 확인. 권한 확대·결제·공개 우회는 자동 수행 금지"
+}

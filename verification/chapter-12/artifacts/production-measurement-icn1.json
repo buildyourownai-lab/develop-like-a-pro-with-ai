@@ -1,0 +1,793 @@
+{
+  "measurementStartedAt": "2026-08-31T00:17:03.388Z",
+  "measuredAt": "2026-08-31T00:18:39.414Z",
+  "scenario": "SK하이닉스(000660), 동일 데이터·동일 Evidence, 각 비교 구간 5회",
+  "reproducibility": {
+    "environment": "Vercel production deployment",
+    "baseUrl": "https://ai-stock-briefing.vercel.app",
+    "stockCode": "000660",
+    "geminiModel": "gemini-3.5-flash-lite",
+    "repeat": 5,
+    "supabaseState": "Load 저장 후 Warm 5회 재조회",
+    "redisState": "Cold 전 빈 namespace, Cold 저장 후 Warm 5회 HIT",
+    "failures": []
+  },
+  "controls": {
+    "repeat": 5,
+    "nextFetchCacheBypassed": true,
+    "databaseLoadExcludedFromWarm": true,
+    "evidencePreparationExcludedFromCacheComparison": true,
+    "cacheColdExcludedFromWarm": true,
+    "expectedGeminiCalls": {
+      "baseline": 5,
+      "coldThisRun": 1,
+      "warm": 0,
+      "total": 6
+    },
+    "freeTierGeminiSpacingMs": 13000,
+    "geminiAutomaticRetry": false,
+    "databaseNamespace": "measure-db-1788135423388",
+    "cacheNamespace": "measure-cache-1788135423388"
+  },
+  "pricing": {
+    "basis": "Gemini 3.5 Flash-Lite standard paid tier, official price checked 2026-08-21",
+    "officialSource": "https://ai.google.dev/gemini-api/docs/pricing",
+    "inputUsdPerMillionTokens": 0.3,
+    "outputUsdPerMillionTokens": 2.5,
+    "note": "실제 Free Tier 과금액이 아니라 실제 Token 측정값을 공식 유료 단가로 계산한 추정치",
+    "outputTokenRule": "visible output + thought tokens를 유료 output 단가에 적용"
+  },
+  "databaseExperiment": {
+    "baseline": {
+      "runs": 5,
+      "e2e": {
+        "totalMs": 6695.628016,
+        "averageMs": 1339.1256032,
+        "p50Ms": 1331.013814,
+        "p95Ms": 1517.9192200000002,
+        "individualMs": [
+          1517.9192200000002,
+          1412.4947479999998,
+          1267.823437,
+          1331.013814,
+          1166.376797
+        ]
+      },
+      "internal": {
+        "totalMs": 5978.908070999999,
+        "averageMs": 1195.7816141999997,
+        "p50Ms": 1196.7345269999996,
+        "p95Ms": 1294.6339779999998,
+        "individualMs": [
+          1196.7345269999996,
+          1131.3242029999992,
+          1227.5910940000003,
+          1294.6339779999998,
+          1128.624269
+        ]
+      },
+      "httpStatuses": [
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "vercelRegions": [
+        "icn1"
+      ],
+      "networkCalls": {
+        "fsc": 25,
+        "dart": 0,
+        "gemini": 0
+      },
+      "geminiTokens": {
+        "input": 0,
+        "output": 0,
+        "thoughts": 0,
+        "billableOutput": 0,
+        "total": 0
+      },
+      "supabase": {
+        "reads": 0,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "redis": {
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "eventSummary": [
+        {
+          "service": "fsc",
+          "operation": "getStockPriceInfo",
+          "count": 15,
+          "totalMs": 5168.637539000002,
+          "averageMs": 344.57583593333345
+        },
+        {
+          "service": "fsc",
+          "operation": "getStockMarketIndex",
+          "count": 10,
+          "totalMs": 480.5338769999971,
+          "averageMs": 48.05338769999971
+        },
+        {
+          "service": "server",
+          "operation": "index-transform",
+          "count": 5,
+          "totalMs": 0.3341449999998076,
+          "averageMs": 0.06682899999996153
+        },
+        {
+          "service": "server",
+          "operation": "market-quote-transform",
+          "count": 5,
+          "totalMs": 15.520270000001801,
+          "averageMs": 3.1040540000003602
+        },
+        {
+          "service": "server",
+          "operation": "market-ranking",
+          "count": 5,
+          "totalMs": 5.268331000002036,
+          "averageMs": 1.0536662000004071
+        },
+        {
+          "service": "server",
+          "operation": "stock-history-transform",
+          "count": 5,
+          "totalMs": 4.503030000000763,
+          "averageMs": 0.9006060000001526
+        }
+      ]
+    },
+    "load": {
+      "runs": 1,
+      "e2e": {
+        "totalMs": 1378.5331589999996,
+        "averageMs": 1378.5331589999996,
+        "p50Ms": 1378.5331589999996,
+        "p95Ms": 1378.5331589999996,
+        "individualMs": [
+          1378.5331589999996
+        ]
+      },
+      "internal": {
+        "totalMs": 1343.892562000001,
+        "averageMs": 1343.892562000001,
+        "p50Ms": 1343.892562000001,
+        "p95Ms": 1343.892562000001,
+        "individualMs": [
+          1343.892562000001
+        ]
+      },
+      "httpStatuses": [
+        200
+      ],
+      "vercelRegions": [
+        "icn1"
+      ],
+      "networkCalls": {
+        "fsc": 5,
+        "dart": 0,
+        "gemini": 0
+      },
+      "geminiTokens": {
+        "input": 0,
+        "output": 0,
+        "thoughts": 0,
+        "billableOutput": 0,
+        "total": 0
+      },
+      "supabase": {
+        "reads": 5,
+        "hits": 0,
+        "misses": 5,
+        "writes": 5
+      },
+      "redis": {
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "eventSummary": [
+        {
+          "service": "supabase",
+          "operation": "database-ready",
+          "count": 10,
+          "totalMs": 89.04977899999903,
+          "averageMs": 8.904977899999903
+        },
+        {
+          "service": "supabase",
+          "operation": "read-fsc-snapshot",
+          "count": 5,
+          "totalMs": 168.10152599999856,
+          "averageMs": 33.62030519999971
+        },
+        {
+          "service": "fsc",
+          "operation": "getStockPriceInfo",
+          "count": 3,
+          "totalMs": 1041.8544569999995,
+          "averageMs": 347.2848189999998
+        },
+        {
+          "service": "supabase",
+          "operation": "write-fsc-snapshot",
+          "count": 5,
+          "totalMs": 108.13843800000177,
+          "averageMs": 21.627687600000353
+        },
+        {
+          "service": "fsc",
+          "operation": "getStockMarketIndex",
+          "count": 2,
+          "totalMs": 94.54554300000018,
+          "averageMs": 47.27277150000009
+        },
+        {
+          "service": "server",
+          "operation": "index-transform",
+          "count": 1,
+          "totalMs": 0.07627599999977974,
+          "averageMs": 0.07627599999977974
+        },
+        {
+          "service": "server",
+          "operation": "market-quote-transform",
+          "count": 1,
+          "totalMs": 2.198782999999821,
+          "averageMs": 2.198782999999821
+        },
+        {
+          "service": "server",
+          "operation": "market-ranking",
+          "count": 1,
+          "totalMs": 0.8170439999994414,
+          "averageMs": 0.8170439999994414
+        },
+        {
+          "service": "server",
+          "operation": "stock-history-transform",
+          "count": 1,
+          "totalMs": 0.4492900000004738,
+          "averageMs": 0.4492900000004738
+        }
+      ]
+    },
+    "warm": {
+      "runs": 5,
+      "e2e": {
+        "totalMs": 438.98358599999847,
+        "averageMs": 87.79671719999969,
+        "p50Ms": 88.52384600000005,
+        "p95Ms": 99.37000900000021,
+        "individualMs": [
+          88.52384600000005,
+          82.13611299999866,
+          89.36520399999972,
+          99.37000900000021,
+          79.58841399999983
+        ]
+      },
+      "internal": {
+        "totalMs": 253.10551099999975,
+        "averageMs": 50.62110219999995,
+        "p50Ms": 51.28773600000022,
+        "p95Ms": 55.698687000000064,
+        "individualMs": [
+          54.58489499999996,
+          45.87377600000036,
+          51.28773600000022,
+          55.698687000000064,
+          45.66041699999914
+        ]
+      },
+      "httpStatuses": [
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "vercelRegions": [
+        "icn1"
+      ],
+      "networkCalls": {
+        "fsc": 0,
+        "dart": 0,
+        "gemini": 0
+      },
+      "geminiTokens": {
+        "input": 0,
+        "output": 0,
+        "thoughts": 0,
+        "billableOutput": 0,
+        "total": 0
+      },
+      "supabase": {
+        "reads": 25,
+        "hits": 25,
+        "misses": 0,
+        "writes": 0
+      },
+      "redis": {
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "eventSummary": [
+        {
+          "service": "supabase",
+          "operation": "database-ready",
+          "count": 25,
+          "totalMs": 2.6319359999997687,
+          "averageMs": 0.10527743999999074
+        },
+        {
+          "service": "supabase",
+          "operation": "read-fsc-snapshot",
+          "count": 25,
+          "totalMs": 281.1929549999968,
+          "averageMs": 11.247718199999872
+        },
+        {
+          "service": "server",
+          "operation": "index-transform",
+          "count": 5,
+          "totalMs": 0.1316099999985454,
+          "averageMs": 0.026321999999709078
+        },
+        {
+          "service": "server",
+          "operation": "market-quote-transform",
+          "count": 5,
+          "totalMs": 16.407270000001517,
+          "averageMs": 3.2814540000003034
+        },
+        {
+          "service": "server",
+          "operation": "market-ranking",
+          "count": 5,
+          "totalMs": 4.28628099999878,
+          "averageMs": 0.8572561999997561
+        },
+        {
+          "service": "server",
+          "operation": "stock-history-transform",
+          "count": 5,
+          "totalMs": 1.8674429999991844,
+          "averageMs": 0.37348859999983686
+        }
+      ]
+    },
+    "improvement": {
+      "e2eResponseTime": {
+        "milliseconds": 1251.3288860000002,
+        "seconds": 1.2513288860000003,
+        "percent": 93.44372798263292,
+        "speedup": 15.252570322754671
+      },
+      "internalResponseTime": {
+        "milliseconds": 1145.1605119999997,
+        "seconds": 1.1451605119999997,
+        "percent": 95.76669338289948,
+        "speedup": 23.62219632191258
+      },
+      "fscCalls": {
+        "before": 25,
+        "after": 0,
+        "decreasedBy": 25,
+        "percent": 100
+      }
+    }
+  },
+  "cacheExperiment": {
+    "evidencePreparation": {
+      "runs": 1,
+      "e2e": {
+        "totalMs": 1616.881433999999,
+        "averageMs": 1616.881433999999,
+        "p50Ms": 1616.881433999999,
+        "p95Ms": 1616.881433999999,
+        "individualMs": [
+          1616.881433999999
+        ]
+      },
+      "internal": {
+        "totalMs": 1580.2130000000016,
+        "averageMs": 1580.2130000000016,
+        "p50Ms": 1580.2130000000016,
+        "p95Ms": 1580.2130000000016,
+        "individualMs": [
+          1580.2130000000016
+        ]
+      },
+      "httpStatuses": [
+        200
+      ],
+      "vercelRegions": [
+        "icn1"
+      ],
+      "networkCalls": {
+        "fsc": 6,
+        "dart": 13,
+        "gemini": 0
+      },
+      "geminiTokens": {
+        "input": 0,
+        "output": 0,
+        "thoughts": 0,
+        "billableOutput": 0,
+        "total": 0
+      },
+      "supabase": {
+        "reads": 0,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "redis": {
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "eventSummary": [
+        {
+          "service": "fsc",
+          "operation": "getStockPriceInfo",
+          "count": 3,
+          "totalMs": 1087.3214630000002,
+          "averageMs": 362.44048766666674
+        },
+        {
+          "service": "fsc",
+          "operation": "getStockMarketIndex",
+          "count": 3,
+          "totalMs": 173.28447500000038,
+          "averageMs": 57.76149166666679
+        },
+        {
+          "service": "server",
+          "operation": "index-transform",
+          "count": 1,
+          "totalMs": 0.02770799999962037,
+          "averageMs": 0.02770799999962037
+        },
+        {
+          "service": "server",
+          "operation": "market-quote-transform",
+          "count": 1,
+          "totalMs": 3.228653000000122,
+          "averageMs": 3.228653000000122
+        },
+        {
+          "service": "server",
+          "operation": "market-ranking",
+          "count": 1,
+          "totalMs": 0.9891820000011649,
+          "averageMs": 0.9891820000011649
+        },
+        {
+          "service": "server",
+          "operation": "stock-history-transform",
+          "count": 1,
+          "totalMs": 0.27662600000076054,
+          "averageMs": 0.27662600000076054
+        },
+        {
+          "service": "dart",
+          "operation": "list",
+          "count": 13,
+          "totalMs": 1459.498550000002,
+          "averageMs": 112.26911923076939
+        }
+      ]
+    },
+    "baseline": {
+      "runs": 5,
+      "e2e": {
+        "totalMs": 16747.546246999995,
+        "averageMs": 3349.509249399999,
+        "p50Ms": 3379.4890010000017,
+        "p95Ms": 3679.8948949999976,
+        "individualMs": [
+          3236.6321470000003,
+          3679.8948949999976,
+          3379.4890010000017,
+          3042.3347409999988,
+          3409.1954629999964
+        ]
+      },
+      "internal": {
+        "totalMs": 16197.806147999998,
+        "averageMs": 3239.5612295999995,
+        "p50Ms": 3311.6780940000026,
+        "p95Ms": 3391.106633000003,
+        "individualMs": [
+          3199.928403,
+          3391.106633000003,
+          3311.6780940000026,
+          2967.8413479999945,
+          3327.251669999998
+        ]
+      },
+      "httpStatuses": [
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "vercelRegions": [
+        "icn1"
+      ],
+      "networkCalls": {
+        "fsc": 0,
+        "dart": 0,
+        "gemini": 5
+      },
+      "geminiTokens": {
+        "input": 24990,
+        "output": 5246,
+        "thoughts": 0,
+        "billableOutput": 5246,
+        "total": 30236
+      },
+      "supabase": {
+        "reads": 0,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "redis": {
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "eventSummary": [
+        {
+          "service": "gemini",
+          "operation": "gemini-3.5-flash-lite",
+          "count": 5,
+          "totalMs": 16191.50525599999,
+          "averageMs": 3238.301051199998
+        }
+      ]
+    },
+    "cold": {
+      "runs": 1,
+      "e2e": {
+        "totalMs": 3303.1073460000043,
+        "averageMs": 3303.1073460000043,
+        "p50Ms": 3303.1073460000043,
+        "p95Ms": 3303.1073460000043,
+        "individualMs": [
+          3303.1073460000043
+        ]
+      },
+      "internal": {
+        "totalMs": 3229.783819999997,
+        "averageMs": 3229.783819999997,
+        "p50Ms": 3229.783819999997,
+        "p95Ms": 3229.783819999997,
+        "individualMs": [
+          3229.783819999997
+        ]
+      },
+      "httpStatuses": [
+        200
+      ],
+      "vercelRegions": [
+        "icn1"
+      ],
+      "networkCalls": {
+        "fsc": 0,
+        "dart": 0,
+        "gemini": 1
+      },
+      "geminiTokens": {
+        "input": 4998,
+        "output": 1019,
+        "thoughts": 0,
+        "billableOutput": 1019,
+        "total": 6017
+      },
+      "supabase": {
+        "reads": 0,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "redis": {
+        "hits": 0,
+        "misses": 1,
+        "writes": 1
+      },
+      "eventSummary": [
+        {
+          "service": "redis",
+          "operation": "get-briefing",
+          "count": 1,
+          "totalMs": 122.50643499998841,
+          "averageMs": 122.50643499998841
+        },
+        {
+          "service": "redis",
+          "operation": "briefing-cache",
+          "count": 2,
+          "totalMs": 0,
+          "averageMs": 0
+        },
+        {
+          "service": "gemini",
+          "operation": "gemini-3.5-flash-lite",
+          "count": 1,
+          "totalMs": 3064.502345999994,
+          "averageMs": 3064.502345999994
+        },
+        {
+          "service": "redis",
+          "operation": "set-briefing",
+          "count": 1,
+          "totalMs": 41.24688099999912,
+          "averageMs": 41.24688099999912
+        }
+      ],
+      "geminiCalled": true,
+      "redisMiss": true,
+      "cacheWriteSucceeded": true
+    },
+    "warm": {
+      "runs": 5,
+      "e2e": {
+        "totalMs": 377.84537000001,
+        "averageMs": 75.569074000002,
+        "p50Ms": 75.61667899999884,
+        "p95Ms": 76.40896599998814,
+        "individualMs": [
+          75.83684400000493,
+          75.19905400001153,
+          75.61667899999884,
+          74.78382700000657,
+          76.40896599998814
+        ]
+      },
+      "internal": {
+        "totalMs": 205.55953299999237,
+        "averageMs": 41.11190659999848,
+        "p50Ms": 40.948211999988416,
+        "p95Ms": 41.46796999999788,
+        "individualMs": [
+          40.948211999988416,
+          41.41519800000242,
+          40.922709999998915,
+          40.80544300000474,
+          41.46796999999788
+        ]
+      },
+      "httpStatuses": [
+        200,
+        200,
+        200,
+        200,
+        200
+      ],
+      "vercelRegions": [
+        "icn1"
+      ],
+      "networkCalls": {
+        "fsc": 0,
+        "dart": 0,
+        "gemini": 0
+      },
+      "geminiTokens": {
+        "input": 0,
+        "output": 0,
+        "thoughts": 0,
+        "billableOutput": 0,
+        "total": 0
+      },
+      "supabase": {
+        "reads": 0,
+        "hits": 0,
+        "misses": 0,
+        "writes": 0
+      },
+      "redis": {
+        "hits": 5,
+        "misses": 0,
+        "writes": 0
+      },
+      "eventSummary": [
+        {
+          "service": "redis",
+          "operation": "get-briefing",
+          "count": 5,
+          "totalMs": 204.15403599999263,
+          "averageMs": 40.830807199998524
+        },
+        {
+          "service": "redis",
+          "operation": "briefing-cache",
+          "count": 5,
+          "totalMs": 0,
+          "averageMs": 0
+        }
+      ]
+    },
+    "improvement": {
+      "e2eResponseTime": {
+        "milliseconds": 3273.9401753999973,
+        "seconds": 3.2739401753999973,
+        "percent": 97.7438762405705,
+        "speedup": 44.32380962349638
+      },
+      "internalResponseTime": {
+        "milliseconds": 3198.449323000001,
+        "seconds": 3.198449323000001,
+        "percent": 98.73094213425085,
+        "speedup": 78.79861328543005
+      },
+      "geminiCalls": {
+        "before": 5,
+        "after": 0,
+        "decreasedBy": 5,
+        "percent": 100
+      },
+      "geminiTokens": {
+        "input": {
+          "before": 24990,
+          "after": 0,
+          "decreasedBy": 24990,
+          "percent": 100
+        },
+        "output": {
+          "before": 5246,
+          "after": 0,
+          "decreasedBy": 5246,
+          "percent": 100
+        },
+        "thoughts": {
+          "before": 0,
+          "after": 0,
+          "decreasedBy": 0,
+          "percent": null
+        },
+        "total": {
+          "before": 30236,
+          "after": 0,
+          "decreasedBy": 30236,
+          "percent": 100
+        }
+      }
+    },
+    "projectedCosts": [
+      {
+        "requests": 100,
+        "beforeUsd": 0.41223999999999994,
+        "afterUsd": 0.0040469,
+        "savedUsd": 0.4081930999999999,
+        "savedPercent": 99.01831457403453
+      },
+      {
+        "requests": 1000,
+        "beforeUsd": 4.1224,
+        "afterUsd": 0.0040469,
+        "savedUsd": 4.1183531,
+        "savedPercent": 99.90183145740346
+      },
+      {
+        "requests": 10000,
+        "beforeUsd": 41.224000000000004,
+        "afterUsd": 0.0040469,
+        "savedUsd": 41.219953100000005,
+        "savedPercent": 99.99018314574035
+      }
+    ]
+  }
+}

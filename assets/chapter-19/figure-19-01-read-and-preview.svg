@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" role="img" aria-labelledby="title desc">
+<defs>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#1F2937" flood-opacity=".10" />
+  </filter>
+  <linearGradient id="blueBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#F4F8FF" /><stop offset="1" stop-color="#E6F0FF" />
+  </linearGradient>
+  <linearGradient id="purpleBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#FAF8FF" /><stop offset="1" stop-color="#F0E8FF" />
+  </linearGradient>
+  <linearGradient id="greenBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#F3FBF8" /><stop offset="1" stop-color="#E6F6F0" />
+  </linearGradient>
+</defs>
+<title id="title">읽고 준비하되, 아직 보내지 않습니다</title>
+<desc id="desc">한 영상에서 읽은 댓글을 분류하고, 내 컴퓨터에서 초안을 확인합니다. 이 그림은 실행 화면이 아니라 설명용 벡터 도식입니다.</desc>
+
+<rect width="1440" height="860" fill="#FFFFFF" />
+
+<text x="720" y="78" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="42" font-weight="700" fill="#18212F">읽고 준비하되, 아직 보내지 않습니다</text>
+<text x="720" y="116" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="21" fill="#667085">한 영상에서 읽은 댓글을 분류하고, 내 컴퓨터에서 초안을 확인합니다</text>
+
+
+<rect x="70" y="205" width="380" height="330" rx="30" fill="url(#blueBg)" stroke="#A7C7EA" stroke-width="2" filter="url(#shadow)" />
+<circle cx="125" cy="260" r="23" fill="#D7E9FC" />
+<path d="M113 250 H137 Q140 250 140 253 V268 Q140 271 137 271 H113 Q110 271 110 268 V253 Q110 250 113 250 Z" fill="none" stroke="#356FA8" stroke-width="3" />
+<path d="M111 276 H139" stroke="#356FA8" stroke-width="3" stroke-linecap="round" />
+<text x="165" y="270" font-family="Arial,'Noto Sans KR',sans-serif" font-size="29" font-weight="700" fill="#255B8E">승인한 영상 한 편</text>
+<rect x="105" y="315" width="310" height="165" rx="20" fill="#FFFFFF" stroke="#C5D9EE" stroke-width="2" />
+<text x="260" y="357" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#18212F">공개된 최상위 댓글</text>
+<text x="260" y="398" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="20" fill="#566171">최대 20개만 읽기</text>
+<text x="260" y="433" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#566171">답글 전송 권한과는 구분</text>
+<text x="260" y="469" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="16" fill="#667085">읽기 범위만 먼저 제한합니다</text>
+
+
+<rect x="530" y="205" width="380" height="330" rx="30" fill="url(#greenBg)" stroke="#9ED8CA" stroke-width="2" filter="url(#shadow)" />
+<circle cx="585" cy="260" r="23" fill="#D8F0E9" />
+<path d="M574 270 Q574 248 585 248 Q596 248 596 270" fill="none" stroke="#438C80" stroke-width="3" stroke-linecap="round" />
+<circle cx="585" cy="255" r="6" fill="none" stroke="#438C80" stroke-width="3" />
+<text x="625" y="270" font-family="Arial,'Noto Sans KR',sans-serif" font-size="29" font-weight="700" fill="#397D72">AI 분류와 초안</text>
+<rect x="565" y="315" width="310" height="165" rx="20" fill="#FFFFFF" stroke="#BEE0D7" stroke-width="2" />
+<text x="720" y="357" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#18212F">다섯 종류 중 하나</text>
+<text x="720" y="398" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="20" fill="#566171">문맥 검사 + 프로그램 검사</text>
+<text x="720" y="433" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#566171">불확실하면 사람에게</text>
+<text x="720" y="469" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="16" fill="#667085">AI의 분류는 제안입니다</text>
+
+
+<rect x="990" y="205" width="380" height="330" rx="30" fill="url(#purpleBg)" stroke="#C6B1EA" stroke-width="2" filter="url(#shadow)" />
+<circle cx="1045" cy="260" r="23" fill="#E7DDF8" />
+<rect x="1031" y="249" width="28" height="18" rx="3" fill="none" stroke="#7653A6" stroke-width="3" />
+<path d="M1027 272 H1063" stroke="#7653A6" stroke-width="3" stroke-linecap="round" />
+<text x="1085" y="270" font-family="Arial,'Noto Sans KR',sans-serif" font-size="29" font-weight="700" fill="#684493">로컬 미리보기</text>
+<rect x="1025" y="315" width="310" height="165" rx="20" fill="#FFFFFF" stroke="#D7C7F0" stroke-width="2" />
+<text x="1180" y="357" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#18212F">종류 · 처리 수준 · 초안</text>
+<text x="1180" y="398" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="20" fill="#566171">YouTube로 전송하지 않음</text>
+<text x="1180" y="433" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="19" fill="#566171">비밀값은 표시하지 않음</text>
+<text x="1180" y="469" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="16" fill="#667085">내 컴퓨터에서만 확인</text>
+
+
+<path d="M455 370 L508 370" stroke="#7EA9D2" stroke-width="4" stroke-linecap="round" />
+<path d="M508 370 L494 362 M508 370 L494 378" fill="none" stroke="#7EA9D2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M915 370 L968 370" stroke="#7EA9D2" stroke-width="4" stroke-linecap="round" />
+<path d="M968 370 L954 362 M968 370 L954 378" fill="none" stroke="#7EA9D2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+<text x="485" y="335" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" font-weight="700" fill="#5D84B3">읽기</text>
+<text x="945" y="335" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" font-weight="700" fill="#5D84B3">준비</text>
+
+
+<rect x="175" y="610" width="1090" height="100" rx="24" fill="#F8FAFC" stroke="#E5EAF0" filter="url(#shadow)" />
+<text x="720" y="648" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#18212F">19장의 완료는 초안 확인입니다.</text>
+<text x="720" y="683" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="20" fill="#566171">실제 전송과 예약은 20장에서 별도 승인 후 연결합니다.</text>
+
+</svg>

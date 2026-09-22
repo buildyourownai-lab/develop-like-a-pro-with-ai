@@ -1,0 +1,17 @@
+{
+  "duration_seconds": {
+    "min": 40,
+    "max": 90
+  },
+  "width": 1080,
+  "height": 1920,
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "audio_mean_volume_min_db": -45,
+  "black_frame_min_seconds": 1.5,
+  "required_visual_judgments": [
+    "subtitles_present_and_readable",
+    "subjects_not_severely_cropped",
+    "no_obvious_visual_corruption"
+  ]
+}

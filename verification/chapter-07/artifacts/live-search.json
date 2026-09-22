@@ -1,0 +1,566 @@
+{
+  "query": {
+    "region": "서울 강남구 대치동",
+    "minAreaM2": 80,
+    "maxAreaM2": 90,
+    "minPriceManwon": 200000,
+    "maxPriceManwon": 300000,
+    "maxSubwayDistanceM": 800,
+    "maxElementaryDistanceM": 1000
+  },
+  "resolvedRegion": {
+    "name": "서울 강남구 대치동",
+    "addressPrefix": "서울 강남구 대치동",
+    "districtCode": "11680",
+    "legalDong": "대치동"
+  },
+  "queriedOn": "2026-08-29",
+  "period": {
+    "from": "2025-08-29",
+    "to": "2026-08-29"
+  },
+  "counts": {
+    "rawRowsInExactPeriod": 2918,
+    "cancelledTransactions": 165,
+    "regionAreaNormalRows": 95,
+    "apartmentsWithRegionAreaTransactions": 26,
+    "noPriceRangeMatchApartments": 19,
+    "lifestyleFailedApartments": 0,
+    "addressUnmatchedApartments": 0,
+    "candidates": 7
+  },
+  "candidates": [
+    {
+      "id": "address:11680:대치동:1031:대치더클래스",
+      "name": "대치더클래스",
+      "aptSeq": null,
+      "lotAddress": "서울 강남구 대치동 1031",
+      "matchedAddress": "서울 강남구 대치동 1031",
+      "normalTransactionCount": 3,
+      "priceRangeManwon": {
+        "min": 208000,
+        "max": 235000
+      },
+      "latestDate": "2026-06-22",
+      "latestTransactions": [
+        {
+          "date": "2026-06-22",
+          "amountManwon": 235000,
+          "areaM2": 84.22,
+          "floor": 4
+        }
+      ],
+      "priceRangeTransactionCount": 3,
+      "transactions": [
+        {
+          "date": "2025-09-26",
+          "amountManwon": 228500,
+          "areaM2": 84.12,
+          "floor": 5
+        },
+        {
+          "date": "2026-06-03",
+          "amountManwon": 208000,
+          "areaM2": 84.12,
+          "floor": 4
+        },
+        {
+          "date": "2026-06-22",
+          "amountManwon": 235000,
+          "areaM2": 84.22,
+          "floor": 4
+        }
+      ],
+      "conditions": [
+        {
+          "id": "subway",
+          "label": "지하철역",
+          "maxDistanceM": 800,
+          "place": {
+            "name": "대치역 3호선",
+            "distanceM": 371,
+            "categoryName": "교통,수송 > 지하철,전철 > 수도권3호선"
+          }
+        },
+        {
+          "id": "elementarySchool",
+          "label": "초등학교",
+          "maxDistanceM": 1000,
+          "place": {
+            "name": "서울대곡초등학교",
+            "distanceM": 467,
+            "categoryName": "교육,학문 > 학교 > 초등학교"
+          }
+        }
+      ]
+    },
+    {
+      "id": "address:11680:대치동:974:대치현대",
+      "name": "대치현대",
+      "aptSeq": null,
+      "lotAddress": "서울 강남구 대치동 974",
+      "matchedAddress": "서울 강남구 대치동 974",
+      "normalTransactionCount": 5,
+      "priceRangeManwon": {
+        "min": 282000,
+        "max": 360000
+      },
+      "latestDate": "2026-06-05",
+      "latestTransactions": [
+        {
+          "date": "2026-06-05",
+          "amountManwon": 302000,
+          "areaM2": 85,
+          "floor": 12
+        }
+      ],
+      "priceRangeTransactionCount": 2,
+      "transactions": [
+        {
+          "date": "2025-09-23",
+          "amountManwon": 282000,
+          "areaM2": 85,
+          "floor": 1
+        },
+        {
+          "date": "2025-11-29",
+          "amountManwon": 323000,
+          "areaM2": 85,
+          "floor": 3
+        },
+        {
+          "date": "2026-01-21",
+          "amountManwon": 360000,
+          "areaM2": 85,
+          "floor": 22
+        },
+        {
+          "date": "2026-04-21",
+          "amountManwon": 285000,
+          "areaM2": 85,
+          "floor": 2
+        },
+        {
+          "date": "2026-06-05",
+          "amountManwon": 302000,
+          "areaM2": 85,
+          "floor": 12
+        }
+      ],
+      "conditions": [
+        {
+          "id": "subway",
+          "label": "지하철역",
+          "maxDistanceM": 800,
+          "place": {
+            "name": "대치역 3호선",
+            "distanceM": 740,
+            "categoryName": "교통,수송 > 지하철,전철 > 수도권3호선"
+          }
+        },
+        {
+          "id": "elementarySchool",
+          "label": "초등학교",
+          "maxDistanceM": 1000,
+          "place": {
+            "name": "서울대현초등학교",
+            "distanceM": 417,
+            "categoryName": "교육,학문 > 학교 > 초등학교"
+          }
+        }
+      ]
+    },
+    {
+      "id": "address:11680:대치동:1027:래미안대치팰리스",
+      "name": "래미안대치팰리스",
+      "aptSeq": null,
+      "lotAddress": "서울 강남구 대치동 1027",
+      "matchedAddress": "서울 강남구 대치동 1027",
+      "normalTransactionCount": 9,
+      "priceRangeManwon": {
+        "min": 250000,
+        "max": 475000
+      },
+      "latestDate": "2026-06-03",
+      "latestTransactions": [
+        {
+          "date": "2026-06-03",
+          "amountManwon": 440000,
+          "areaM2": 84.97,
+          "floor": 15
+        }
+      ],
+      "priceRangeTransactionCount": 1,
+      "transactions": [
+        {
+          "date": "2025-10-14",
+          "amountManwon": 250000,
+          "areaM2": 84.97,
+          "floor": 19
+        },
+        {
+          "date": "2025-11-06",
+          "amountManwon": 475000,
+          "areaM2": 84.97,
+          "floor": 21
+        },
+        {
+          "date": "2026-03-13",
+          "amountManwon": 415000,
+          "areaM2": 84.97,
+          "floor": 12
+        },
+        {
+          "date": "2026-03-16",
+          "amountManwon": 419000,
+          "areaM2": 84.97,
+          "floor": 4
+        },
+        {
+          "date": "2026-03-19",
+          "amountManwon": 405000,
+          "areaM2": 84.98,
+          "floor": 14
+        },
+        {
+          "date": "2026-05-06",
+          "amountManwon": 439000,
+          "areaM2": 84.98,
+          "floor": 11
+        },
+        {
+          "date": "2026-05-07",
+          "amountManwon": 425000,
+          "areaM2": 84.97,
+          "floor": 13
+        },
+        {
+          "date": "2026-05-08",
+          "amountManwon": 430000,
+          "areaM2": 84.99,
+          "floor": 15
+        },
+        {
+          "date": "2026-06-03",
+          "amountManwon": 440000,
+          "areaM2": 84.97,
+          "floor": 15
+        }
+      ],
+      "conditions": [
+        {
+          "id": "subway",
+          "label": "지하철역",
+          "maxDistanceM": 800,
+          "place": {
+            "name": "도곡역 수인분당선",
+            "distanceM": 391,
+            "categoryName": "교통,수송 > 지하철,전철 > 수인분당선"
+          }
+        },
+        {
+          "id": "elementarySchool",
+          "label": "초등학교",
+          "maxDistanceM": 1000,
+          "place": {
+            "name": "서울대도초등학교",
+            "distanceM": 460,
+            "categoryName": "교육,학문 > 학교 > 초등학교"
+          }
+        }
+      ]
+    },
+    {
+      "id": "address:11680:대치동:975-20:세영팔레스타운",
+      "name": "세영팔레스타운",
+      "aptSeq": null,
+      "lotAddress": "서울 강남구 대치동 975-20",
+      "matchedAddress": "서울 강남구 대치동 975-20",
+      "normalTransactionCount": 2,
+      "priceRangeManwon": {
+        "min": 200000,
+        "max": 236700
+      },
+      "latestDate": "2026-04-18",
+      "latestTransactions": [
+        {
+          "date": "2026-04-18",
+          "amountManwon": 200000,
+          "areaM2": 84.85,
+          "floor": 3
+        }
+      ],
+      "priceRangeTransactionCount": 2,
+      "transactions": [
+        {
+          "date": "2026-03-05",
+          "amountManwon": 236700,
+          "areaM2": 84.85,
+          "floor": 8
+        },
+        {
+          "date": "2026-04-18",
+          "amountManwon": 200000,
+          "areaM2": 84.85,
+          "floor": 3
+        }
+      ],
+      "conditions": [
+        {
+          "id": "subway",
+          "label": "지하철역",
+          "maxDistanceM": 800,
+          "place": {
+            "name": "대치역 3호선",
+            "distanceM": 705,
+            "categoryName": "교통,수송 > 지하철,전철 > 수도권3호선"
+          }
+        },
+        {
+          "id": "elementarySchool",
+          "label": "초등학교",
+          "maxDistanceM": 1000,
+          "place": {
+            "name": "서울대현초등학교",
+            "distanceM": 378,
+            "categoryName": "교육,학문 > 학교 > 초등학교"
+          }
+        }
+      ]
+    },
+    {
+      "id": "address:11680:대치동:66:쌍용대치아파트1동,2동,3동,5동,6동",
+      "name": "쌍용대치아파트1동,2동,3동,5동,6동",
+      "aptSeq": null,
+      "lotAddress": "서울 강남구 대치동 66",
+      "matchedAddress": "서울 강남구 대치동 66",
+      "normalTransactionCount": 5,
+      "priceRangeManwon": {
+        "min": 230000,
+        "max": 375000
+      },
+      "latestDate": "2026-04-07",
+      "latestTransactions": [
+        {
+          "date": "2026-04-07",
+          "amountManwon": 323000,
+          "areaM2": 83.56,
+          "floor": 3
+        }
+      ],
+      "priceRangeTransactionCount": 1,
+      "transactions": [
+        {
+          "date": "2025-09-30",
+          "amountManwon": 375000,
+          "areaM2": 83.56,
+          "floor": 4
+        },
+        {
+          "date": "2025-11-05",
+          "amountManwon": 230000,
+          "areaM2": 83.56,
+          "floor": 14
+        },
+        {
+          "date": "2025-12-12",
+          "amountManwon": 370000,
+          "areaM2": 83.56,
+          "floor": 2
+        },
+        {
+          "date": "2025-12-31",
+          "amountManwon": 373000,
+          "areaM2": 83.56,
+          "floor": 2
+        },
+        {
+          "date": "2026-04-07",
+          "amountManwon": 323000,
+          "areaM2": 83.56,
+          "floor": 3
+        }
+      ],
+      "conditions": [
+        {
+          "id": "subway",
+          "label": "지하철역",
+          "maxDistanceM": 800,
+          "place": {
+            "name": "학여울역 3호선",
+            "distanceM": 132,
+            "categoryName": "교통,수송 > 지하철,전철 > 수도권3호선"
+          }
+        },
+        {
+          "id": "elementarySchool",
+          "label": "초등학교",
+          "maxDistanceM": 1000,
+          "place": {
+            "name": "서울대진초등학교",
+            "distanceM": 632,
+            "categoryName": "교육,학문 > 학교 > 초등학교"
+          }
+        }
+      ]
+    },
+    {
+      "id": "address:11680:대치동:986-14:하이캐슬",
+      "name": "하이캐슬",
+      "aptSeq": null,
+      "lotAddress": "서울 강남구 대치동 986-14",
+      "matchedAddress": "서울 강남구 대치동 986-14",
+      "normalTransactionCount": 1,
+      "priceRangeManwon": {
+        "min": 233000,
+        "max": 233000
+      },
+      "latestDate": "2025-10-15",
+      "latestTransactions": [
+        {
+          "date": "2025-10-15",
+          "amountManwon": 233000,
+          "areaM2": 84.27,
+          "floor": 5
+        }
+      ],
+      "priceRangeTransactionCount": 1,
+      "transactions": [
+        {
+          "date": "2025-10-15",
+          "amountManwon": 233000,
+          "areaM2": 84.27,
+          "floor": 5
+        }
+      ],
+      "conditions": [
+        {
+          "id": "subway",
+          "label": "지하철역",
+          "maxDistanceM": 800,
+          "place": {
+            "name": "대치역 3호선",
+            "distanceM": 674,
+            "categoryName": "교통,수송 > 지하철,전철 > 수도권3호선"
+          }
+        },
+        {
+          "id": "elementarySchool",
+          "label": "초등학교",
+          "maxDistanceM": 1000,
+          "place": {
+            "name": "서울대현초등학교",
+            "distanceM": 376,
+            "categoryName": "교육,학문 > 학교 > 초등학교"
+          }
+        }
+      ]
+    },
+    {
+      "id": "address:11680:대치동:992:현대1",
+      "name": "현대1",
+      "aptSeq": null,
+      "lotAddress": "서울 강남구 대치동 992",
+      "matchedAddress": "서울 강남구 대치동 992",
+      "normalTransactionCount": 9,
+      "priceRangeManwon": {
+        "min": 137500,
+        "max": 260000
+      },
+      "latestDate": "2026-07-03",
+      "latestTransactions": [
+        {
+          "date": "2026-07-03",
+          "amountManwon": 251000,
+          "areaM2": 84.27,
+          "floor": 10
+        }
+      ],
+      "priceRangeTransactionCount": 8,
+      "transactions": [
+        {
+          "date": "2025-09-15",
+          "amountManwon": 260000,
+          "areaM2": 84.27,
+          "floor": 14
+        },
+        {
+          "date": "2025-09-26",
+          "amountManwon": 137500,
+          "areaM2": 84.27,
+          "floor": 4
+        },
+        {
+          "date": "2025-10-13",
+          "amountManwon": 250000,
+          "areaM2": 84.27,
+          "floor": 9
+        },
+        {
+          "date": "2025-10-31",
+          "amountManwon": 255000,
+          "areaM2": 84.27,
+          "floor": 2
+        },
+        {
+          "date": "2026-01-15",
+          "amountManwon": 250000,
+          "areaM2": 84.27,
+          "floor": 11
+        },
+        {
+          "date": "2026-02-19",
+          "amountManwon": 250000,
+          "areaM2": 84.27,
+          "floor": 6
+        },
+        {
+          "date": "2026-04-23",
+          "amountManwon": 237500,
+          "areaM2": 84.27,
+          "floor": 9
+        },
+        {
+          "date": "2026-05-29",
+          "amountManwon": 249800,
+          "areaM2": 84.27,
+          "floor": 9
+        },
+        {
+          "date": "2026-07-03",
+          "amountManwon": 251000,
+          "areaM2": 84.27,
+          "floor": 10
+        }
+      ],
+      "conditions": [
+        {
+          "id": "subway",
+          "label": "지하철역",
+          "maxDistanceM": 800,
+          "place": {
+            "name": "학여울역 3호선",
+            "distanceM": 617,
+            "categoryName": "교통,수송 > 지하철,전철 > 수도권3호선"
+          }
+        },
+        {
+          "id": "elementarySchool",
+          "label": "초등학교",
+          "maxDistanceM": 1000,
+          "place": {
+            "name": "서울대현초등학교",
+            "distanceM": 467,
+            "categoryName": "교육,학문 > 학교 > 초등학교"
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "최근 1년 정상 거래가 없는 아파트는 결과에서 제외됩니다.",
+    "실거래가격은 과거 신고 거래이며 현재 매물 가격이나 미래 가격이 아닙니다.",
+    "거리는 Kakao가 계산한 좌표 사이 직선거리이며 보행거리와 다를 수 있습니다.",
+    "초등학교와 가깝다는 사실은 통학구역·교육환경·학군을 뜻하지 않습니다."
+  ]
+}

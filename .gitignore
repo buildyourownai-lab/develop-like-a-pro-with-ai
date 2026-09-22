@@ -1,0 +1,14 @@
+*.xlsx
+*.xls
+kobis_2024_snapshot.json
+
+# 검증에서 실제로 만들어진 결과물은 공개한다
+!verification/chapter-*/artifacts/*.xlsx
+
+# 장별 Source가 실습 결과로 만드는 기준 자료는 그 폴더만으로 실행되게 함께 올린다
+!chapters/*/source/*/source/*.xlsx
+.venv/
+node_modules/
+__pycache__/
+.DS_Store
+.idea/

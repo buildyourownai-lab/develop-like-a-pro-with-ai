@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch11",
+  "number": 11,
+  "title": "11장. 주가부터 공시까지, AI가 한 번에 브리핑합니다",
+  "manuscript": "book/16-chapter-11.md",
+  "manuscript_sha256": "95bee08d8327fb47c1c1d2046bd7e6b49646ceb90cf1add4b536e0573f27115c",
+  "outcome": "확인한 사실과 근거 안에서 생성한 AI 브리핑을 검증해 공개합니다.",
+  "project": "ai-stock-briefing",
+  "start_state": "9~10장의 시세·차트·공시·원문 경로가 작동합니다.",
+  "previously_completed_features": "금융위·OpenDART·주식 화면",
+  "required_services": [
+    "gemini",
+    "vercel",
+    "github",
+    "data-go-kr",
+    "opendart"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "gemini",
+      "details": "../../services/gemini.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "vercel",
+      "details": "../../services/vercel.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "github",
+      "details": "../../services/github.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "data-go-kr",
+      "details": "../../services/data-go-kr.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "opendart",
+      "details": "../../services/opendart.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "기존 Next.js",
+    "Gemini 연동 라이브러리"
+  ],
+  "new_features": "근거 묶음·AI 구조화 응답·검증·실패 격리·배포",
+  "out_of_scope": "AI에게 근거 없는 조사·투자 권유·인과 추정을 맡기거나 키를 클라이언트에 넣지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch11-g01",
+      "title": "Gemini 준비",
+      "criterion": "프로젝트·키·사용 모델·한도를 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "프로젝트·키·사용 모델·한도를 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch11-g02",
+      "title": "근거 묶음",
+      "criterion": "사실·기준일·공시·근거 ID를 준비",
+      "required": true,
+      "depends_on": [
+        "ch11-g01"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "사실·기준일·공시·근거 ID를 준비. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch11-g03",
+      "title": "AI 생성",
+      "criterion": "해당 근거로 실제 모델 응답을 받음",
+      "required": true,
+      "depends_on": [
+        "ch11-g02"
+      ],
+      "evidence_types": [
+        "live-api",
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "verify_instructions": "해당 근거로 실제 모델 응답을 받음. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch11-g04",
+      "title": "출력 검증",
+      "criterion": "구조·근거 ID·알 수 없는 것·금지 표현 검사",
+      "required": true,
+      "depends_on": [
+        "ch11-g03"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "구조·근거 ID·알 수 없는 것·금지 표현 검사. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch11-g05",
+      "title": "실패 격리",
+      "criterion": "AI 실패에도 시세·공시 원래 기능 유지",
+      "required": true,
+      "depends_on": [
+        "ch11-g04"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "AI 실패에도 시세·공시 원래 기능 유지. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch11-g06",
+      "title": "배포 연결",
+      "criterion": "실제 코드 변수명과 Vercel 환경 대응",
+      "required": true,
+      "depends_on": [
+        "ch11-g05"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "실제 코드 변수명과 Vercel 환경 대응. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch11-g07",
+      "title": "운영 전체 흐름",
+      "criterion": "Production에서 시세→공시→브리핑→근거 확인",
+      "required": true,
+      "depends_on": [
+        "ch11-g06"
+      ],
+      "evidence_types": [
+        "live-api",
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "verify_instructions": "Production에서 시세→공시→브리핑→근거 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "12장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "코드가 읽는 이름이 기준이며 저자 화면의 이름을 그대로 복사하지 않습니다. 모델 ID는 원고·설정·현재 서비스 지원을 대조하고 변경은 별도 검증합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch11",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H11-01",
+      "symptom": "Vercel 변수명이 헷갈림",
+      "levels": [
+        "Name과 Value를 먼저 구분합니다.",
+        "서버 코드가 어떤 설정 이름으로 세 키를 읽는지 봅니다.",
+        "환경변수 참조 파일·설정 모듈·SDK 전달 위치를 실제 프로젝트에서 확인합니다."
+      ],
+      "solution": "키 값은 출력하지 않고 서비스별 변수명·사용 파일·입력 위치를 표로 정리합니다. 같은 Name에 실제 Value를 직접 입력하고 Production 적용 후 새 배포합니다."
+    },
+    {
+      "id": "H11-02",
+      "symptom": "문장은 자연스러운데 근거가 없음",
+      "levels": [
+        "문장의 유창함보다 근거 ID를 봅니다.",
+        "프로그램 사실·AI 설명·알 수 없는 항목을 나눕니다.",
+        "각 설명에 연결된 근거 ID가 입력에 실제 존재하는지 확인합니다."
+      ],
+      "solution": "없는 근거 ID나 금지 추정이 있으면 해당 응답을 승인하지 않습니다. 검사를 낮추지 않고 원인을 확인한 뒤 재생성·재검사합니다."
+    },
+    {
+      "id": "H11-03",
+      "symptom": "배포 완료인데 브리핑 안 나옴",
+      "levels": [
+        "Ready는 배포 상태이지 모든 API 성공이 아닙니다.",
+        "실패가 시세·공시·Gemini 중 어디인지 나눕니다.",
+        "운영 환경의 변수 이름·모델 지원·응답 코드를 값 노출 없이 확인합니다."
+      ],
+      "solution": "실패 원인을 고치고 새 배포에서 실제 브리핑 생성까지 확인합니다. 시험 응답의 PASS를 운영 성공으로 기록하지 않습니다."
+    },
+    {
+      "id": "H11-MODEL-03",
+      "symptom": "모델을 사용할 수 없거나 교체가 필요합니다.",
+      "levels": [
+        "공식 지원 여부와 계정 사용량·한도를 확인하는 방법을 안내합니다. 확인하지 못한 계정 상태는 미확인으로 남깁니다.",
+        "모델 교체가 필요하면 사용 가능한 저비용 후보와 비용 조건을 안내합니다.",
+        "힌트 요청만으로 설정을 바꾸거나 유료 전환하지 않습니다. 후보 선택과 실제 변경 요청을 구분합니다."
+      ],
+      "solution": "독자가 후보를 선택하고 변경을 요청한 범위에서만 적용합니다. 변경 뒤 실제 응답과 관련 Test를 확인합니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "gemini",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/gemini.md"
+    },
+    {
+      "provider": "vercel",
+      "kind": "account",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/vercel.md"
+    },
+    {
+      "provider": "github",
+      "kind": "account",
+      "new_in_this_project": false,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/github.md"
+    },
+    {
+      "provider": "data-go-kr",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": false,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/data-go-kr.md"
+    },
+    {
+      "provider": "opendart",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": false,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/opendart.md"
+    }
+  ],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": true
+  }
+}

@@ -1,0 +1,17 @@
+Gemini 호출이 실패한 상태에서 기존 화면 확인 --- SK하이닉스(000660)
+실행 2026-08-31
+
+만드는 방법: production build로 서버를 띄울 때 GEMINI_API_KEY만 잘못된 값으로
+바꿨다. 화면 코드는 그대로다.
+
+Gemini 응답                          HTTP 400 (API key not valid)
+AI 브리핑 영역 오류 안내             표시됨
+상세 시세(시가·고가·저가) 남음       예
+최근 1년 차트 남음                   예
+최근 공시 남음                       예
+화면 본문에 API Key 값 노출          없음
+페이지 HTML에 API Key 값 노출        없음
+
+화면에 보인 안내 문구
+  AI 설명을 만들지 못했습니다: Gemini 호출 실패 (HTTP 400): API key not valid.
+  Please pass a valid API key. (아래 프로그램이 확인한 사실은 그대로 볼 수 있습니다.)

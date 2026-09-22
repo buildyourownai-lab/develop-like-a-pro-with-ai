@@ -1,0 +1,34 @@
+
+> ai-media-works@0.1.0 build
+> next build
+
+▲ Next.js 16.3.5 (Turbopack)
+✓ Running next.config.ts took 1290ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.3s
+  Running TypeScript ...
+  Finished TypeScript in 3.1s ...
+  Collecting page data using 11 workers ...
+  Generating static pages using 11 workers (0/3) ...
+✓ Generating static pages using 11 workers (3/3) in 151ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/auto-reply/enable
+├ ƒ /api/auto-reply/prepare
+├ ƒ /api/auto-reply/run
+├ ƒ /api/auto-reply/send
+├ ƒ /api/auto-reply/status
+├ ƒ /api/auto-reply/stop
+├ ƒ /api/auto-reply/target
+├ ƒ /api/comments
+├ ƒ /api/review
+└ ƒ /api/video
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

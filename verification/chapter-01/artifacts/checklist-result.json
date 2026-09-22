@@ -1,0 +1,75 @@
+{
+  "chapter": 1,
+  "title": "영화 흥행 기록으로 첫 Excel 보고서를 만들어봅니다",
+  "verifiedAt": "2026-08-29",
+  "verdict": "PASS",
+  "summary": "책의 요청문을 그대로 입력해 빈 폴더에서 3회 실행했고, 확인 목록 7개가 3회 모두 통과했다. 보고서의 20편 숫자는 KOBIS 공식통계 조회 결과와 전부 일치했다.",
+  "runs": 3,
+  "checklist": {
+    "reference": "1장 「영화 흥행 보고서를 직접 열어봅니다」",
+    "perRun": "7/7",
+    "items": [
+      { "n": 1, "label": "movie-report-2024.xlsx 파일이 실제로 생겼다", "result": "PASS" },
+      { "n": 2, "label": "파일이 정상적으로 열린다", "result": "PASS" },
+      { "n": 3, "label": "영화 TOP 20이 보인다", "result": "PASS" },
+      { "n": 4, "label": "관객수와 매출액이 보인다", "result": "PASS" },
+      { "n": 5, "label": "핵심 요약이 있다", "result": "PASS", "how": "요약값이 상세 20행 합계와 같은지 계산해 비교" },
+      { "n": 6, "label": "실제 데이터를 이용한 차트가 있다", "result": "PASS", "how": "차트가 실제 셀을 참조하는지 확인" },
+      { "n": 7, "label": "KOBIS 출처·조회 기준 연도·재현 정보가 있다", "result": "PASS" }
+    ],
+    "note": "검사는 시트 이름과 열 번호에 의존하지 않고 내용으로 찾는다. 보고서 배치가 실행마다 달라도 같은 기준으로 확인된다."
+  },
+  "source": {
+    "name": "영화진흥위원회 KOBIS 공식통계 연도별 박스오피스",
+    "url": "https://www.kobis.or.kr/kobis/business/stat/offc/findYearlyBoxOfficeList.do",
+    "queryYear": 2024,
+    "rowsUsed": 20,
+    "lastClosingMonthShownOnPage": "2026/07",
+    "caution": "월마감 자료이므로 재조회 시점에 따라 값이 보정될 수 있다."
+  },
+  "figures": {
+    "rank1": { "title": "파묘", "audience": 11913725, "revenue": 115148478414 },
+    "rank20": { "title": "퓨리오사: 매드맥스 사가", "audience": 1605454 },
+    "top20AudienceTotal": 78454312,
+    "top20RevenueTotal": 756816908335,
+    "crossCheck": {
+      "how": "KOBIS 공식통계에 직접 조회해 보고서와 대조",
+      "result": "3회 실행 모두 20편의 영화명·관객수·매출액이 전부 일치"
+    }
+  },
+  "authorChecks": {
+    "ranAt": "2026-08-29",
+    "note": "1장은 자동 검사를 만들기 전이므로 판정 기준은 확인 목록 7개다. 저자는 아래 두 검사를 직접 돌려 확인했다.",
+    "checks": [
+      {
+        "command": "python3 check7.py movie-report-2024.xlsx",
+        "checks": "확인 목록 7개를 보고서에서 실제로 찾을 수 있는가",
+        "result": "3회 실행 모두 7/7 PASS"
+      },
+      {
+        "command": "python3 fetch_kobis.py",
+        "checks": "보고서의 20편 영화명·관객수·매출액이 KOBIS 공식통계 조회 결과와 같은가",
+        "result": "20/20 일치"
+      }
+    ]
+  },
+  "chapterSource": {
+    "path": "chapters/ch01/source/movie-report/",
+    "contents": ["build_movie_report.py", "README.md"],
+    "checkedAt": "2026-08-29",
+    "result": "확인 목록 7/7 PASS",
+    "note": "1장을 끝낸 상태의 프로젝트. 이 폴더만 빈 폴더에 복사해 단독으로 실행해 보고서가 만들어지고 확인 목록 7개를 통과하는 것까지 확인했다."
+  },
+  "environment": {
+    "os": "macOS",
+    "claudeCode": "2.1.233",
+    "python": "3.9.6",
+    "openpyxl": "3.1.5"
+  },
+  "dataPolicy": "KOBIS 공식통계의 공개 집계값만 포함한다. 마지막 실행이 만든 movie-report-2024.xlsx는 이 폴더에 공개한다. KOBIS 원본 Excel은 재배포하지 않는다. Secret·Token·개인정보는 포함하지 않는다.",
+  "publishedReport": {
+    "path": "verification/chapter-01/artifacts/movie-report-2024.xlsx",
+    "sheets": ["TOP20", "차트", "요약", "출처"],
+    "note": "확인 목록 7/7을 통과한 파일 그대로다. 시트 구성과 배치는 실행마다 달라진다."
+  }
+}

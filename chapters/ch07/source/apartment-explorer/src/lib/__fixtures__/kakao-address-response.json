@@ -1,0 +1,12 @@
+{
+  "meta": { "total_count": 1 },
+  "documents": [
+    {
+      "address_name": "서울 강남구 테스트동 123-4",
+      "x": "127.055000",
+      "y": "37.500000",
+      "address": { "address_name": "서울 강남구 테스트동 123-4" },
+      "road_address": { "address_name": "서울 강남구 테스트로 10" }
+    }
+  ]
+}

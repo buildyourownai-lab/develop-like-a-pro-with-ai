@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Local reader state; never synchronized to public repo",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project",
+    "chapter",
+    "updated_at",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "chapter": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 22
+    },
+    "project": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "evidence.schema.json"
+      }
+    }
+  },
+  "description": "Progress totals are calculated, not saved as arbitrary manual completion counts."
+}

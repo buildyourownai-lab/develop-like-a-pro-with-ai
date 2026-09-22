@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="710" viewBox="0 0 1200 710" role="img" aria-labelledby="title desc">
+  <title id="title">켜는 방법과 함께 멈추는 방법도 만듭니다</title>
+  <desc id="desc">중단은 기록 삭제가 아닙니다. 재개해도 처음 시작한 기준과 처리 기록은 유지합니다. 이 그림은 실행 화면이 아니라 설명용 벡터 도식입니다.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1460CE" />
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="710" rx="0" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.8" />
+  <text x="48" y="40" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" font-weight="700" fill="#1460CE" text-anchor="start">20 / 03</text>
+  <text x="48" y="94" font-family="Arial,'Noto Sans KR',sans-serif" font-size="37" font-weight="700" fill="#10243A" text-anchor="start">켜는 방법과 함께 멈추는 방법도 만듭니다</text>
+  <text x="48" y="136" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" font-weight="400" fill="#546477" text-anchor="start">중단은 기록 삭제가 아닙니다. 재개해도 처음 시작한 기준과 처리 기록은 유지합니다.</text>
+  <line x1="48" y1="645" x2="1152" y2="645" stroke="#B4C4D7" stroke-width="1" />
+  <text x="48" y="681" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" font-weight="500" fill="#546477" text-anchor="start">프로처럼 AI로 코딩 없이 개발하기  ·  PART 6</text>
+  <text x="1152" y="681" font-family="Arial,'Noto Sans KR',sans-serif" font-size="18" font-weight="400" fill="#546477" text-anchor="end">개념도 · 실제 실행 화면 아님</text>
+  <rect x="48" y="213" width="323" height="180" rx="14" fill="#EAF2FD" stroke="#B4C4D7" stroke-width="1.8" />
+  <rect x="48" y="213" width="7" height="180" rx="3" fill="#1460CE" />
+  <text x="72" y="256" font-family="Arial,'Noto Sans KR',sans-serif" font-size="29" font-weight="700" fill="#1460CE" text-anchor="start">준비 · 꺼짐</text>
+  <text x="72" y="299.0" font-family="Arial,'Noto Sans KR',sans-serif" font-size="25" font-weight="400" fill="#546477" text-anchor="start">연결·시험·시작 시각 확인</text>
+  <text x="72" y="337.0" font-family="Arial,'Noto Sans KR',sans-serif" font-size="25" font-weight="400" fill="#546477" text-anchor="start">전송은 승인 후 시작</text>
+  <rect x="439" y="213" width="323" height="180" rx="14" fill="#E8F5F0" stroke="#B4C4D7" stroke-width="1.8" />
+  <rect x="439" y="213" width="7" height="180" rx="3" fill="#15766C" />
+  <text x="463" y="256" font-family="Arial,'Noto Sans KR',sans-serif" font-size="29" font-weight="700" fill="#15766C" text-anchor="start">승인한 자동 실행</text>
+  <text x="463" y="299.0" font-family="Arial,'Noto Sans KR',sans-serif" font-size="25" font-weight="400" fill="#546477" text-anchor="start">대상·범위·한도를 확인</text>
+  <text x="463" y="337.0" font-family="Arial,'Noto Sans KR',sans-serif" font-size="25" font-weight="400" fill="#546477" text-anchor="start">그 범위의 반복만 실행</text>
+  <rect x="829" y="213" width="323" height="180" rx="14" fill="#FFF4E3" stroke="#B4C4D7" stroke-width="1.8" />
+  <rect x="829" y="213" width="7" height="180" rx="3" fill="#8B5818" />
+  <text x="853" y="256" font-family="Arial,'Noto Sans KR',sans-serif" font-size="29" font-weight="700" fill="#8B5818" text-anchor="start">중지</text>
+  <text x="853" y="299.0" font-family="Arial,'Noto Sans KR',sans-serif" font-size="25" font-weight="400" fill="#546477" text-anchor="start">자동 전송을 먼저 끔</text>
+  <text x="853" y="337.0" font-family="Arial,'Noto Sans KR',sans-serif" font-size="25" font-weight="400" fill="#546477" text-anchor="start">예약 중지 · 상태 확인</text>
+  <line x1="373" y1="304" x2="437" y2="304" stroke="#1460CE" stroke-width="3" marker-end="url(#arrow)" />
+  <line x1="764" y1="304" x2="827" y2="304" stroke="#1460CE" stroke-width="3" marker-end="url(#arrow)" />
+  <rect x="48" y="455" width="1104" height="144" rx="14" fill="#EAF2FD" stroke="#B4C4D7" stroke-width="1.8" />
+  <text x="76" y="498" font-family="Arial,'Noto Sans KR',sans-serif" font-size="29" font-weight="700" fill="#1460CE" text-anchor="start">이미 전송 중이었다면 결과부터 확인합니다.</text>
+  <text x="76" y="541" font-family="Arial,'Noto Sans KR',sans-serif" font-size="25" font-weight="400" fill="#546477" text-anchor="start">재개해도 시작 시각·처리 기록은 보존합니다. 공개 답글은 Git 복구로 취소되지 않습니다.</text>
+</svg>

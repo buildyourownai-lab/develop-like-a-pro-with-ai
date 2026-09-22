@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Locally recorded observation; not independent attestation",
+  "type": "object",
+  "required": [
+    "objective",
+    "kind",
+    "outcome",
+    "environment",
+    "observer",
+    "observed_at",
+    "artifact",
+    "artifact_sha256",
+    "contract_sha256"
+  ],
+  "properties": {
+    "kind": {
+      "enum": [
+        "file-inspection",
+        "human-observation",
+        "official-source",
+        "test-run",
+        "live-api",
+        "live-ui",
+        "external-confirmation"
+      ]
+    },
+    "outcome": {
+      "enum": [
+        "pass",
+        "fail",
+        "blocked",
+        "expected-failure-observed"
+      ]
+    },
+    "environment": {
+      "enum": [
+        "local",
+        "manual",
+        "live",
+        "simulation"
+      ]
+    },
+    "observer": {
+      "enum": [
+        "reader",
+        "assistant",
+        "automated-test"
+      ]
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "contract_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

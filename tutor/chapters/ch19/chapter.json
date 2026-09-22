@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-part6-services-20260913",
+  "id": "ch19",
+  "number": 19,
+  "title": "19장. AI가 내 유튜브 댓글을 읽고 답글을 준비합니다",
+  "manuscript": "book/27-chapter-19.md",
+  "manuscript_sha256": "5c0ac8cf4586c3e809430ca82868ddd839bfb4baff9a517f816ad589db661483",
+  "outcome": "승인한 영상 한 편의 댓글을 읽어 종류·처리 수준·답글 초안을 로컬에서 확인합니다. 실제 전송은 하지 않습니다.",
+  "project": "ai-media-works",
+  "start_state": "18장의 영상·검수·업로드 기록은 별도 영상 폴더에 보존하고, ai-media-works를 조사하거나 새로 준비합니다. 댓글이 허용된 적절한 시험 영상이 필요합니다.",
+  "previously_completed_features": "16~18장의 영상과 업로드 방법, 6~12장의 서버·API·Gemini 사용 경험",
+  "required_services": [
+    "youtube",
+    "google-cloud",
+    "gemini"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "youtube",
+      "details": "../../services/youtube.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "google-cloud",
+      "details": "../../services/google-cloud.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "gemini",
+      "details": "../../services/gemini.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "Node.js",
+    "TypeScript",
+    "Next.js",
+    "기존 방식과 호환되는 Gemini SDK"
+  ],
+  "new_features": "댓글 조회, 다섯 종류·세 처리 수준, 초안과 두 검사, 로컬 미리보기",
+  "out_of_scope": "Google Chat·Queue·Worker·회원가입·YouTube Analytics·채널 전체 조회·실제 답글·공개 배포를 만들지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch19-r2-g01",
+      "title": "프로젝트 구분",
+      "criterion": "영상 프로젝트·주식서비스를 보존하고 댓글 도구의 실제 폴더와 실행 주소를 확인합니다.",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "영상 프로젝트·주식서비스를 보존하고 댓글 도구의 실제 폴더와 실행 주소를 확인합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch19-r2-g02",
+      "title": "영상·권한 준비",
+      "criterion": "내 채널의 영상과 댓글 사용 가능 여부, 실제 Token의 조회 범위를 확인합니다.",
+      "required": true,
+      "depends_on": [
+        "ch19-r2-g01"
+      ],
+      "evidence_types": [
+        "live-api"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": null,
+      "evidence_semantics": "observed-exercise-at-recorded-time",
+      "verify_instructions": "내 채널의 영상과 댓글 사용 가능 여부, 실제 Token의 조회 범위를 확인합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch19-r2-g03",
+      "title": "읽기 경계",
+      "criterion": "승인한 영상의 최상위 댓글만 읽고 오류·0건·부분 조회를 구분하며 쓰기를 호출하지 않습니다.",
+      "required": true,
+      "depends_on": [
+        "ch19-r2-g02"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "승인한 영상의 최상위 댓글만 읽고 오류·0건·부분 조회를 구분하며 쓰기를 호출하지 않습니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch19-r2-g04",
+      "title": "분류와 초안 검사",
+      "criterion": "다섯 종류와 세 처리 수준, 혼합·악성 지시·개인정보·검사 실패의 사람 전환을 시험합니다.",
+      "required": true,
+      "depends_on": [
+        "ch19-r2-g03"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "다섯 종류와 세 처리 수준, 혼합·악성 지시·개인정보·검사 실패의 사람 전환을 시험합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch19-r2-g05",
+      "title": "실제 자료 확인",
+      "criterion": "실제 댓글을 읽은 결과와 Gemini 분류·초안을 로컬 미리보기에서 확인합니다.",
+      "required": true,
+      "depends_on": [
+        "ch19-r2-g04"
+      ],
+      "evidence_types": [
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": null,
+      "evidence_semantics": "observed-exercise-at-recorded-time",
+      "verify_instructions": "실제 댓글을 읽은 결과와 Gemini 분류·초안을 로컬 미리보기에서 확인합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch19-r2-g06",
+      "title": "전송 없음 확인",
+      "criterion": "프로그램에 전송 경로가 없고, 실습 전후 실제 YouTube에 도구의 답글이 추가되지 않았는지 확인합니다.",
+      "required": true,
+      "depends_on": [
+        "ch19-r2-g05"
+      ],
+      "evidence_types": [
+        "external-confirmation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "evidence_semantics": "current-condition",
+      "verify_instructions": "프로그램에 전송 경로가 없고, 실습 전후 실제 YouTube에 도구의 답글이 추가되지 않았는지 확인합니다. 실제 수행한 근거만 등록하고, 설명 요청을 구현 또는 게시 승인으로 확대하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "필수 목표의 실제 증거만 계산합니다. 장별 명세·관찰 기록·독자 상태를 구분하고, 선택 공개·실기기·실계정의 미실시를 전체 완료로 부풀리지 않습니다.",
+  "handoff": "20장은 이 댓글 도구를 이어갑니다. 18장의 제작·검수·Publisher를 복사하거나 없애지 않습니다.",
+  "intentional_failure_policy": "격리된 시험 응답으로 오류를 주입합니다. 실계정 결과를 가장하지 않으며 실제 공개·게시·과금·삭제는 별도 승인 범위에서만 진행합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch19",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H19-VIDEO",
+      "symptom": "영상에 댓글을 쓸 수 없습니다.",
+      "levels": [
+        "먼저 영상의 공개 범위와 댓글 설정을 따로 보세요.",
+        "비공개 영상인지, 선택한 영상에 댓글이 허용되는지 확인합니다.",
+        "YouTube Studio에서 대상 채널·영상·아동용 여부·댓글 설정을 실제로 확인합니다. 제한을 우회하지 않습니다."
+      ],
+      "solution": "댓글이 허용된 적절한 시험 영상을 사람이 선택합니다. 영상 내용에 맞지 않게 아동용 여부를 바꾸거나 튜터가 임의 공개하지 않습니다."
+    },
+    {
+      "id": "H19-AUTH",
+      "symptom": "업로드는 되는데 댓글을 읽지 못합니다.",
+      "levels": [
+        "업로드 권한과 댓글 조회에 쓰는 권한은 다릅니다.",
+        "기존 업로드 Token은 보존하고 이 프로젝트의 댓글용 Token을 확인합니다.",
+        "youtube.force-ssl 단독 승인과 실제 채널을 대조합니다. 키 값은 보여주지 않습니다."
+      ],
+      "solution": "서버의 설정 안내에 따라 댓글용 Token을 별도로 준비합니다. 19장 앱은 channels.list·videos.list·commentThreads.list 조회만 수행합니다."
+    },
+    {
+      "id": "H19-DRAFT",
+      "symptom": "질문 댓글에 감사 답글이 나옵니다.",
+      "levels": [
+        "먼저 어떤 종류로 분류했는지 보세요.",
+        "감사와 질문이 섞이면 자동답글 후보가 아니라 사람이 봐야 할 수 있습니다.",
+        "분류 결과→처리 수준 매핑→두 검사 중 어느 단계에서 잘못 통과했는지 확인합니다."
+      ],
+      "solution": "혼합·모호한 댓글은 사람 확인으로 보내고, 검사 실패를 고정 문장 자동 전송으로 바꾸지 않도록 수정합니다. 수정은 명시적으로 요청했을 때만 합니다."
+    },
+    {
+      "id": "H19-MODEL",
+      "symptom": "모델을 사용할 수 없거나 교체가 필요합니다.",
+      "levels": [
+        "공식 지원 여부와 계정 사용량·한도를 확인하는 방법을 안내합니다. 확인하지 못한 계정 상태는 미확인으로 남깁니다.",
+        "모델 교체가 필요하면 사용 가능한 저비용 후보와 비용 조건을 안내합니다.",
+        "힌트 요청만으로 설정을 바꾸거나 유료 전환하지 않습니다. 후보 선택과 실제 변경 요청을 구분합니다."
+      ],
+      "solution": "독자가 후보를 선택하고 변경을 요청한 범위에서만 적용합니다. 변경 뒤 실제 응답과 관련 Test를 확인합니다. Flash-Lite 후보를 확인하고 댓글 프로젝트의 GEMINI_MODEL 설정만 다룹니다. 기존 주식서비스는 보존합니다. 합성 문장으로 확인하며 실제 댓글 전달은 별도 허용 범위를 따릅니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "youtube",
+      "kind": "existing-account-or-server-credential",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "inspect_current_project_code_before_configuration",
+      "official_procedure": "../../services/youtube.md"
+    },
+    {
+      "provider": "google-cloud",
+      "kind": "existing-account-or-server-credential",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "inspect_current_project_code_before_configuration",
+      "official_procedure": "../../services/google-cloud.md"
+    },
+    {
+      "provider": "gemini",
+      "kind": "existing-account-or-server-credential",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "inspect_current_project_code_before_configuration",
+      "official_procedure": "../../services/gemini.md"
+    }
+  ],
+  "oauth_scope_requirements": [
+    "https://www.googleapis.com/auth/youtube.force-ssl (separate token); this chapter uses GET only and sends no replies"
+  ],
+  "special_expected_states": [
+    "private-video-no-comments: choose another eligible video with human decision",
+    "preview-only: zero writes is required"
+  ],
+  "next_chapter_conditions": [
+    "20장은 이 댓글 도구를 이어갑니다. 18장의 제작·검수·Publisher를 복사하거나 없애지 않습니다."
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": true
+  },
+  "module_revision": "part6-services-v1",
+  "new_part6_execution_status": "local-verified; live and capture evidence tracked separately",
+  "source_reference_status": "current-edition-source-provided; verify local binding before use",
+  "illustrations": [
+    "assets/chapter-19/figure-19-01-read-and-preview.svg",
+    "assets/chapter-19/figure-19-02-five-to-three.svg"
+  ],
+  "screenshot_slots": [
+    "S19-01",
+    "S19-02"
+  ],
+  "screenshot_state": "See chapter verification; screenshots do not complete reader objectives"
+}

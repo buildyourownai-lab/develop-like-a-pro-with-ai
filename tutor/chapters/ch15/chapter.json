@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch15",
+  "number": 15,
+  "title": "15장. 같은 서비스를 iPhone 앱으로 만듭니다",
+  "manuscript": "book/21-chapter-15.md",
+  "manuscript_sha256": "49c215135466a48fce97a8724895aeb93f97aa8f8ec7fc3eaf8d2ec2b4a29c65",
+  "outcome": "같은 핵심 기능을 iPhone Simulator에서 확인합니다.",
+  "project": "ai-stock-briefing",
+  "start_state": "공통 앱 계획과 기존 서버가 있습니다. 다른 Mac에서 이어 가면 14장의 최신 로컬 작업과 설정을 먼저 안전하게 옮긴 뒤 Mac 실행 환경을 준비합니다.",
+  "previously_completed_features": "주식 서버·앱 계획·Android 경험",
+  "required_services": [
+    "apple"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "apple",
+      "details": "../../services/apple.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "지원하는 macOS",
+    "Xcode",
+    "iPhone Simulator"
+  ],
+  "new_features": "iPhone 화면·서버 연결·실제 Simulator 확인",
+  "out_of_scope": "Windows에서 실행했다고 하거나 Simulator 확인을 실제 기기·App Store 심사 통과로 확대하지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch15-g01",
+      "title": "Mac 조건",
+      "criterion": "지원 OS·Xcode·용량·약관 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "지원 OS·Xcode·용량·약관 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch15-g02",
+      "title": "Simulator",
+      "criterion": "기기 환경을 준비하고 실행",
+      "required": true,
+      "depends_on": [
+        "ch15-g01"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "기기 환경을 준비하고 실행. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch15-g03",
+      "title": "앱 구현",
+      "criterion": "기존 서버와 계획된 iPhone 화면 연결",
+      "required": true,
+      "depends_on": [
+        "ch15-g02"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "기존 서버와 계획된 iPhone 화면 연결. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch15-g04",
+      "title": "전체 흐름",
+      "criterion": "시장→검색→종목→공시→브리핑 실제 사용",
+      "required": true,
+      "depends_on": [
+        "ch15-g03"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "시장→검색→종목→공시→브리핑 실제 사용. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch15-g05",
+      "title": "안전·사용성",
+      "criterion": "Secret·기기 권한·오류·화면 확인",
+      "required": true,
+      "depends_on": [
+        "ch15-g04"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "Secret·기기 권한·오류·화면 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch15-g06",
+      "title": "기록·범위",
+      "criterion": "Simulator 확인 범위와 미실행 환경 구분",
+      "required": true,
+      "depends_on": [
+        "ch15-g05"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "Simulator 확인 범위와 미실행 환경 구분. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "15장까지의 주식 프로젝트는 보존하고, 16장에서는 별도 ai-shorts-maker 폴더를 만들어 선택함",
+  "intentional_failure_policy": "Mac이 없어 읽기만 한 경우를 실행 완료로 세지 않습니다. Android 완료와 iPhone 실행 검증은 별개입니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch15",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H15-01",
+      "symptom": "Mac이 없음",
+      "levels": [
+        "이 장의 실행 환경 조건부터 확인합니다.",
+        "읽기 학습과 Simulator 실행을 나눕니다.",
+        "현재 가능한 환경과 실제 실행이 필요한 항목을 표시합니다."
+      ],
+      "solution": "설명은 계속 읽을 수 있으나 iPhone 실행은 환경 대기로 남깁니다. 다른 OS에서 성공했다고 꾸미지 않습니다."
+    },
+    {
+      "id": "H15-02",
+      "symptom": "Simulator 화면만 뜨고 기능 안 됨",
+      "levels": [
+        "앱 시작과 서버 기능 사용을 구분합니다.",
+        "현재 앱의 서버 주소와 인터넷 접근을 확인합니다.",
+        "실패한 요청의 단계·응답 코드·오류 화면을 확인합니다."
+      ],
+      "solution": "주소·환경 원인을 고친 뒤 전체 흐름을 다시 사용합니다. 앱이 켜졌다는 이유로 완료 처리하지 않습니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "apple",
+      "kind": "account",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/apple.md"
+    }
+  ],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": true
+  }
+}

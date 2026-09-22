@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch07",
+  "number": 7,
+  "title": "7장. 내 조건에 맞는 아파트를 찾습니다",
+  "manuscript": "book/11-chapter-07.md",
+  "manuscript_sha256": "db2adfd828aff82ff369330dc882daa0a437476cb560dcb1e5daf67981e6e64e",
+  "outcome": "같은 거래의 면적·가격과 주변 거리 조건으로 단지를 검색합니다.",
+  "project": "apartment-explorer",
+  "start_state": "6장의 두 API 연결과 응답 처리 Test가 있습니다.",
+  "previously_completed_features": "실거래·위치·주변 장소 응답",
+  "required_services": [
+    "data-go-kr",
+    "kakao"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "data-go-kr",
+      "details": "../../services/data-go-kr.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "kakao",
+      "details": "../../services/kakao.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "TypeScript",
+    "기존 Test"
+  ],
+  "new_features": "검색 조건·주소 확인·데이터 결합·집계·검색 Test",
+  "out_of_scope": "웹 UI를 만들거나 현재 매물·투자 추천·종합 순위·미래 가격 예측을 추가하지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch07-g01",
+      "title": "검색 기준",
+      "criterion": "단지·최근 1년·정상 거래·포함 경계 정의",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "단지·최근 1년·정상 거래·포함 경계 정의. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch07-g02",
+      "title": "주소 확인",
+      "criterion": "행정동·법정동·도로명주소를 추측 없이 연결",
+      "required": true,
+      "depends_on": [
+        "ch07-g01"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "행정동·법정동·도로명주소를 추측 없이 연결. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch07-g03",
+      "title": "같은 거래",
+      "criterion": "면적 범위 거래 중 가격 조건을 판단",
+      "required": true,
+      "depends_on": [
+        "ch07-g02"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "면적 범위 거래 중 가격 조건을 판단. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch07-g04",
+      "title": "결합·거리",
+      "criterion": "단지 식별과 직선거리 조건을 적용",
+      "required": true,
+      "depends_on": [
+        "ch07-g03"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "단지 식별과 직선거리 조건을 적용. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch07-g05",
+      "title": "집계·예외",
+      "criterion": "전체 면적범위 집계와 가격건수·0건·오류를 구분",
+      "required": true,
+      "depends_on": [
+        "ch07-g04"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "전체 면적범위 집계와 가격건수·0건·오류를 구분. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch07-g06",
+      "title": "실제 검색",
+      "criterion": "실제 자료의 결과와 검증 범위를 기록",
+      "required": true,
+      "depends_on": [
+        "ch07-g05"
+      ],
+      "evidence_types": [
+        "live-api",
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "verify_instructions": "실제 자료의 결과와 검증 범위를 기록. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "8장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "아파트 이름만으로 자료를 합치지 않습니다. 실제 값은 시점에 따라 달라질 수 있으므로 저자 결과 건수를 정답으로 고정하지 않습니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch07",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H07-01",
+      "symptom": "가격 조건과 표시 범위가 다름",
+      "levels": [
+        "단지 선택과 결과 요약은 범위가 다를 수 있습니다.",
+        "면적 범위 안 전체 거래와 가격 조건에 맞는 건수를 나눕니다.",
+        "최신 가격·최저최고값이 어느 집합에서 계산됐는지 확인합니다."
+      ],
+      "solution": "같은 면적범위 거래를 기준으로 요약하고 가격 조건 건수만 따로 셉니다. 예시 숫자를 억지로 맞추지 않습니다."
+    },
+    {
+      "id": "H07-02",
+      "symptom": "검색 0건",
+      "levels": [
+        "0건과 조회 실패부터 구분합니다.",
+        "주소가 확정됐는지, API 응답이 성공했는지 봅니다.",
+        "면적·가격·역·학교 조건에서 어떤 단계가 후보를 줄였는지 확인합니다."
+      ],
+      "solution": "정상 조회 후 조건에 맞는 단지가 없으면 0건이 맞습니다. 지역을 추측하거나 조건을 몰래 완화하지 않습니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "data-go-kr",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": false,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/data-go-kr.md"
+    },
+    {
+      "provider": "kakao",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": false,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/kakao.md"
+    }
+  ],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  }
+}

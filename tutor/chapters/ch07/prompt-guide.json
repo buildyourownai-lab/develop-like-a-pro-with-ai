@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "chapter": 7,
+  "project": "apartment-explorer",
+  "manuscript_sha256": "db2adfd828aff82ff369330dc882daa0a437476cb560dcb1e5daf67981e6e64e",
+  "entries": [
+    {
+      "id": "P07-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "8a5f58c9e3c867a664bacd0abaa8a7a50fc905010a441646a24ac15597c9ec61",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "7장을 처음 시작하거나 현재 장의 시작 조건을 확인해 달라고 요청할 때",
+      "before": "6장의 두 API 연결과 응답 처리 Test가 있습니다. 이미 확인된 장·프로젝트는 다시 묻지 않고 현재 기록과 실제 상태를 대조합니다.",
+      "after": "목표·현재 프로젝트·선행 상태·첫 행동 하나를 확인합니다. 시작 안내만으로 구현·설치·프로젝트 교체를 하지 않습니다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P07-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "ad9c49001d22b694751ef9d0eb4866e053c836e1e790fa9cfe7f17001baf0a96",
+      "title": "우리가 정한 대로 만들어달라고 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "검색 단위와 거래·가격·면적·거리·주소 기준을 정한 뒤 기능을 만들 때",
+      "before": "6장의 두 실제 API 연결과 저장 응답 Test를 확인합니다. 단지 단위·최근 1년·해제 제외·같은 거래의 면적과 가격·직선거리라는 본문 범위를 읽었는지 봅니다.",
+      "after": "새 검색 기능·Test와 기존 Test 결과를 확인합니다. 브라우저 화면은 아직 만들지 않습니다.",
+      "objective_ids": [
+        "ch07-g01",
+        "ch07-g02",
+        "ch07-g03",
+        "ch07-g04",
+        "ch07-g05"
+      ]
+    },
+    {
+      "id": "P07-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "fbec8ef038bf83491820ec4ee138a64d1b9969b8f618b321a29835dddd080b92",
+      "title": "만든 기능에 이름을 붙입니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "완성한 검색 기능을 아파트 찾기라는 이름으로 재사용하게 할 때",
+      "before": "기존 검색 구현과 관련 Test 통과를 확인합니다.",
+      "after": "프로젝트 규칙이 기존 기능을 재사용하도록 연결됐는지 확인합니다. 기능을 다시 만들지 않습니다.",
+      "objective_ids": [
+        "ch07-g01"
+      ]
+    },
+    {
+      "id": "P07-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "2e41abbb13b3ad3e4b6968b7021670c17019bb6b4ef478b9842a1f4b5436d7b5",
+      "title": "실제 조건으로 찾아봅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "아파트 찾기의 실제 대치동 조건 검색을 확인할 때",
+      "before": "기능·Test와 아파트 찾기 이름 연결이 확인됐는지 봅니다. 코드 입력창에서 기존 기능을 사용하는 요청이며 서비스 웹 화면은 아직 없습니다.",
+      "after": "실제 거래와 단지·면적·가격·거리 근거를 확인합니다. 저자의 7개 단지나 거래 건수를 정답으로 강제하지 않습니다.",
+      "objective_ids": [
+        "ch07-g03",
+        "ch07-g04",
+        "ch07-g05",
+        "ch07-g06"
+      ]
+    },
+    {
+      "id": "P07-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "fc0188395b055f70042a8adb7f2d1f9dee7a88421e725769d4d89ef735ca022a",
+      "title": "실제 조건으로 찾아봅니다",
+      "target": "coding-assistant",
+      "kind": "conditional",
+      "when": "실제 검색 결과 중 한 단지의 거래 근거를 더 보고 싶을 때",
+      "before": "직전 실제 검색에 결과 단지가 있는지 확인합니다. 정상 0건이면 존재하지 않는 단지를 고르지 않습니다.",
+      "after": "결과 중 실제 단지의 최근 1년 80~90㎡ 정상 거래 내역과 요약의 관계를 확인합니다.",
+      "objective_ids": [
+        "ch07-g05",
+        "ch07-g06"
+      ]
+    },
+    {
+      "id": "P07-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "4e79b0d4052638c39a7ffb2f983a4467b0a184cfbf4ac979c6eba9301c066217",
+      "title": "실제 조건으로 찾아봅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "실제 조건 검색과 근거 확인 후 작업을 마무리할 때",
+      "before": "새 검색과 기존 응답 처리 Test, 실제 검색 결과를 구분하고 apartment-explorer 저장소를 확인합니다.",
+      "after": "검사·비밀값 확인·정상 Git 기록·실제 원격 전송을 확인합니다.",
+      "objective_ids": [
+        "ch07-g06"
+      ]
+    },
+    {
+      "id": "P07-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "7장의 실습 결과를 장별 완료 조건과 대조할 때",
+      "before": "앞 단계 실행 결과와 사람이 직접 확인할 항목을 확인합니다. 요청문을 보여주거나 실행했다고 완료로 세지 않습니다.",
+      "after": "명세의 실제 근거와 미확인을 나눠 판단합니다. 결과가 미확인이면 다음 장으로 자동 진행하지 않습니다.",
+      "objective_ids": [
+        "ch07-g01",
+        "ch07-g02",
+        "ch07-g03",
+        "ch07-g04",
+        "ch07-g05",
+        "ch07-g06"
+      ]
+    }
+  ]
+}

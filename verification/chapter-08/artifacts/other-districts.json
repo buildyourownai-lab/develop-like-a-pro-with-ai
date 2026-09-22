@@ -1,0 +1,58 @@
+{
+  "requestedFrom": "https://apartment-explorer.vercel.app/api/search",
+  "확인한 것": "서울과 행정구역 구조가 다른 지역(시 아래 구가 있는 경우)도 조회 지역으로 연결되는지",
+  "공통 조건": {
+    "minAreaM2": 80,
+    "maxAreaM2": 90,
+    "minPriceManwon": 80000,
+    "maxPriceManwon": 200000,
+    "maxSubwayDistanceM": 800,
+    "maxElementaryDistanceM": 1000
+  },
+  "결과": [
+    {
+      "입력한 지역": "경기 성남시 분당구 정자동",
+      "이름": "경기 성남시 분당구",
+      "연결된 조회 지역": "경기 성남시 분당구 정자동",
+      "지역코드": "41135",
+      "법정동": "정자동",
+      "조회 기준일": "2026-08-29",
+      "조회 기간": {
+        "from": "2025-08-29",
+        "to": "2026-08-29"
+      },
+      "건수": {
+        "rawRowsInExactPeriod": 5121,
+        "cancelledTransactions": 203,
+        "regionAreaNormalRows": 93,
+        "apartmentsWithRegionAreaTransactions": 20,
+        "noPriceRangeMatchApartments": 1,
+        "lifestyleFailedApartments": 10,
+        "addressUnmatchedApartments": 0,
+        "candidates": 9
+      }
+    },
+    {
+      "입력한 지역": "경기 수원시 영통구 영통동",
+      "이름": "경기 수원시 영통구",
+      "연결된 조회 지역": "경기 수원시 영통구 영통동",
+      "지역코드": "41117",
+      "법정동": "영통동",
+      "조회 기준일": "2026-08-29",
+      "조회 기간": {
+        "from": "2025-08-29",
+        "to": "2026-08-29"
+      },
+      "건수": {
+        "rawRowsInExactPeriod": 6690,
+        "cancelledTransactions": 191,
+        "regionAreaNormalRows": 336,
+        "apartmentsWithRegionAreaTransactions": 16,
+        "noPriceRangeMatchApartments": 8,
+        "lifestyleFailedApartments": 0,
+        "addressUnmatchedApartments": 0,
+        "candidates": 8
+      }
+    }
+  ]
+}

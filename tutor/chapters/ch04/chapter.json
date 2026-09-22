@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch04",
+  "number": 4,
+  "title": "4장. 같은 실수는 두 번 하지 않게 합니다",
+  "manuscript": "book/07-chapter-04.md",
+  "manuscript_sha256": "d0653f9f8c74af2fd7281df110f77def46ca3e586b040c71531d59c71d1ba4f3",
+  "outcome": "좋은 작업 방식을 공통 규칙과 프로젝트 규칙으로 나누어 남깁니다.",
+  "project": "movie-report",
+  "start_state": "3장의 수정과 회귀 확인을 마쳤습니다.",
+  "previously_completed_features": "오류 재현과 수정 절차",
+  "required_services": [],
+  "required_accounts_permissions": [],
+  "tools_and_packages": [
+    "Claude Code 지침 파일"
+  ],
+  "new_features": "공통 규칙·프로젝트 규칙·자세한 문제해결 절차",
+  "out_of_scope": "튜터 관리 블록이나 기존 사용자 지침을 덮어쓰지 않고 모든 일회성 사건을 규칙으로 만들지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch04-g01",
+      "title": "범위 결정",
+      "criterion": "공통·프로젝트·상세 절차를 나눔",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "공통·프로젝트·상세 절차를 나눔. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch04-g02",
+      "title": "기존 지침 확인",
+      "criterion": "기존 지침과 튜터 연결을 먼저 읽음",
+      "required": true,
+      "depends_on": [
+        "ch04-g01"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "기존 지침과 튜터 연결을 먼저 읽음. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch04-g03",
+      "title": "공통 규칙",
+      "criterion": "반복할 작업 원칙을 적절한 범위에 저장",
+      "required": true,
+      "depends_on": [
+        "ch04-g02"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "반복할 작업 원칙을 적절한 범위에 저장. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch04-g04",
+      "title": "프로젝트 규칙",
+      "criterion": "KOBIS 출처와 추측 금지를 프로젝트에 저장",
+      "required": true,
+      "depends_on": [
+        "ch04-g03"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "KOBIS 출처와 추측 금지를 프로젝트에 저장. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch04-g05",
+      "title": "적용 확인",
+      "criterion": "제목 변경 요청에서 참고한 규칙과 실제 검사를 확인",
+      "required": true,
+      "depends_on": [
+        "ch04-g04"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "제목 변경 요청에서 참고한 규칙과 실제 검사를 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch04-g06",
+      "title": "한계 확인",
+      "criterion": "지침은 강제 장치가 아님을 구분",
+      "required": true,
+      "depends_on": [
+        "ch04-g05"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "지침은 강제 장치가 아님을 구분. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "5장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "준비편의 제공된 튜터를 사용하는 일과 직접 작업 규칙을 만드는 학습은 다릅니다. 지침 파일의 존재만으로 다음 실행 준수를 보장하지 않습니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch04",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H04-01",
+      "symptom": "규칙 파일이 이미 있음",
+      "levels": [
+        "새 파일을 만들기 전에 기존 내용을 읽어야 합니다.",
+        "튜터 연결과 독자가 직접 정한 규칙을 구분합니다.",
+        "관리 블록 밖의 문장을 보존하는 변경안인지 확인합니다."
+      ],
+      "solution": "기존 파일 전체를 교체하지 않고 필요한 규칙을 병합합니다. 변경 뒤 튜터와 기존 규칙이 모두 남았는지 확인합니다."
+    },
+    {
+      "id": "H04-02",
+      "symptom": "규칙을 적었는데 실행 안 함",
+      "levels": [
+        "파일 저장과 행동 적용은 별개입니다.",
+        "현재 프로젝트가 맞고 해당 지침이 읽혔는지 확인합니다.",
+        "새 대화에서 참고한 지침 경로를 알려달라고 요청합니다."
+      ],
+      "solution": "연결을 맞춘 뒤 작은 작업으로 다시 확인합니다. 실패를 숨기지 말고 실제로 한 검사와 안 한 검사를 나눕니다."
+    }
+  ],
+  "required_credentials": [],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch18",
+  "number": 18,
+  "title": "18장. 만든 영상을 실제 YouTube에 올립니다",
+  "manuscript": "book/25-chapter-18.md",
+  "manuscript_sha256": "85c0257fa31fccc2a8deb24d549490e8337cb0e6320268dec302d0050e71d66f",
+  "outcome": "검수한 영상을 승인한 채널에 비공개로 업로드하고 실제 상태를 확인합니다.",
+  "project": "ai-shorts-maker",
+  "start_state": "16장의 영상과 17장의 검수 통과 근거가 있습니다.",
+  "previously_completed_features": "Maker·Reviewer·원본 영상",
+  "required_services": [
+    "google-cloud",
+    "youtube"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "google-cloud",
+      "details": "../../services/google-cloud.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "youtube",
+      "details": "../../services/youtube.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "OAuth 업로드 도구",
+    "Python"
+  ],
+  "new_features": "youtube-publisher Skill·OAuth·Preview·승인·업로드·Receipt·중복 방지",
+  "out_of_scope": "완료 확인만으로 재업로드하거나 youtube.upload로 공개 상태 변경까지 가능하다고 가정하지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch18-g01",
+      "title": "업로드 대상",
+      "criterion": "영상·검수 결과·채널·메타데이터 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "영상·검수 결과·채널·메타데이터 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch18-g02",
+      "title": "OAuth 준비",
+      "criterion": "정확한 앱·계정·Scope·Token 보관 확인",
+      "required": true,
+      "depends_on": [
+        "ch18-g01"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "정확한 앱·계정·Scope·Token 보관 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch18-g03",
+      "title": "Preview 승인",
+      "criterion": "보낼 파일·제목·비공개 범위 확인",
+      "required": true,
+      "depends_on": [
+        "ch18-g02"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "보낼 파일·제목·비공개 범위 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch18-g04",
+      "title": "실제 업로드",
+      "criterion": "승인된 한 영상 업로드 결과와 ID 기록",
+      "required": true,
+      "depends_on": [
+        "ch18-g03"
+      ],
+      "evidence_types": [
+        "external-confirmation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": null,
+      "verify_instructions": "승인된 한 영상 업로드 결과와 ID 기록. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다. 이 목표는 당시 단계의 수행 기록입니다. 이후 의도한 수정·복구·공개 전환으로 현재 상태가 달라졌다고 당시 관찰을 지우지 않습니다. 기록의 원본·대상·시점은 보존하고 최종 정상 상태는 별도 목표에서 확인합니다.",
+      "external_side_effects_authorized_by_verify": false,
+      "evidence_semantics": "historical_learning_event"
+    },
+    {
+      "id": "ch18-g05",
+      "title": "상태 확인",
+      "criterion": "실제 채널에서 영상·공개 범위 확인",
+      "required": true,
+      "depends_on": [
+        "ch18-g04"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "실제 채널에서 영상·공개 범위 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch18-g06",
+      "title": "중복·한계",
+      "criterion": "Receipt와 재시도 동작·미확인 결과 처리 확인",
+      "required": true,
+      "depends_on": [
+        "ch18-g05"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "Receipt와 재시도 동작·미확인 결과 처리 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "19장에서 영상·업로드 기록을 보존하고 별도 댓글 도구를 준비합니다. 비공개 영상에는 댓글이 없으므로 적절한 영상과 공개 범위를 따로 확인합니다.",
+  "intentional_failure_policy": "이 장의 기본 완료는 비공개 업로드입니다. 공개를 명시하면 별도의 권한·플랫폼 조건을 확인해 같은 ID의 전환을 수행하며, 불가능하면 비공개 업로드까지의 사실만 보고합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch18",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H18-01",
+      "symptom": "올렸는데 결과가 안 돌아옴",
+      "levels": [
+        "통신 오류가 업로드 실패를 뜻하지는 않습니다.",
+        "Receipt와 반환 ID·채널 상태를 먼저 확인합니다.",
+        "같은 파일이 이미 올라갔는지 확인 가능한 근거를 봅니다."
+      ],
+      "solution": "상태가 불명확하면 재업로드하지 않고 확인을 보류합니다. 기존 ID가 있으면 그 ID를 기준으로 이어갑니다."
+    },
+    {
+      "id": "H18-02",
+      "symptom": "비공개로 끝났음",
+      "levels": [
+        "지시한 공개 범위부터 확인합니다.",
+        "공개를 말하지 않았다면 비공개가 기본값입니다.",
+        "공개 지시가 있었다면 업로드와 공개 전환이 각각 어디까지 성공했는지 봅니다."
+      ],
+      "solution": "공개 지시가 명확해도 API 권한·플랫폼 제한이 충족돼야 전환합니다. 다른 영상을 새로 올리지 않습니다."
+    },
+    {
+      "id": "H18-03",
+      "symptom": "권한 부족 오류",
+      "levels": [
+        "OAuth 사용자 승인과 API Scope를 구분합니다.",
+        "지금 수행할 작업이 insert인지 update인지 확인합니다.",
+        "실제 Token에 부여된 범위와 해당 API의 공식 허용 Scope를 대조합니다."
+      ],
+      "solution": "필요한 권한만 공식 승인 화면에서 확인합니다. 같은 행동 승인을 반복 요청하는 것과 추가 계정 권한 확보는 다릅니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "google-cloud",
+      "kind": "oauth-or-service-account",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/google-cloud.md"
+    },
+    {
+      "provider": "youtube",
+      "kind": "oauth-or-service-account",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/youtube.md"
+    }
+  ],
+  "oauth_scope_requirements": [
+    {
+      "operation": "private-upload",
+      "scope": "https://www.googleapis.com/auth/youtube.upload",
+      "extra_note": "This does not by itself authorize videos.update; do not silently enlarge scopes."
+    }
+  ],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "19장에서 영상·업로드 기록을 보존하고 별도 댓글 도구를 준비합니다. 비공개 영상에는 댓글이 없으므로 적절한 영상과 공개 범위를 따로 확인합니다."
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  }
+}

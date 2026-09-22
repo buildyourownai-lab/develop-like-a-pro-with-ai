@@ -1,0 +1,100 @@
+# 13장을 끝낸 상태의 ai-stock-briefing
+
+## 이 Source는 언제 사용하나요?
+
+12장까지 만든 주식 웹서비스에, Android와 iPhone 앱을 만들기 전에 사람이 결정한 내용을
+정리한 계획 문서가 더해진 상태입니다. 13장은 앱 코드를 만드는 장이 아니므로 웹서비스
+코드는 12장과 같습니다. 정답지가 아닙니다.
+
+책을 따라가다 막혔을 때 순서는 이렇습니다.
+
+```text
+디버깅 → 내 정상 기록으로 복구 → 장별 Source로 재시작
+```
+
+이 Source는 마지막 단계입니다. 앞의 두 방법으로도 이어갈 수 없을 때, 14장부터 계속
+진행하기 위해 사용합니다.
+
+9장부터 13장까지 만든 파일이 모두 들어 있습니다. 6~8장의 아파트 프로젝트는
+chapters/ch08/source/apartment-explorer에 따로 있습니다.
+
+## 13장에서 새로 생긴 것
+
+| 무엇 | 어디 |
+|---|---|
+| 앱을 만드는 목적, 넣을 기능과 뺄 기능, 화면 순서, 재사용할 서버 기능, Secret과 기기 권한, 공통 완료 조건, 이번에 검증하지 않을 범위를 적은 계획 | docs/mobile-app-plan.md |
+
+계획 문서의 항목 이름과 문장은 사람마다 달라집니다. 14장과 15장이 이 문서에서 꺼내
+쓰는 것은 문장이 아니라 결정된 내용입니다.
+
+## 12장까지 만든 웹서비스
+
+| 무엇 | 어디 |
+|---|---|
+| 기준일과 코스피·코스닥, 상승률 상위·하락률 상위, 검색창이 있는 시장 화면 | src/app/page.tsx |
+| 종목명이나 종목코드로 찾은 결과를 보여주는 화면 | src/app/search/page.tsx |
+| 현재가와 기준가 대비 등락, 시가·고가·저가, 최근 공시, AI 브리핑을 보여주는 종목 화면 | src/app/stocks/[code]/page.tsx |
+| 최근 1년의 일봉과 거래량을 그리고 공시 시점을 표시하는 차트 | src/app/stocks/[code]/StockChart.tsx |
+| 그 기간의 공시를 100건씩 나눠 보고 공식 유형으로 좁히는 화면 | src/app/stocks/[code]/disclosures/page.tsx |
+| 버튼을 눌렀을 때만 브리핑을 만들고 결과를 나눠 보여주는 영역 | src/app/stocks/[code]/AiBriefingSection.tsx |
+| 브라우저 요청을 받아 자료를 준비하고 Gemini를 부르는 자리 | src/app/stocks/[code]/briefing-actions.ts |
+| 브리핑에 쓸 사실을 고르고 숫자를 직접 계산하는 기능 | src/lib/briefing-facts.ts |
+| Gemini가 돌려준 결과를 화면에 내보내기 전에 확인하는 기능 | src/lib/briefing-verify.ts |
+| Gemini를 부르고 실패와 시간 초과를 다루는 기능 | src/lib/gemini-briefing-api.ts |
+| 주식시세정보·지수시세정보·KRX상장종목정보를 읽는 기능 | src/lib/stock-price-api.ts, src/lib/market-index-api.ts, src/lib/krx-listed-info-api.ts |
+| 가장 최근에 제공된 거래일을 찾는 기능 | src/lib/trading-date.ts |
+| 종목코드를 OpenDART 회사 고유번호로 연결하는 기능 | src/lib/dart-corp-code.ts |
+| 공시 목록과 공식 유형, DART 원문 주소를 읽는 기능 | src/lib/dart-disclosure-api.ts |
+| 가져온 외부 자료를 Database에 저장하고 유효시간이 지난 것만 다시 확인하는 기능 | src/lib/api-cache.ts, src/lib/db.ts |
+| 같은 근거와 같은 모델이면 브리핑을 다시 만들지 않게 하는 기능 | src/lib/briefing-cache.ts, src/lib/redis.ts |
+| 사용량 한도에 도달한 동안 Gemini 호출을 멈추는 기능 | src/lib/gemini-rate-limit.ts |
+| 인증키와 연결 정보를 브라우저에서 직접 입력하는 내 컴퓨터 전용 화면 | src/app/setup/ |
+| 인증키를 서버에서만 읽고 오류 메시지에서 가리는 기능 | src/lib/server-env.ts, src/lib/redact.ts |
+| 기준일과 순위 조건, 공시 조회, 브리핑 근거와 결과 확인, 저장한 값의 재사용, 인증키 노출을 확인하는 Test | tests/ |
+| 브라우저에서 실제 흐름을 눌러보는 Test | tests/e2e/ |
+
+인증키는 들어 있지 않습니다. .env.local.example을 보고 자기 인증키를 넣으면 됩니다.
+주식시세정보와 지수시세정보, KRX상장종목정보 세 API가 공공데이터포털 인증키 하나를 함께
+사용하고, 공시는 OpenDART 인증키, 브리핑은 Google AI Studio의 Gemini API Key를 따로
+사용합니다. Database와 Cache는 Supabase 연결 문자열과 Upstash Redis의 주소·Token을
+사용합니다.
+
+이 프로젝트의 Test는 실제 금융위원회와 OpenDART 응답, 실제 Gemini 호출까지 확인하므로,
+Test를 실행하려면 자기 인증키가 필요합니다.
+
+인증키와 연결 정보는 서버에서만 사용합니다. 브라우저가 받아가는 파일에는 이름도 값도
+들어가지 않습니다.
+
+## Claude Code에서 이어서 사용하기
+
+이 폴더를 Claude Code에서 열고 그대로 입력하면 됩니다.
+
+```text
+이 폴더는 책 13장을 끝낸 상태의 프로젝트야.
+실행에 필요한 환경이 준비되어 있는지 확인하고, 없으면 준비해줘.
+내 인증키와 Database, Cache 접속 정보를 넣을 자리를 알려주고
+Test를 실행해서 결과를 보여줘.
+그다음 docs/mobile-app-plan.md의 계획을 읽고 무엇이 정해져 있는지 요약해줘.
+```
+
+## 내 결과와 달라도 괜찮습니다
+
+같은 요청문을 입력해도 계획 문서의 파일 이름과 항목 순서, 문장은 달라집니다. 기준은
+문장이 같은지가 아니라 13장의 완료 조건을 만족하는지입니다.
+
+- 앱을 만드는 목적이 한두 문장으로 적혀 있습니다.
+- 넣을 기능과 뺄 기능이 나뉘어 적혀 있습니다.
+- 스마트폰 화면에서 먼저 보여줄 순서가 정해져 있습니다.
+- 기존 서버에서 재사용할 것과 앱에서 새로 만들 것이 구분되어 있습니다.
+- 외부 서비스 Secret을 앱에 넣지 않는다는 경계가 적혀 있습니다.
+- 필요하지 않은 개인정보와 기기 권한을 요구하지 않는다는 것이 적혀 있습니다.
+- Android와 iPhone에 공통으로 적용할 완료 조건이 적혀 있습니다.
+- 이번에 검증하지 않을 범위가 적혀 있습니다.
+
+## 검증 결과
+
+빈 폴더에 이 Source만 놓고 준비와 Test 실행까지 확인했습니다. Test 113개가 모두
+통과했고 이 장에서 새로 생긴 Test는 없습니다. 근거는
+[verification/chapter-13/](../../../../verification/chapter-13/)에 있습니다.
+
+Database와 Cache 연결값은 로컬과 Vercel에 같은 이름으로 등록합니다: SUPABASE_DATABASE_URL, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN. 연동 서비스가 다른 이름으로 등록한 값도 이 세 이름으로 맞추며, 실제 값은 대화나 Git에 남기지 않습니다.

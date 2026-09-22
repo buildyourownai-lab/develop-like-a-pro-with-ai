@@ -1,0 +1,96 @@
+{
+  "stockBaseDate": "20260827",
+  "indices": [
+    {
+      "name": "코스피",
+      "baseDate": "20260827",
+      "value": 6912.37,
+      "change": 104.16,
+      "changeRate": 1.53
+    },
+    {
+      "name": "코스닥",
+      "baseDate": "20260827",
+      "value": 837.65,
+      "change": 10.78,
+      "changeRate": 1.3
+    }
+  ],
+  "topGainers": [
+    {
+      "name": "파루",
+      "code": "043200",
+      "price": 1331,
+      "changeRate": 29.98,
+      "tradingValue": 5406637649
+    },
+    {
+      "name": "유디엠텍",
+      "code": "389680",
+      "price": 1757,
+      "changeRate": 29.96,
+      "tradingValue": 2264420911
+    },
+    {
+      "name": "셀레믹스",
+      "code": "331920",
+      "price": 10890,
+      "changeRate": 29.95,
+      "tradingValue": 6122317635
+    },
+    {
+      "name": "라온피플",
+      "code": "300120",
+      "price": 2780,
+      "changeRate": 29.91,
+      "tradingValue": 1300801765
+    },
+    {
+      "name": "넥사다이내믹스",
+      "code": "351320",
+      "price": 2550,
+      "changeRate": 29.9,
+      "tradingValue": 7792522764
+    }
+  ],
+  "topLosers": [
+    {
+      "name": "위더스제약",
+      "code": "330350",
+      "price": 7500,
+      "changeRate": -16.67,
+      "tradingValue": 3318118660
+    },
+    {
+      "name": "한화머시너리앤서비스홀딩스",
+      "code": "0220W0",
+      "price": 7610,
+      "changeRate": -15.54,
+      "tradingValue": 55825787780
+    },
+    {
+      "name": "큐리언트",
+      "code": "115180",
+      "price": 22300,
+      "changeRate": -13.06,
+      "tradingValue": 14545939525
+    },
+    {
+      "name": "에이프로젠",
+      "code": "007460",
+      "price": 2365,
+      "changeRate": -12.41,
+      "tradingValue": 2364267189
+    },
+    {
+      "name": "이월드",
+      "code": "084680",
+      "price": 537,
+      "changeRate": -11.53,
+      "tradingValue": 2098743551
+    }
+  ],
+  "rankingCondition": "KOSPI·KOSDAQ 보통주 중, 그날 거래가 있었고 거래대금이 10억원 이상인 종목만 대상으로 합니다 (우선주·스팩 제외).",
+  "totalStockCount": 2875,
+  "eligibleStockCount": 740
+}

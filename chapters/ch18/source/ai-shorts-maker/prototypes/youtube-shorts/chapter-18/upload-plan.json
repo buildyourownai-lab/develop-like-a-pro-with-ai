@@ -1,0 +1,24 @@
+{
+  "channel_handle": "@everyoneisadeveloper",
+  "channel_url": "https://www.youtube.com/@everyoneisadeveloper",
+  "video": "artifacts/science-roman-concrete/roman-final-sounddesign-v3.mp4",
+  "video_sha256": "390dae8903e1b7ac8dab76d6f25d58e450c9287ae0a29c9ce1a7d516a67ba62c",
+  "qa_report": "artifacts/chapter-17/review-normal.json",
+  "title": "로마 콘크리트는 왜 2천 년을 버틸까? #Shorts",
+  "description": "2천 년을 버틴 로마 콘크리트의 비밀을 53초에 알아봅니다. 2023년 연구에서는 생석회를 활용한 고온 혼합과 석회 덩어리의 자가 치유 가능성을 제시했습니다.\n\n자료\nMIT News: https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106\nScience Advances: https://www.science.org/doi/10.1126/sciadv.add1602\n\n화면은 이해를 돕기 위한 AI 생성 시각화입니다. Kling, Vidu, Hailuo, PixVerse의 무료 크레딧 결과를 조합했습니다.\nBGM: Pulsar — The Grey Room / Density & Time (YouTube Audio Library)",
+  "tags": [
+    "로마 콘크리트",
+    "로마",
+    "생활과학",
+    "과학",
+    "과학쇼츠",
+    "Shorts"
+  ],
+  "category_id": "28",
+  "made_for_kids": false,
+  "audience_basis": "일반 시청자를 위한 역사·재료과학 콘텐츠이며 아동을 주대상으로 기획하지 않았다.",
+  "privacy": "private",
+  "notify_subscribers": false,
+  "upload_limit": 1,
+  "rights_basis": "직접 작성한 대본·자막·음성과 각 생성형 서비스의 계정 결과, YouTube Audio Library 음원을 사용했다."
+}

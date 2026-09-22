@@ -1,0 +1,20 @@
+=== npm test (Vitest) ===
+ RUN  v4.1.11 /private/tmp/ch09verify/ai-stock-briefing
+
+
+ Test Files  4 passed (4)
+      Tests  18 passed (18)
+   Start at  15:48:14
+   Duration  2.46s (transform 189ms, setup 139ms, import 121ms, tests 4.43s, environment 0ms)
+
+
+=== npm run test:e2e (Playwright) ===
+Running 5 tests using 1 worker
+
+  ✓  1 tests/e2e/market-flow.spec.ts:18:7 › 시장 화면 › 기준일·출처·순위 조건이 표시되고, 인증키는 어디에도 노출되지 않는다 (836ms)
+  ✓  2 tests/e2e/market-flow.spec.ts:39:7 › 시장 화면 › 등락률 순위의 종목을 누르면 상세·차트를 거쳐 다시 시장 화면으로 돌아온다 (2.5s)
+  ✓  3 tests/e2e/market-flow.spec.ts:63:7 › 시장 화면 › 검색 결과가 하나면 바로 상세 화면으로 가고, 다시 돌아올 수 있다 (2.8s)
+  ✓  4 tests/e2e/market-flow.spec.ts:78:7 › 시장 화면 › 검색 결과가 여러 개면 목록에서 골라 상세 화면으로 갈 수 있다 (1.9s)
+  ✓  5 tests/e2e/market-flow.spec.ts:96:7 › 시장 화면 › 존재하지 않는 종목을 검색하면 다시 시도할 방법을 알려준다 (1.2s)
+
+  5 passed (16.7s)

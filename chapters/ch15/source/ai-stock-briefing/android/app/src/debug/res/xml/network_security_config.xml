@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- debug 빌드에만 적용된다(src/debug). Android Emulator 안에서 호스트
+     컴퓨터를 가리키는 10.0.2.2로의 평문(HTTP) 통신만 예외로 허용한다 —
+     실제 배포되는 release 빌드에는 이 파일이 들어가지 않는다. -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">10.0.2.2</domain>
+    </domain-config>
+    <base-config cleartextTrafficPermitted="false" />
+</network-security-config>

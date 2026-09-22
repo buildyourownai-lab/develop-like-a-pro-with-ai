@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch16",
+  "number": 16,
+  "title": "16장. AI와 YouTube 영상을 만듭니다",
+  "manuscript": "book/23-chapter-16.md",
+  "manuscript_sha256": "9013651587d44ecca576c56ad94e6524953bf9e14fd97f1a2fe9e66361af55c8",
+  "outcome": "근거와 승인된 장면으로 영상·음성·자막을 완성합니다.",
+  "project": "ai-shorts-maker",
+  "start_state": "주식 프로젝트를 보존하고 별도 ai-shorts-maker 폴더를 만들어 현재 프로젝트로 선택한 뒤 제작 목표를 정할 단계입니다.",
+  "previously_completed_features": "공통 요청·검증·Secret·기록 방식",
+  "required_services": [
+    "gemini",
+    "video-generation",
+    "youtube-audio"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "gemini",
+      "details": "../../services/gemini.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "video-generation",
+      "details": "../../services/video-generation.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "youtube-audio",
+      "details": "../../services/youtube-audio.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "Python",
+    "FFmpeg",
+    "영상 뷰어"
+  ],
+  "new_features": "조사·시나리오·장면·영상 후보·음성·편집·제작 Skill",
+  "out_of_scope": "장면 승인·자료 사용 조건을 건너뛰거나 유료 생성·게시를 임의 실행하지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch16-g01",
+      "title": "조사·시나리오",
+      "criterion": "주제 근거와 시나리오를 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "주제 근거와 시나리오를 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-g02",
+      "title": "장면 승인",
+      "criterion": "장면 구성·기준 이미지·후보를 검토",
+      "required": true,
+      "depends_on": [
+        "ch16-g01"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "장면 구성·기준 이미지·후보를 검토. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-g03",
+      "title": "자료·권리",
+      "criterion": "사용 조건·생성 비용·다운로드 파일 확인",
+      "required": true,
+      "depends_on": [
+        "ch16-g02"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "사용 조건·생성 비용·다운로드 파일 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-g04",
+      "title": "음성·편집",
+      "criterion": "음성·자막·소리를 조합해 최종 MP4 생성",
+      "required": true,
+      "depends_on": [
+        "ch16-g03"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "음성·자막·소리를 조합해 최종 MP4 생성. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-g05",
+      "title": "전체 재생",
+      "criterion": "처음부터 끝까지 영상·음성·자막 확인",
+      "required": true,
+      "depends_on": [
+        "ch16-g04"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "처음부터 끝까지 영상·음성·자막 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-g06",
+      "title": "제작 재사용",
+      "criterion": "제작 기록과 youtube-shorts-production 저장",
+      "required": true,
+      "depends_on": [
+        "ch16-g05"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "제작 기록과 youtube-shorts-production 저장. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "17장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "생성 후보와 최종 승인본을 구분합니다. 자료 다운로드·무료 크레딧·저작권 조건이 달라지면 멈춰 확인합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch16",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H16-01",
+      "symptom": "생성이 멈춤",
+      "levels": [
+        "로그인 성공과 생성 완료는 다릅니다.",
+        "생성 상태·남은 이용량·다운로드 파일을 확인합니다.",
+        "어느 장면의 후보가 아직 없는지 제작 기록과 비교합니다."
+      ],
+      "solution": "미완성 단계를 해결한 뒤 다음 편집으로 넘어갑니다. 승인 없이 유료 요금제를 선택하지 않습니다."
+    },
+    {
+      "id": "H16-02",
+      "symptom": "최종 영상이 어색함",
+      "levels": [
+        "문제 장면과 시간부터 특정합니다.",
+        "화면·음성·자막·전환 중 어느 요소인지 나눕니다.",
+        "해당 입력 파일과 조립 순서·길이를 대조합니다."
+      ],
+      "solution": "필요한 요소만 수정해 다시 조립하고 전체 재생합니다. 사용 조건을 확인하지 않은 음악으로 교체하지 않습니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "gemini",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/gemini.md"
+    },
+    {
+      "provider": "video-generation",
+      "kind": "account",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/video-generation.md"
+    },
+    {
+      "provider": "youtube-audio",
+      "kind": "account",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/youtube-audio.md"
+    }
+  ],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  }
+}

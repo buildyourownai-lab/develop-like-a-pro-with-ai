@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "chapter": 4,
+  "project": "movie-report",
+  "manuscript_sha256": "d0653f9f8c74af2fd7281df110f77def46ca3e586b040c71531d59c71d1ba4f3",
+  "entries": [
+    {
+      "id": "P04-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "e51f0ea4a63560405c8fda5184f000baef28bf851377f3be680235229d271821",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "4장을 처음 시작하거나 현재 장의 시작 조건을 확인해 달라고 요청할 때",
+      "before": "3장의 수정과 회귀 확인을 마쳤습니다. 이미 확인된 장·프로젝트는 다시 묻지 않고 현재 기록과 실제 상태를 대조합니다.",
+      "after": "목표·현재 프로젝트·선행 상태·첫 행동 하나를 확인합니다. 시작 안내만으로 구현·설치·프로젝트 교체를 하지 않습니다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P04-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "e8996951fbd043c4a68c5ba2f0d98d44199c9926d32853314185bef4ae317d3e",
+      "title": "공통 작업 원칙을 만듭니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "3장에서 사용한 문제 해결 방법을 공통 원칙과 상세 절차로 남길 때",
+      "before": "3장의 최소 수정과 회귀 확인을 마쳤는지 봅니다. 기존 공통 CLAUDE.md와 상위 사용자·조직 정책을 먼저 확인합니다.",
+      "after": "공통 원칙과 movie-report/docs/debug-procedure.md의 역할을 구분하고 기존 지침 보존을 확인합니다.",
+      "objective_ids": [
+        "ch04-g01",
+        "ch04-g02",
+        "ch04-g03"
+      ]
+    },
+    {
+      "id": "P04-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "2585cf40f42cdb85c507a2183fccb0d139f9bf9031d05805a173cba3c7614e96",
+      "title": "프로젝트에만 필요한 규칙은 따로 둡니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "영화 보고서에만 필요한 규칙을 프로젝트에 남길 때",
+      "before": "공통 원칙과 상세 절차를 확인하고 현재 movie-report/CLAUDE.md의 기존 사용자 규칙·튜터 연결을 읽습니다.",
+      "after": "KOBIS 출처·조회 연도·추측 금지의 프로젝트 규칙과 기존 내용 보존을 확인합니다.",
+      "objective_ids": [
+        "ch04-g01",
+        "ch04-g02",
+        "ch04-g04"
+      ]
+    },
+    {
+      "id": "P04-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "c16a2dc5f478316ae6c044d7cfcf911f72413f224850d4c734cb6b87bca74802",
+      "title": "이제 변경만 요청합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "저장한 원칙이 다음 작은 변경에서 적용되는지 시험할 때",
+      "before": "공통·프로젝트 규칙을 남긴 뒤 정상 보고서에서 제목만 바꾸는 단계인지 확인합니다.",
+      "after": "실제 제목 변경과 참고한 규칙, 관련 Test 실행 결과를 확인합니다. 지침 파일 존재를 실행 보장으로 해석하지 않습니다.",
+      "objective_ids": [
+        "ch04-g05",
+        "ch04-g06"
+      ]
+    },
+    {
+      "id": "P04-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이 장을 마쳤는지 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "4장의 실습 결과를 장별 완료 조건과 대조할 때",
+      "before": "앞 단계 실행 결과와 사람이 직접 확인할 항목을 확인합니다. 요청문을 보여주거나 실행했다고 완료로 세지 않습니다.",
+      "after": "명세의 실제 근거와 미확인을 나눠 판단합니다. 결과가 미확인이면 다음 장으로 자동 진행하지 않습니다.",
+      "objective_ids": [
+        "ch04-g01",
+        "ch04-g02",
+        "ch04-g03",
+        "ch04-g04",
+        "ch04-g05",
+        "ch04-g06"
+      ]
+    }
+  ]
+}

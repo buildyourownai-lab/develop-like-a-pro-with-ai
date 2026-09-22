@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "book_edition": "22-chapter-tutor-revision",
+  "id": "ch12",
+  "number": 12,
+  "title": "12장. 더 빠르고 비용은 적게 드는 서비스로 개선합니다",
+  "manuscript": "book/17-chapter-12.md",
+  "manuscript_sha256": "19908e437b94830356e448745be322848b1eb56aa0a0ed3ccb1010c564f47eb5",
+  "outcome": "자료와 브리핑을 저장·재사용해 호출을 줄이고 품질을 유지합니다.",
+  "project": "ai-stock-briefing",
+  "start_state": "11장의 운영 서비스와 근거 검증이 있습니다.",
+  "previously_completed_features": "시세·공시·AI 브리핑·배포",
+  "required_services": [
+    "supabase",
+    "upstash",
+    "vercel",
+    "gemini"
+  ],
+  "required_accounts_permissions": [
+    {
+      "service": "supabase",
+      "details": "../../services/supabase.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "upstash",
+      "details": "../../services/upstash.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "vercel",
+      "details": "../../services/vercel.json",
+      "readiness": "must_be_observed_not_assumed"
+    },
+    {
+      "service": "gemini",
+      "details": "../../services/gemini.json",
+      "readiness": "must_be_observed_not_assumed"
+    }
+  ],
+  "tools_and_packages": [
+    "기존 서버",
+    "DB·Redis 클라이언트"
+  ],
+  "new_features": "저장·TTL·재사용·격리·호출 확인",
+  "out_of_scope": "과거 측정값을 새 실측으로 쓰거나 캐시 때문에 품질 검사·데이터 기준일을 버리지 않습니다.",
+  "objectives": [
+    {
+      "id": "ch12-g01",
+      "title": "DB 준비",
+      "criterion": "서비스와 가까운 지역·플랜·연결정보 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "서비스와 가까운 지역·플랜·연결정보 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch12-g02",
+      "title": "자료 저장",
+      "criterion": "종목·기준일별 저장·갱신 규칙 확인",
+      "required": true,
+      "depends_on": [
+        "ch12-g01"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "종목·기준일별 저장·갱신 규칙 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch12-g03",
+      "title": "Cache 준비",
+      "criterion": "REST URL·Token·비용 조건 확인",
+      "required": true,
+      "depends_on": [
+        "ch12-g02"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "REST URL·Token·비용 조건 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch12-g04",
+      "title": "재사용·만료",
+      "criterion": "동일 조건 재사용과 만료 후 갱신 확인",
+      "required": true,
+      "depends_on": [
+        "ch12-g03"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "동일 조건 재사용과 만료 후 갱신 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch12-g05",
+      "title": "호출·측정",
+      "criterion": "반복 호출 감소와 측정 조건을 기록",
+      "required": true,
+      "depends_on": [
+        "ch12-g04"
+      ],
+      "evidence_types": [
+        "live-api",
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "verify_instructions": "반복 호출 감소와 측정 조건을 기록. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch12-g06",
+      "title": "품질·배포",
+      "criterion": "구조·근거 검증 유지와 운영 환경 재사용 확인",
+      "required": true,
+      "depends_on": [
+        "ch12-g05"
+      ],
+      "evidence_types": [
+        "live-api",
+        "live-ui"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "actual-account-or-service",
+      "expiry_hours": 24,
+      "verify_instructions": "구조·근거 검증 유지와 운영 환경 재사용 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "13장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "100회 비용 예시는 환산인지 실측인지 구분합니다. 1.339÷0.088은 약15.2배입니다. 속도 체감만으로 서버 재사용을 입증하지 않습니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch12",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
+  "hint_topics": [
+    {
+      "id": "H12-01",
+      "symptom": "두 번째가 빠르면 끝인가",
+      "levels": [
+        "속도와 실제 재사용은 다른 증거입니다.",
+        "브라우저 캐시인지 서버 저장값인지 구분합니다.",
+        "두 번째 요청에서 외부 API·Gemini를 다시 불렀는지 기록을 봅니다."
+      ],
+      "solution": "동일 조건 반복·만료·다른 종목을 각각 검사해 재사용과 격리를 확인합니다."
+    },
+    {
+      "id": "H12-02",
+      "symptom": "배포 후 DB 연결 실패",
+      "levels": [
+        "로컬과 배포 환경의 변수 이름을 비교합니다.",
+        "자동 연결이 만든 Name과 코드가 찾는 Name을 나눕니다.",
+        "SUPABASE_DATABASE_URL, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN이 로컬과 Vercel에 같은 이름으로 등록되어 있는지 값 노출 없이 확인합니다."
+      ],
+      "solution": "Vercel에 프로젝트가 사용하는 세 이름으로 연결값을 등록하고 새 배포 후 저장·재조회까지 검증합니다. 무료 플랜을 임의 가정하지 않습니다."
+    },
+    {
+      "id": "H12-MODEL",
+      "symptom": "모델을 사용할 수 없거나 교체가 필요합니다.",
+      "levels": [
+        "공식 지원 여부와 계정 사용량·한도를 확인하는 방법을 안내합니다. 확인하지 못한 계정 상태는 미확인으로 남깁니다.",
+        "모델 교체가 필요하면 사용 가능한 저비용 후보와 비용 조건을 안내합니다.",
+        "힌트 요청만으로 설정을 바꾸거나 유료 전환하지 않습니다. 후보 선택과 실제 변경 요청을 구분합니다."
+      ],
+      "solution": "독자가 후보를 선택하고 변경을 요청한 범위에서만 적용합니다. 변경 뒤 실제 응답과 관련 Test를 확인합니다. 11장의 모델 교체 안내로 연결하고, 새 모델을 Cache key로 구분해 옛 브리핑을 재사용하지 않는지 확인합니다."
+    }
+  ],
+  "required_credentials": [
+    {
+      "provider": "supabase",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/supabase.md"
+    },
+    {
+      "provider": "upstash",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": true,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/upstash.md"
+    },
+    {
+      "provider": "vercel",
+      "kind": "account",
+      "new_in_this_project": false,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/vercel.md"
+    },
+    {
+      "provider": "gemini",
+      "kind": "api-key-or-server-connection",
+      "new_in_this_project": false,
+      "do_not_repeat_existing_setup": true,
+      "actual_value": "never_store_here",
+      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
+      "official_procedure": "../../services/gemini.md"
+    }
+  ],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  }
+}

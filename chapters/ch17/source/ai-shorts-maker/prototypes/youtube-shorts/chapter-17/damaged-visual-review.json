@@ -1,0 +1,14 @@
+{
+  "reviewer": "AI Reviewer",
+  "video": "artifacts/chapter-17/failures/damaged-short.mp4",
+  "judgments": {
+    "subtitles_present_and_readable": false,
+    "subjects_not_severely_cropped": false,
+    "no_obvious_visual_corruption": false
+  },
+  "notes": [
+    "첫 표본은 검은 화면이다.",
+    "중앙 절반만 확대한 화면이라 로마 건축물·콘크리트 시험편과 균열 장면이 심하게 잘렸다.",
+    "원래 하단에 있던 한글 자막이 Contact Sheet 표본에서 사라졌다."
+  ]
+}

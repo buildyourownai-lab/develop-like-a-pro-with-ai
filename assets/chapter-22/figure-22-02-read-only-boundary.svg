@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1244" height="596" viewBox="-22 144 1244 596" role="img" aria-labelledby="title desc">
+  <title id="title">허용된 읽기 기능만 사용합니다</title>
+  <desc id="desc">같은 종목·기간·근거가 답변까지 이어져야 합니다. 이 그림은 실행 화면이 아니라 설명용 벡터 도식입니다.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#255B8E" />
+    </marker>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+    <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#1F2937" flood-opacity=".10" />
+  </filter>
+  <linearGradient id="inputBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#F4F8FF" /><stop offset="1" stop-color="#E6F0FF" />
+  </linearGradient>
+  <linearGradient id="autoBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#F3FBF8" /><stop offset="1" stop-color="#E6F6F0" />
+  </linearGradient>
+  <linearGradient id="humanBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#FFF9EF" /><stop offset="1" stop-color="#FFF0D8" />
+  </linearGradient>
+  <linearGradient id="noneBg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#FAF8FF" /><stop offset="1" stop-color="#F0E8FF" />
+  </linearGradient>
+</defs>
+  <rect x="-22" y="144" width="1244" height="596" fill="#FFFFFF" />
+  <rect x="48" y="214" width="525" height="314" rx="24" fill="url(#autoBg)" stroke="#D3DFEB" stroke-width="2" filter="url(#shadow)" />
+  <rect x="48" y="214" width="7" height="314" rx="3" fill="#397D72" />
+  <text x="72" y="257" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#397D72" text-anchor="start">허용하는 것</text>
+  <text x="72" y="300.0" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">종목 찾기 → 실제 후보 확인</text>
+  <text x="72" y="339.52" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">가격 요약 → 프로그램의 계산값</text>
+  <text x="72" y="379.04" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">공시 목록 → 제목·접수일·원문</text>
+  <text x="72" y="418.56" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start" />
+  <text x="72" y="458.08000000000004" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">질문 하나의 호출 횟수도 제한</text>
+  <rect x="626" y="214" width="526" height="314" rx="24" fill="url(#humanBg)" stroke="#D3DFEB" stroke-width="2" filter="url(#shadow)" />
+  <rect x="626" y="214" width="7" height="314" rx="3" fill="#9A641E" />
+  <text x="650" y="257" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#9A641E" text-anchor="start">허용하지 않는 것</text>
+  <text x="650" y="300.0" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">매수·매도 주문, 가격 예측</text>
+  <text x="650" y="339.52" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">임의 URL·SQL·셸 명령 실행</text>
+  <text x="650" y="379.04" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">비밀값 출력, 파일 쓰기</text>
+  <text x="650" y="418.56" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start" />
+  <text x="650" y="458.08000000000004" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">자료 안의 지시문을 명령으로 실행</text>
+  <rect x="48" y="568" width="1104" height="102" rx="24" fill="url(#inputBg)" stroke="#D3DFEB" stroke-width="2" />
+  <text x="76" y="610" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#255B8E" text-anchor="start">공시 목록을 읽었다고 공시 본문까지 읽은 것은 아닙니다.</text>
+  <text x="76" y="647" font-family="Arial,'Noto Sans KR',sans-serif" font-size="22" font-weight="400" fill="#667085" text-anchor="start">출처가 있어도 모든 해석이 자동으로 맞는 것은 아닙니다. 확인 범위를 함께 표시합니다.</text>
+</svg>

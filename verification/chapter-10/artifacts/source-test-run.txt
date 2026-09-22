@@ -1,0 +1,70 @@
+10장 Source를 빈 폴더에 단독으로 놓고 실행한 결과
+
+조회 시점 2026-08-30
+
+1. 준비   npm install
+   added 393 packages, and audited 394 packages in 6s
+
+2. 빌드와 단위·통합 Test   npm test   (next build 다음 vitest run)
+   Test Files  5 passed (5)
+   Tests  43 passed (43)
+
+3. 브라우저 Test   npx playwright test
+   ✓  1 tests/e2e/market-flow.spec.ts:18:7 › 시장 화면 › 기준일·출처·순위 조건이 표시되고, 인증키는 어디에도 노출되지 않는다 (699ms)
+   ✓  2 tests/e2e/market-flow.spec.ts:39:7 › 시장 화면 › 등락률 순위의 종목을 누르면 상세·차트를 거쳐 다시 시장 화면으로 돌아온다 (3.9s)
+   ✓  3 tests/e2e/market-flow.spec.ts:63:7 › 시장 화면 › 검색 결과가 하나면 바로 상세 화면으로 가고, 다시 돌아올 수 있다 (2.7s)
+   ✓  4 tests/e2e/market-flow.spec.ts:82:7 › 시장 화면 › 검색 결과가 여러 개면 목록에서 골라 상세 화면으로 갈 수 있다 (1.8s)
+   ✓  5 tests/e2e/market-flow.spec.ts:100:7 › 시장 화면 › 존재하지 않는 종목을 검색하면 다시 시도할 방법을 알려준다 (1.1s)
+   5 passed (17.5s)
+
+4. 정적 검사   npm run lint
+   eslint 경고와 오류 없음
+
+합계 48개 통과   단위·통합 43개 + 브라우저 5개
+이 가운데 10장에서 새로 생긴 것은 tests/dart-disclosure.test.ts의 25개다.
+
+--- 단위·통합 Test 43개 전체
+
+ ✓ tests/server-only-key.test.ts > 인증키가 브라우저로 내려가지 않는다 > 서버 전용 모듈에는 server-only 가드가 있다 
+ ✓ tests/server-only-key.test.ts > 인증키가 브라우저로 내려가지 않는다 > 빌드된 클라이언트 자바스크립트에 인증키 값이 포함되지 않는다 
+ ✓ tests/server-only-key.test.ts > 인증키가 브라우저로 내려가지 않는다 > 빌드된 클라이언트 자바스크립트에 인증키 변수 이름도 노출되지 않는다 
+ ✓ tests/latest-trading-date.test.ts > subtractDaysYyyyMmDd > 월을 넘어가는 날짜를 올바르게 계산한다 
+ ✓ tests/latest-trading-date.test.ts > subtractDaysYyyyMmDd > 연도를 넘어가는 날짜를 올바르게 계산한다 
+ ✓ tests/latest-trading-date.test.ts > findLatestTradingDate > 오늘 데이터가 있으면 오늘을 그대로 돌려준다 
+ ✓ tests/latest-trading-date.test.ts > findLatestTradingDate > 주말처럼 며칠 연속 0건이어도 데이터가 있는 날짜까지 거슬러 올라간다 
+ ✓ tests/latest-trading-date.test.ts > findLatestTradingDate > 탐색 범위 안에 데이터가 없으면 오류를 던진다 
+ ✓ tests/stock-lookup.test.ts > 실제 KRX상장종목정보로 종목을 검색한다 > 정확한 종목명은 1건으로 좁혀진다 
+ ✓ tests/market-data.test.ts > 실제 금융위원회 API로 시장 현황을 가져온다 > 지수(코스피·코스닥)와 종목 시세의 기준일이 실제로 온다 
+ ✓ tests/stock-lookup.test.ts > 실제 KRX상장종목정보로 종목을 검색한다 > 부분 이름은 여러 건으로 나온다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART corpCode.xml로 종목코드→고유번호를 찾는다 > SK하이닉스(000660)의 고유번호를 찾는다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART corpCode.xml로 종목코드→고유번호를 찾는다 > 존재하지 않는 종목코드는 null이다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 최근 공시 요약을 가져온다 > SK하이닉스(000660)는 최근 공시 5건과 조회 기간의 전체 건수를 함께 준다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 최근 공시 요약을 가져온다 > 접수일 내림차순으로 온다 
+ ✓ tests/stock-lookup.test.ts > 실제 KRX상장종목정보로 종목을 검색한다 > 존재하지 않는 이름은 0건이다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 최근 공시 요약을 가져온다 > 존재하지 않는 종목코드는 0건이고, 조회 기간은 그대로 돌려준다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 전체 공시 목록을 페이지로 가져온다 > 한 페이지가 OpenDART 기본 페이지당 건수를 넘지 않는다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 전체 공시 목록을 페이지로 가져온다 > 전체 목록은 요약과 같은 기간을 쓰고, 그 기간의 공시를 하나도 빼지 않는다 
+ ✓ tests/stock-lookup.test.ts > 실제 주식시세정보로 종목 상세를 가져온다 > 종목코드로 현재가·시가·고가·저가·거래량을 가져온다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 전체 공시 목록을 페이지로 가져온다 > 1페이지는 요약의 최근 5건을 그대로 포함한다 
+ ✓ tests/market-data.test.ts > 실제 금융위원회 API로 시장 현황을 가져온다 > 등락률 순위 조건과 대상 종목 수를 실제로 계산한다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 전체 공시 목록을 페이지로 가져온다 > 전체 건수가 한 페이지보다 많으면 2페이지는 1페이지와 다른 공시를 담는다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 전체 공시 목록을 페이지로 가져온다 > 존재하지 않는 종목코드는 0건이다 
+ ✓ tests/dart-disclosure.test.ts > OpenDART 공식 공시유형 코드 > 공식 코드(A~J)만 유효하다고 판단한다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 유형별 실제 건수를 가져온다 > SK하이닉스(000660)는 공식 유형 10개 각각의 실제 건수를 준다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 유형별 실제 건수를 가져온다 > 유형별 건수를 모두 더하면 기간 전체(필터 없음) 건수와 같다 
+ ✓ tests/stock-lookup.test.ts > 실제 주식시세정보로 종목 상세를 가져온다 > 최근 1년 일별 시세를 날짜 오름차순으로 가져온다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 유형별 실제 건수를 가져온다 > 유형 하나로 좁히면 그 유형의 실제 건수만큼만 전체 건수로 나온다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 유형별 실제 건수를 가져온다 > 존재하지 않는 종목코드는 10개 유형 모두 0건이다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 차트에 표시할 공시 시점을 가져온다 > SK하이닉스(000660)의 최근 1년 구간에서 정기공시·주요사항보고만 돌려준다 
+ ✓ tests/market-data.test.ts > 실제 금융위원회 API로 시장 현황을 가져온다 > 등락률 상위/하위 5개가 실제로 채워진다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 차트에 표시할 공시 시점을 가져온다 > 접수일 오름차순으로 온다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 차트에 표시할 공시 시점을 가져온다 > 정기공시·주요사항보고 외 다른 유형은 섞이지 않고, 같은 공시가 중복되지 않는다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 차트에 표시할 공시 시점을 가져온다 > 존재하지 않는 종목코드는 0건이다 
+ ✓ tests/dart-disclosure.test.ts > 실제 OpenDART 공시검색으로 차트에 표시할 공시 시점을 가져온다 > 같은 날짜에 같은 유형(B) 공시가 여러 건이어도 둘 다 남는다 
+ ✓ tests/dart-disclosure.test.ts > OpenDART 응답에서 '공시 없음'과 실제 API 오류를 구분한다 > 회사가 존재하기 전 기간처럼 정말 0건이면 에러 없이 빈 배열을 준다 (status 013) 
+ ✓ tests/dart-disclosure.test.ts > OpenDART 응답에서 '공시 없음'과 실제 API 오류를 구분한다 > 잘못된 요청(시작일이 종료일보다 늦음)은 진짜 오류라 던진다 (status 100) 
+ ✓ tests/dart-disclosure.test.ts > 모든 공시의 접수번호로 만든 DART 원문 링크가 실제로 접근된다 > SK하이닉스(000660) 최근 공시의 원문 링크마다 실제 그 회사의 문서 페이지가 열린다 
+ ✓ tests/market-data.test.ts > 실제 금융위원회 API로 시장 현황을 가져온다 > 등락률 순위에 오른 종목은 모두 보통주이고 거래대금 10억원 이상이다 
+ ✓ tests/stock-lookup.test.ts > 실제 주식시세정보로 종목 상세를 가져온다 > 이력이 짧은 종목은 1년치를 다 채우지 않는다 
+ ✓ tests/dart-disclosure.test.ts > 모든 공시의 접수번호로 만든 DART 원문 링크가 실제로 접근된다 > 전체 공시 목록(최근 1년)의 마지막 페이지에서 뽑은 공시도 원문 링크가 실제로 열린다 
+ ✓ tests/dart-disclosure.test.ts > 모든 공시의 접수번호로 만든 DART 원문 링크가 실제로 접근된다 > 존재하지 않는 접수번호로 만든 링크는 '거부' 페이지로 응답한다 (검증 로직 자체가 실제로 구분하는지 확인) 
