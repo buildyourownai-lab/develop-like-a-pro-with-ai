@@ -33,7 +33,7 @@ Cache 이름은 `ai-stock-briefing-cache`로 입력합니다.
 
 아래 화면의 **Free**는 이전 정책으로 만든 Cache의 플랜입니다. 지금 새로 만들 때도 Free를 선택할 수 있다는 뜻은 아닙니다.
 
-![Upstash Redis의 지역·플랜 선택과 기존 Cache 상태](/develop/guides/chapter-12/screen-12-03-04-upstash-region-plan-and-available.png)
+![Upstash Redis의 지역·플랜 선택과 기존 Cache 상태](https://www.studyailab.com/develop/guides/chapter-12/screen-12-03-04-upstash-region-plan-and-available.png)
 
 \[화면 12-3 \| Tokyo 리전과 현재 Pay As You Go 조건을 확인하고, 기존 Upstash Cache가 Available·Free 상태인지 구분하는 화면 --- 연결 환경변수 값은 가렸다\]
 

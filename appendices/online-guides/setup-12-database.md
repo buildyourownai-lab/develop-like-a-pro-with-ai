@@ -50,7 +50,7 @@ Free Plan을 선택할 수 있고 비용 조건을 확인했다면 **Install** �
 `ai-stock-briefing-db`의 상태가 **Available**인지 확인합니다. 아래 완료 화면은
 한도에 도달하기 전에 만들어 둔 기존 Free Plan Database입니다.
 
-![Supabase의 지역·플랜 선택과 기존 Database 상태](/develop/guides/chapter-12/screen-12-01-02-supabase-region-plan-and-available.png)
+![Supabase의 지역·플랜 선택과 기존 Database 상태](https://www.studyailab.com/develop/guides/chapter-12/screen-12-01-02-supabase-region-plan-and-available.png)
 
 \[화면 12-1 \| Seoul 리전과 현재 선택 가능한 플랜을 확인하고, 기존 Supabase Database가 Available·Supabase Free 상태인지 확인하는 화면 --- 연결 환경변수 값은 가렸다\]
 

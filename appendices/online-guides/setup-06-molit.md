@@ -29,7 +29,7 @@ https://www.data.go.kr/data/15126469/openapi.do
 
 공공데이터포털에는 이름이 비슷한 데이터가 여러 개 있습니다. 그래서 요청문에 주소를 함께 적었습니다. 화면에서 데이터 이름이 위 주소의 이름과 같은지 확인한 뒤 **활용신청**을 선택합니다.
 
-![공공데이터포털 국토교통부 아파트 매매 실거래가 자료 활용신청 화면](/develop/guides/chapter-06/screen-06-04-molit-apartment-trade-api.png)
+![공공데이터포털 국토교통부 아파트 매매 실거래가 자료 활용신청 화면](https://www.studyailab.com/develop/guides/chapter-06/screen-06-04-molit-apartment-trade-api.png)
 
 [화면 6-4 | 공공데이터포털의 국토교통부_아파트 매매 실거래가 자료 페이지에서 데이터 이름과 활용신청 버튼을 확인하는 화면]
 
@@ -59,7 +59,7 @@ https://www.data.go.kr/data/15126469/openapi.do
 
 같은 화면을 아래로 내리면 **서비스 정보**가 있습니다. 이 책에서 서비스키라고 부르는 값이 여기에 **일반 인증키**라는 이름으로 표시됩니다.
 
-![공공데이터포털의 승인 상태와 일반 인증키 위치](/develop/guides/chapter-06/screen-06-05-06-molit-approval-and-service-key.png)
+![공공데이터포털의 승인 상태와 일반 인증키 위치](https://www.studyailab.com/develop/guides/chapter-06/screen-06-05-06-molit-approval-and-service-key.png)
 
 [화면 6-5 | 같은 개발계정 화면에서 처리상태가 승인인지 확인하고, 아래 서비스 정보에서 일반 인증키 위치를 찾습니다. 실제 값은 가림 처리했습니다.]
 

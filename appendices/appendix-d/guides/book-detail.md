@@ -12,7 +12,7 @@
 | API Key·연결 정보 | API 사용이나 데이터베이스 접속에 필요한 값 | 정기 교체와 유출 대응을 나눠 처리 |
 | OAuth | 내 계정에서 프로그램에 내준 권한 | 계정의 연결된 앱에서 승인 철회 |
 
-![그림 D-1 | API Key와 OAuth를 정리하는 자리 --- Key는 서비스에서 새로 받아 그 값이 있는 자리를 모두 바꾸고, OAuth는 내 계정의 앱 목록에서 철회하는 것을 확인합니다.](/develop/guides/appendix-d/figure-d-01-key-and-oauth.svg)
+![그림 D-1 | API Key와 OAuth를 정리하는 자리 --- Key는 서비스에서 새로 받아 그 값이 있는 자리를 모두 바꾸고, OAuth는 내 계정의 앱 목록에서 철회하는 것을 확인합니다.](https://www.studyailab.com/develop/guides/appendix-d/figure-d-01-key-and-oauth.svg)
 
 이 책에서 관리한 것은 다음과 같습니다.
 

@@ -25,14 +25,14 @@
 https://www.studyailab.com/develop
 ~~~
 
-![화면 A-0 | Development Lab의 실제 첫 화면입니다. 준비편에서 시작하거나 진행할 PART를 선택합니다. 2026년 10월 10일의 안내 화면이며, 연결된 자료의 판본은 각 메뉴에서 확인합니다.](/develop/guides/appendix-a/screen-a-00-development-lab.png)
+![화면 A-0 | Development Lab의 실제 첫 화면입니다. 준비편에서 시작하거나 진행할 PART를 선택합니다. 2026년 10월 10일의 안내 화면이며, 연결된 자료의 판본은 각 메뉴에서 확인합니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-00-development-lab.png)
 
-![화면 A-1 | 사이트에서 연결하는 실습 자료 저장소의 예 --- 요청문과 소스의 파일을 제공하는 곳입니다. 자료를 찾는 출발점은 Development Lab입니다.](/develop/guides/appendix-a/screen-a-01-one-place.png)
+![화면 A-1 | 사이트에서 연결하는 실습 자료 저장소의 예 --- 요청문과 소스의 파일을 제공하는 곳입니다. 자료를 찾는 출발점은 Development Lab입니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-01-one-place.png)
 
 아래 저장소 화면과 도식은 사이트에서 연결한 파일 자료의 보조 예입니다.
 처음 자료를 찾을 때는 Development Lab의 메뉴를 사용합니다.
 
-![그림 A-1 | 안내 사이트에서 연결하는 자료의 구성 --- 장별 학습 자료와 완성 프로젝트 소스는 용도가 다릅니다.](/develop/guides/appendix-a/figure-a-01-two-places.svg)
+![그림 A-1 | 안내 사이트에서 연결하는 자료의 구성 --- 장별 학습 자료와 완성 프로젝트 소스는 용도가 다릅니다.](https://www.studyailab.com/develop/guides/appendix-a/figure-a-01-two-places.svg)
 
 먼저 진행하는 PART와 장을 고릅니다. 장 안에서는 다음 메뉴를 사용합니다.
 
@@ -46,7 +46,7 @@ https://www.studyailab.com/develop
 **업데이트**에서 찾습니다. 실행 파일과 소스는 사이트가 연결한 저장소에서 받습니다.
 책을 따라가기 위해 저장소의 폴더 구조를 먼저 외울 필요는 없습니다.
 
-![화면 A-2 | 1장 자료 폴더 --- GitHub 본문의 `develop-like-a-pro-with-ai/chapters/ch01` 경로와 Source·README·요청문을 함께 확인합니다.](/develop/guides/appendix-a/screen-a-02-chapter-folder.png)
+![화면 A-2 | 1장 자료 폴더 --- GitHub 본문의 `develop-like-a-pro-with-ai/chapters/ch01` 경로와 Source·README·요청문을 함께 확인합니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-02-chapter-folder.png)
 
 ## 무엇을 확인할지 고릅니다
 
@@ -57,7 +57,7 @@ https://www.studyailab.com/develop
 | 저자가 만든 결과물과 내 것을 비교하기 | 소스·검증 → 저자 검증 상세 기록의 결과물 링크 |
 | 저자가 무엇을 어떻게 확인했는지 읽기 | 해당 장 → 소스·검증 |
 
-![화면 A-3 | 1장 검증 결과물 폴더 --- `verification/chapter-01/artifacts` 경로에서 Excel 결과물·검사 코드·검사 결과·KOBIS 대조 자료를 확인합니다.](/develop/guides/appendix-a/screen-a-03-artifacts.png)
+![화면 A-3 | 1장 검증 결과물 폴더 --- `verification/chapter-01/artifacts` 경로에서 Excel 결과물·검사 코드·검사 결과·KOBIS 대조 자료를 확인합니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-03-artifacts.png)
 
 Excel처럼 브라우저에서 내용을 바로 볼 수 없는 파일은 내려받아 엽니다. 비교를 맡기려면
 해당 장의 검증 안내에서 결과물 링크를 찾고, 아래 요청과 함께 그 주소를 전달합니다.

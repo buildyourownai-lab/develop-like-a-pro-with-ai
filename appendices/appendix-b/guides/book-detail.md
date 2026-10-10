@@ -85,7 +85,7 @@ https://www.studyailab.com/develop
 확인합니다. 어느 장인지 확정할 수 없다면 먼저 정한 뒤 진행합니다. 이번에는 내 기록이
 아니라 저자가 제공한 완성 파일에서 출발합니다.
 
-![그림 B-1 | 되돌릴 때 파일을 어디서 가져오나 --- 2단계는 내 컴퓨터의 기록에서, 3단계는 공개 저장소에서 파일을 가져오며, 인증키를 다시 넣어야 하는지도 서로 다릅니다.](/develop/guides/appendix-b/figure-b-01-where-it-comes-from.svg)
+![그림 B-1 | 되돌릴 때 파일을 어디서 가져오나 --- 2단계는 내 컴퓨터의 기록에서, 3단계는 공개 저장소에서 파일을 가져오며, 인증키를 다시 넣어야 하는지도 서로 다릅니다.](https://www.studyailab.com/develop/guides/appendix-b/figure-b-01-where-it-comes-from.svg)
 
 인증값은 Source에 들어 있지 않습니다. 부록 D의 방법으로 필요한 값의 이름과 위치를
 확인하고 직접 입력합니다. **실행 환경·인증·관련 Test가 준비된 뒤** 다음 장으로 이어갑니다.

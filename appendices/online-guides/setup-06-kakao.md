@@ -28,7 +28,7 @@ Kakao에서는 API를 사용하는 방법에 따라 REST API 키, JavaScript 키
 이번 프로젝트의 프로그램에서 Kakao Local API를 호출할 때는
 **REST API 키**를 사용합니다.
 
-![Kakao Developers의 실습용 앱과 REST API 키 위치](/develop/guides/chapter-06/screen-06-07-08-kakao-app-and-rest-key-location.png)
+![Kakao Developers의 실습용 앱과 REST API 키 위치](https://www.studyailab.com/develop/guides/chapter-06/screen-06-07-08-kakao-app-and-rest-key-location.png)
 
 [화면 6-7 | 생성된 실습용 앱의 이름과 역할을 확인한 뒤, 같은 앱의 플랫폼 키 화면에서 REST API 키 위치를 찾습니다. 실제 값 영역은 프레임에서 제외했습니다.]
 

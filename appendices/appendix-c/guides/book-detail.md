@@ -32,12 +32,12 @@ Git 기록을 화면으로 보고 싶어. Sourcetree를 내 컴퓨터에 설치�
 | 아직 기록하지 않은 변경 | 방금 작업했지만 Commit하지 않은 파일 |
 | `main`과 `origin/main` | 내 기록과 마지막으로 확인한 원격 기록의 위치 |
 
-![화면 C-1 | Sourcetree로 movie-report의 Git 기록을 연 화면 --- 위쪽에 기록이 시간 순서로 쌓이고, 기록을 하나 고르면 아래쪽에 바뀐 파일과 그때 남긴 메시지, 바뀐 줄이 함께 보이는 것을 확인합니다.](/develop/guides/appendix-c/screen-c-01-history.png)
+![화면 C-1 | Sourcetree로 movie-report의 Git 기록을 연 화면 --- 위쪽에 기록이 시간 순서로 쌓이고, 기록을 하나 고르면 아래쪽에 바뀐 파일과 그때 남긴 메시지, 바뀐 줄이 함께 보이는 것을 확인합니다.](https://www.studyailab.com/develop/guides/appendix-c/screen-c-01-history.png)
 
 화면 C-1에서는 최신 기록부터 보입니다. 기록 하나를 고르면 그때 남긴 메시지와
 변경한 파일을 함께 확인할 수 있습니다.
 
-![화면 C-2 | 기록 하나를 골랐을 때 보이는 바뀐 줄 --- 사라진 줄과 새로 들어온 줄이 색으로 갈려 있고, 양쪽 줄 번호로 어디가 달라졌는지 확인합니다.](/develop/guides/appendix-c/screen-c-02-diff.png)
+![화면 C-2 | 기록 하나를 골랐을 때 보이는 바뀐 줄 --- 사라진 줄과 새로 들어온 줄이 색으로 갈려 있고, 양쪽 줄 번호로 어디가 달라졌는지 확인합니다.](https://www.studyailab.com/develop/guides/appendix-c/screen-c-02-diff.png)
 
 화면 C-2의 붉은 줄은 삭제된 내용, 초록 줄은 추가된 내용입니다. 이것이 5장에서 본
 Diff입니다. 색뿐 아니라 줄 번호와 삭제·추가 표시도 함께 봅니다.
@@ -60,7 +60,7 @@ Diff입니다. 색뿐 아니라 줄 번호와 삭제·추가 표시도 함께 �
 화면 C-3은 부록 B의 복구 과정에서 보존한 작업을 기록으로 남긴 예입니다.
 별도 폴더에 복사해 보존했다면 그 사본은 이 목록에 나타나지 않을 수 있습니다.
 
-![화면 C-3 | 되돌리기 전에 보존해둔 작업 --- 기록 목록에 보존한 항목이 하나 생겨 있고, 그것을 고르면 되돌리기 전의 변경이 줄 단위로 그대로 남아 있는 것을 확인합니다.](/develop/guides/appendix-c/screen-c-03-preserved-work.png)
+![화면 C-3 | 되돌리기 전에 보존해둔 작업 --- 기록 목록에 보존한 항목이 하나 생겨 있고, 그것을 고르면 되돌리기 전의 변경이 줄 단위로 그대로 남아 있는 것을 확인합니다.](https://www.studyailab.com/develop/guides/appendix-c/screen-c-03-preserved-work.png)
 
 항목 이름만 보고 보존됐다고 판단하지 않습니다. 필요한 변경이 실제로 들어 있는지
 확인하고, 미기록 파일을 보관한 별도 위치가 있다면 그곳도 확인합니다.

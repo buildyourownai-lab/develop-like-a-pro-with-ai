@@ -14,7 +14,7 @@ API Key를 처음 발급받는다면 **인증키 신청** 페이지로 이동합
 **OpenDART 인증키 신청**  
 https://opendart.fss.or.kr/uss/umt/EgovMberInsertView.do
 
-![OpenDART 인증키 신청 페이지](/develop/guides/chapter-10/10-02-opendart-key-application.png)
+![OpenDART 인증키 신청 페이지](https://www.studyailab.com/develop/guides/chapter-10/10-02-opendart-key-application.png)
 
 [화면 10-2 | OpenDART 인증키 신청 페이지 --- 사용자 구분에서 개인을 선택하고 이메일·API 사용환경·API 사용용도 등을 입력하는 항목이 보인다]
 
@@ -47,7 +47,7 @@ OpenDART는 금융감독원이 운영하는 공공 서비스입니다. 이 책�
 있으며, OpenDART의 **인증키 신청/관리 → 오픈API 이용현황**에서도 확인할 수
 있습니다. 이 화면에서는 인증키가 **API Key**라는 이름으로 표시됩니다.
 
-![OpenDART 오픈API 이용현황 화면의 API Key](/develop/guides/chapter-10/10-03-opendart-api-key.png)
+![OpenDART 오픈API 이용현황 화면의 API Key](https://www.studyailab.com/develop/guides/chapter-10/10-03-opendart-api-key.png)
 
 [화면 10-3 | 발급된 인증키가 API Key라는 이름으로 표시되는 화면 --- 실제 값은 가림 처리]
 

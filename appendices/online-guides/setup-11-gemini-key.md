@@ -16,6 +16,6 @@ https://aistudio.google.com/app/apikey
 **키 만들기**를 누르면 키가 목록에 한 줄로 추가됩니다. 목록에는 값의
 마지막 네 글자만 보이고, 값 전체는 그 줄의 **API 키 복사**로 가져옵니다.
 
-![Gemini API Key를 만드는 세 단계](/develop/guides/chapter-11/screen-11-03-05-gemini-api-key-steps.png)
+![Gemini API Key를 만드는 세 단계](https://www.studyailab.com/develop/guides/chapter-11/screen-11-03-05-gemini-api-key-steps.png)
 
 \[화면 11-3 \| API 키 화면에서 만들기를 선택하고, 키 이름과 프로젝트를 정한 뒤, 발급된 키의 프로젝트와 결제 등급을 확인하는 흐름 --- 키 값은 마지막 네 글자만 보인다\]

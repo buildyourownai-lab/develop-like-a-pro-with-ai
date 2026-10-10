@@ -59,7 +59,7 @@
 프로젝트 이름·한 줄 소개·결과 화면·열어보는 주소를 먼저 두고, 준비·실행 방법은
 그 아래에 둡니다.
 
-![그림 G-1 | README 첫 화면에 들어가는 네 가지와 그 순서 --- 구경하는 사람이 앞의 세 개까지만 보고 판단한다는 것과, 직접 돌려볼 사람이 이어서 보는 자리가 어디인지 확인합니다.](/develop/guides/appendix-g/figure-g-01-first-screen-order.svg)
+![그림 G-1 | README 첫 화면에 들어가는 네 가지와 그 순서 --- 구경하는 사람이 앞의 세 개까지만 보고 판단한다는 것과, 직접 돌려볼 사람이 이어서 보는 자리가 어디인지 확인합니다.](https://www.studyailab.com/develop/guides/appendix-g/figure-g-01-first-screen-order.svg)
 
 전체 복사용 골격은 Development Lab의 **자료실 → 부록 G**에서 연결한
 `templates/project-readme.md`를 사용합니다. 골격을 바로 열 수 없으면 아래 요청문만
@@ -91,7 +91,7 @@ README를 첫 화면 기준으로 다시 정리해줘.
 
 채우면 첫 화면이 이렇게 보입니다.
 
-![화면 G-1 | 골격을 채운 저장소의 README --- 실제 결과 화면과 열어보는 주소가 함께 보이는 것을 확인합니다.](/develop/guides/appendix-g/screen-g-01-readme-first.png)
+![화면 G-1 | 골격을 채운 저장소의 README --- 실제 결과 화면과 열어보는 주소가 함께 보이는 것을 확인합니다.](https://www.studyailab.com/develop/guides/appendix-g/screen-g-01-readme-first.png)
 
 8장 결과물을 이 골격으로 정리한 완성 예시는 다음 저장소에서 확인할 수 있습니다.
 
@@ -181,7 +181,7 @@ Key가 Commit에 들어갔다면 현재 파일에서 지우는 것으로 끝나�
 `Change repository visibility`를 찾습니다. 저장소 이름과 공개 범위를 확인하고
 진행합니다. 삭제 항목과 혼동하지 않도록 메뉴의 위치보다 이름을 확인합니다.
 
-![화면 G-2 | 저장소 Settings 맨 아래의 Danger Zone --- 지금 비공개라는 안내와 함께 첫 줄에 Change repository visibility가 있고, 저장소를 지우는 항목이 같은 칸 맨 아래에 있는 것을 확인합니다.](/develop/guides/appendix-g/screen-g-02-danger-zone.png)
+![화면 G-2 | 저장소 Settings 맨 아래의 Danger Zone --- 지금 비공개라는 안내와 함께 첫 줄에 Change repository visibility가 있고, 저장소를 지우는 항목이 같은 칸 맨 아래에 있는 것을 확인합니다.](https://www.studyailab.com/develop/guides/appendix-g/screen-g-02-danger-zone.png)
 
 저장소 공개와 웹서비스·영상 공개는 별개입니다. 각각의 공개 상태와 접속 가능 여부를
 확인합니다. 공개한 파일은 다른 사람이 복사할 수 있으므로, 나중에 비공개로 돌리는 것만으로

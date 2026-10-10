@@ -10,7 +10,7 @@
 첫 실습부터 모델별 특징을 비교할 필요는 없습니다. 특별한 이유가
 없다면 **현재 기본으로 선택된 모델을 그대로 사용합니다.**
 
-![화면 준비-7 | 입력창 아래의 모델 이름을 눌러 모델 목록을 펼친 화면 --- 지금 선택된 모델에 표시가 되어 있는지 확인합니다.](/develop/guides/getting-started/screen-prep-07-model-default.png)
+![화면 준비-7 | 입력창 아래의 모델 이름을 눌러 모델 목록을 펼친 화면 --- 지금 선택된 모델에 표시가 되어 있는지 확인합니다.](https://www.studyailab.com/develop/guides/getting-started/screen-prep-07-model-default.png)
 
 모델을 바꿔야 할 이유가 생기면 그때 선택합니다.
 

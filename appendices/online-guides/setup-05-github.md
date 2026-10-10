@@ -10,7 +10,7 @@ GitHub 계정이 없다면 공식 가입 페이지로 이동합니다.
 https://github.com/signup
 ~~~
 
-![GitHub 공식 가입 페이지 QR 코드](/develop/guides/chapter-05/03-github-signup-qr.svg)
+![GitHub 공식 가입 페이지 QR 코드](https://www.studyailab.com/develop/guides/chapter-05/03-github-signup-qr.svg)
 
 *그림 5-3. GitHub 계정이 없다면 QR 코드를 찍어 공식 가입 페이지를 열 수 있습니다.*
 
