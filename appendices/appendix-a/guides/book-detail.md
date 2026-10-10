@@ -16,11 +16,11 @@
 
 ## 자료는 한곳에서 시작합니다
 
-책의 요청문·튜터·장별 Source·부록 자료·저자의 검증 기록은 **Development Lab**에서
-찾습니다. Study AI Lab은 여러 책의 공용 공간이며, 이 책은 아래 개발책 안내에서 시작합니다.
+아래 Study AI Lab 메인에 접속한 뒤 **Development Lab**을 엽니다.
+책의 요청문·튜터·장별 Source·부록 자료·저자의 검증 기록을 이곳에서 찾습니다.
 
 ~~~url
-https://www.studyailab.com/develop
+https://www.studyailab.com
 ~~~
 
 ![화면 A-0 | Development Lab의 실제 첫 화면입니다. 준비편에서 시작하거나 진행할 PART를 선택합니다. 2026년 10월 10일의 안내 화면이며, 연결된 자료의 판본은 각 메뉴에서 확인합니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-00-development-lab.png)
