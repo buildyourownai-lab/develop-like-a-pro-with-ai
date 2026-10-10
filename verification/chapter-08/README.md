@@ -32,7 +32,7 @@
 공개된 주소에서 지금 바로 검색해볼 수 있습니다.
 
 ```text
-https://apartment-explorer.vercel.app
+https://apartment.studyailab.com
 ```
 
 | 무엇 | 어디 |
@@ -103,7 +103,7 @@ https://vercel.com/docs/plans/hobby
 공개된 주소에 접속해 조건을 입력해보시면 됩니다.
 
 ```text
-https://apartment-explorer.vercel.app
+https://apartment.studyailab.com
 ```
 
 만들어보실 때는 책의 8장을 그대로 따라 하시면 됩니다. 요청문은
