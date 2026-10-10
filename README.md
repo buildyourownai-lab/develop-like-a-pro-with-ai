@@ -1,55 +1,46 @@
 <p align="left"><img src="assets/brand/book-symbol.png" alt="책 심벌" width="13%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/book-title.svg" alt="프로처럼 AI로 코딩 없이 개발하기" width="49.6%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/repository-title.svg" alt="공식 실습 자료" width="24.2%"></p>
 
+> [!IMPORTANT]
+> **실습은 책의 요청문을 Claude에 입력하며 시작합니다.**
+> 화면이 다르거나 요청문을 다시 복사해야 할 때 [Study AI Lab → Development Lab](https://www.studyailab.com/develop)을 이용하세요. 이 GitHub 저장소는 비교·복구용 Source, 튜터 원본, 검증 근거를 보관합니다.
+
+[![Study AI Lab에서 시작](https://img.shields.io/badge/Study_AI_Lab-학습_시작-2A9D8F?style=for-the-badge)](https://www.studyailab.com) [![Development Lab 장별 안내](https://img.shields.io/badge/Development_Lab-장별_안내-D1495B?style=for-the-badge)](https://www.studyailab.com/develop)
+
+Study AI Lab은 책의 학습을 돕는 사이트입니다. Development Lab에서는 준비편부터 22장까지 책과 같은 순서를 찾아보고, [요청문 사용법과 다시 열람·복사](https://www.studyailab.com/develop/resources), [튜터 연결·사용법](https://www.studyailab.com/develop/tutor)을 참고할 수 있습니다. 설치·환경 안내도 제공합니다.
+
+| 필요한 것 | 어디에서 하나 |
+|---|---|
+| 기본 실습 요청문과 순서 | 책을 따라 Claude에 입력합니다 |
+| 요청문 사용법·다시 보기·복사와 온라인 장별 안내 | [Development Lab](https://www.studyailab.com/develop) |
+| 설치·환경 설명, 막혔을 때 도움, 부록 상세 | [Development Lab 자료실](https://www.studyailab.com/develop/resources) |
+| 튜터 연결·사용법 | 책의 준비 요청을 Claude에 입력합니다. [사이트 안내](https://www.studyailab.com/develop/tutor)에서 화면과 절차를 다시 보고, Claude가 이 저장소의 [튜터 원본](tutor/)을 확인해 연결을 돕습니다 |
+| 완성 Source와 저자 검증 파일 | 필요할 때만 이 GitHub의 [장별 폴더](chapters/)와 [검증 자료](verification/)에서 비교·복구 근거를 확인합니다 |
+| 요청문 원본 파일 | GitHub의 장별 `prompts.md`를 사이트와 튜터가 읽습니다. 독자는 사이트에서 단계와 입력 위치를 확인합니다 |
+
+정상 실습에서는 Claude가 요청문을 따라 프로젝트를 만들고 이어갑니다. 완성 Source를 미리 받을 필요는 없습니다. 막혀서 비교·복구가 필요한 경우에만 사이트의 장별 페이지에서 이 저장소의 Source·검증 근거로 이동하세요.
+
 [![Projects](https://img.shields.io/badge/Projects-6-D1495B)](#최종-프로젝트)
 [![Chapters](https://img.shields.io/badge/Chapters-22%2F22-7357D8)](chapters/)
 [![Prompts](https://img.shields.io/badge/Prompts-239-3A86FF)](chapters/)
 ![Unit Tests](https://img.shields.io/badge/Unit_Tests-467%2F467_PASS-FFD166)
 [![Verification](https://img.shields.io/badge/Verification-153_checks-2A9D8F)](verification/)
 
-[Study AI Lab 메인](https://www.studyailab.com)에 접속한 뒤 Development Lab을 엽니다. PART와 장을 고른 뒤 커맨드·소스/검증·튜터·자료실을 찾습니다. 이 저장소는 연결된 파일 자료를 제공합니다.
-
 develop-like-a-pro-with-ai는 《프로처럼 AI로 코딩 없이 개발하기》의 독자용 공식 실습 자료 저장소입니다.
 
-[책 튜터](tutor/README.md)를 연결하면 **“다음 요청문 보여줘”**로 현재 단계의 요청문을 찾고, 확인한 뒤 **“진행해”**로 해당 작업을 이어갈 수 있습니다.
+책의 준비 요청으로 튜터 연결을 Claude에 맡기세요. 필요하면 [사이트의 튜터 연결 안내](https://www.studyailab.com/develop/tutor)에서 절차를 다시 확인할 수 있습니다. 연결을 확인한 뒤 **“다음 요청문 보여줘”**로 현재 단계의 요청문을 찾고, 확인한 뒤 **“진행해”**로 해당 작업을 이어갈 수 있습니다.
 
 ## 자료 구성
 
-### 장별 자료
+### 장별 Source와 요청문 원본
 
-[chapters/](chapters/)에 장별 폴더가 있습니다. 각 장의 README에 그 장의 자료가 무엇이고 언제 쓰는지 적어두었습니다. 장이 아닌 지면에도 입력하는 문장이 있으면 같은 자리에 폴더를 두었고, 그 폴더에는 prompts.md만 있습니다.
+[장별 학습 안내](https://www.studyailab.com/develop/resources)에서 순서와 입력 위치를 확인하세요. [chapters/](chapters/)에는 비교·복구용 완성 Source와 튜터·사이트가 읽는 요청문 원본이 있습니다. 장별 README에는 Source·검증 자료로 가는 짧은 길잡이를 둡니다.
 
 | 이름 | 무엇인가 |
 |---|---|
-| prompts.md | 그 자리에서 Claude Code에 입력하는 문장. 책에 나오는 순서 |
+| prompts.md | 튜터·사이트가 읽는 요청문 원본. 열람·복사는 Development Lab에서 합니다 |
 | source/ | 그 장을 끝낸 상태의 프로젝트 전체 |
 
-- [이 책을 읽는 법](chapters/how-to-read/prompts.md)
-- [준비편. Claude Code에 첫 일을 맡길 준비를 합니다](chapters/getting-started/prompts.md)
-- [1장. 영화 흥행 기록으로 첫 Excel 보고서를 만들어봅니다](chapters/ch01/)
-- [2장. Claude가 제대로 만들었는지 확인합니다](chapters/ch02/)
-- [3장. 문제가 생기면, 고치기 전에 원인부터 찾습니다](chapters/ch03/)
-- [4장. 같은 실수는 두 번 하지 않게 합니다](chapters/ch04/)
-- [5장. 잘되던 때로 돌아갈 곳을 만들어둡니다](chapters/ch05/)
-- [PART 1 피날레. 이번 PART에서 달라진 것](chapters/part-01-finale/prompts.md)
-- [6장. 아파트 실거래가와 위치 정보를 가져옵니다](chapters/ch06/)
-- [7장. 내 조건에 맞는 아파트를 찾습니다](chapters/ch07/)
-- [8장. 누구나 사용할 수 있는 아파트 찾기 서비스를 만듭니다](chapters/ch08/)
-- [9장. 국내 증시와 궁금한 종목을 한눈에 봅니다](chapters/ch09/)
-- [10장. 이 회사는 최근 무엇을 공시했을까?](chapters/ch10/)
-- [11장. 주가부터 공시까지, AI가 한 번에 브리핑합니다](chapters/ch11/)
-- [12장. 더 빠르고 비용은 적게 드는 서비스로 개선합니다](chapters/ch12/)
-- [13장. 웹서비스를 앱으로 만들기 전에 알아야 할 것들](chapters/ch13/)
-- [14장. 만든 서비스를 Android 앱으로 만듭니다](chapters/ch14/)
-- [15장. 같은 서비스를 iPhone 앱으로 만듭니다](chapters/ch15/)
-- [16장. AI와 YouTube 영상을 만듭니다](chapters/ch16/)
-- [17장. 올리기 전에 AI가 영상을 검사합니다](chapters/ch17/)
-- [18장. 만든 영상을 실제 YouTube에 올립니다](chapters/ch18/)
-- [19장. AI가 내 유튜브 댓글을 읽고 답글을 준비합니다](chapters/ch19/)
-- [20장. 허용한 댓글에만 자동으로 답하게 합니다](chapters/ch20/)
-- [21장. 내 주식서비스의 챗봇을 기획합니다](chapters/ch21/)
-- [22장. 기획한 챗봇을 내 주식서비스에 구현합니다](chapters/ch22/)
-
-장별 자료는 순서대로 채웁니다.
+완성 Source는 정상 실습의 시작점이 아닙니다. 현재 작업을 보존한 뒤 비교·복구가 필요할 때만 해당 장의 `source/`를 확인하세요.
 
 ### 부록 자료
 
@@ -143,9 +134,15 @@ verification/에는 저자가 실제로 확인한 방법과 결과를 장별로 
     </tr>
     <tr>
       <td align="center" width="90">6</td>
-      <td align="center" width="90">19–22</td>
+      <td align="center" width="90">19–20</td>
       <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-media-works">ai-media-works</a></td>
-      <td align="left" width="326">AI 미디어 운영</td>
+      <td align="left" width="326">유튜브 댓글 읽기·답글 도구</td>
+    </tr>
+    <tr>
+      <td align="center" width="90">6</td>
+      <td align="center" width="90">21–22</td>
+      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-stock-briefing">ai-stock-briefing</a></td>
+      <td align="left" width="326">주식서비스 챗봇 기획·구현</td>
     </tr>
   </tbody>
 </table>

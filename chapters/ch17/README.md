@@ -33,51 +33,8 @@ Code에 입력합니다.
 
 ## 검증 결과
 
-저자는 정상 영상과 일부러 망가뜨린 사본을 같은 기준으로 검사해, 정상은 통과하고 손상본은
-소리 없음과 앞부분 검은 화면까지 실패로 잡히는 것을 확인했습니다. 근거는
-[verification/chapter-17/](../../verification/chapter-17/)에 있습니다.
+[Development Lab의 검증 요약](https://www.studyailab.com/develop/chapters/17#sources)과 [공개 검증 자료](../../verification/chapter-17/)를 확인하세요.
 
 ## 막혔을 때
 
-```text
-디버깅 → 내 정상 기록으로 복구 → 장별 Source로 재시작
-```
-
-명령어를 외우거나 직접 입력할 필요는 없습니다. 아래 요청문을 그대로 붙여넣으면 Claude
-Code가 확인하고 처리합니다.
-
-**1. 디버깅** — 먼저 무엇이 어긋났는지 그대로 말하고 고쳐봅니다. 대부분 여기서
-해결됩니다.
-
-```text
-지금 작업이 책과 다르게 진행됐어.
-현재 상태와 화면에 나온 문제를 확인하고 원인을 찾아서 고쳐줘.
-```
-
-이 장에서 특히 자주 막히는 자리는 정상 영상인데 검사에서 실패하는 경우입니다. 기준을
-풀기 전에 어느 항목이 걸렸는지부터 봅니다.
-
-```text
-정상 영상인데 검사에서 실패했어.
-어느 항목이 어떤 값 때문에 실패했는지 항목별로 그대로 보여줘.
-원인을 확인하기 전에 검사 기준을 느슨하게 바꾸거나 항목을 빼지는 마.
-```
-
-**2. 내 정상 기록으로 복구** — 해결되지 않으면 실습하면서 내 프로젝트에 남겨둔 정상
-기록으로 돌아갑니다. 지금까지 한 작업은 먼저 따로 보존합니다.
-
-```text
-현재 작업은 잃지 않도록 먼저 별도로 보존해줘.
-이 프로젝트에서 마지막으로 정상 동작했던 상태를 찾아 안전하게 복구해줘.
-```
-
-**3. 장별 Source로 재시작** — 그래도 이어갈 수 없을 때 사용합니다. PART 5 실습을 마친
-것으로 보고 다음으로 넘어가게 되므로 마지막 수단입니다.
-
-```text
-내 현재 작업을 먼저 안전하게 보존해줘.
-아래 16장과 17장 완성 Source에서 다시 시작해줘.
-https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch16/source/ai-shorts-maker
-https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch17/source/ai-shorts-maker
-내가 직접 넣어야 하는 설정과 인증정보가 무엇인지 알려줘.
-```
+[Development Lab의 도움말](https://www.studyailab.com/develop/chapters/17#help)을 확인하세요. 실습 Source는 현재 작업을 보존한 뒤 복구의 마지막 수단으로 사용합니다.

@@ -33,42 +33,8 @@
 
 ## 검증 결과
 
-저자는 서로 독립된 빈 폴더 3개에서 1장을 처음부터 돌렸고, 확인 목록 7개를 3회 모두
-통과했습니다. 보고서에 담긴 20편의 영화명·관객수·매출액은 KOBIS 공식통계와 대조해
-일치를 확인했습니다. 근거는
-[verification/chapter-01/](../../verification/chapter-01/)에 있습니다.
+[Development Lab의 검증 요약](https://www.studyailab.com/develop/chapters/01#sources)과 [공개 검증 자료](../../verification/chapter-01/)를 확인하세요.
 
 ## 막혔을 때
 
-```text
-디버깅 → 내 정상 기록으로 복구 → 장별 Source로 재시작
-```
-
-Git 명령을 외우거나 직접 입력할 필요는 없습니다. 아래 요청문을 그대로 붙여넣으면
-Claude Code가 확인하고 처리합니다.
-
-**1. 디버깅** — 먼저 무엇이 어긋났는지 그대로 말하고 고쳐봅니다. 대부분 여기서
-해결됩니다.
-
-```text
-지금 작업이 책과 다르게 진행됐어.
-현재 상태와 화면에 나온 문제를 확인하고 원인을 찾아서 고쳐줘.
-```
-
-**2. 내 정상 기록으로 복구** — 해결되지 않으면 실습하면서 내 프로젝트에 남겨둔 정상
-기록으로 돌아갑니다. 지금까지 한 작업은 먼저 따로 보존합니다.
-
-```text
-현재 작업은 잃지 않도록 먼저 별도로 보존해줘.
-이 프로젝트에서 마지막으로 정상 동작했던 상태를 찾아 안전하게 복구해줘.
-```
-
-**3. 장별 Source로 재시작** — 그래도 이어갈 수 없을 때 사용합니다. 1장의 남은 실습은
-건너뛰게 되므로 마지막 수단입니다.
-
-```text
-내 현재 작업을 먼저 안전하게 보존해줘.
-아래 1장 완성 Source에서 다시 시작해줘.
-https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/main/chapters/ch01/source/movie-report
-준비가 끝나면 1장을 마친 상태인지 확인해줘.
-```
+[Development Lab의 도움말](https://www.studyailab.com/develop/chapters/01#help)을 확인하세요. 실습 Source는 현재 작업을 보존한 뒤 복구의 마지막 수단으로 사용합니다.
