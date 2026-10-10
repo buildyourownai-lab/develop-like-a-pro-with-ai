@@ -90,14 +90,14 @@ verification/에는 저자가 실제로 확인한 방법과 결과를 장별로 
 
 ## 최종 프로젝트
 
-책에서 만드는 프로젝트의 최신 구현은 다음 개별 저장소에서 관리합니다.
+책의 각 단계에서 비교·복구에 사용하는 완성 Source는 이 공개 독자 저장소에 있습니다. 개발용 개별 프로젝트 저장소는 비공개이며 실습 시작에 필요하지 않습니다.
 
 <table width="100%">
   <thead>
     <tr>
       <th align="center" width="90">PART</th>
       <th align="center" width="90">장</th>
-      <th align="center" width="223">저장소</th>
+      <th align="center" width="223">공개 완성 Source</th>
       <th align="center" width="326">내용</th>
     </tr>
   </thead>
@@ -105,43 +105,43 @@ verification/에는 저자가 실제로 확인한 방법과 결과를 장별로 
     <tr>
       <td align="center" width="90">1</td>
       <td align="center" width="90">1–5</td>
-      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/movie-report">movie-report</a></td>
+      <td align="left" width="223"><a href="chapters/ch05/source/movie-report/">movie-report</a></td>
       <td align="left" width="326">영화 흥행 보고서</td>
     </tr>
     <tr>
       <td align="center" width="90">2</td>
       <td align="center" width="90">6–8</td>
-      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/apartment-explorer">apartment-explorer</a></td>
+      <td align="left" width="223"><a href="chapters/ch08/source/apartment-explorer/">apartment-explorer</a></td>
       <td align="left" width="326">아파트 탐색 서비스</td>
     </tr>
     <tr>
       <td align="center" width="90">3</td>
       <td align="center" width="90">9–12</td>
-      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-stock-briefing">ai-stock-briefing</a></td>
+      <td align="left" width="223"><a href="chapters/ch12/source/ai-stock-briefing/">ai-stock-briefing</a></td>
       <td align="left" width="326">국내주식 AI 브리핑 웹서비스</td>
     </tr>
     <tr>
       <td align="center" width="90">4</td>
       <td align="center" width="90">13–15</td>
-      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-stock-briefing">ai-stock-briefing</a></td>
+      <td align="left" width="223"><a href="chapters/ch15/source/ai-stock-briefing/">ai-stock-briefing</a></td>
       <td align="left" width="326">Android·iPhone 앱</td>
     </tr>
     <tr>
       <td align="center" width="90">5</td>
       <td align="center" width="90">16–18</td>
-      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-shorts-maker">ai-shorts-maker</a></td>
+      <td align="left" width="223"><a href="chapters/ch18/source/ai-shorts-maker/">ai-shorts-maker</a></td>
       <td align="left" width="326">AI 쇼츠 제작</td>
     </tr>
     <tr>
       <td align="center" width="90">6</td>
       <td align="center" width="90">19–20</td>
-      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-media-works">ai-media-works</a></td>
+      <td align="left" width="223"><a href="chapters/ch20/source/ai-media-works/">ai-media-works</a></td>
       <td align="left" width="326">유튜브 댓글 읽기·답글 도구</td>
     </tr>
     <tr>
       <td align="center" width="90">6</td>
       <td align="center" width="90">21–22</td>
-      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-stock-briefing">ai-stock-briefing</a></td>
+      <td align="left" width="223"><a href="chapters/ch22/source/ai-stock-briefing/">ai-stock-briefing</a></td>
       <td align="left" width="326">주식서비스 챗봇 기획·구현</td>
     </tr>
   </tbody>
