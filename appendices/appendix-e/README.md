@@ -1,26 +1,9 @@
 # 부록 E. 실전으로 익힌 개발 용어 × Claude 스킬
 
-## 이 부록으로 하는 일
+책에는 핵심 판단과 사용법을, 온라인에는 상세 절차와 복사용 보충 자료를 제공합니다.
 
-책의 PART별 표에서 내가 더 설명하고 싶은 기술 다섯 개를 고릅니다. 기술 이름만 나열하지
-않고, 그것으로 만든 것과 확인할 수 있는 증거를 한 장에 연결합니다.
+- [상세 안내](guides/book-detail.md)
+- [책의 핵심 요청문](prompts.md)
+- [Development Lab](https://www.studyailab.com/develop/resources/appendix-e)
 
-## 순서대로 합니다
-
-1. 책의 부록 E에서 설명하고 싶은 기술 다섯 개를 고릅니다.
-2. [templates/skills-evidence.md](templates/skills-evidence.md)를 내려받습니다.
-3. 각 기술로 만든 것과 처음 쓴 장을 책의 표에서 옮깁니다.
-4. **내 저장소의** 결과물, Test, 검증 기록, Commit 가운데 하나를 증거로 연결합니다.
-5. 근거를 찾지 못한 칸은 지어내지 않고 비워둡니다.
-
-## 가져다 쓰는 것
-
-| 파일 | 어디로 |
-|---|---|
-| [templates/skills-evidence.md](templates/skills-evidence.md) | 내 포트폴리오 저장소의 `docs/skills.md` |
-
-## 함께 보는 곳
-
-- 대표 프로젝트의 README와 검증 기록을 만드는 방법은 [appendix-g/](../appendix-g/)에 있습니다.
-- 전체 기술 목록은 [guides/skills-index.md](guides/skills-index.md)에 있습니다.
-- 저자의 [공개 검증](../../verification/)은 비교 자료이며 내 경험의 증거로 쓰지 않습니다.
+자료의 판본과 현재 계정 조건을 확인합니다. 예제·문서를 받는 것과 실제 실행 완료는 구분합니다.

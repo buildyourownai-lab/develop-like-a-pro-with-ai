@@ -5,7 +5,7 @@
   "number": 5,
   "title": "5장. 잘되던 때로 돌아갈 곳을 만들어둡니다",
   "manuscript": "book/08-chapter-05.md",
-  "manuscript_sha256": "3492fe42abfcf39d07901263534eae64b74dd701d2fe2ccab59c13474b60fd3d",
+  "manuscript_sha256": "7de93a0b1e88f4ca75b95b8bebeb582d367e416ffb4f49e5b042552f4b27bbc1",
   "outcome": "최근 변경을 되돌리고 검증한 상태를 Git과 GitHub에 보관합니다.",
   "project": "movie-report",
   "start_state": "4장의 규칙과 정상 보고서·Test가 있습니다.",

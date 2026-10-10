@@ -5,7 +5,7 @@
   "number": 12,
   "title": "12장. 더 빠르고 비용은 적게 드는 서비스로 개선합니다",
   "manuscript": "book/17-chapter-12.md",
-  "manuscript_sha256": "19908e437b94830356e448745be322848b1eb56aa0a0ed3ccb1010c564f47eb5",
+  "manuscript_sha256": "3b09561526211ccae613c55c84cc298c8ceebb0e822f09b6a24dc64d779ae1c4",
   "outcome": "자료와 브리핑을 저장·재사용해 호출을 줄이고 품질을 유지합니다.",
   "project": "ai-stock-briefing",
   "start_state": "11장의 운영 서비스와 근거 검증이 있습니다.",

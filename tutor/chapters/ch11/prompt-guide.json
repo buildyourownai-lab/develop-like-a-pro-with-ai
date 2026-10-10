@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": 11,
   "project": "ai-stock-briefing",
-  "manuscript_sha256": "95bee08d8327fb47c1c1d2046bd7e6b49646ceb90cf1add4b536e0573f27115c",
+  "manuscript_sha256": "425cdf8b923933c9a1a255946e922207677fa24bfadf07f6f53c972a8a039f90",
   "entries": [
     {
       "id": "P11-01",
@@ -51,13 +51,13 @@
       "id": "P11-04",
       "source": "prompts.md",
       "block_index": 4,
-      "sha256": "4b1ea0337474592f33bb505facb3d2566017da1e5a52b413e5239133aaba9044",
+      "sha256": "f8ae538aff869667fd391074a54560a46838354867c9742c5ed10f16547b46db",
       "title": "Gemini는 우리 서버를 통해 부릅니다",
       "target": "coding-assistant",
       "kind": "main",
       "when": "브리핑 서버 호출 구현",
-      "before": "키 입력·노출 확인과 현재 모델 지원·계정 한도 확인.",
-      "after": "버튼 실행과 지정 모델 서버 연결; 모델 미지원은 교체하지 않고 보고",
+      "before": "온라인 책 기준판의 모델 안내·현재 공식 지원·계정 한도 확인, 정확한 ID와 비용 제시 뒤 독자 선택 대기.",
+      "after": "선택한 ID로 서버 연결; 지원/안내 미확인은 추측하지 않고 중지. 실제 호출 결과는 별도 확인.",
       "objective_ids": [
         "ch11-g03"
       ]
