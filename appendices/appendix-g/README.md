@@ -1,5 +1,7 @@
 # 부록 G. 내가 만든 것을 AI 포트폴리오로 바꿉니다
 
+온라인 안내: [Development Lab](https://www.studyailab.com/develop/resources/appendix-g). 부록 G의 안내와 골격 자료는 자료실에서 찾습니다. GitHub 포트폴리오 정리는 이 부록의 학습 내용으로 유지합니다.
+
 ## 이 부록으로 하는 일
 
 이미 만든 여섯 결과물 가운데 하나를 골라, 다른 사람이 열었을 때 무엇을 만든 것인지

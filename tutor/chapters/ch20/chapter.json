@@ -5,7 +5,7 @@
   "number": 20,
   "title": "20장. 허용한 댓글에만 자동으로 답하게 합니다",
   "manuscript": "book/28-chapter-20.md",
-  "manuscript_sha256": "230c3b8159d8aece0cf50d294ef32ffc18e98cc9d7ff3f85e3a16a6eda263222",
+  "manuscript_sha256": "11768330ded59bdf2dc19863733c5f96a8c67b4b945abd012138352eb39f816e",
   "outcome": "승인한 영상·종류·시간 범위에서 자동답글을 보내고, 중복·결과 미확인·중지를 실제로 확인합니다.",
   "project": "ai-media-works",
   "start_state": "19장의 로컬 조회·분류·초안·두 검사가 준비돼 있고 댓글 사용이 가능한 내 영상 한 편이 있습니다.",

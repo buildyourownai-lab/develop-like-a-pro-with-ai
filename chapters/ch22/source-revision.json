@@ -7,7 +7,7 @@
   "files": {
     "ai-stock-briefing/.gitignore": "421176fe90bff7791e78f3e1a6de1da04c7ae38fc6ae5826b479f1e6c715f341",
     "ai-stock-briefing/.vercelignore": "6adc12c22a454bdece7436eac1d018019cb6fb42563b7cc1e5de6e83b0f939f7",
-    "ai-stock-briefing/README.md": "da540bcd1d3c99a21625331cbcbd260dfa7b30ea73811608a058c74868e85abd",
+    "ai-stock-briefing/README.md": "06a8599b98dc1b69f14026b2c33b8b1d4590a371e5bb4bd7b39a1a1b92a63f67",
     "ai-stock-briefing/android/.gitignore": "7d48e8bf93bb75011e86b3ef5cf8e3d7175e09fad8ec9fd4022de27c5165ba7d",
     "ai-stock-briefing/android/app/build.gradle.kts": "444a18c2300fb454ba7843ee59bcca85a3acdcadc83e63618e272bda34c302bc",
     "ai-stock-briefing/android/app/src/debug/AndroidManifest.xml": "e3a15790de225b0b9e983bd9d12dd1c195921bd3b404e61ce781686d13402008",
@@ -28,7 +28,7 @@
     "ai-stock-briefing/android/gradlew.bat": "5c0a21ecd6b3a6292e0746bff3b75fd2d8f47b9ff226ce53dc22b30184ef3bec",
     "ai-stock-briefing/android/settings.gradle.kts": "3f2a28bdcf88aae3350520fdee1c7fc8a90f5059a0f4449b42c9e4ec68ca5fe8",
     "ai-stock-briefing/assets/brand/book-symbol.png": "72443f50ad3718a5989fde510bca92db67c43327722e002966e5ffd5f28dfe57",
-    "ai-stock-briefing/assets/brand/book-title.svg": "6452a153069bbef5bb18b67e29e661975b5233ec11579cbf155b3aa3e4ace1a0",
+    "ai-stock-briefing/assets/brand/book-title.svg": "c1b8db044b13ca3dc9850176ad4835925b5aae0b52b0901a49b412887c4b878f",
     "ai-stock-briefing/assets/brand/brand-divider.svg": "131f8aa80b28e438c8fac4382068d25a5616e818358961666822609e3b3ac57c",
     "ai-stock-briefing/assets/brand/repository-title.svg": "f0b866d6e40a988cf245572ade33ff35843f8a28f1706d82ad25de7f2fae828d",
     "ai-stock-briefing/assets/screenshots/ai-stock-briefing.png": "726ae809faa394efa50f0a71b4b0fb58be1b2fd5ce7c6aee20d3f1c30b970cfe",

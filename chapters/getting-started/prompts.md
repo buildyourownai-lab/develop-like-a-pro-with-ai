@@ -42,8 +42,9 @@ Claude Desktop에서 Code 탭을 열고 내 컴퓨터의 폴더를 작업 폴더
 ## 먼저 자료를 받고 연결합니다
 
 ~~~prompt
-아래 공식 자료에서 내 책 판본에 맞는 튜터와 장별 완성 소스·화면 예시를 준비해줘.
-https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai
+아래 Development Lab의 튜터 안내와 장별 소스·검증에서 연결한 공식 자료를 확인하고,
+내 책 판본에 맞는 튜터와 장별 완성 소스·화면 예시를 준비해줘.
+https://www.studyailab.com/develop
 책의 판본이 확인되지 않으면 먼저 물어봐. 공식 출처와 판본을 확인하고,
 받은 자료의 SHA-256을 공식 배포 기록에 적힌 값과 대조해줘.
 없거나 확인 못 한 자료·배포 기록은 만들어 채우지 말고 알려줘.

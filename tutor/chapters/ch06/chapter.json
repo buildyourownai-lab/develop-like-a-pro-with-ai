@@ -5,7 +5,7 @@
   "number": 6,
   "title": "6장. 아파트 실거래가와 위치 정보를 가져옵니다",
   "manuscript": "book/10-chapter-06.md",
-  "manuscript_sha256": "dd88f403eed0f69ed665c927965cd896d0ce808f23e6fd8957a26519fd54311c",
+  "manuscript_sha256": "22ca1d970b67a5ea4d22fcf069251317e9e22ddde801262e6ad3d3728e5fa090",
   "outcome": "국토교통부 실거래와 Kakao 위치 자료를 프로젝트에서 가져옵니다.",
   "project": "apartment-explorer",
   "start_state": "새 apartment-explorer 프로젝트를 만들 단계이며 앞 PART 작업은 별도 보존합니다.",

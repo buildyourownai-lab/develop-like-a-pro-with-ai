@@ -35,9 +35,9 @@
 ## 3단계. 장별 Source로 재시작
 
 ```text
-이 책의 공식 실습 저장소
-https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai
-에서 지금 진행 중인 장의 Source를 찾아줘.
+Development Lab
+https://www.studyailab.com/develop
+에서 지금 진행 중인 장의 소스·검증 안내를 열고, 연결된 장별 Source를 찾아줘.
 
 내 현재 작업을 먼저 안전하게 보존해줘.
 

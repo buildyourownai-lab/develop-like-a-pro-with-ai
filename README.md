@@ -6,9 +6,11 @@
 ![Unit Tests](https://img.shields.io/badge/Unit_Tests-467%2F467_PASS-FFD166)
 [![Verification](https://img.shields.io/badge/Verification-153_checks-2A9D8F)](verification/)
 
+자료 안내의 시작점은 [Development Lab](https://www.studyailab.com/develop)입니다. PART와 장을 고른 뒤 커맨드·소스/검증·튜터·자료실을 찾습니다. 이 저장소는 연결된 파일 자료를 제공합니다.
+
 develop-like-a-pro-with-ai는 《프로처럼 AI로 코딩 없이 개발하기》의 독자용 공식 실습 자료 저장소입니다.
 
-[책 튜터](tutor/README.md)를 연결하면 **“다음 명령문 보여줘”**로 현재 단계의 요청문을 찾고, 확인한 뒤 **“진행해”**로 해당 작업을 이어갈 수 있습니다.
+[책 튜터](tutor/README.md)를 연결하면 **“다음 요청문 보여줘”**로 현재 단계의 요청문을 찾고, 확인한 뒤 **“진행해”**로 해당 작업을 이어갈 수 있습니다.
 
 ## 자료 구성
 

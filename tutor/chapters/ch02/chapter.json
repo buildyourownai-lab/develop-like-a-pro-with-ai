@@ -5,7 +5,7 @@
   "number": 2,
   "title": "2장. Claude가 제대로 만들었는지 확인합니다",
   "manuscript": "book/05-chapter-02.md",
-  "manuscript_sha256": "a86c62238d9a03d0b527cc6eb412b70844616e2ba26dce3008118f70a972681b",
+  "manuscript_sha256": "57efcf924bc0251bcae8ba4dc239b6dbd168910002329b03be577444ce9e97d7",
   "outcome": "공식 기준 자료와 보고서를 대조하고 반복 확인할 Test를 만듭니다.",
   "project": "movie-report",
   "start_state": "1장의 생성 코드와 열어본 Excel 보고서가 있습니다.",
