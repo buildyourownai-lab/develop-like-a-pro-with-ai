@@ -1,9 +1,6 @@
 # 부록 E. 실전으로 익힌 개발 용어 × Claude 스킬
 
-책에는 핵심 판단과 사용법을, 온라인에는 상세 절차와 복사용 보충 자료를 제공합니다.
+배운 용어를 실제로 만든 결과물과 연결합니다. 읽기만 한 기술과 직접 확인한 경험을 구분해 설명합니다.
 
-- [상세 안내](guides/book-detail.md)
-- [책의 핵심 요청문](prompts.md)
-- [Development Lab](https://www.studyailab.com/develop/resources/appendix-e)
-
-자료의 판본과 현재 계정 조건을 확인합니다. 예제·문서를 받는 것과 실제 실행 완료는 구분합니다.
+- [PART별 기술과 결과물](guides/book-detail.md)
+- [전체 용어집](https://www.studyailab.com/develop/resources/glossary)

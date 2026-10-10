@@ -1,9 +1,8 @@
 # 부록 D. 이 책에서 사용한 API Key와 OAuth 다시 찾기
 
-책에는 핵심 판단과 사용법을, 온라인에는 상세 절차와 복사용 보충 자료를 제공합니다.
+사용한 인증값과 승인한 권한을 다시 찾고 정리합니다. 실제 값은 대화·Git·공유 화면에 넣지 않습니다.
 
-- [상세 안내](guides/book-detail.md)
-- [책의 핵심 요청문](prompts.md)
-- [Development Lab](https://www.studyailab.com/develop/resources/appendix-d)
+유출이 의심되면 해당 값을 먼저 폐기하고 영향을 확인합니다. 일반 교체는 새 값 적용·동작 확인·옛 값 폐기 순서로 진행하며, OAuth 권한은 별도로 철회합니다.
 
-자료의 판본과 현재 계정 조건을 확인합니다. 예제·문서를 받는 것과 실제 실행 완료는 구분합니다.
+- [서비스별 인증과 유출 대응](guides/book-detail.md)
+- [인증값 점검·교체 요청문](prompts.md)

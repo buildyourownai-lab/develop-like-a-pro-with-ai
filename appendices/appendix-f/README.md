@@ -1,9 +1,9 @@
 # 부록 F. 이 책의 실습 환경과 최신 업데이트
 
-책에는 핵심 판단과 사용법을, 온라인에는 상세 절차와 복사용 보충 자료를 제공합니다.
+책과 화면이 다르거나 설치·모델 선택을 확인할 때 사용합니다. 문서 반영일은 내 계정에서 실제로 실행한 날짜가 아닙니다.
 
-- [상세 안내](guides/book-detail.md)
-- [책의 핵심 요청문](prompts.md)
-- [Development Lab](https://www.studyailab.com/develop/resources/appendix-f)
-
-자료의 판본과 현재 계정 조건을 확인합니다. 예제·문서를 받는 것과 실제 실행 완료는 구분합니다.
+- [도구·서비스 환경](../online-guides/environment.md)
+- [11장 모델 선택](../online-guides/model-guide.md)
+- [업데이트 내역](https://www.studyailab.com/develop/updates)
+- [화면이 다를 때 확인할 것](guides/book-detail.md)
+- [튜터에게 화면 차이 질문하기](prompts.md)

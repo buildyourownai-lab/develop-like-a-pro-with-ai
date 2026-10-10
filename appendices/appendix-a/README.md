@@ -1,9 +1,7 @@
 # 부록 A. 책의 모든 자료를 한곳에 모았습니다
 
-책에는 핵심 판단과 사용법을, 온라인에는 상세 절차와 복사용 보충 자료를 제공합니다.
+장별 요청문·튜터·소스가 필요할 때 사용합니다. 정상 실습은 내 프로젝트를 이어가고, START·FINISH는 비교하거나 다시 진입할 때 선택합니다.
 
-- [상세 안내](guides/book-detail.md)
-- [책의 핵심 요청문](prompts.md)
-- [Development Lab](https://www.studyailab.com/develop/resources/appendix-a)
-
-자료의 판본과 현재 계정 조건을 확인합니다. 예제·문서를 받는 것과 실제 실행 완료는 구분합니다.
+- [자료 찾기와 폴더 읽기](guides/book-detail.md)
+- [장별 실습 자료](https://www.studyailab.com/develop/resources)
+- [튜터 연결과 사용](https://www.studyailab.com/develop/tutor)

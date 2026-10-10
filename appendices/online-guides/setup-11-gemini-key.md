@@ -1,6 +1,6 @@
 # 11장 · Gemini API Key 준비
 
-책의 상세 지원 자료입니다. 책에 없는 추가 안내는 필요할 때만 사용합니다. 화면과 정책의 과거 확인 기록은 현재 지원·요금·실행 성공을 보증하지 않습니다. 현재 계정의 공식 안내를 함께 확인하세요.
+[ 11장 실습으로 돌아가기](https://www.studyailab.com/develop/chapters/11) · 이 안내는 해당 장에서 계정·서비스를 준비할 때 사용합니다.
 
 Google AI Studio로 이동합니다.
 
@@ -19,3 +19,5 @@ https://aistudio.google.com/app/apikey
 ![Gemini API Key를 만드는 세 단계](https://www.studyailab.com/develop/guides/chapter-11/screen-11-03-05-gemini-api-key-steps.png)
 
 \[화면 11-3 \| API 키 화면에서 만들기를 선택하고, 키 이름과 프로젝트를 정한 뒤, 발급된 키의 프로젝트와 결제 등급을 확인하는 흐름 --- 키 값은 마지막 네 글자만 보인다\]
+
+준비가 끝나면 [11장 요청문](https://www.studyailab.com/develop/chapters/11#commands)으로 돌아갑니다. 인증값은 책에서 지정한 안전한 입력 위치에 직접 넣고, 실제 연결 결과는 장의 검사로 확인합니다.
