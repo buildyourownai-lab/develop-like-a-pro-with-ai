@@ -14,7 +14,7 @@
 
 ## 여기서 시작하세요
 
-[![Study AI Lab에서 시작](https://img.shields.io/badge/Study_AI_Lab-학습_시작-2A9D8F?style=for-the-badge)](https://www.studyailab.com) [![Development Lab 장별 안내](https://img.shields.io/badge/Development_Lab-장별_안내-D1495B?style=for-the-badge)](https://www.studyailab.com/develop)
+[![Study AI Lab에서 시작](https://img.shields.io/badge/Study_AI_Lab-학습_시작-2A9D8F)](https://www.studyailab.com) [![Development Lab 장별 안내](https://img.shields.io/badge/Development_Lab-장별_안내-D1495B)](https://www.studyailab.com/develop)
 
 **책의 요청문을 Claude에 입력해 실습을 시작하세요.** [Development Lab](https://www.studyailab.com/develop)에서 준비편과 장별 순서, 요청문 복사, 설치·환경 안내를 확인할 수 있습니다.
 
