@@ -1,33 +1,34 @@
-<p align="left"><img src="assets/brand/studyailab-logo.svg" alt="Study AI Lab 로고" width="13%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/book-title.svg" alt="프로처럼 AI로 코딩 없이 개발하기" width="49.6%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/repository-title.svg" alt="공식 실습 자료" width="24.2%"></p>
-
-> [!IMPORTANT]
-> **실습은 책의 요청문을 Claude에 입력하며 시작합니다.**
-> 화면이 다르거나 요청문을 다시 복사해야 할 때 [Study AI Lab → Development Lab](https://www.studyailab.com/develop)을 이용하세요. 이 GitHub 저장소는 비교·복구용 Source, 튜터 원본, 검증 근거를 보관합니다.
-
-[![Study AI Lab에서 시작](https://img.shields.io/badge/Study_AI_Lab-학습_시작-2A9D8F?style=for-the-badge)](https://www.studyailab.com) [![Development Lab 장별 안내](https://img.shields.io/badge/Development_Lab-장별_안내-D1495B?style=for-the-badge)](https://www.studyailab.com/develop)
-
-Study AI Lab은 책의 학습을 돕는 사이트입니다. Development Lab에서는 준비편부터 22장까지 책과 같은 순서를 찾아보고, [요청문 사용법과 다시 열람·복사](https://www.studyailab.com/develop/resources), [튜터 연결·사용법](https://www.studyailab.com/develop/tutor)을 참고할 수 있습니다. 설치·환경 안내도 제공합니다.
-
-| 필요한 것 | 어디에서 하나 |
-|---|---|
-| 기본 실습 요청문과 순서 | 책을 따라 Claude에 입력합니다 |
-| 요청문 사용법·다시 보기·복사와 온라인 장별 안내 | [Development Lab](https://www.studyailab.com/develop) |
-| 설치·환경 설명, 막혔을 때 도움, 부록 상세 | [Development Lab 자료실](https://www.studyailab.com/develop/resources) |
-| 튜터 연결·사용법 | 책의 준비 요청을 Claude에 입력합니다. [사이트 안내](https://www.studyailab.com/develop/tutor)에서 화면과 절차를 다시 보고, Claude가 이 저장소의 [튜터 원본](tutor/)을 확인해 연결을 돕습니다 |
-| 완성 Source와 저자 검증 파일 | 필요할 때만 이 GitHub의 [장별 폴더](chapters/)와 [검증 자료](verification/)에서 비교·복구 근거를 확인합니다 |
-| 요청문 원본 파일 | GitHub의 장별 `prompts.md`를 사이트와 튜터가 읽습니다. 독자는 사이트에서 단계와 입력 위치를 확인합니다 |
-
-정상 실습에서는 Claude가 요청문을 따라 프로젝트를 만들고 이어갑니다. 완성 Source를 미리 받을 필요는 없습니다. 막혀서 비교·복구가 필요한 경우에만 사이트의 장별 페이지에서 이 저장소의 Source·검증 근거로 이동하세요.
-
 [![Projects](https://img.shields.io/badge/Projects-6-D1495B)](#최종-프로젝트)
 [![Chapters](https://img.shields.io/badge/Chapters-22%2F22-7357D8)](chapters/)
 [![Prompts](https://img.shields.io/badge/Prompts-239-3A86FF)](chapters/)
 ![Unit Tests](https://img.shields.io/badge/Unit_Tests-467%2F467_PASS-FFD166)
 [![Verification](https://img.shields.io/badge/Verification-153_checks-2A9D8F)](verification/)
 
-develop-like-a-pro-with-ai는 《프로처럼 AI로 코딩 없이 개발하기》의 독자용 공식 실습 자료 저장소입니다.
+[![Study AI Lab에서 시작](https://img.shields.io/badge/Study_AI_Lab-학습_시작-2A9D8F?style=for-the-badge)](https://www.studyailab.com) [![Development Lab 장별 안내](https://img.shields.io/badge/Development_Lab-장별_안내-D1495B?style=for-the-badge)](https://www.studyailab.com/develop)
 
-책의 준비 요청으로 튜터 연결을 Claude에 맡기세요. 필요하면 [사이트의 튜터 연결 안내](https://www.studyailab.com/develop/tutor)에서 절차를 다시 확인할 수 있습니다. 연결을 확인한 뒤 **“다음 요청문 보여줘”**로 현재 단계의 요청문을 찾고, 확인한 뒤 **“진행해”**로 해당 작업을 이어갈 수 있습니다.
+<p align="left"><img src="assets/brand/studyailab-logo.svg" alt="Study AI Lab 로고" width="13%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/book-title.svg" alt="프로처럼 AI로 코딩 없이 개발하기" width="49.6%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/repository-title.svg" alt="공식 실습 자료" width="24.2%"></p>
+
+# 프로처럼 AI로 코딩 없이 개발하기 · 공식 실습 자료
+
+코딩 경험이 없어도 AI와 함께 아이디어를 기획하고, 직접 쓸 수 있는 서비스로 만드는 과정을 배웁니다. 이 저장소는 책의 **6가지 프로젝트·22장 실습**에 연결된 요청문 원본, 비교·복구용 소스 코드, 튜터와 검증 자료를 제공합니다.
+
+영화 흥행 보고서에서 시작해 아파트 찾기, 주식 브리핑과 모바일 앱, YouTube 영상과 댓글 관리, AI 기능 구현으로 이어집니다. 직접 만든 결과를 확인하고 오류를 고치며 개선하는 방법을 익힙니다.
+
+## 여기서 시작하세요
+
+**책의 요청문을 Claude에 입력해 실습을 시작하세요.** [Development Lab](https://www.studyailab.com/develop)에서 준비편과 장별 순서, 요청문 복사, 설치·환경 안내를 확인할 수 있습니다.
+
+| 필요한 자료 | 바로가기 |
+|---|---|
+| 준비편과 장별 실습 안내 | [Development Lab](https://www.studyailab.com/develop) |
+| 요청문 다시 보기·복사, 설치 안내와 부록 | [자료실](https://www.studyailab.com/develop/resources) |
+| 튜터 연결과 사용법 | [튜터 안내](https://www.studyailab.com/develop/tutor) |
+| 완성 코드와 요청문 원본 | [장별 폴더](chapters/) |
+| 저자가 확인한 방법과 실행 결과 | [검증 자료](verification/) |
+
+튜터를 연결한 뒤 **“다음 요청문 보여줘”**로 현재 단계의 요청문을 찾고, 내용을 확인한 뒤 **“진행해”**로 작업을 이어갈 수 있습니다. 연결 방법은 위의 튜터 안내에서 확인하세요.
+
+완성 코드는 실습 중 비교하거나 복구할 때 참고하세요. 기본 실습은 책의 요청문으로 프로젝트를 직접 만들어 가는 흐름입니다.
 
 ## 자료 구성
 
