@@ -16,7 +16,7 @@
 
 ## 여기서 시작하세요
 
-[![Study AI Lab 종합 사이트](https://img.shields.io/badge/Study_AI_Lab-종합_사이트-2A9D8F)](https://www.studyailab.com) [![Development Lab 이 책의 개발 실습](https://img.shields.io/badge/Development_Lab-이_책의_개발_실습-D1495B)](https://www.studyailab.com/develop)
+[![Study AI Lab 공식 홈페이지](https://img.shields.io/badge/Study_AI_Lab-공식_홈페이지-2A9D8F)](https://www.studyailab.com) [![Development Lab 개발 실습](https://img.shields.io/badge/Development_Lab-개발_실습-D1495B)](https://www.studyailab.com/develop)
 
 이 책의 실습은 **Development Lab**에서 시작하세요.  
 Study AI Lab에서는 두 책과 실습 공간, 완성한 결과물을 함께 살펴볼 수 있습니다.
