@@ -33,7 +33,8 @@ def _json(path: Path) -> dict:
 
 def _blocks(path: Path, language: str) -> list[str]:
     # Preserve all body bytes, including whitespace and embedded shorter fences.
-    content = path.read_bytes().decode('utf-8')
+    # Published hashes cover LF text; Windows checkouts (core.autocrlf) store CRLF.
+    content = path.read_bytes().decode('utf-8').replace('\r\n', '\n')
     lines = content.splitlines(keepends=True)
     result = []
     opening = None

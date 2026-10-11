@@ -1,5 +1,6 @@
 """Synthetic fixtures only; no model, account, or project execution."""
 import hashlib
+from symlink_support import requires_symlink
 import json
 from pathlib import Path
 import sys
@@ -28,15 +29,15 @@ class PromptReader(unittest.TestCase):
         self.guide = {'schema_version': 1, 'chapter': 11,
                       'project': 'example-project', 'manuscript_sha256': 'a' * 64,
                       'entries': [self.entry]}
-        (self.folder / 'prompts.md').write_text('## 예시\n\n~~~prompt\n' + self.body + '\n~~~\n')
+        (self.folder / 'prompts.md').write_text('## 예시\n\n~~~prompt\n' + self.body + '\n~~~\n',encoding='utf-8')
         self.save()
 
     def tearDown(self):
         self.temp.cleanup()
 
     def save(self):
-        (self.folder / 'chapter.json').write_text(json.dumps(self.contract))
-        (self.folder / 'prompt-guide.json').write_text(json.dumps(self.guide))
+        (self.folder / 'chapter.json').write_text(json.dumps(self.contract),encoding='utf-8')
+        (self.folder / 'prompt-guide.json').write_text(json.dumps(self.guide),encoding='utf-8')
 
     def read(self):
         return reader.read_prompt(11, self.entry['id'], self.root)
@@ -60,7 +61,7 @@ class PromptReader(unittest.TestCase):
     def test_service_question_has_its_own_target(self):
         (self.folder / 'prompts.md').unlink()
         self.entry.update(id='C11-01', source='service-questions.md', target='service-chat')
-        (self.folder / 'service-questions.md').write_text('~~~chat\n' + self.body + '\n~~~\n')
+        (self.folder / 'service-questions.md').write_text('~~~chat\n' + self.body + '\n~~~\n',encoding='utf-8')
         self.save()
         self.assertEqual(self.read()['target'], 'service-chat')
 
@@ -71,14 +72,14 @@ class PromptReader(unittest.TestCase):
             self.read()
 
     def test_unlisted_prompt_block_is_rejected(self):
-        with (self.folder / 'prompts.md').open('a') as stream:
+        with (self.folder / 'prompts.md').open('a', encoding='utf-8') as stream:
             stream.write('\n~~~prompt\n누락된 다음 요청\n~~~\n')
         with self.assertRaisesRegex(ValueError, '빠져'):
             self.read()
 
     def test_unlisted_service_file_and_empty_chat_file_are_rejected(self):
         for content in ('~~~chat\n현재 종목은?\n~~~\n', '질문 블록 없음'):
-            (self.folder / 'service-questions.md').write_text(content)
+            (self.folder / 'service-questions.md').write_text(content,encoding='utf-8')
             with self.subTest(content=content), self.assertRaises(ValueError):
                 self.read()
 
@@ -91,20 +92,20 @@ class PromptReader(unittest.TestCase):
     def test_tool_command_requires_user_input_target(self):
         self.body = '/permissions'
         self.entry.update(target='tool-command', sha256=hashlib.sha256(self.body.encode()).hexdigest())
-        (self.folder / 'prompts.md').write_text('~~~prompt\n/permissions\n~~~\n')
+        (self.folder / 'prompts.md').write_text('~~~prompt\n/permissions\n~~~\n',encoding='utf-8')
         self.save()
         self.assertEqual(self.read()['target'], 'tool-command')
         self.assertEqual(self.read()['text'], '/permissions')
 
     def test_changed_source_hash_rejected_by_list_and_read(self):
-        (self.folder / 'prompts.md').write_text('~~~prompt\n다른 내용\n~~~\n')
+        (self.folder / 'prompts.md').write_text('~~~prompt\n다른 내용\n~~~\n',encoding='utf-8')
         for operation in (self.read, lambda: reader.list_entries(11, self.root)):
             with self.assertRaises(ValueError):
                 operation()
 
     def test_missing_or_unclosed_block_rejected(self):
         for source in ('설명만 있음', '~~~prompt\n닫히지 않음'):
-            (self.folder / 'prompts.md').write_text(source)
+            (self.folder / 'prompts.md').write_text(source,encoding='utf-8')
             with self.assertRaises(ValueError):
                 self.read()
 
@@ -130,6 +131,7 @@ class PromptReader(unittest.TestCase):
                 self.read()
             self.entry[key] = old
 
+    @requires_symlink
     def test_symlink_source_rejected(self):
         source = self.folder / 'prompts.md'
         outside = self.root / 'outside.md'
@@ -149,7 +151,7 @@ class PromptReader(unittest.TestCase):
             reader.read_prompt(11, 'P11-99', self.root)
         with self.assertRaises(ValueError):
             reader.list_entries(True, self.root)
-        (self.folder / 'prompt-guide.json').write_text('{')
+        (self.folder / 'prompt-guide.json').write_text('{',encoding='utf-8')
         with self.assertRaises(ValueError):
             self.read()
 

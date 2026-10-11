@@ -40,7 +40,7 @@ def main(argv=None)->int:
   root=Path(args.project).expanduser().resolve(strict=True)
   if not root.is_dir() or root==Path(root.anchor):raise ValueError('실습 프로젝트 폴더가 필요합니다.')
   if not (BASE/'TUTOR.md').is_file():raise ValueError('튜터 정본이 없습니다.')
-  statep=target(root,'.book-tutor-state/install.json');old=json.loads(statep.read_text()) if statep.exists() else {'files':{}}
+  statep=target(root,'.book-tutor-state/install.json');old=json.loads(statep.read_text(encoding='utf-8')) if statep.exists() else {'files':{}}
   jobs=[];tools=['claude','codex'] if args.tool=='both' else [args.tool]
   for tool in tools:
    skillrel='.claude/skills/book-tutor/SKILL.md' if tool=='claude' else '.agents/skills/book-tutor/SKILL.md'
@@ -49,10 +49,10 @@ def main(argv=None)->int:
     prev=old['files'].get(skillrel)
     if prev is None or sha(sp.read_bytes())!=prev['installed_sha256']:raise ValueError(f'사용자가 수정했거나 다른 Skill입니다. 덮어쓰지 않습니다: {skillrel}')
    jobs.append((sp,new))
-   rel='CLAUDE.local.md' if tool=='claude' else 'AGENTS.md';p=target(root,rel);text=p.read_text() if p.exists() else ''
+   rel='CLAUDE.local.md' if tool=='claude' else 'AGENTS.md';p=target(root,rel);text=p.read_text(encoding='utf-8') if p.exists() else ''
    block=BEGIN+f'\n책 튜터 요청에서는 `{BASE/"TUTOR.md"}`와 현재 장의 명세를 읽습니다. 기존 사용자·조직 규칙은 유지합니다. 힌트 요청은 코드 수정 승인이 아닙니다. 제공된 book-tutor Skill의 발견 여부를 새 세션에서 확인합니다.\n'+END
    jobs.append((p,merge(text,block).encode()))
-  gp=target(root,'.gitignore');gt=gp.read_text() if gp.exists() else ''
+  gp=target(root,'.gitignore');gt=gp.read_text(encoding='utf-8') if gp.exists() else ''
   # Isolate private progress, without initializing Git or changing global settings.
   for entry in ['/.book-tutor-state/','/CLAUDE.local.md']:
    if entry not in gt.splitlines():gt=gt.rstrip()+'\n'+entry+'\n'
@@ -65,7 +65,7 @@ def main(argv=None)->int:
     for p,b in jobs:
      p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
      info['files'][str(p.relative_to(root))]={'installed_sha256':sha(b)}
-    statep.parent.mkdir(exist_ok=True);statep.write_text(json.dumps(info,ensure_ascii=False,indent=2))
+    statep.parent.mkdir(exist_ok=True);statep.write_text(json.dumps(info,ensure_ascii=False,indent=2),encoding='utf-8')
    except Exception:
     for path,b in backup.items():
      p=Path(path)

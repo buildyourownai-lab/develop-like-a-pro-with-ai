@@ -1,5 +1,6 @@
 from __future__ import annotations
 import unittest,tempfile,json,sys,io,contextlib,datetime as dt
+from symlink_support import requires_symlink
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import tutor_runtime as r
@@ -18,7 +19,7 @@ class Runtime(unittest.TestCase):
   # canonical() is what the CLI does with --project, so the test root must be
   # resolved too: on macOS a temp dir is /var/folders/... where /var itself is a
   # symlink, and an unresolved root makes every safe_path() check fail.
-  self.t=tempfile.TemporaryDirectory();self.p=r.canonical(self.t.name);(self.p/'proof.md').write_text('Synthetic unit-test fixture. Not an actual account, app, or API execution.');self.c=r.contract(1)
+  self.t=tempfile.TemporaryDirectory();self.p=r.canonical(self.t.name);(self.p/'proof.md').write_text('Synthetic unit-test fixture. Not an actual account, app, or API execution.',encoding='utf-8');self.c=r.contract(1)
  def tearDown(self):self.t.cleanup()
  def add(self,c=None,index=0,**kw):
   c=c or self.c;o=c['objectives'][index]
@@ -46,15 +47,15 @@ class Runtime(unittest.TestCase):
  def test_absolute_artifact_rejected(self):
   with self.assertRaises(ValueError):self.add(artifact=str(self.p/'proof.md'))
  def test_secret_file_rejected(self):
-  (self.p/'.env').write_text('NEVER_PRINT_ME=placeholder')
+  (self.p/'.env').write_text('NEVER_PRINT_ME=placeholder',encoding='utf-8')
   with self.assertRaises(ValueError):self.add(artifact='.env')
  def test_missing_artifact_rejected(self):
   with self.assertRaises(ValueError):self.add(artifact='missing.md')
  def test_artifact_change_is_stale(self):
-  self.add();(self.p/'proof.md').write_text('changed');self.assertEqual(r.status(self.p,self.c)['objectives'][0]['status'],'stale')
+  self.add();(self.p/'proof.md').write_text('changed',encoding='utf-8');self.assertEqual(r.status(self.p,self.c)['objectives'][0]['status'],'stale')
  def test_project_change_invalidates_run_evidence(self):
   for i in range(3):self.add(index=i)
-  (self.p/'app.py').write_text('changed')
+  (self.p/'app.py').write_text('changed',encoding='utf-8')
   q=r.status(self.p,self.c);self.assertEqual(q['objectives'][2]['status'],'stale')
  def test_private_state_not_project_fingerprint(self):
   before=r.fingerprint(self.p);self.add();self.assertEqual(r.fingerprint(self.p),before)
@@ -72,7 +73,7 @@ class Runtime(unittest.TestCase):
  def test_intentional_failure_record_survives_intended_fix(self):
   c=r.contract(3)
   for i in range(5):self.add(c,i)
-  (self.p/'report.py').write_text('corrected calculation')
+  (self.p/'report.py').write_text('corrected calculation',encoding='utf-8')
   self.add(c,5)
   q=r.status(self.p,c)
   self.assertEqual(q['objectives'][1]['status'],'verified')
@@ -94,15 +95,17 @@ class Runtime(unittest.TestCase):
  def test_ch07_out_of_scope_ui(self):self.assertIn('웹 UI',r.contract(7)['out_of_scope'])
  def test_ch18_verify_not_upload_authorization(self):self.assertTrue(all(not x['external_side_effects_authorized_by_verify'] for x in r.contract(18)['objectives']))
  def test_changed_contract_hash_invalidates_record(self):
-  self.add();p=self.p/r.STATE/'ch01.json';v=json.loads(p.read_text());v['evidence'][0]['contract_sha256']='0'*64;p.write_text(json.dumps(v));self.assertEqual(r.status(self.p,self.c)['objectives'][0]['status'],'stale')
+  self.add();p=self.p/r.STATE/'ch01.json';v=json.loads(p.read_text(encoding='utf-8'));v['evidence'][0]['contract_sha256']='0'*64;p.write_text(json.dumps(v),encoding='utf-8');self.assertEqual(r.status(self.p,self.c)['objectives'][0]['status'],'stale')
  def test_future_timestamp_invalidates(self):
-  self.add();p=self.p/r.STATE/'ch01.json';v=json.loads(p.read_text());v['evidence'][0]['observed_at']=(dt.datetime.now(dt.timezone.utc)+dt.timedelta(days=1)).isoformat();p.write_text(json.dumps(v));self.assertEqual(r.status(self.p,self.c)['completed'],0)
+  self.add();p=self.p/r.STATE/'ch01.json';v=json.loads(p.read_text(encoding='utf-8'));v['evidence'][0]['observed_at']=(dt.datetime.now(dt.timezone.utc)+dt.timedelta(days=1)).isoformat();p.write_text(json.dumps(v),encoding='utf-8');self.assertEqual(r.status(self.p,self.c)['completed'],0)
+ @requires_symlink
  def test_symlink_artifact_rejected(self):
   (self.p/'link.md').symlink_to(self.p/'proof.md')
   with self.assertRaises(ValueError):self.add(artifact='link.md')
+ @requires_symlink
  def test_symlinked_project_root_still_reads_project_paths(self):
   real=self.p/'real';real.mkdir();link=self.p/'link';link.symlink_to(real,target_is_directory=True)
-  (real/'proof.md').write_text('Synthetic unit-test fixture. Not an actual account, app, or API execution.')
+  (real/'proof.md').write_text('Synthetic unit-test fixture. Not an actual account, app, or API execution.',encoding='utf-8')
   q=self.add(root=link,apply=False);self.assertEqual(q['evidence']['artifact'],'proof.md');self.assertEqual(r.status(link,self.c)['completed'],0)
 class PlanBuildContracts(unittest.TestCase):
  ALIASES={'outcome':'will_complete_this_chapter','start_state':'carry_forward_state','previously_completed_features':'carry_forward_features'}
@@ -133,15 +136,15 @@ class Installer(unittest.TestCase):
   self.assertEqual(self.run_install('--apply'),0)
   for f in ['.claude/skills/book-tutor/SKILL.md','.agents/skills/book-tutor/SKILL.md','CLAUDE.local.md','AGENTS.md']:self.assertTrue((self.p/f).exists())
  def test_existing_user_rules_preserved(self):
-  (self.p/'AGENTS.md').write_text('KEEP_USER_RULES\n');self.run_install('--apply');self.assertIn('KEEP_USER_RULES',(self.p/'AGENTS.md').read_text())
+  (self.p/'AGENTS.md').write_text('KEEP_USER_RULES\n',encoding='utf-8');self.run_install('--apply');self.assertIn('KEEP_USER_RULES',(self.p/'AGENTS.md').read_text(encoding='utf-8'))
  def test_idempotent_block(self):
-  self.run_install('--apply');self.run_install('--apply');self.assertEqual((self.p/'AGENTS.md').read_text().count(ins.BEGIN),1)
+  self.run_install('--apply');self.run_install('--apply');self.assertEqual((self.p/'AGENTS.md').read_text(encoding='utf-8').count(ins.BEGIN),1)
  def test_modified_skill_not_overwritten(self):
-  self.run_install('--apply');q=self.p/'.agents/skills/book-tutor/SKILL.md';q.write_text('KEEP CUSTOM');self.assertEqual(self.run_install('--apply'),2);self.assertEqual(q.read_text(),'KEEP CUSTOM')
+  self.run_install('--apply');q=self.p/'.agents/skills/book-tutor/SKILL.md';q.write_text('KEEP CUSTOM',encoding='utf-8');self.assertEqual(self.run_install('--apply'),2);self.assertEqual(q.read_text(encoding='utf-8'),'KEEP CUSTOM')
  def test_existing_other_skill_not_overwritten(self):
-  q=self.p/'.agents/skills/book-tutor/SKILL.md';q.parent.mkdir(parents=True);q.write_text('OTHER');self.assertEqual(self.run_install('--apply'),2)
+  q=self.p/'.agents/skills/book-tutor/SKILL.md';q.parent.mkdir(parents=True);q.write_text('OTHER',encoding='utf-8');self.assertEqual(self.run_install('--apply'),2)
  def test_broken_block_rejected(self):
-  (self.p/'AGENTS.md').write_text(ins.BEGIN);self.assertEqual(self.run_install('--apply'),2);self.assertFalse((self.p/'.claude').exists())
+  (self.p/'AGENTS.md').write_text(ins.BEGIN,encoding='utf-8');self.assertEqual(self.run_install('--apply'),2);self.assertFalse((self.p/'.claude').exists())
  def test_no_exercise_programs_created(self):
   self.run_install('--apply');self.assertFalse((self.p/'movie-report').exists());self.assertFalse((self.p/'package.json').exists())
 if __name__=='__main__':unittest.main()

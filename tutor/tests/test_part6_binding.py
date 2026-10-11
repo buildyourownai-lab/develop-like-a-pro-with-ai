@@ -1,4 +1,5 @@
 import copy, importlib.util, json, shutil, tempfile, unittest
+from symlink_support import requires_symlink
 from pathlib import Path
 BASE=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('binder_part6',BASE/'bind_sources.py');mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
@@ -6,12 +7,12 @@ class Part6Binding(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
   self.out=tempfile.TemporaryDirectory();self.outside=Path(self.out.name)
-  self.r=json.loads((BASE/'source-registry.json').read_text())
+  self.r=json.loads((BASE/'source-registry.json').read_text(encoding='utf-8'))
  def tearDown(self):self.tmp.cleanup();self.out.cleanup()
  def src(self,n):
-  p=self.root/'chapters'/f'ch{n:02}'/'source';p.mkdir(parents=True);(p/'example.py').write_text('example = True\n');return p
+  p=self.root/'chapters'/f'ch{n:02}'/'source';p.mkdir(parents=True);(p/'example.py').write_text('example = True\n',encoding='utf-8');return p
  def mark(self,n,files=None,revision='part6-services-v1'):
-  f=self.root/'chapters'/f'ch{n:02}'/'source';(f.parent/'source-revision.json').write_text(json.dumps({'revision':revision,'project':self.r['chapters'][f'ch{n:02}']['project'],'files':mod.snapshot(f) if files is None else files}))
+  f=self.root/'chapters'/f'ch{n:02}'/'source';(f.parent/'source-revision.json').write_text(json.dumps({'revision':revision,'project':self.r['chapters'][f'ch{n:02}']['project'],'files':mod.snapshot(f) if files is None else files}),encoding='utf-8')
  def test_old_unmarked_source_is_not_bound(self):
   self.src(19);r=mod.bind(self.root,self.r);self.assertEqual(r['chapters']['ch19']['availability'],'not_bound')
  def test_wrong_revision_is_not_bound(self):
@@ -21,13 +22,13 @@ class Part6Binding(unittest.TestCase):
  def test_marked_source_still_not_execution_verified(self):
   self.src(19);self.mark(19);r=mod.bind(self.root,self.r);self.assertEqual(r['chapters']['ch19']['availability'],'files_present_not_executed');self.assertFalse(r['chapters']['ch19']['execution_verified'])
  def start21(self,mark=True,**over):
-  p=self.root/'chapters'/'ch21'/'start';p.mkdir(parents=True);(p/'example.py').write_text('example = True\n')
+  p=self.root/'chapters'/'ch21'/'start';p.mkdir(parents=True);(p/'example.py').write_text('example = True\n',encoding='utf-8')
   if mark:self.markstart21(**over)
   return p
  def markstart21(self,**over):
   p=self.root/'chapters'/'ch21'/'start'
   m={'revision':'part6-services-v1','contract_revision':'plan-build-v2','project':self.r['chapters']['ch21']['project'],'snapshot_role':'START','files':mod.snapshot(p)}
-  m.update(over);(p.parent/'start-revision.json').write_text(json.dumps(m))
+  m.update(over);(p.parent/'start-revision.json').write_text(json.dumps(m),encoding='utf-8')
  def test_ch21_start_is_declared_start_snapshot_not_previous_chapter(self):
   ch12=self.src(12);self.src(20);self.src(21);self.mark(21);start=self.start21()
   r=mod.bind(self.root,self.r);v=r['chapters']['ch21']
@@ -43,11 +44,12 @@ class Part6Binding(unittest.TestCase):
   self.assertIsNone(v['start_local_path']);self.assertIn('missing',v['start_binding_note'])
  def test_unsafe_declared_start_is_refused(self):
   self.src(21);self.mark(21);self.start21();outside=self.outside/'start'
-  outside.mkdir();(outside/'example.py').write_text('example = True\n')
+  outside.mkdir();(outside/'example.py').write_text('example = True\n',encoding='utf-8')
   for bad in ['../','..','../start',str(outside),'/etc','','   ','.',None,12,['chapters/ch21/start']]:
    r=copy.deepcopy(self.r);r['chapters']['ch21']['start_path']=bad
    q=mod.bind(self.root,r)['chapters']['ch21']
    self.assertIsNone(q['start_local_path'],bad);self.assertTrue(q['start_binding_note'],bad)
+ @requires_symlink
  def test_declared_start_symlink_out_of_root_is_refused(self):
   outside=self.outside/'linked-start';outside.mkdir()
   self.src(21);self.mark(21);(self.root/'chapters'/'ch21'/'start').symlink_to(outside,target_is_directory=True)
@@ -58,21 +60,21 @@ class Part6Binding(unittest.TestCase):
   v=mod.bind(self.root,self.r)['chapters']['ch21']
   self.assertIsNone(v['start_local_path']);self.assertIn('start-revision.json',v['start_binding_note'])
  def test_declared_start_marker_broken_json_is_refused(self):
-  self.src(21);self.mark(21);p=self.start21();(p.parent/'start-revision.json').write_text('{not json')
+  self.src(21);self.mark(21);p=self.start21();(p.parent/'start-revision.json').write_text('{not json',encoding='utf-8')
   v=mod.bind(self.root,self.r)['chapters']['ch21']
   self.assertIsNone(v['start_local_path']);self.assertIn('valid JSON',v['start_binding_note'])
  def test_declared_start_marker_not_an_object_is_refused(self):
-  self.src(21);self.mark(21);p=self.start21();(p.parent/'start-revision.json').write_text('[]')
+  self.src(21);self.mark(21);p=self.start21();(p.parent/'start-revision.json').write_text('[]',encoding='utf-8')
   v=mod.bind(self.root,self.r)['chapters']['ch21']
   self.assertIsNone(v['start_local_path']);self.assertIn('JSON object',v['start_binding_note'])
  def test_empty_or_secret_only_declared_start_is_refused(self):
-  self.src(21);self.mark(21);p=self.start21();(p/'example.py').unlink();(p/'.env').write_text('EXAMPLE=not-a-real-secret\n')
+  self.src(21);self.mark(21);p=self.start21();(p/'example.py').unlink();(p/'.env').write_text('EXAMPLE=not-a-real-secret\n',encoding='utf-8')
   self.markstart21(files={})
   v=mod.bind(self.root,self.r)['chapters']['ch21']
   self.assertIsNone(v['start_local_path']);self.assertIn('no snapshot files',v['start_binding_note'])
  def test_tampered_declared_start_is_refused(self):
   # Marker stays as published while a START file is edited: hashes must stop matching.
-  self.src(21);self.mark(21);p=self.start21();(p/'example.py').write_text('example = False\n')
+  self.src(21);self.mark(21);p=self.start21();(p/'example.py').write_text('example = False\n',encoding='utf-8')
   v=mod.bind(self.root,self.r)['chapters']['ch21']
   self.assertIsNone(v['start_local_path']);self.assertIn('file hashes',v['start_binding_note'])
  def test_declared_start_marker_field_mismatches_are_refused(self):
@@ -101,7 +103,7 @@ class Part6Binding(unittest.TestCase):
  def test_first_chapters_of_a_project_still_have_no_start(self):
   self.src(8);self.src(9);self.mark(9);r=mod.bind(self.root,self.r);self.assertIsNone(r['chapters']['ch09']['start_local_path'])
  def test_empty_or_secret_only_source_is_not_bound(self):
-  p=self.src(19);(p/'example.py').unlink();(p/'.env').write_text('EXAMPLE=not-a-real-secret\n');r=mod.bind(self.root,self.r);self.assertEqual(r['chapters']['ch19']['availability'],'not_bound')
+  p=self.src(19);(p/'example.py').unlink();(p/'.env').write_text('EXAMPLE=not-a-real-secret\n',encoding='utf-8');r=mod.bind(self.root,self.r);self.assertEqual(r['chapters']['ch19']['availability'],'not_bound')
  def test_contract_revision_is_separate_from_sourcepack_format(self):
   for cid in ['ch21','ch22']:
    v=self.r['chapters'][cid];self.assertEqual(v['required_revision'],'part6-services-v1');self.assertEqual(v['contract_revision'],'plan-build-v2')
@@ -111,6 +113,7 @@ class Part6Binding(unittest.TestCase):
  def test_contract_revision_does_not_block_sourcepack_binding(self):
   self.src(22);self.mark(22);r=mod.bind(self.root,self.r)
   self.assertEqual(r['chapters']['ch22']['availability'],'files_present_not_executed');self.assertFalse(r['chapters']['ch22']['execution_verified'])
+ @requires_symlink
  def test_source_symlink_rejected(self):
   p=self.src(19);(p/'link').symlink_to(p/'example.py')
   with self.assertRaises(ValueError):mod.bind(self.root,self.r)

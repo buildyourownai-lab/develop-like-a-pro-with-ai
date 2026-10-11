@@ -64,7 +64,7 @@ class PromptCLI(unittest.TestCase):
         self.root = Path(self.temp.name).resolve()
         self.project = self.root / 'ai-stock-briefing'
         self.project.mkdir()
-        (self.project / 'reader.txt').write_text('Synthetic reader project; no actual API execution.')
+        (self.project / 'reader.txt').write_text('Synthetic reader project; no actual API execution.',encoding='utf-8')
 
     def tearDown(self):
         self.temp.cleanup()
@@ -119,7 +119,7 @@ class PromptCLI(unittest.TestCase):
             code = install_tutor.main(['--project', str(self.project), '--apply'])
         self.assertEqual(code, 0)
         for relative in ('.claude/skills/book-tutor/SKILL.md', '.agents/skills/book-tutor/SKILL.md'):
-            content = (self.project / relative).read_text()
+            content = (self.project / relative).read_text(encoding='utf-8')
             self.assertIn('prompt-list/prompt', content)
             self.assertIn('진행해', content)
             self.assertIn('실행해', content)
