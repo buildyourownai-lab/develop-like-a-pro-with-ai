@@ -1,0 +1,7 @@
+# PART 6 source snapshots are byte-hash verified by tutor/bind_sources.py.
+# Keep their Git bytes unchanged in Windows checkouts with core.autocrlf=true.
+chapters/ch19/source/** -text
+chapters/ch20/source/** -text
+chapters/ch21/source/** -text
+chapters/ch21/start/** -text
+chapters/ch22/source/** -text
