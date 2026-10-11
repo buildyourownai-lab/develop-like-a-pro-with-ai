@@ -6,7 +6,7 @@ docs/ch21-chat-design.md에 기능 범위·답변 구분·사용 흐름·화면 
 ## 시작점
 9~12장의 ai-stock-briefing으로 돌아옵니다. 기존 실행 방법과 설정을 재사용하며 14~15장 앱과 기존 작업을 보존합니다. 19~20장 완료는 선행 조건이 아닙니다.
 
-현재 공개 주식서비스는 [stocks.studyailab.com](https://stocks.studyailab.com)에서 볼 수 있습니다. 아래 START·FINISH는 실습 비교용 고정 소스이므로 그 안의 과거 배포 주소와 현재 접속 주소를 구분합니다.
+현재 공개 주식서비스는 [stock.studyailab.com](https://stock.studyailab.com)에서 볼 수 있습니다. 아래 START·FINISH는 실습 비교용 고정 소스이므로 그 안의 과거 배포 주소와 현재 접속 주소를 구분합니다.
 
 ## 진행
 이 장의 요청문 P21-01~P21-07은 Code 탭에서 순서대로 사용합니다. 질문 예시는 기획 사례이며 서비스 대화 실습이 아닙니다.

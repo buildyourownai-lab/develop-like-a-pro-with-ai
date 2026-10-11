@@ -3,7 +3,7 @@
 ## 이 장에서 완성할 것
 21장 기획서대로 메인 자연어 질문부터 종목 확인·필요한 자료 조회·출처와 일반 설명 표시까지 작동하는 챗봇을 구현하고 실제 결과를 검증합니다.
 
-현재 공개 주식서비스 주소는 [stocks.studyailab.com](https://stocks.studyailab.com)입니다. 아래 START·FINISH는 당시 비교용 고정 소스이며, 그 안의 배포 주소는 최신 접속 주소와 다를 수 있습니다.
+현재 공개 주식서비스 주소는 [stock.studyailab.com](https://stock.studyailab.com)입니다. 아래 START·FINISH는 당시 비교용 고정 소스이며, 그 안의 배포 주소는 최신 접속 주소와 다를 수 있습니다.
 
 ## 시작점
 21장의 docs/ch21-chat-design.md와 9~12장의 기존 주식서비스에서 시작합니다. 아직 챗봇 코드는 없습니다. 기존 금융위원회·OpenDART·Gemini 설정을 재사용합니다.
