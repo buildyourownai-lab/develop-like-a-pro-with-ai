@@ -1,4 +1,4 @@
-<p align="left"><img src="assets/brand/book-symbol.png" alt="책 심벌" width="13%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/book-title.svg" alt="프로처럼 AI로 코딩 없이 개발하기" width="49.6%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/repository-title.svg" alt="공식 실습 자료" width="24.2%"></p>
+<p align="left"><img src="assets/brand/studyailab-logo.svg" alt="Study AI Lab 로고" width="13%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/book-title.svg" alt="프로처럼 AI로 코딩 없이 개발하기" width="49.6%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/repository-title.svg" alt="공식 실습 자료" width="24.2%"></p>
 
 > [!IMPORTANT]
 > **실습은 책의 요청문을 Claude에 입력하며 시작합니다.**

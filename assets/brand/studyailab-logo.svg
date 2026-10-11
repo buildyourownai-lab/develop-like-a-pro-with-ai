@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 746 894" role="img" aria-label="Study AI Lab logo">
+  <defs>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1688ff"/><stop offset="1" stop-color="#1976ed"/></linearGradient>
+  </defs>
+  <!-- transparent background -->
+  <g stroke="#00091f" stroke-width="15" stroke-linejoin="round" stroke-linecap="round">
+    <!-- towers -->
+    <path fill="url(#blue)" d="M412 202 L530 135 L651 202 L651 799 L552 855 L412 777 Z"/>
+    <path fill="#fff" d="M274 427 L389 365 L502 427 L502 850 L274 850 Z"/>
+    <path fill="#adf51f" d="M137 624 L250 563 L365 624 L365 850 L250 850 L137 793 Z"/>
+
+    <!-- blue circuit traces -->
+    <path fill="none" d="M425 850 L425 551"/>
+    <circle cx="425" cy="551" r="27" fill="#adf51f"/>
+    <path fill="none" d="M461 650 L544 608 L544 353"/>
+    <circle cx="544" cy="353" r="27" fill="#adf51f"/>
+    <path fill="none" d="M466 706 L589 647 L589 584 L544 558"/>
+    <path fill="none" d="M527 850 L527 716 L586 676"/>
+    <circle cx="590" cy="675" r="27" fill="#adf51f"/>
+
+    <!-- green tower circuits -->
+    <path fill="none" d="M306 850 L306 782 L258 750"/>
+    <circle cx="258" cy="750" r="27" fill="#adf51f"/>
+    <path fill="none" d="M351 850 L351 731"/>
+    <circle cx="351" cy="731" r="27" fill="#adf51f"/>
+  </g>
+</svg>
