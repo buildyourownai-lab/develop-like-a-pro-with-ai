@@ -6,6 +6,17 @@ from pathlib import Path
 BASE=Path(__file__).resolve().parent
 BEGIN='<!-- BOOK-TUTOR-MANAGED:BEGIN -->';END='<!-- BOOK-TUTOR-MANAGED:END -->'
 def sha(data:bytes)->str:return hashlib.sha256(data).hexdigest()
+def atomic_write(path:Path,data:bytes)->None:
+ """Replace one file without leaving a truncated destination on write failure."""
+ path.parent.mkdir(parents=True,exist_ok=True)
+ fd,name=tempfile.mkstemp(prefix='.'+path.name+'-',dir=path.parent)
+ try:
+  with os.fdopen(fd,'wb') as stream:
+   stream.write(data);stream.flush();os.fsync(stream.fileno())
+  if path.exists():os.chmod(name,path.stat().st_mode & 0o777)
+  os.replace(name,path)
+ finally:
+  if os.path.exists(name):os.unlink(name)
 def target(root:Path,rel:str)->Path:
  p=root/rel
  for x in [p,*p.parents]:
@@ -60,17 +71,17 @@ def main(argv=None)->int:
   plan=[{'file':str(p.relative_to(root)),'operation':'update' if p.exists() else 'create','changes':not p.exists() or p.read_bytes()!=b} for p,b in jobs]
   if args.apply:
    # Verify all targets before any write. Roll back exact originals on an error.
-   backup={str(p):(p.read_bytes() if p.exists() else None) for p,b in jobs};info={'schema_version':1,'support_root':str(BASE),'files':dict(old.get('files',{}))}
+   backup={str(p):(p.read_bytes() if p.exists() else None) for p,b in [*jobs,(statep,b'')]};info={'schema_version':1,'support_root':str(BASE),'files':dict(old.get('files',{}))}
    try:
     for p,b in jobs:
-     p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(b)
+     atomic_write(p,b)
      info['files'][str(p.relative_to(root))]={'installed_sha256':sha(b)}
-    statep.parent.mkdir(exist_ok=True);statep.write_text(json.dumps(info,ensure_ascii=False,indent=2),encoding='utf-8')
+    atomic_write(statep,json.dumps(info,ensure_ascii=False,indent=2).encode('utf-8'))
    except Exception:
     for path,b in backup.items():
      p=Path(path)
      if b is None:p.unlink(missing_ok=True)
-     else:p.write_bytes(b)
+     else:atomic_write(p,b)
     raise
   print(json.dumps({'applied':args.apply,'project':str(root),'plan':plan,'global_settings_changed':False,'exercise_code_created':False,'next':'새 Claude/Codex 세션에서 Skill과 실제 지침 경로를 확인합니다.'},ensure_ascii=False,indent=2));return 0
  except (ValueError,OSError,json.JSONDecodeError) as e:print(json.dumps({'error':str(e),'completed':False},ensure_ascii=False),file=sys.stderr);return 2

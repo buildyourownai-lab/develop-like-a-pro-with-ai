@@ -1,5 +1,6 @@
 from __future__ import annotations
 import unittest,tempfile,json,sys,io,contextlib,datetime as dt
+from unittest.mock import patch
 from symlink_support import requires_symlink
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
@@ -147,4 +148,34 @@ class Installer(unittest.TestCase):
   (self.p/'AGENTS.md').write_text(ins.BEGIN,encoding='utf-8');self.assertEqual(self.run_install('--apply'),2);self.assertFalse((self.p/'.claude').exists())
  def test_no_exercise_programs_created(self):
   self.run_install('--apply');self.assertFalse((self.p/'movie-report').exists());self.assertFalse((self.p/'package.json').exists())
+ def test_metadata_failure_restores_existing_install_and_progress(self):
+  self.assertEqual(self.run_install('--tool','claude','--apply'),0)
+  state=self.p/'.book-tutor-state/install.json'
+  progress=self.p/'.book-tutor-state/ch01.json';progress.write_text('PRIVATE_PROGRESS',encoding='utf-8')
+  before={str(p.relative_to(self.p)):p.read_bytes() for p in self.p.rglob('*') if p.is_file()}
+  write=ins.atomic_write;failed=False
+  def fail_once(path,data):
+   nonlocal failed
+   if path==state.resolve() and not failed:
+    failed=True;write(path,b'{"interrupted":true}');raise OSError('synthetic metadata failure')
+   write(path,data)
+  with patch.object(ins,'atomic_write',side_effect=fail_once):
+   self.assertEqual(self.run_install('--tool','both','--apply'),2)
+  after={str(p.relative_to(self.p)):p.read_bytes() for p in self.p.rglob('*') if p.is_file()}
+  self.assertEqual(before,after)
+ def test_first_install_failure_leaves_no_managed_files(self):
+  (self.p/'AGENTS.md').write_text('USER_RULES',encoding='utf-8')
+  write=ins.atomic_write
+  def fail_state(path,data):
+   if path.name=='install.json':raise OSError('synthetic metadata failure')
+   write(path,data)
+  with patch.object(ins,'atomic_write',side_effect=fail_state):
+   self.assertEqual(self.run_install('--apply'),2)
+  files={str(p.relative_to(self.p)):p.read_text() for p in self.p.rglob('*') if p.is_file()}
+  self.assertEqual(files,{'AGENTS.md':'USER_RULES'})
+ def test_atomic_replace_failure_keeps_original_file(self):
+  dest=self.p/'AGENTS.md';dest.write_bytes(b'ORIGINAL')
+  with patch.object(ins.os,'replace',side_effect=OSError('synthetic replace failure')):
+   with self.assertRaises(OSError):ins.atomic_write(dest,b'NEW')
+  self.assertEqual(dest.read_bytes(),b'ORIGINAL');self.assertEqual(list(self.p.iterdir()),[dest])
 if __name__=='__main__':unittest.main()

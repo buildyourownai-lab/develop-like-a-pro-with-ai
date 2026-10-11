@@ -22,23 +22,29 @@
 
 ## 받은 자료와 로컬 기록
 
+튜터 텍스트 파일의 SHA-256은 같은 공식 판본의 `release-manifest.json`에서 확인합니다. UTF-8·LF 줄바꿈 기준이며 파일 무결성 확인은 실제 동작 확인이나 배포자 신원 인증을 대신하지 않습니다.
+
 받은 패키지에서는 `tutor/` 아래의 상대 구조를 유지합니다. 다른 프로젝트에 연결할 때도 이 폴더의 원본을 직접 섞어 쓰기보다 아래 설치 도구로 대상과 변경 내용을 먼저 확인합니다.
 
 실제 키·Token·독자 진행 기록·`source-registry.local.json`은 올리지 않습니다. 이 자료를 받는 것 자체가 그 안의 프로그램이나 원본 소스의 Hook·Skill 실행을 승인한 것은 아닙니다.
 
 ## 설치 — 독자 또는 실습 AI가 실행할 명령
 
+[준비 요청 하나로 튜터와 선택 MCP 연결하기](SETUP.md). 튜터는 현재 프로젝트에 연결하고 MCP는 검증된 환경에서만 선택해서 추가합니다. 기존 설정과 학습 진도를 보존하며 두 연결의 실제 확인 결과는 따로 표시합니다.
+
 Python이 있는 환경에서 아래를 사용합니다. 다른 위치의 Python을 가정하지 말고 현재 설치를 먼저 확인합니다. 독자는 이 명령 옵션을 외우는 것이 아니라 책의 설치 요청으로 안내받습니다.
 
 ```sh
-python3 install_tutor.py --project "/실제/실습/프로젝트" --tool both
+python3 install_tutor.py --project "/실제/실습/프로젝트" --tool claude
 ```
 
 변경할 파일과 대상이 맞는지 확인한 후 적용합니다.
 
 ```sh
-python3 install_tutor.py --project "/실제/실습/프로젝트" --tool both --apply
+python3 install_tutor.py --project "/실제/실습/프로젝트" --tool claude --apply
 ```
+
+Codex만 사용하는 경우 `--tool codex`, 두 도구를 실제로 사용하는 경우에만 `--tool both`를 선택합니다.
 
 Claude 연결은 프로젝트의 `CLAUDE.local.md`와 `.claude/skills/book-tutor/SKILL.md`, Codex 연결은 `AGENTS.md`와 `.agents/skills/book-tutor/SKILL.md`를 사용합니다. 도구마다 실제 지침 검색·Skill 발견 방식은 현재 버전에서 확인해야 합니다. 이 파일들이 설치됐다고 실제 도구가 읽었다고 보고하지 않습니다. 기존 사용자 규칙은 보존합니다. 사용자 홈·회사 설정·Git 초기화·API 승인·패키지 설치는 수행하지 않습니다.
 
