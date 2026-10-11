@@ -23,7 +23,7 @@
 https://www.studyailab.com
 ~~~
 
-![화면 A-0 | Development Lab의 실제 첫 화면입니다. 준비편에서 시작하거나 진행할 PART를 선택합니다. 2026년 10월 10일의 안내 화면이며, 연결된 자료의 판본은 각 메뉴에서 확인합니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-00-development-lab.png)
+![화면 A-0 | Development Lab의 실제 첫 화면입니다. 준비편에서 시작하거나 진행할 PART를 선택합니다. 2026년 10월 11일의 안내 화면이며, 연결된 자료의 판본은 각 메뉴에서 확인합니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-00-development-lab.png)
 
 ![화면 A-1 | 사이트에서 연결하는 실습 자료 저장소의 예 --- 요청문과 소스의 파일을 제공하는 곳입니다. 자료를 찾는 출발점은 Development Lab입니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-01-one-place.png)
 
