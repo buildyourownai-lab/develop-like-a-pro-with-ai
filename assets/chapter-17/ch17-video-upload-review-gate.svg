@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <title>완성 영상을 프로그램과 AI가 차례로 검사하는 과정</title>
+  <desc>완성 MP4를 프로그램으로 검사하고, 5초마다 뽑은 대표 화면을 AI가 확인한 뒤, 모든 항목이 통과하면 UPLOAD READY가 되는 과정입니다.</desc>
+  <rect width="900" height="900" fill="#ffffff"/>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#748991"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#18212b" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <style>
+    .t{font-family:'Noto Sans KR','Malgun Gothic',sans-serif;fill:#17202a}
+    .title{font-size:29px;font-weight:700;text-anchor:middle}
+    .head{font-size:22px;font-weight:700;text-anchor:middle}
+    .body{font-size:16px;text-anchor:middle;fill:#48525d}
+    .small{font-size:15px;text-anchor:middle;fill:#5f6974}
+    .line{stroke:#748991;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    .source{fill:#f8f9fb;stroke:#c8ced6;stroke-width:2}
+    .auto{fill:#eaf5f8;stroke:#237b91;stroke-width:3}
+    .sheet{fill:#fff4dc;stroke:#b58a35;stroke-width:3}
+    .ai{fill:#edf0fa;stroke:#50649b;stroke-width:3}
+    .pass{fill:#eef8f1;stroke:#4d9a68;stroke-width:3}
+    .fail{fill:#fff1ef;stroke:#cf6b5d;stroke-width:3}
+  </style>
+
+  <text x="450" y="45" class="t title">완성본 확인 → 화면 검수 → 업로드 준비</text>
+
+  <rect x="230" y="75" width="440" height="70" rx="12" class="source" filter="url(#shadow)"/>
+  <text x="450" y="106" class="t head">완성 MP4</text>
+  <text x="450" y="130" class="t body">16장에서 만든 YouTube Shorts</text>
+
+  <path d="M450 145 V180" class="line"/>
+
+  <rect x="120" y="185" width="660" height="145" rx="14" class="auto" filter="url(#shadow)"/>
+  <text x="450" y="220" class="t head">1. 프로그램 검사</text>
+  <text x="450" y="252" class="t body">파일 · 40~90초 · 1080×1920 · 세로 9:16</text>
+  <text x="450" y="280" class="t body">영상과 소리 · 실제 음성 신호 · 끝까지 읽기</text>
+  <text x="450" y="308" class="t body">1.5초 이상 이어지는 뜻밖의 검은 화면</text>
+
+  <path d="M450 330 V365" class="line"/>
+
+  <rect x="190" y="370" width="520" height="92" rx="14" class="sheet" filter="url(#shadow)"/>
+  <text x="450" y="405" class="t head">2. 대표 화면 모음 만들기</text>
+  <text x="450" y="436" class="t body">영상에서 5초마다 화면을 뽑아 한 장에 배열</text>
+
+  <path d="M450 462 V497" class="line"/>
+
+  <rect x="120" y="502" width="660" height="137" rx="14" class="ai" filter="url(#shadow)"/>
+  <text x="450" y="537" class="t head">3. AI 화면 검사</text>
+  <text x="450" y="570" class="t body">한글 자막이 있고 읽을 수 있는가</text>
+  <text x="450" y="598" class="t body">중심 대상이 심하게 잘리지 않았는가</text>
+  <text x="450" y="626" class="t body">화면이 깨지거나 눈에 띄게 망가지지 않았는가</text>
+
+  <path d="M450 639 V680" class="line"/>
+
+  <rect x="210" y="685" width="480" height="70" rx="12" class="source" filter="url(#shadow)"/>
+  <text x="450" y="716" class="t head">4. 모든 검사 결과 합치기</text>
+  <text x="450" y="741" class="t small">확인하지 못한 항목도 통과로 처리하지 않음</text>
+
+  <path d="M450 755 V785 M450 785 H260 V805 M450 785 H640 V805" fill="none" stroke="#748991" stroke-width="3"/>
+
+  <rect x="80" y="805" width="360" height="68" rx="12" class="pass"/>
+  <text x="260" y="835" class="t head" fill="#32744a">모두 PASS</text>
+  <text x="260" y="860" class="t body">UPLOAD READY</text>
+
+  <rect x="460" y="805" width="360" height="68" rx="12" class="fail"/>
+  <text x="640" y="835" class="t head" fill="#a84f43">하나라도 실패·미확인</text>
+  <text x="640" y="860" class="t body">NOT READY · 근거를 남기고 중지</text>
+
+  <text x="450" y="894" class="t small">UPLOAD READY는 검사 통과 상태입니다. 실제 업로드는 사람이 따로 승인합니다.</text>
+</svg>

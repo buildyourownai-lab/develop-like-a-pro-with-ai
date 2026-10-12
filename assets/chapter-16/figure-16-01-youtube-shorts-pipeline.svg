@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <marker id="arrow" markerWidth="5" markerHeight="5" refX="4.5" refY="2.5" orient="auto">
+      <path d="M0,0 L5,2.5 L0,5 Z" fill="#59636f" />
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#172033" flood-opacity="0.12" />
+    </filter>
+  </defs>
+  <rect width="1400" height="900" fill="#ffffff" />
+
+  <text x="700" y="72" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="38" font-weight="700" fill="#151a24">AI 서비스로 한 편의 YouTube Shorts를 만드는 과정</text>
+  <text x="700" y="112" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#687080">조사와 시나리오를 먼저 승인한 뒤 화면·목소리·소리를 조립합니다</text>
+
+  
+  <rect x="450" y="155" rx="26" ry="26" width="500" height="118" fill="#fff0e8" stroke="#d97745" stroke-width="3" filter="url(#shadow)" />
+  <text x="700" y="205" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="30" font-weight="700" fill="#9a4725">Claude</text>
+  <text x="700" y="243" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" fill="#6c5144">소재 조사 · 시나리오 · 장면 설명 · 사람 승인 조율</text>
+
+  
+  <path d="M700 273 L700 315 L250 315 L250 360" fill="none" stroke="#59636f" stroke-width="3" marker-end="url(#arrow)" />
+  <path d="M700 273 L700 360" fill="none" stroke="#59636f" stroke-width="3" marker-end="url(#arrow)" />
+  <path d="M700 315 L1150 315 L1150 360" fill="none" stroke="#59636f" stroke-width="3" marker-end="url(#arrow)" />
+
+  
+  <rect x="75" y="365" rx="24" width="350" height="170" fill="#e8faf5" stroke="#2f9e7d" stroke-width="3" filter="url(#shadow)" />
+  <text x="250" y="413" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#16765c">기준 이미지와 장면</text>
+  <text x="250" y="454" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#26313c">Kling 이미지·영상</text>
+  <text x="250" y="484" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#26313c">승인한 설정으로 생성</text>
+  <text x="250" y="515" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" fill="#52616b">일곱 장면 · 조건과 출처 기록</text>
+
+  
+  <rect x="525" y="365" rx="24" width="350" height="170" fill="#edf0ff" stroke="#6b72d6" stroke-width="3" filter="url(#shadow)" />
+  <text x="700" y="413" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#4c53b8">한국어 목소리 만들기</text>
+  <text x="700" y="454" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="24" font-weight="700" fill="#26313c">Gemini · Charon</text>
+  <text x="700" y="488" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" fill="#52616b">검사한 최종 시나리오</text>
+  <text x="700" y="518" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" fill="#52616b">장면별 한국어 내레이션</text>
+
+  
+  <rect x="975" y="365" rx="24" width="350" height="170" fill="#fff0f1" stroke="#d85662" stroke-width="3" filter="url(#shadow)" />
+  <text x="1150" y="413" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="27" font-weight="700" fill="#b53b46">배경음악 고르기</text>
+  <text x="1150" y="452" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#26313c">YouTube 오디오 보관함</text>
+  <text x="1150" y="484" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" fill="#52616b">Pulsar</text>
+  <text x="1150" y="513" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" fill="#52616b">The Grey Room / Density &amp; Time</text>
+
+  
+  <path d="M250 535 L250 585 L700 585" fill="none" stroke="#59636f" stroke-width="3" />
+  <path d="M700 535 L700 615" fill="none" stroke="#59636f" stroke-width="3" marker-end="url(#arrow)" />
+  <path d="M1150 535 L1150 585 L700 585" fill="none" stroke="#59636f" stroke-width="3" />
+
+  
+  <rect x="450" y="620" rx="25" width="500" height="120" fill="#fff8df" stroke="#d7a92f" stroke-width="3" filter="url(#shadow)" />
+  <text x="700" y="668" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="28" font-weight="700" fill="#9b7615">모두 한 편으로 합치기</text>
+  <text x="700" y="706" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" font-weight="700" fill="#26313c">영상 + 목소리 + 음악 + 효과음 + 한글 자막</text>
+
+  <path d="M700 740 L700 785" fill="none" stroke="#59636f" stroke-width="3" marker-end="url(#arrow)" />
+
+  
+  <rect x="425" y="790" rx="24" width="550" height="82" fill="#eaf6ff" stroke="#3486c7" stroke-width="3" filter="url(#shadow)" />
+  <text x="700" y="824" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="26" font-weight="700" fill="#23679c">YouTube Shorts 완성</text>
+  <text x="700" y="856" text-anchor="middle" font-family="Arial,'Noto Sans KR',sans-serif" font-size="23" fill="#405d73">1080×1920 · 53.081초 · 일곱 장면 · 한국어 자막</text>
+</svg>
