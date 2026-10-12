@@ -39,3 +39,12 @@ python3 scripts/make_roman_concrete_short.py all
 python3 -m unittest discover -s tests -v
 python3 -m compileall -q scripts tests
 ```
+
+## 공식 AI Studio WAV 가져오기
+
+작업 폴더의 source/audio/voice-import.json에 일곱 장면의 대본과 Charon 모델·음색·실제 WAV 파일·해시를 연결한 뒤 등록합니다. 입력 형식은 make_roman_concrete_short.py의 import-voice 안내를 따릅니다. 승인 없이 유료 호출을 대신 실행하지 않습니다.
+
+```sh
+python3 scripts/make_roman_concrete_short.py init
+python3 scripts/make_roman_concrete_short.py import-voice
+```

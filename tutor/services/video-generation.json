@@ -1,9 +1,9 @@
 {
   "id": "video-generation",
-  "name": "선택한 영상 생성 서비스",
-  "official_entry": "https://aistudio.google.com",
-  "purpose": "영상 장면 후보",
-  "procedure": "원고에서 선택한 서비스의 공식 사이트·실제 계정·크레딧·생성 조건을 먼저 확인합니다. 이 링크가 다른 영상 서비스의 가입 주소를 대신하지 않습니다.",
+  "name": "Kling",
+  "official_entry": "https://kling.ai/",
+  "purpose": "유료 기준 이미지·영상 후보 생성",
+  "procedure": "공식 화면에서 현재 플랜·잔여 크레딧·모델·길이·해상도·native audio·다운로드·사용 조건을 확인하고 전체 예산과 단계 배치 계획을 승인한 뒤 생성합니다. 추가 구매·플랜 변경은 자동으로 하지 않습니다.",
   "checked_live_in_this_delivery": false,
   "cost_policy": "현재 공식 플랜과 계정 화면에서 확인. 무료·무제한을 고정 보장하지 않음",
   "secret_policy": "실제 값은 사람이 안전한 입력 위치에 직접 입력. 대화·Git·로그·공개 자료에는 이름과 존재 여부만 기록.",

@@ -15,10 +15,10 @@ assert SPEC.loader is not None
 SPEC.loader.exec_module(MODULE)
 
 POLICY = ROOT / "prototypes/youtube-shorts/chapter-17/review-policy.json"
-NORMAL_VIDEO = ROOT / "artifacts/science-roman-concrete/roman-final-sounddesign-v3.mp4"
-DAMAGED_VIDEO = ROOT / "artifacts/chapter-17/failures/damaged-short.mp4"
-NORMAL_VISUAL = ROOT / "prototypes/youtube-shorts/chapter-17/normal-visual-review.json"
-DAMAGED_VISUAL = ROOT / "prototypes/youtube-shorts/chapter-17/damaged-visual-review.json"
+NORMAL_VIDEO = ROOT / "artifacts/science-roman-concrete-kling-20261012/roman-concrete-kling-v2.mp4"
+DAMAGED_VIDEO = ROOT / "artifacts/chapter-17-kling-20261012/failures/damaged-short.mp4"
+NORMAL_VISUAL = ROOT / "artifacts/science-roman-concrete-kling-20261012/review/normal-visual-review.json"
+DAMAGED_VISUAL = ROOT / "artifacts/chapter-17-kling-20261012/review/damaged-visual-review.json"
 
 MEDIA_TOOLS = shutil.which("ffprobe") and shutil.which("ffmpeg")
 

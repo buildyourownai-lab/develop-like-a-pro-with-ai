@@ -1,5 +1,5 @@
 {
-  "video": "artifacts/chapter-17/failures/damaged-short.mp4",
+  "video": "damaged-short.mp4",
   "policy": "prototypes/youtube-shorts/chapter-17/review-policy.json",
   "status": "FAIL",
   "gate": "NOT READY",
@@ -7,13 +7,13 @@
     {
       "name": "file_exists",
       "status": "PASS",
-      "actual": "artifacts/chapter-17/failures/damaged-short.mp4",
+      "actual": "damaged-short.mp4",
       "expected": "non-empty file"
     },
     {
       "name": "duration",
       "status": "PASS",
-      "actual": 52.933,
+      "actual": 47.5,
       "expected": "40..90 seconds"
     },
     {
@@ -81,14 +81,14 @@
     {
       "name": "contact_sheet",
       "status": "PASS",
-      "actual": "artifacts/chapter-17/contact-sheet-damaged.png",
+      "actual": "damaged-contact.png",
       "expected": "generated for AI visual review"
     },
     {
       "name": "ai_visual_review",
       "status": "FAIL",
       "actual": {
-        "reviewer": "AI Reviewer",
+        "reviewer": "Codex",
         "missing": [],
         "failed": [
           "subtitles_present_and_readable",
@@ -99,6 +99,6 @@
       "expected": "all required visual judgments are true"
     }
   ],
-  "contact_sheet": "artifacts/chapter-17/contact-sheet-damaged.png",
+  "contact_sheet": "damaged-contact.png",
   "boundary": "UPLOAD READY is a pre-upload QA result, not permission to publish."
 }

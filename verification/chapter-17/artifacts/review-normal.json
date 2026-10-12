@@ -1,5 +1,5 @@
 {
-  "video": "artifacts/science-roman-concrete/roman-final-sounddesign-v3.mp4",
+  "video": "roman-concrete-kling-v2.mp4",
   "policy": "prototypes/youtube-shorts/chapter-17/review-policy.json",
   "status": "PASS",
   "gate": "UPLOAD READY",
@@ -7,13 +7,13 @@
     {
       "name": "file_exists",
       "status": "PASS",
-      "actual": "artifacts/science-roman-concrete/roman-final-sounddesign-v3.mp4",
+      "actual": "roman-concrete-kling-v2.mp4",
       "expected": "non-empty file"
     },
     {
       "name": "duration",
       "status": "PASS",
-      "actual": 53.081,
+      "actual": 47.624,
       "expected": "40..90 seconds"
     },
     {
@@ -62,7 +62,7 @@
       "name": "audible_signal",
       "status": "PASS",
       "actual": {
-        "mean_volume_db": -27.2
+        "mean_volume_db": -26.7
       },
       "expected": "mean volume at least -45 dB"
     },
@@ -75,20 +75,20 @@
     {
       "name": "contact_sheet",
       "status": "PASS",
-      "actual": "artifacts/chapter-17/contact-sheet-normal.png",
+      "actual": "normal-contact.png",
       "expected": "generated for AI visual review"
     },
     {
       "name": "ai_visual_review",
       "status": "PASS",
       "actual": {
-        "reviewer": "AI Reviewer",
+        "reviewer": "Codex",
         "missing": [],
         "failed": []
       },
       "expected": "all required visual judgments are true"
     }
   ],
-  "contact_sheet": "artifacts/chapter-17/contact-sheet-normal.png",
+  "contact_sheet": "normal-contact.png",
   "boundary": "UPLOAD READY is a pre-upload QA result, not permission to publish."
 }

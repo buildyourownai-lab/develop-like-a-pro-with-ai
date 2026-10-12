@@ -1,29 +1,7 @@
-# 로마 콘크리트 조사·서비스 확인 기록
+# Kling 제작 조건과 권리 기록
 
-## 사실 근거
+현재 플랜·잔여 크레딧·설정별 회당 비용을 공식 화면에서 확인합니다. 전체 예산과 단계별 배치를 승인한 뒤 생성합니다. 기준 이미지와 장면1·3·4·5·6 후보는 Kling, 내레이션은 Gemini Charon, 음악은 공식 오디오 보관함의 Pulsar입니다. 장면2·7은 승인 이미지의 느린 확대입니다.
 
-- Science Advances, *Hot mixing: Mechanistic insights into the durability of ancient Roman concrete*
-  - https://www.science.org/doi/10.1126/sciadv.add1602
-- MIT News, *Riddle solved: Why was Roman concrete so durable?*
-  - https://news.mit.edu/2023/roman-concrete-durability-lime-casts-0106
+이 공개 Source에는 생성 영상·음성·음악 원본이 포함되지 않습니다. 특히 음악은 독립적으로 재배포하지 않습니다. 독자는 자기 계정에서 사용 조건을 확인해 자산을 준비하고 상대 경로·SHA-256·권리 근거를 assets-manifest.json에 기록합니다. 장면을 자르거나 이미지와 이어 붙였으면 편집 구성과 실제 원본 구간을 기록합니다. 설명용 시각화와 연구 촬영을 구분합니다.
 
-대본은 생석회 고온 혼합, 반응성 석회 덩어리, 물이 스민 균열에서의 재결정화,
-시험편의 2주 회복 결과까지만 말합니다. 이 기작 하나로 로마 건축의 모든
-내구성을 설명하지 않습니다. 생성형 화면은 연구 현장의 실제 촬영 기록이 아니라
-이해를 돕는 시각화입니다.
-
-## 생성 서비스와 음악
-
-실행하는 날 아래 공식 화면에서 무료 크레딧, 워터마크, 다운로드, 상업 이용
-조건을 다시 확인합니다. 확인하지 못한 조건은 추측하지 않습니다.
-
-- Kling: https://kling.ai/
-- Vidu: https://www.vidu.com/
-- Hailuo: https://hailuoai.video/
-- PixVerse: https://app.pixverse.ai/
-- Google AI Studio: https://aistudio.google.com/
-- YouTube Audio Library: https://studio.youtube.com/
-
-검증본의 배경음악은 YouTube Audio Library의 `Pulsar` — The Grey Room /
-Density & Time입니다. 화면에 표시되는 라이선스 조건은 내려받는 날 함께
-기록합니다.
+추가 결제·플랜 변경은 자동으로 하지 않습니다. 승인한 배치 안에서 같은 승인을 반복하지 않으며, 계획이나 비용 변경은 기존 승인 범위와 대조합니다.

@@ -9,8 +9,8 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "artifacts/science-roman-concrete/roman-final-sounddesign-v3.mp4"
-OUTPUT = ROOT / "artifacts/chapter-17/failures/damaged-short.mp4"
+SOURCE = ROOT / "artifacts/science-roman-concrete-kling-20261012/roman-concrete-kling-v2.mp4"
+OUTPUT = ROOT / "artifacts/chapter-17-kling-20261012/failures/damaged-short.mp4"
 
 
 def main() -> int:

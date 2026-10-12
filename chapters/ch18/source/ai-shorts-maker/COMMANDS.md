@@ -258,3 +258,12 @@ Receipt 모두, 정체성 불일치 차단 포함)·Insert 대기·불명 상태
 discover -s tests -v` 기준 96건 중 2건은 17장이 요구하는, 아직 만들지 않은 최종
 로마 콘크리트 MP4가 있어야 실행되는 기존 Chapter 17 검사
 (`tests/test_chapter17_review.py`)이며 나머지는 모두 실행되어 통과합니다.
+
+## 공식 AI Studio WAV 가져오기
+
+작업 폴더의 source/audio/voice-import.json에 일곱 장면의 대본과 Charon 모델·음색·실제 WAV 파일·해시를 연결한 뒤 등록합니다. 입력 형식은 make_roman_concrete_short.py의 import-voice 안내를 따릅니다. 승인 없이 유료 호출을 대신 실행하지 않습니다.
+
+```sh
+python3 scripts/make_roman_concrete_short.py init
+python3 scripts/make_roman_concrete_short.py import-voice
+```

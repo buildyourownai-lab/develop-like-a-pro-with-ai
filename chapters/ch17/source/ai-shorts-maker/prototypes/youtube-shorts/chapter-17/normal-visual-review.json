@@ -1,14 +1,9 @@
 {
-  "reviewer": "AI Reviewer",
-  "video": "artifacts/science-roman-concrete/roman-final-sounddesign-v3.mp4",
+  "reviewer": "Codex",
   "judgments": {
     "subtitles_present_and_readable": true,
     "subjects_not_severely_cropped": true,
     "no_obvious_visual_corruption": true
   },
-  "notes": [
-    "5초 간격 Contact Sheet에서 한글 자막의 흰 글자와 그 뒤에 깔린 어두운 상자가 배경과 구분된다.",
-    "자막은 화면 가장자리에서 떨어져 있고 로마 건축물·석회 덩어리·균열·결정·시험편의 핵심 피사체가 식별된다.",
-    "정지 표본만으로 소리와 장면 사이의 시간 동기화까지 판정하지는 않았다."
-  ]
+  "scope": "Codex inspected the actual v2 final contact sheet at 5-second intervals on 2026-10-13, plus selected source sequences at 0.5/1-second intervals. Subtitles and scientific visualization/time-compression labels are visible. Contact-sheet trailing black tiles are unused grid cells. No independent review or subjective audio listening claimed."
 }

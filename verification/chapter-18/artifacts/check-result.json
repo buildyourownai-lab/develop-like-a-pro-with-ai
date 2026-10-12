@@ -1,47 +1,17 @@
 {
-  "chapter": 18,
-  "status": "LIVE UPLOAD VERIFIED / AUTOMATED CHECKS PASS",
-  "measuredAt": "2026-09-06T00:00:00+09:00",
-  "environment": {
-    "os": "macOS",
-    "python": "3"
+  "checked_on": "2026-10-13",
+  "new_public_video_id": "-pjMnx_Cebs",
+  "publication_method": "YouTube Studio UI",
+  "private_then_same_id_public": true,
+  "subscriber_notifications": false,
+  "ai_disclosure": true,
+  "public_oembed_and_playback": "observed",
+  "api_live_revalidation": "not performed",
+  "source_regression_tests": {
+    "run": 133,
+    "passed": 130,
+    "skipped": 3,
+    "scope": "local automated tests; fixture MP4 absent in public source"
   },
-  "live_upload": {
-    "channel_handle": "@everyoneisadeveloper",
-    "video_id": "2HkP_1fahLQ",
-    "privacy_at_upload": "public -- explicit human approval",
-    "notify_subscribers": false,
-    "duration_shown_in_youtube_studio": "0:53",
-    "duration_measured_in_the_file_seconds": 53.0815,
-    "video_sha256": "390dae8903e1b7ac8dab76d6f25d58e450c9287ae0a29c9ce1a7d516a67ba62c",
-    "preview_shown_before_the_upload": true,
-    "default_privacy_when_omitted": "private"
-  },
-  "requested_scope": {
-    "granted": ["https://www.googleapis.com/auth/youtube.upload"],
-    "listing_the_channel_videos_with_the_same_token": "refused with HTTP 403"
-  },
-  "automated_checks": {
-    "a_checked_plan_uploads_that_video": 1,
-    "a_video_that_failed_qa_is_refused": 1,
-    "a_video_changed_after_the_check_is_refused": 1,
-    "an_unknown_privacy_value_is_refused": 1,
-    "all_three_privacy_values_are_accepted": 1,
-    "one_upload_record_per_video": 1,
-    "chapter_related_total": 6,
-    "failures": 0,
-    "chapter_source_total": 21,
-    "chapter_source_passed": 18,
-    "chapter_source_skipped_without_video_artifact": 3
-  },
-  "oauth_app": {
-    "publishing_status": "production",
-    "owner_reapproved": true,
-    "channel_or_video_visibility_changed_by_this_setting": false
-  },
-  "safety": {
-    "credentials_in_the_repository": "none -- only the names of the required values, in prototypes/youtube-shorts/chapter-18/research.md",
-    "upload_receipt_in_the_repository": "none",
-    "default_privacy": "private"
-  }
+  "old_video": "preserved"
 }

@@ -110,3 +110,7 @@ python3 -m compileall -q scripts tests
 ## 문의 [![GitHub Issues](https://img.shields.io/badge/GitHub-Issues-0969DA?logo=github&logoColor=white)](https://github.com/buildyourownai-lab/ai-shorts-maker/issues)
 
 자료 오류와 실습 문제는 [GitHub Issues](https://github.com/buildyourownai-lab/ai-shorts-maker/issues)에 남겨주세요.
+
+## Kling 제작 입력 준비
+
+공개 Source에는 생성 영상·음성·음악 원본이 포함되지 않습니다. 먼저 init으로 작업 폴더를 만들고 승인 대본 검사, 실제 선택 자산의 상대 경로·해시·권리 기록을 준비합니다. 공식 AI Studio Charon WAV를 가져오면 import-voice로 등록합니다. API 호출은 별도의 인증·비용 승인 경로이며 가져온 음성이 없다고 자동으로 대신 호출하지 않습니다. Pulsar는 공식 오디오 보관함에서 직접 내려받습니다. 이미지·영상 비용과 현재 모델 조건은 공식 화면에서 확인합니다.

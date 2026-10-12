@@ -33,7 +33,7 @@
 | OpenDART | 회사 공시 원문 | 10장 |
 | Google AI Studio | AI 브리핑·음성·분류 | 11장 |
 | Supabase·Upstash | 데이터와 Cache | 12장 |
-| Kling·Vidu·Hailuo·PixVerse | 기준 이미지와 영상 장면 제작 | 16장 |
+| Kling | 기준 이미지와 영상 장면 제작 | 16장 |
 | YouTube Audio Library | 배경음악 확인과 내려받기 | 16장 |
 | Google Cloud | YouTube API와 OAuth 설정 | 18~20장 |
 | YouTube | 영상 업로드·댓글 조회·허용한 답글 | 18~20장 |

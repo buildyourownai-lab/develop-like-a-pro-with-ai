@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -80,3 +82,24 @@ def clear_tts_cache(audio_dir: Path, timings_path: Path) -> None:
         for cached in audio_dir.glob("scene-*.wav"):
             cached.unlink()
     timings_path.unlink(missing_ok=True)
+
+
+def archive_invalidated(archive_root: Path, files: list[Path]) -> Path | None:
+    """무효가 된 검수 기록·유료 음성을 삭제하지 않고 새 Archive 폴더로 옮긴다. 기존 Archive는 덮어쓰지 않는다."""
+    existing = [path for path in files if path.is_file()]
+    if not existing:
+        return None
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    archive_root.mkdir(parents=True, exist_ok=True)
+    for serial in range(1000):
+        target = archive_root / f"{stamp}-{serial:03d}"
+        try:
+            target.mkdir()
+            break
+        except FileExistsError:
+            continue
+    else:
+        raise RuntimeError(f"Archive 폴더를 만들 수 없습니다: {archive_root}")
+    for path in existing:
+        shutil.move(str(path), str(target / path.name))
+    return target
