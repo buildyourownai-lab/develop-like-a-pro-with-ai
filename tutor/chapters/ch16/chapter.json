@@ -5,7 +5,7 @@
   "number": 16,
   "title": "16장. AI와 YouTube 영상을 만듭니다",
   "manuscript": "book/23-chapter-16.md",
-  "manuscript_sha256": "5500a811bf6d240024e31f6a598e2a0b85a47c56bf63e0da39a9a2a3aed1d3a2",
+  "manuscript_sha256": "699f8b8a2cdc2bbf860bed18e5c09fa85e35ee36038eecc63562392c69e8447b",
   "outcome": "근거와 승인된 장면으로 영상·음성·자막을 완성합니다.",
   "project": "ai-shorts-maker",
   "start_state": "주식 프로젝트를 보존하고 별도 ai-shorts-maker 폴더를 만들어 현재 프로젝트로 선택한 뒤 제작 목표를 정할 단계입니다.",
