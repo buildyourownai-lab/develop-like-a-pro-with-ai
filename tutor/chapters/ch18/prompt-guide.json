@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": 18,
   "project": "ai-shorts-maker",
-  "manuscript_sha256": "cbcbfa38aec955e17295b26828b29fec8b7cea7710a92fa537438c91fb94df63",
+  "manuscript_sha256": "7f9e45abfdfb7c647ba7f653f3901020d9b67c6af36602912a3bcb749b98b1c8",
   "entries": [
     {
       "id": "P18-01",
@@ -21,7 +21,7 @@
       "id": "P18-02",
       "source": "prompts.md",
       "block_index": 2,
-      "sha256": "0fc343fbdc931a1277ecdf9f888013b9c3f77f2e9b28be7ec718541378bdaef3",
+      "sha256": "b0349291d12511f79e751ae10a11fa06ae56825bfa2ee910fab1f682c7eff862",
       "title": "업로드 전에 바뀔 내용을 먼저 고정합니다",
       "target": "coding-assistant",
       "kind": "main",
