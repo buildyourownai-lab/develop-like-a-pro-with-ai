@@ -5,7 +5,7 @@
   "number": 17,
   "title": "17장. 올리기 전에 AI가 영상을 검사합니다",
   "manuscript": "book/24-chapter-17.md",
-  "manuscript_sha256": "b4b5f54775e34119424df4a94514a074c27dbfb0627b5741c716a382666a5cba",
+  "manuscript_sha256": "b9425babf497b157bbe2b6e188c7939bb4bbeee437773e5e7c341905b0f48274",
   "outcome": "검사 Skill이 정상 원본과 명백한 손상 사본을 구별함을 확인합니다.",
   "project": "ai-shorts-maker",
   "start_state": "16장의 최종 MP4와 제작 기록이 있습니다.",

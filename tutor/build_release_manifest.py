@@ -3,7 +3,7 @@
 from pathlib import Path
 import hashlib,json
 ROOT=Path(__file__).resolve().parent
-RELEASE='2026-10-13-screen-refresh'
+RELEASE='2026-10-13-part05-editorial'
 
 def build():
  files={}

@@ -5,7 +5,7 @@
   "number": 18,
   "title": "18장. 만든 영상을 실제 YouTube에 올립니다",
   "manuscript": "book/25-chapter-18.md",
-  "manuscript_sha256": "ce27482025ce442c519c845bf23620f6067b40a3816ec41a7c62be90a6206582",
+  "manuscript_sha256": "df4cfda8bbf9a92b944ad7144860d3168dea2a7008d1c141268cc519e8142acf",
   "outcome": "검수한 영상을 승인한 채널에 비공개로 업로드하고 실제 상태를 확인합니다.",
   "project": "ai-shorts-maker",
   "start_state": "16장의 영상과 17장의 검수 통과 근거가 있습니다.",
