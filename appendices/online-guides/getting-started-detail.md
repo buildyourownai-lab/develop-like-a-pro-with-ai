@@ -18,7 +18,7 @@ Claude Desktop의 설치와 Claude Code의 이용 조건은 구분해야 합니�
 >
 > `https://claude.com/pricing`
 
-![화면 준비-1 | claude.com/pricing의 개인용 플랜 카드 --- 무료 플랜에는 없고 유료 플랜 목록에는 Includes Claude Code가 있는지 확인합니다.](https://www.studyailab.com/develop/guides/getting-started/screen-prep-01-claude-plan.png)
+![화면 준비-1 | claude.com/pricing의 개인용 플랜 카드 --- 무료 플랜에는 없고 유료 플랜 목록에는 Includes Claude Code가 있는지 확인합니다.](../assets/getting-started/screen-prep-01-claude-plan.png)
 
 Claude Code에는 사용량 한도가 있습니다. 한도에 도달하면 화면에
 안내된 재사용 시점을 확인하고 기다렸다가 작업을 이어갑니다.
@@ -37,6 +37,8 @@ Claude Code에는 사용량 한도가 있습니다. 한도에 도달하면 화�
 뒤에서는 GitHub, Vercel, Supabase, Google Cloud 같은 서비스도 사용합니다.
 이 책의 실습은 **개인 계정**을 기준으로 진행합니다.
 
+실습 전체가 무료인 것은 아닙니다. Claude Code 요금제와 별도로, 16장의 Kling 이미지·영상 제작에는 유료 이용과 생성 크레딧이 필요합니다. Gemini 등 외부 서비스의 비용과 사용량 한도도 각각 확인합니다. 처음부터 모두 결제하지 않고, 필요한 장에 도착했을 때 현재 조건과 예산을 보고 결정합니다.
+
 Claude Code를 사용할 수 있는 요금제를 확인했다면 이제 설치를 시작합니다.
 
 ---
@@ -50,7 +52,7 @@ Claude Code를 사용할 수 있는 요금제를 확인했다면 이제 설치�
 >
 > `https://claude.com/download`
 
-![Claude 다운로드 QR](https://www.studyailab.com/develop/guides/getting-started/03-claude-download-qr.svg)
+![Claude 다운로드 QR](../assets/getting-started/03-claude-download-qr.svg)
 
 > [!주의]
 > **QR 코드는 공식 페이지를 확인할 때 사용하세요. 실제 설치는 이 책을
@@ -61,7 +63,7 @@ Windows를 사용한다면 Windows용을, Mac을 사용한다면 macOS용을 선
 
 설치가 끝나면 Claude Desktop을 실행합니다.
 
-![화면 준비-2 | claude.com/download의 Desktop 자리 --- Windows용과 macOS용 설치 파일을 같은 자리에서 내려받을 수 있는지 확인합니다.](https://www.studyailab.com/develop/guides/getting-started/screen-prep-02-claude-download.png)
+![화면 준비-2 | claude.com/download의 Desktop 자리 --- Windows용과 macOS용 설치 파일을 같은 자리에서 내려받을 수 있는지 확인합니다.](../assets/getting-started/screen-prep-02-claude-download.png)
 
 > [!주의]
 > **책과 화면 모양이 조금 달라도 괜찮습니다**
@@ -86,7 +88,7 @@ Claude Desktop을 실행하면 로그인이 필요합니다.
 로그인이 끝나면 화면 왼쪽 위에서 **Code**를 선택합니다. 그 옆에는 일반
 대화로 이동하는 항목도 함께 보입니다.
 
-![화면 준비-3 | Claude Desktop에 로그인한 직후의 첫 화면 --- 왼쪽 위에 대화하는 자리와 Code를 고르는 자리가 있는지 확인합니다.](https://www.studyailab.com/develop/guides/getting-started/screen-prep-03-claude-first-screen.png)
+![화면 준비-3 | Claude Desktop에 로그인한 직후의 첫 화면 --- 왼쪽 위에 대화하는 자리와 Code를 고르는 자리가 있는지 확인합니다.](../assets/getting-started/screen-prep-03-claude-first-screen.png)
 
 **Code**를 눌렀을 때 유료 플랜 안내가 나오면 먼저 요금제를 준비한
 계정으로 로그인했는지 확인합니다. 계정이 맞는데 이용 가능한 플랜이
@@ -112,13 +114,13 @@ Claude Desktop을 실행하면 로그인이 필요합니다.
 >
 > `https://git-scm.com/downloads`
 
-![Git 다운로드 QR](https://www.studyailab.com/develop/guides/getting-started/04-git-download-qr.svg)
+![Git 다운로드 QR](../assets/getting-started/04-git-download-qr.svg)
 
 > [!주의]
 > **QR 코드는 공식 페이지를 확인할 때 사용하세요. 실제 설치는 이 책을
 > 실습할 컴퓨터에서 진행합니다.**
 
-![화면 준비-4 | git-scm.com/downloads로 열리는 Git 공식 설치 페이지 --- 운영체제 줄에서 자기 운영체제를 골라 내려받을 수 있는지 확인합니다.](https://www.studyailab.com/develop/guides/getting-started/screen-prep-04-git-download.png)
+![화면 준비-4 | git-scm.com/downloads로 열리는 Git 공식 설치 페이지 --- 운영체제 줄에서 자기 운영체제를 골라 내려받을 수 있는지 확인합니다.](../assets/getting-started/screen-prep-04-git-download.png)
 
 운영체제에 따라 준비 방법이 다릅니다.
 

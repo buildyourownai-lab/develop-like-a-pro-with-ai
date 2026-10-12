@@ -14,6 +14,8 @@
 영화 흥행 보고서에서 시작해 아파트 찾기, 주식 브리핑과 모바일 앱, YouTube 영상과 댓글 관리, AI 기능 구현으로 이어집니다.  
 직접 만든 결과를 확인하고 오류를 고치며 개선하는 방법을 익힙니다.
 
+실습 전체가 무료인 것은 아닙니다. Claude Code를 사용할 수 있는 요금제와 별도로, 16장의 Kling 제작에는 유료 이용과 생성 크레딧이 필요합니다. 외부 API의 비용과 한도는 필요한 장에서 현재 조건을 확인합니다.
+
 ## 여기서 시작하세요
 
 [![Study AI Lab 공식 홈페이지](https://img.shields.io/badge/Study_AI_Lab-공식_홈페이지-2A9D8F)](https://www.studyailab.com) [![Development Lab 개발 실습](https://img.shields.io/badge/Development_Lab-개발_실습-D1495B)](https://www.studyailab.com/develop)
