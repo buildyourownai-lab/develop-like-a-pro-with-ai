@@ -650,14 +650,7 @@ def build(ds: list[float]) -> Path:
         else:
             source_filter=f"scale=4320:7680:force_original_aspect_ratio=increase,crop=4320:7680,zoompan=z='{z}':x='{pan_x}':y='ih/2-(ih/zoom/2)':d={int((d+.35)*30)}:s=2160x3840:fps=30,scale=1080:1920:flags=lanczos"
             visual_args=["-loop","1","-i",str(img)]
-        illustration_note = ""
-        if i in (2, 4, 5, 6):
-            note = "원리 설명용 AI 시각화" + (" · 시간 경과 압축" if i == 5 else "")
-            illustration_note = (
-                f"drawtext=fontfile='{esc(font)}':text='{esc(note)}':fontcolor=white:"
-                "fontsize=32:x=(w-text_w)/2:y=90:box=1:boxcolor=black@0.35:boxborderw=12,"
-            )
-        vf=(source_filter+","+illustration_note+
+        vf=(source_filter+","+
             f"drawbox=x=0:y=1450:w=1080:h=250:color=black@0.34:t=fill,"
             f"drawtext=fontfile='{esc(font)}':text='{esc(cap)}':fontcolor=white:fontsize=60:x=(w-text_w)/2:y=1525:shadowcolor=black@0.8:shadowx=3:shadowy=3,format=yuv420p")
         subprocess.run([FFMPEG,"-y",*visual_args,"-i",str(frozen / scene_wav(i).relative_to(PROJECT)),"-vf",vf,"-af","atempo=1.25,afade=t=in:d=0.12,afade=t=out:st="+str(max(0.1,d-0.2))+":d=0.2","-t",str(d+.18),"-c:v","libx264","-crf","18","-preset","medium","-c:a","aac","-b:a","192k",str(clip)],check=True)

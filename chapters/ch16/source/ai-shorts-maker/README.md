@@ -2,9 +2,8 @@
 
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-2.1.233-D1495B)
 ![Python](https://img.shields.io/badge/Language-Python-7357D8)
-![Coverage](https://img.shields.io/badge/Coverage-53.9%25-3A86FF)
-[![Production](https://img.shields.io/website?url=https%3A%2F%2Fwww.youtube.com%2F%40everyoneisadeveloper&up_message=Online&down_message=Offline&up_color=FFD166&down_color=lightgrey&label=Production)](https://www.youtube.com/@everyoneisadeveloper)
-[![Unit Tests](https://img.shields.io/badge/Unit_Tests-21%2F21_PASS-2A9D8F)](tests/)
+[![YouTube Channel](https://img.shields.io/badge/YouTube-Channel-FFD166)](https://www.youtube.com/@everyoneisadeveloper)
+[![Unit Tests](https://img.shields.io/badge/Unit_Tests-113_pass_%2F_27_skip-2A9D8F)](tests/)
 
 `ai-shorts-maker`는 PART 5의 16–18장에서 사용하는 AI Shorts 제작·검수·비공개 업로드 공식 프로젝트 저장소입니다.
 
@@ -15,8 +14,15 @@
 ## 장별 범위
 
 - 16장: 로마 콘크리트를 조사해 시나리오와 장면을 만들고, 생성형 화면·Gemini 목소리·음악·효과음·자막을 합쳐 세로 MP4와 재사용 제작 Skill을 만듭니다.
-- 17장: 자동 미디어 검사와 독립 시각 검토로 `UPLOAD READY` 여부를 판정합니다.
-- 18장: 승인 Preview와 Checksum을 다시 확인한 뒤 한 편만 YouTube에 비공개로 업로드합니다.
+- 17장: 자동 미디어 검사와 AI 대표 화면 검토로 `UPLOAD READY` 여부를 판정합니다.
+- 18장: 승인 Preview와 Checksum을 다시 확인한 뒤, 다음 세 단계로 한 편을 YouTube에 올립니다.
+  1. 항상 비공개(private)로 먼저 업로드합니다.
+  2. 사람이 명시적으로 요청할 때만, 같은 video ID의 상태를 공개(public)나 일부공개(unlisted)로 바꿉니다.
+  3. 완료 상태이면서 실제로 확인된 공개 범위가 public 또는 unlisted일 때만 PART 6으로 인계(`--handoff`)합니다.
+
+  업로드나 상태 변경 결과가 불명확하면 곧바로 다시 업로드하지 않고, [`COMMANDS.md`](COMMANDS.md)의 예외 처리
+  절차를 따릅니다. 이 발행 검증은 현재 Mock/Local 테스트로만 확인했으며, 실제 계정으로의 재검증은 아직
+  남아 있습니다.
 
 ## 주요 스크립트
 
@@ -45,18 +51,37 @@ python3 scripts/make_roman_concrete_short.py all
 
 ```bash
 python3 -m unittest discover -s tests -v
+python3 -m pytest tests -q
 python3 -m compileall -q scripts tests
 ```
 
+`tests/test_chapter18_upload.py`는 Mock만 사용하며 `.secrets/`나 실제 YouTube API를
+읽지 않습니다. 이 공개 Source에서 2026-09-22 실행한 결과는 93 통과·3 건너뜀입니다.
+건너뛴 검사는 배포하지 않는 완성 영상 파일에 의존합니다. 제품 저장소의 94 통과·2 건너뜀과는
+제공하는 파일 범위가 다르며, 실제 YouTube 업로드를 다시 실행한 결과가 아닙니다.
+
 ## 파일과 승인 규칙
 
-- 실행 코드와 재현 가능한 설정만 Git에 보관합니다.
-- 다운로드한 영상·음악, 완성 MP4, 대표 화면 모음, OAuth 인증정보·Token, 업로드 기록은 `artifacts/` 또는 `.secrets/`에 두고 Git에 올리지 않습니다.
+- 실행 코드와 재현에 필요한 설정은 Git에 보관합니다.
+- `artifacts/`의 다운로드한 영상·음악, 완성 MP4, 원본 영상, 내레이션 WAV, 검사 결과는
+  같은 검사를 다시 실행할 수 있도록 Git에 남기며, `artifacts/**/work/`의 중간 산출물만
+  제외합니다.
+- OAuth 인증정보·Token, 업로드 Receipt는 `.secrets/`에만 두고 Git에 올리지 않습니다.
 - 18장 업로드는 같은 Preview에서 발급된 승인 코드와 `--execute`가 모두 있을 때만 실행합니다.
+- 핵심 안전 원칙: 이미 생성된 video ID에는 절대 다시 Insert하지 않습니다. 같은 video ID의 상태는
+  Receipt와 Plan의 정체성(해시·채널·제목·아동용 설정)이 일치할 때만 바꿉니다. PART 6으로는 완료
+  상태이면서 실제 공개 범위가 public/unlisted로 확인된 Receipt의 video URL/ID와 기대 채널
+  정체성만 `--handoff`로 넘깁니다. 결과가 불명확한 예외 상황의 복구 절차는
+  [`COMMANDS.md`](COMMANDS.md)에 정리했습니다.
 
 ## 최종 프로젝트
 
-책에서 만드는 프로젝트의 최신 구현은 다음 개별 저장소에서 관리합니다.
+책에서 만드는 프로젝트는 다음 개별 저장소에서 관리합니다. 장별 실습 판본은
+[공개 독자 자료](https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai)의
+각 장 Source에서 확인합니다. 최종 프로젝트와 장별 Source의 범위는 다를 수 있습니다.
+
+- 19–20장: `ai-media-works`의 댓글 읽기·검수와 승인한 자동답글을 사용합니다.
+- 21–22장: `ai-stock-briefing`의 근거 기반 챗봇과 읽기 전용 Tool 호출을 사용합니다.
 
 <table width="100%">
   <thead>
@@ -100,9 +125,15 @@ python3 -m compileall -q scripts tests
     </tr>
     <tr>
       <td align="center" width="90">6</td>
-      <td align="center" width="90">19–22</td>
+      <td align="center" width="90">19–20</td>
       <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-media-works"><code>ai-media-works</code></a></td>
-      <td align="left" width="326">AI 미디어 운영</td>
+      <td align="left" width="326">YouTube 댓글 읽기·검수와 승인한 자동답글</td>
+    </tr>
+    <tr>
+      <td align="center" width="90">6</td>
+      <td align="center" width="90">21–22</td>
+      <td align="left" width="223"><a href="https://github.com/buildyourownai-lab/ai-stock-briefing"><code>ai-stock-briefing</code></a></td>
+      <td align="left" width="326">근거 기반 주식 서비스 챗봇과 읽기 전용 Tool 호출</td>
     </tr>
   </tbody>
 </table>
@@ -114,3 +145,11 @@ python3 -m compileall -q scripts tests
 ## Kling 제작 입력 준비
 
 공개 Source에는 생성 영상·음성·음악 원본이 포함되지 않습니다. 먼저 init으로 작업 폴더를 만들고 승인 대본 검사, 실제 선택 자산의 상대 경로·해시·권리 기록을 준비합니다. 공식 AI Studio Charon WAV를 가져오면 import-voice로 등록합니다. API 호출은 별도의 인증·비용 승인 경로이며 가져온 음성이 없다고 자동으로 대신 호출하지 않습니다. Pulsar는 공식 오디오 보관함에서 직접 내려받습니다. 이미지·영상 비용과 현재 모델 조건은 공식 화면에서 확인합니다.
+
+## 검수 파일과 업로드 계획
+
+검사 결과에는 영상·대표 화면·검사 기준의 SHA-256을 남깁니다. 화면을 검토한 JSON에도 `video_sha256`, `contact_sheet_sha256`, `policy_sha256`을 실제 대상 파일에서 계산해 기록합니다. 다른 영상의 판단이나 해시가 없는 과거 판단을 가져오면 `NOT READY`로 중단합니다.
+
+기본 `upload-plan.json`은 설명 작성의 서식입니다. 채널과 영상 해시는 비워 두었으므로 저자 채널이나 구영상을 그대로 올리지 않습니다. Claude에게 검수한 실제 파일과 자신의 채널로 계획을 준비하게 합니다. 로컬 준비 도구는 `scripts/prepare_upload_plan.py`이며 `--video`, `--qa-report`, `--channel-handle`, `--output`을 받습니다. `--metadata`로 자신이 승인한 제목·설명을 담은 JSON을 지정할 수 있습니다. 기존 계획을 덮어쓰지 않으며 실제 업로드는 하지 않습니다.
+
+Publisher는 현재 파일·계획·QA의 영상 해시가 모두 같아야 진행합니다. 플랫폼의 합성 콘텐츠 설정은 `contains_synthetic_media`로 Preview에 표시하며, API의 `containsSyntheticMedia`에 전달합니다. 공개 설명 문구와는 별도 설정입니다. 같은 영상의 공개 범위를 바꿀 때도 이 설정을 보존합니다.

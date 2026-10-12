@@ -137,6 +137,8 @@ def validate_plan_fields(plan: dict[str, Any]) -> None:
         raise ValueError("made_for_kids must be true or false")
     if not isinstance(plan["tags"], list) or not all(isinstance(tag, str) for tag in plan["tags"]):
         raise ValueError("tags must be a list of strings")
+    if plan.get("channel_handle") == "@YOUR_CHANNEL_HANDLE":
+        raise ValueError("set your own channel_handle before previewing or uploading")
     if not 1 <= len(plan["title"]) <= 100:
         raise ValueError("title must contain 1..100 characters")
     if len(plan["description"]) > 5000:
@@ -146,6 +148,8 @@ def validate_plan_fields(plan: dict[str, Any]) -> None:
         c in "0123456789abcdef" for c in video_sha256.lower()
     ):
         raise ValueError("video_sha256 must be a 64-character hex string")
+    if "contains_synthetic_media" in plan and not isinstance(plan["contains_synthetic_media"], bool):
+        raise ValueError("contains_synthetic_media must be true or false")
     channel_handle = plan["channel_handle"]
     if not isinstance(channel_handle, str) or not channel_handle.startswith("@") or len(channel_handle) < 2:
         raise ValueError("channel_handle must be a non-empty '@handle'")
@@ -162,6 +166,8 @@ def validate_plan(plan: dict[str, Any]) -> tuple[Path, str]:
     qa = read_json(resolve_path(plan["qa_report"]))
     if qa.get("status") != "PASS" or qa.get("gate") != "UPLOAD READY":
         raise ValueError("Chapter 17 report is not PASS / UPLOAD READY")
+    if qa.get("video_sha256") != actual_hash:
+        raise ValueError("Chapter 17 report video SHA-256 is missing or does not match this file")
     return video, actual_hash
 
 
@@ -184,6 +190,10 @@ def verify_receipt_matches_plan(plan: dict[str, Any], receipt: dict[str, Any]) -
         raise ValueError("receipt channel_handle_expected does not match the plan")
     if receipt.get("title") != plan["title"]:
         raise ValueError("receipt title does not match the plan")
+    stored_synthetic = receipt.get("contains_synthetic_media")
+    planned_synthetic = plan.get("contains_synthetic_media")
+    if isinstance(stored_synthetic, bool) and isinstance(planned_synthetic, bool) and stored_synthetic != planned_synthetic:
+        raise ValueError("receipt contains_synthetic_media does not match the plan")
     stored_made_for_kids = receipt.get("made_for_kids")
     if isinstance(stored_made_for_kids, bool) and stored_made_for_kids != plan["made_for_kids"]:
         raise ValueError("receipt made_for_kids does not match the plan")
@@ -199,6 +209,8 @@ def print_preview(plan: dict[str, Any], video: Path, actual_hash: str, privacy: 
     print(f"description:\n{plan['description']}")
     print(f"tags: {', '.join(plan['tags'])}")
     print(f"category_id: {plan['category_id']}")
+    if "contains_synthetic_media" in plan:
+        print(f"contains_synthetic_media: {plan['contains_synthetic_media']}")
     print(f"made_for_kids: {str(plan['made_for_kids']).lower()}")
     print(f"privacy: {privacy}")
     print("notify_subscribers: false")
@@ -301,6 +313,7 @@ def upload_video(service, plan: dict[str, Any], video: Path) -> str:
     """Insert the video as private. Every upload starts here, regardless of
     the privacy a person eventually asked for; a public/unlisted request is
     a separate status-change call against this same video id."""
+    validate_plan(plan)  # Recheck after authentication, immediately before insertion.
     _, _, _, _, HttpError, MediaFileUpload = google_dependencies()
     body = {
         "snippet": {
@@ -314,6 +327,8 @@ def upload_video(service, plan: dict[str, Any], video: Path) -> str:
             "selfDeclaredMadeForKids": plan["made_for_kids"],
         },
     }
+    if isinstance(plan.get("contains_synthetic_media"), bool):
+        body["status"]["containsSyntheticMedia"] = plan["contains_synthetic_media"]
     request = service.videos().insert(
         part="snippet,status",
         body=body,
@@ -351,6 +366,7 @@ def build_receipt(plan: dict[str, Any], video_id: str, actual_hash: str, request
         "requested_privacy": requested_privacy,
         "actual_privacy": "private",
         "made_for_kids": plan["made_for_kids"],
+        "contains_synthetic_media": plan.get("contains_synthetic_media"),
         "status_state": STATE_COMPLETE if complete else STATE_PUBLIC_INCOMPLETE,
     }
 
@@ -371,6 +387,7 @@ def build_pending_receipt(plan: dict[str, Any], actual_hash: str, requested_priv
         "title": plan["title"],
         "requested_privacy": requested_privacy,
         "made_for_kids": plan["made_for_kids"],
+        "contains_synthetic_media": plan.get("contains_synthetic_media"),
         "video_id": None,
     }
 
@@ -1113,20 +1130,20 @@ def read_actual_privacy(service, video_id: str) -> str | None:
     return items[0].get("status", {}).get("privacyStatus")
 
 
-def change_video_status(service, video_id: str, privacy: str, made_for_kids: bool) -> dict[str, Any]:
-    """videos.update overrides every mutable property of every included part;
-    a status update that omits selfDeclaredMadeForKids can delete that
-    setting, so it is always sent alongside privacyStatus."""
-    return service.videos().update(
-        part="status",
-        body={
-            "id": video_id,
-            "status": {
-                "privacyStatus": privacy,
-                "selfDeclaredMadeForKids": made_for_kids,
-            },
-        },
-    ).execute()
+def change_video_status(service, video_id: str, privacy: str, made_for_kids: bool,
+                        contains_synthetic_media: bool | None = None) -> dict[str, Any]:
+    """Preserve platform status settings when changing the same video's privacy."""
+    status = {"privacyStatus": privacy, "selfDeclaredMadeForKids": made_for_kids}
+    if contains_synthetic_media is None:
+        response = service.videos().list(part="status", id=video_id).execute()
+        items = response.get("items", []) if isinstance(response, dict) else []
+        if not isinstance(items, list) or not items:
+            raise ValueError("Cannot read existing status before updating privacy")
+        current = items[0].get("status", {})
+        contains_synthetic_media = current.get("containsSyntheticMedia")
+    if isinstance(contains_synthetic_media, bool):
+        status["containsSyntheticMedia"] = contains_synthetic_media
+    return service.videos().update(part="status", body={"id": video_id, "status": status}).execute()
 
 
 def apply_status_change(receipt: dict[str, Any], receipt_file: Path) -> int:
@@ -1149,7 +1166,11 @@ def apply_status_change(receipt: dict[str, Any], receipt_file: Path) -> int:
             print(f"video_id: {video_id}", file=sys.stderr)
             return 6
         receipt["made_for_kids"] = made_for_kids
-        response = change_video_status(status_service, video_id, requested_privacy, made_for_kids)
+        synthetic = receipt.get("contains_synthetic_media")
+        if isinstance(synthetic, bool):
+            response = change_video_status(status_service, video_id, requested_privacy, made_for_kids, synthetic)
+        else:
+            response = change_video_status(status_service, video_id, requested_privacy, made_for_kids)
         reported_privacy = None
         if isinstance(response, dict):
             reported_privacy = response.get("status", {}).get("privacyStatus")

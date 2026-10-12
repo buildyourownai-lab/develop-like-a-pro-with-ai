@@ -1,9 +1,12 @@
 {
-  "reviewer": "Codex",
+  "video_sha256": "28788b3c91447158782be8f7f5cd5dbc4b045c8a89fddc35a673c32c68052258",
+  "policy_sha256": "abffb648bc3c0d885d68a73cd8dc1d42e602f2a30702c7074d7932f506c41c3a",
+  "contact_sheet_sha256": "d0262b2957d4c6bd94b443b235011d6f5ea89c03b217d23e286a360156ab76d7",
+  "reviewer": "Codex independent technical reviewer",
   "judgments": {
     "subtitles_present_and_readable": false,
     "subjects_not_severely_cropped": false,
     "no_obvious_visual_corruption": false
   },
-  "scope": "Actual damaged contact sheet inspected: first 3 seconds black, subtitles cropped away, comparison apparatus cropped. Automated stream checks independently find no audio."
+  "scope": "Actual preserved baseline contact sheet inspected at 5-second intervals on 2026-10-13. Judgment applies only to the recorded file, contact sheet and policy hashes; subjective full-film listening and live publication were not performed."
 }

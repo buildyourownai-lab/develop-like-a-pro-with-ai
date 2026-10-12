@@ -45,7 +45,7 @@ class Chapter18TestCase(unittest.TestCase):
         video = directory / "video.mp4"
         video.write_bytes(video_bytes)
         qa = directory / "qa.json"
-        qa.write_text(json.dumps({"status": "PASS", "gate": "UPLOAD READY"}), encoding="utf-8")
+        qa.write_text(json.dumps({"status": "PASS", "gate": "UPLOAD READY", "video_sha256": MODULE.sha256(video)}), encoding="utf-8")
         return {
             "channel_handle": "@everyoneisadeveloper",
             "channel_url": "https://www.youtube.com/@everyoneisadeveloper",
@@ -732,7 +732,7 @@ class Chapter18MadeForKidsTest(Chapter18TestCase):
 
     def test_new_receipt_status_update_body_includes_made_for_kids(self):
         plan_path = self.plan_path(made_for_kids=True, privacy="public")
-        fake_status = FakeStatusService(update_response={"status": {"privacyStatus": "public"}})
+        fake_status = FakeStatusService(list_items=[{"status": {"selfDeclaredMadeForKids": True}}], update_response={"status": {"privacyStatus": "public"}})
         with patch.object(MODULE, "authenticated_upload_service", return_value=MagicMock()), \
              patch.object(MODULE, "upload_video", return_value="vid-mfk-1"), \
              patch.object(MODULE, "authenticated_status_service", return_value=fake_status):

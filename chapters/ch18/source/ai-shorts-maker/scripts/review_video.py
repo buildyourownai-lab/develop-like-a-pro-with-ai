@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import re
@@ -15,6 +16,14 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_POLICY = ROOT / "prototypes/youtube-shorts/chapter-17/review-policy.json"
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def run(command: list[str]) -> subprocess.CompletedProcess[str]:
@@ -152,6 +161,8 @@ def review_video(
         output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         return report
 
+    video_hash = sha256(video)
+    policy_hash = sha256(policy_path)
     try:
         metadata = probe(video)
     except RuntimeError as exc:
@@ -237,8 +248,10 @@ def review_video(
         )
     )
 
+    contact_hash = None
     try:
         make_contact_sheet(video, contact_sheet)
+        contact_hash = sha256(contact_sheet)
         checks.append(check("contact_sheet", True, str(contact_sheet), "generated for AI visual review"))
     except RuntimeError as exc:
         checks.append(check("contact_sheet", False, str(exc), "generated for AI visual review"))
@@ -251,7 +264,15 @@ def review_video(
         judgments = visual_review.get("judgments", {})
         missing = [name for name in required if not isinstance(judgments.get(name), bool)]
         failed = [name for name in required if judgments.get(name) is False]
-        passed = not missing and not failed
+        expected_binding = {"video_sha256": video_hash,
+                            "contact_sheet_sha256": contact_hash,
+                            "policy_sha256": policy_hash}
+        mismatched = [name for name, value in expected_binding.items()
+                      if value is None or visual_review.get(name) != value]
+        checks.append(check("review_binding", not mismatched,
+                            {"mismatched": mismatched},
+                            "visual judgments match this video, contact sheet and policy"))
+        passed = not missing and not failed and not mismatched
         checks.append(
             check(
                 "ai_visual_review",
@@ -261,10 +282,16 @@ def review_video(
             )
         )
 
+    checks.append(check("inputs_unchanged",
+                        sha256(video) == video_hash and sha256(policy_path) == policy_hash,
+                        "input hashes checked again", "inputs unchanged during review"))
     status = "PASS" if all(item["status"] == "PASS" for item in checks) else "FAIL"
     report = {
         "video": str(video),
         "policy": str(policy_path),
+        "video_sha256": video_hash,
+        "policy_sha256": policy_hash,
+        "contact_sheet_sha256": contact_hash,
         "status": status,
         "gate": "UPLOAD READY" if status == "PASS" else "NOT READY",
         "checks": checks,

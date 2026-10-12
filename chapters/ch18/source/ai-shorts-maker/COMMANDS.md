@@ -267,3 +267,9 @@ discover -s tests -v` 기준 96건 중 2건은 17장이 요구하는, 아직 만
 python3 scripts/make_roman_concrete_short.py init
 python3 scripts/make_roman_concrete_short.py import-voice
 ```
+
+## 검수한 파일로 업로드 계획 준비
+
+기본 업로드 계획은 독자 채널과 해시를 비운 서식입니다. 실제 선택 파일과 같은 영상의 QA를 지정해 `python3 scripts/prepare_upload_plan.py --video <MP4> --qa-report <QA JSON> --channel-handle <내 핸들> --output <새 계획 JSON>`으로 준비합니다. 실제 업로드는 하지 않습니다. 승인한 제목·설명을 담은 서식은 `--metadata`로 지정합니다. Publisher는 현재 파일·계획·QA의 해시가 다르면 차단합니다.
+
+화면 검토 JSON에는 첫 검사 보고서의 `video_sha256`, `contact_sheet_sha256`, `policy_sha256`과 실제 관찰한 판단을 기록합니다. 해시가 없거나 파일이 바뀐 과거 판단은 통과 근거로 쓰지 않습니다.

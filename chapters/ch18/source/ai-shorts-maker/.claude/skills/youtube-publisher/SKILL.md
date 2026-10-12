@@ -127,3 +127,5 @@ python3 scripts/upload_private_video.py --plan <plan.json> --handoff
 - 댓글 작업, 대량 삭제, 채널 설정 변경은 이 Skill 범위가 아니다.
 - 결과에는 video ID, 확인한 공개 상태, 실행 시각을 남긴다.
 - API 응답과 실제 YouTube 상태가 다르거나 확인할 수 없으면 성공으로 단정하지 않는다.
+
+업로드 직전에 현재 영상 파일·계획·QA의 `video_sha256`이 모두 같은지 확인한다. 해시가 없는 과거 QA는 통과 근거로 쓰지 않는다. 플랫폼의 합성 콘텐츠 설정은 `contains_synthetic_media`로 Preview에 보여주고 API의 `containsSyntheticMedia`에 전달하며, 같은 영상의 공개 전환에도 보존한다. 공개 설명에 제작 안내 문구를 추가하지 않는다.

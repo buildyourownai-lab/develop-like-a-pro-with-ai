@@ -13,12 +13,15 @@ argument-hint: <video-path>
 1. `ai-shorts-maker` 정본의 `prototypes/youtube-shorts/chapter-17/review-policy.json`을 읽고 대상에 적용할 기준을 확인한다.
 2. 같은 정본의 `scripts/review_video.py`를 AI 시각 검토 파일 없이 먼저 실행해 기술 검사 결과와 Contact Sheet를 만든다. 이 첫 실행은 시각 검토가 없으므로 `NOT READY`가 정상이다.
 3. Contact Sheet를 직접 보고 자막 존재·가독성, 심한 피사체 잘림, 눈에 띄는 화면 손상을 각각 판단한다. 보이지 않거나 확신할 수 없는 항목을 통과로 추정하지 않는다.
-4. 판단을 다음 구조의 JSON으로 저장한다.
+4. 판단을 다음 구조의 JSON으로 저장한다. `video_sha256`, `contact_sheet_sha256`, `policy_sha256`은 첫 검사 보고서에서 복사하되, 실제 관찰한 파일과 같은지 확인한다. 다른 영상이나 바뀐 화면의 판단을 재사용하지 않는다.
 
 ```json
 {
   "reviewer": "AI Reviewer",
   "video": "검토한 영상 경로",
+  "video_sha256": "첫 보고서의 실제 영상 해시",
+  "contact_sheet_sha256": "직접 검토한 대표 화면 해시",
+  "policy_sha256": "적용한 검사 기준 해시",
   "judgments": {
     "subtitles_present_and_readable": true,
     "subjects_not_severely_cropped": true,

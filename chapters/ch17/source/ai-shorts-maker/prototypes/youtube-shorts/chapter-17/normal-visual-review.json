@@ -1,9 +1,12 @@
 {
-  "reviewer": "Codex",
+  "video_sha256": "9dd031f9df70f7d631532fc608f638f23eb505775e76311f9d2567c8471fa70e",
+  "policy_sha256": "abffb648bc3c0d885d68a73cd8dc1d42e602f2a30702c7074d7932f506c41c3a",
+  "contact_sheet_sha256": "b181e8c8dda97c5792b5b7ca09f190ed1e88fc8a98b9f2ab7086607998db3fed",
+  "reviewer": "Codex independent technical reviewer",
   "judgments": {
     "subtitles_present_and_readable": true,
     "subjects_not_severely_cropped": true,
     "no_obvious_visual_corruption": true
   },
-  "scope": "Codex inspected the actual v2 final contact sheet at 5-second intervals on 2026-10-13, plus selected source sequences at 0.5/1-second intervals. Subtitles and scientific visualization/time-compression labels are visible. Contact-sheet trailing black tiles are unused grid cells. No independent review or subjective audio listening claimed."
+  "scope": "Actual preserved baseline contact sheet inspected at 5-second intervals on 2026-10-13. Judgment applies only to the recorded file, contact sheet and policy hashes; subjective full-film listening and live publication were not performed."
 }
