@@ -1,14 +1,14 @@
 {
   "revision": "part6-services-v1",
   "project": "ai-shorts-maker",
-  "implementation_commit": "00b3b68c7210ac8001ef39a9daf0fc4b0783acfa",
+  "implementation_commit": "501a11597312e5ab005803dc78cfe78e56f11c4a",
   "snapshot_role": "FINISH",
   "note": "Chapter-scoped files from the fixed implementation revision. Local tests and existing-media QA are separate from live generation or publication.",
   "files": {
     "ai-shorts-maker/.claude/skills/video-upload-review/SKILL.md": "8d994a307cb65233ff8a948058b8e4f17b58bae2e9c1c1e4e211243d3406fe05",
     "ai-shorts-maker/.claude/skills/youtube-shorts-production/SKILL.md": "2a587b48593b2edda1c63626413638d21a54f7d049fb09abc2974bf3fbb1e6f4",
     "ai-shorts-maker/.gitignore": "8446dc0135384b2469dfa56be4d04346d56fe04386b40ee07a8ce20557dede29",
-    "ai-shorts-maker/COMMANDS.md": "856c0c9cea636a69c770f2382bf081e44a13c62741c03ed94c99d526abacf118",
+    "ai-shorts-maker/COMMANDS.md": "846452a6ec78f7b28e3ee0af9fa2f6912c9f329ffc32844185894afe29316500",
     "ai-shorts-maker/README.md": "41fb0e145549450abef0b972543667e38b028199dd55958784382fc116476e7c",
     "ai-shorts-maker/prototypes/youtube-shorts/chapter-16/README.md": "f9e4dd65d15314c6bbc010e23278a0ff59ea78bd916ef407023190a5f87cbc27",
     "ai-shorts-maker/prototypes/youtube-shorts/chapter-16/assets-manifest.json": "1a25a26c94ec8734ede5bfd64480bf4f01017c3220a090825877e0a690998477",

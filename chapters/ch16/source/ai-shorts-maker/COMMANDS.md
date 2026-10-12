@@ -255,9 +255,9 @@ Receipt 모두, 정체성 불일치 차단 포함)·Insert 대기·불명 상태
 `--authorize-new-attempt`/소비(1회 Insert 보장, Crash 후 재구성, 재사용 ID 차단
 포함)·아동용 설정 보존·공개/일부공개 확인이 필요한 Handoff 테스트는 Mock만
 사용하며 `.secrets/`나 실제 YouTube API를 읽지 않습니다. `python3 -m unittest
-discover -s tests -v` 기준 96건 중 2건은 17장이 요구하는, 아직 만들지 않은 최종
-로마 콘크리트 MP4가 있어야 실행되는 기존 Chapter 17 검사
-(`tests/test_chapter17_review.py`)이며 나머지는 모두 실행되어 통과합니다.
+discover -s tests -v`로 현재 판본을 검사합니다. 미디어나 환경 자료가 없어 건너뛴
+검사는 통과와 구분해 기록합니다. 생성 원본이 없는 독자 Source에서도 해시 연결과
+중복 업로드·상태 전환의 Mock 회귀시험을 실행할 수 있습니다.
 
 ## 공식 AI Studio WAV 가져오기
 
