@@ -5,7 +5,7 @@
   "number": 4,
   "title": "4장. 같은 실수는 두 번 하지 않게 합니다",
   "manuscript": "book/07-chapter-04.md",
-  "manuscript_sha256": "d0653f9f8c74af2fd7281df110f77def46ca3e586b040c71531d59c71d1ba4f3",
+  "manuscript_sha256": "e673bf379b6d008e5b4e5f3bdcef50b457ee78b20b5f4da61a30fd3ac045a7ce",
   "outcome": "좋은 작업 방식을 공통 규칙과 프로젝트 규칙으로 나누어 남깁니다.",
   "project": "movie-report",
   "start_state": "3장의 수정과 회귀 확인을 마쳤습니다.",

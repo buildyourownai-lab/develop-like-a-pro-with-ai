@@ -5,7 +5,7 @@
   "number": 3,
   "title": "3장. 문제가 생기면, 고치기 전에 원인부터 찾습니다",
   "manuscript": "book/06-chapter-03.md",
-  "manuscript_sha256": "116c1eddb251d7e7dd09943d27dcb85d89432bcf48ccfa046781dc76d33416ba",
+  "manuscript_sha256": "7c7d3dd538f258a3e68de9c4f45d96dabb823c3f5a821b4359e8cb4739f3af31",
   "outcome": "의도적으로 만든 오류를 재현하고 근거로 원인을 찾아 고칩니다.",
   "project": "movie-report",
   "start_state": "2장의 기준 자료·보고서·Test가 정상인 상태입니다.",

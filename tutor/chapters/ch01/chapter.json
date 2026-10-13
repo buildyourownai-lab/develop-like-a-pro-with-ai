@@ -5,7 +5,7 @@
   "number": 1,
   "title": "1장. 영화 흥행 기록으로 첫 Excel 보고서를 만들어봅니다",
   "manuscript": "book/04-chapter-01.md",
-  "manuscript_sha256": "bc2ad14770d37093df7880215f6245d88a78b8178aae5d7ae65014f12ba60b4e",
+  "manuscript_sha256": "826fcc57581300d41cc478527a630c3199d681e5fcae9c96358efe778ffe2052",
   "outcome": "공식 영화 흥행 자료로 만든 Excel 보고서를 열어 요청한 구성을 확인합니다.",
   "project": "movie-report",
   "start_state": "준비편에서 확인한 책 작업 공간. 영화 프로젝트와 보고서는 아직 없습니다.",
