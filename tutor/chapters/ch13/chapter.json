@@ -5,7 +5,7 @@
   "number": 13,
   "title": "13장. 웹서비스를 앱으로 만들기 전에 알아야 할 것들",
   "manuscript": "book/19-chapter-13.md",
-  "manuscript_sha256": "e2ce5984aa9fb95b51abecc9f0904a11925485ca8bcffeb3565eaebe8c3c9129",
+  "manuscript_sha256": "df8de147310e89b3ef4d039b977fd009df0666df1180a3d19f4e068dacaacb75",
   "outcome": "앱에 넣을 기능과 재사용·보안·완료 기준을 결정합니다.",
   "project": "ai-stock-briefing",
   "start_state": "12장까지의 서버와 웹서비스가 있습니다.",

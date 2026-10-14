@@ -5,7 +5,7 @@
   "number": 11,
   "title": "11장. 주가부터 공시까지, AI가 한 번에 브리핑합니다",
   "manuscript": "book/16-chapter-11.md",
-  "manuscript_sha256": "425cdf8b923933c9a1a255946e922207677fa24bfadf07f6f53c972a8a039f90",
+  "manuscript_sha256": "850f5d5838848eff35470bb4cf429fab395d1326a519a78600e5bfb0e0a2f0dc",
   "outcome": "확인한 사실과 근거 안에서 생성한 AI 브리핑을 검증해 공개합니다.",
   "project": "ai-stock-briefing",
   "start_state": "9~10장의 시세·차트·공시·원문 경로가 작동합니다.",

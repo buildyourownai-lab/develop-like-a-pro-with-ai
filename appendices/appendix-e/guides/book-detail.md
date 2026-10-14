@@ -66,8 +66,8 @@
 |---|---|---:|
 | Storyboard·TTS·FFmpeg | 장면과 대사를 정한 뒤 음성·화면·자막을 Shorts로 합쳤습니다 | 16장 |
 | 라이선스·Skill | 사용할 수 있는 자료를 확인하고 제작 방법을 다시 부를 이름으로 남겼습니다 | 16장 |
-| 독립 검사·PASS/FAIL Gate | 만드는 AI와 검사하는 AI를 나누고 한 기준으로 판정했습니다 | 17장 |
-| YouTube Data API·OAuth·Scope·Token | 필요한 권한만 받아 영상을 실제 채널에 올렸습니다 | 18장 |
+| 제작·검사 절차 분리·PASS/FAIL Gate | 제작과 분리한 검사 Skill로 같은 기준을 반복 확인했습니다 | 17장 |
+| YouTube Data API·OAuth·Scope·Token | 프로그램 업로드에 필요한 권한과 절차를 준비했습니다 | 18장 |
 | Preview·사람 승인·Receipt | 게시 전 변경을 확인하고 결과 기록을 남겼습니다 | 18장 |
 
 ## PART 6. 만든 기능을 AI가 사용하는 법

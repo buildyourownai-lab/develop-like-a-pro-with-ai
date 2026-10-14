@@ -5,7 +5,7 @@
   "number": 7,
   "title": "7장. 내 조건에 맞는 아파트를 찾습니다",
   "manuscript": "book/11-chapter-07.md",
-  "manuscript_sha256": "db2adfd828aff82ff369330dc882daa0a437476cb560dcb1e5daf67981e6e64e",
+  "manuscript_sha256": "5c8424403b054917a6c3395d9117307fa6c547b277aab4293c525ea7a15aa59d",
   "outcome": "같은 거래의 면적·가격과 주변 거리 조건으로 단지를 검색합니다.",
   "project": "apartment-explorer",
   "start_state": "6장의 두 API 연결과 응답 처리 Test가 있습니다.",
