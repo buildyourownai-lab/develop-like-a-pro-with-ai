@@ -88,6 +88,7 @@ class InstallFixes(unittest.TestCase):
         text = ins.content('claude')
         self.assertIn('묻지 않고 스스로 정합니다', text)
         self.assertIn('아직 시작 전입니다', text)
+        self.assertIn('"미확인"을 "아직 확인 전"', text)
 
     def test_claude_settings_force_utf8_and_keep_user_settings(self):
         d = self.project / '.claude'

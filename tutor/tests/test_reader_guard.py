@@ -40,7 +40,7 @@ class ReaderWording(unittest.TestCase):
 
     def test_installed_skill_never_tells_readers_unconfirmed(self):
         skill = ins.content('claude')
-        self.assertIn('독자에게 "미확인"이라는 말은 쓰지 않습니다', skill)
+        self.assertIn('"미확인", "모릅니다", "검증되지 않았습니다" 같은 말은 쓰지 않습니다', skill)
 
 
 class McpSeparation(unittest.TestCase):

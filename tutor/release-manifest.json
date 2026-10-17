@@ -172,11 +172,11 @@
     "chapters/ch22/verification.md": "61afc34f01e4eb5d3e1ecbef9ac972874ea3a911a25198155003fd75583a6dda",
     "chapters/INDEX.md": "1f358ba9f844aba9dd57a8f396d616522e83d2325a5675a2c2514bbe515a91b9",
     "CLAUDE.md": "3d2ae01ded46abc10533b94d8186c7326c12428deaff9045c5b8d8d28b96f5e4",
-    "CONTENT-MANIFEST.json": "c6cf6554f704055e2bacf9349a2020c35c1c0a6ebdb9fef10f78f3e06c1ae91c",
+    "CONTENT-MANIFEST.json": "c2f1f102a91e6b0559da920fba8cae16d93e24cb9de9c6c192b8ecc3b2b75d64",
     "DESIGN.md": "f31e4bb0457b32dc8c5c5525cb262db76cf2b2056cae1a5dcbbe07109ba12094",
     "glossary/README.md": "69d0f1e6c9264c0295621fd87e221a562835203dfc967adeea33e1fa44230395",
     "glossary/terms.json": "abd3a4f903af31ae7d2b31afdc3c3eccc061af4a89449af81a521e57ad1c1e05",
-    "install_tutor.py": "f453d32561a5e70afa8c051036451b06e2592c9da8950ec62155938d19f0123f",
+    "install_tutor.py": "1022461fd78ffdc9e5c2bc69577cf280771af78e44888b8631c3f304c54c9648",
     "prompt_reader.py": "05b51abbddbdf03de7182b3dafcf406017def21906d0c0796b54c0ca693930b7",
     "PUBLISH-CHECKLIST.md": "73e4a700eef60be2d242563f0450775c7d0a3ec09028a7b35a589cac333b2787",
     "README.md": "553094a2d59a4734cc5fc284f27db852510743f17deb70f63ce9d60336768ed8",
@@ -220,7 +220,7 @@
     "services/youtube.md": "e9daaaee7575d377bc859f15f6e68d20db3cbb80487c8efd1584ee414782d65f",
     "SETUP.md": "db6a4611b58348b4959c8f1eaba5c196aa9d3653812988cdb2b83702119463f2",
     "source-registry.json": "60facde5684c29817e11ca915c6a7c354c0f6fdeaee0fbd256430bddeeceec8f",
-    "TUTOR.md": "a4cf3c5936649683673dd3126fd89e54e549a8580869fcc0b4277ef2b42d17b8",
+    "TUTOR.md": "16f912f91c26990795ebf650c2b90c399c60bf10d85fd4ab48af9852c04aa0d9",
     "tutor_runtime.py": "1f55beaf80e8ebd0f9738febf0866bfcae308cdbdfedf35d6c2056fd6d6eb0a8",
     "UPDATES.md": "aa349c18ea569cd26008fd916430a75b189aa4c63c85d77324fbb1c8a966b249"
   }
