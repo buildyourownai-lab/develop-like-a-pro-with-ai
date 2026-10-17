@@ -30,7 +30,8 @@ A 수정(튜터·설치기·스크립트) → B 동결 후 manifest 1회 → C �
 |---|---|---|
 | 시작 전 상태 | 완료 | R1 fbd26ea, 책 10f5aa90, 웹 5dfe1d4. CI 전부 통과 (cp1252 출력 오류는 fbd26ea에서 수정) |
 | A1 줄바꿈 | 완료 | 세 저장소에 `* text=auto eol=lf` 추가, R1에 .editorconfig 추가. R1·웹은 autocrlf=true 새 클론에서 전부 LF 확인. 책은 디스크 부족으로 클론 불가라 check-attr로만 확인. push: R1 1ba47e6, 웹 ff4c1bc, 책 a8a049e0 |
-| A2 인코딩 검색 | 대기 | |
+| A1 확대 | 완료 | 책 관련 7개 저장소(ai-media-works, ai-shorts-maker, ai-stock-briefing, apartment-explorer, movie-report, studyailab-mcp, apartment-explorer-portfolio)에도 같은 LF 규칙과 .editorconfig 적용·push. 작업 폴더에 남은 튜터 설치기 산출물(AGENTS.md, .agents, .claude, .gitignore)은 건드리지 않음 |
+| A2 인코딩 | 완료 | 10개 저장소 비UTF-8 파일 0. BOM은 책 저장소 evidence 82개뿐(독자 무관, 그대로). ai-shorts-maker의 인코딩 미지정 파일 입출력 18곳을 UTF-8로 고치고 ch18 권한 테스트를 Windows에서 건너뜀. 이 PC에 ffmpeg가 없어 2개 테스트 모듈은 미실행 |
 | A3 금지어·점검 스크립트 | 대기 | check_reader.py 문법 오류 |
 | B manifest | 대기 | |
 | C 검증 | 대기 | 독자 시험 3차, 요청문 AI 실행(대표 6장 먼저), 운영 재조회 |
