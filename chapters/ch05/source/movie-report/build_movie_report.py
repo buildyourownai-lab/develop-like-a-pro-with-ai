@@ -15,6 +15,11 @@ from openpyxl import Workbook
 from openpyxl.chart import BarChart, Reference
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
+import sys
+
+# English-locale Windows pipes stdout as cp1252; keep Korean output from crashing the build.
+for _stream in (sys.stdout, sys.stderr):
+    getattr(_stream, "reconfigure", lambda **_: None)(errors="replace")
 
 SOURCE_URL = "https://www.kobis.or.kr/kobis/business/stat/offc/findYearlyBoxOfficeList.do"
 QUERY_YEAR = 2024

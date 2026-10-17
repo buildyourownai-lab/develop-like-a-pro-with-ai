@@ -59,6 +59,19 @@ def merge(text:str,block:str)->str:
  if n!=m or n>1:raise ValueError('기존 관리 블록이 손상됐습니다. 수동 확인 후 진행하세요.')
  if n==1:return re.sub(re.escape(BEGIN)+r'.*?'+re.escape(END),lambda _:block,text,flags=re.S)
  return text.rstrip()+'\n\n'+block+'\n'
+def merged_claude_settings(path:Path)->bytes:
+ """Add PYTHONUTF8=1 to the project's local Claude settings so Python reads and writes UTF-8 on every OS."""
+ data={};nl='\n'
+ if path.exists():
+  raw=path.read_bytes().decode('utf-8');nl='\r\n' if '\r\n' in raw else '\n'
+  try:data=json.loads(raw) if raw.strip() else {}
+  except json.JSONDecodeError:raise ValueError('기존 .claude/settings.local.json을 읽을 수 없어 건드리지 않습니다. 파일을 확인해 주세요.')
+  if not isinstance(data,dict):raise ValueError('기존 .claude/settings.local.json의 형식이 달라 건드리지 않습니다.')
+ env=data.get('env')
+ if env is None:env={}
+ if not isinstance(env,dict):raise ValueError('기존 .claude/settings.local.json의 env 형식이 달라 건드리지 않습니다.')
+ env.setdefault('PYTHONUTF8','1');data['env']=env
+ return (json.dumps(data,ensure_ascii=False,indent=2)+'\n').replace('\n',nl).encode('utf-8')
 def detect_tool()->str:
  """Connect only the AI in use when --tool is omitted; the book's default is Claude Code."""
  if os.environ.get('CLAUDECODE') or os.environ.get('CLAUDE_CODE_ENTRYPOINT'):return 'claude'
@@ -84,9 +97,10 @@ def main(argv=None)->int:
    rel='CLAUDE.local.md' if tool=='claude' else 'AGENTS.md';p=target(root,rel);text,nl=read_keep_newline(p)
    block=BEGIN+f'\n책 튜터 요청에서는 `{BASE/"TUTOR.md"}`와 현재 장의 명세를 읽습니다. 기존 사용자·조직 규칙은 유지합니다. 힌트 요청은 코드 수정 승인이 아닙니다. 이 컴퓨터나 프로그램이 되는지는 판단하거나 말하지 않고, 막히면 오류 메시지만 알려줍니다. 제공된 book-tutor Skill의 발견 여부를 새 세션에서 확인합니다.\n'+END
    jobs.append((p,merge(text,block).replace('\n',nl).encode()))
+   if tool=='claude':jobs.append((target(root,'.claude/settings.local.json'),merged_claude_settings(target(root,'.claude/settings.local.json'))))
   gp=target(root,'.gitignore');gt,gnl=read_keep_newline(gp)
   # Isolate private progress, without initializing Git or changing global settings.
-  for entry in ['/.book-tutor-state/','/CLAUDE.local.md']:
+  for entry in ['/.book-tutor-state/','/CLAUDE.local.md']+(['/.claude/settings.local.json'] if 'claude' in tools else []):
    if entry not in gt.splitlines():gt=gt.rstrip()+'\n'+entry+'\n'
   jobs.append((gp,gt.replace('\n',gnl).encode()))
   plan=[{'file':str(p.relative_to(root)),'operation':'update' if p.exists() else 'create','changes':not p.exists() or p.read_bytes()!=b} for p,b in jobs]

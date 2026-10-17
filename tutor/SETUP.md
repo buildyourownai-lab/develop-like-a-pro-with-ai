@@ -25,9 +25,9 @@ Codex를 쓰면 `--tool claude` 대신 `--tool codex`를 씁니다.
 
 연결로 바뀌는 곳은 작업 폴더 안의 다음 파일뿐입니다.
 
-- Claude: `.claude/skills/book-tutor/SKILL.md`, `CLAUDE.local.md`의 관리 블록
+- Claude: `.claude/skills/book-tutor/SKILL.md`, `CLAUDE.local.md`의 관리 블록, `.claude/settings.local.json`(한글이 깨지지 않게 `PYTHONUTF8=1` 한 줄만 더함. 기존 설정은 그대로 둠)
 - Codex: `.agents/skills/book-tutor/SKILL.md`, `AGENTS.md`의 관리 블록
-- 공통: `.gitignore`의 두 줄, `.book-tutor-state/`
+- 공통: `.gitignore`의 줄 추가(Claude는 세 줄, Codex는 두 줄), `.book-tutor-state/`
 
 기존 지침, 다른 AI의 설정, 실습 코드, 진도는 바꾸지 않습니다. 예제 프로그램이나 Hook은 실행하지 않습니다.
 

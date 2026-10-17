@@ -89,6 +89,32 @@ class InstallFixes(unittest.TestCase):
         self.assertIn('묻지 않고 스스로 정합니다', text)
         self.assertIn('아직 시작 전입니다', text)
 
+    def test_claude_settings_force_utf8_and_keep_user_settings(self):
+        d = self.project / '.claude'
+        d.mkdir()
+        (d / 'settings.local.json').write_text(json.dumps({'permissions': {'allow': ['Bash(ls:*)']}, 'env': {'MY_VAR': 'x'}}), encoding='utf-8')
+        self.assertEqual(run(self.project, '--apply')[0], 0)
+        self.assertEqual(run(self.project, '--apply')[0], 0)
+        data = json.loads((d / 'settings.local.json').read_text(encoding='utf-8'))
+        self.assertEqual(data['env'], {'MY_VAR': 'x', 'PYTHONUTF8': '1'})
+        self.assertEqual(data['permissions'], {'allow': ['Bash(ls:*)']})
+        self.assertIn('/.claude/settings.local.json', (self.project / '.gitignore').read_text(encoding='utf-8'))
+
+    def test_claude_settings_created_when_missing(self):
+        self.assertEqual(run(self.project, '--apply')[0], 0)
+        data = json.loads((self.project / '.claude/settings.local.json').read_text(encoding='utf-8'))
+        self.assertEqual(data, {'env': {'PYTHONUTF8': '1'}})
+
+    def test_unreadable_settings_are_left_alone_and_nothing_is_changed(self):
+        d = self.project / '.claude'
+        d.mkdir()
+        (d / 'settings.local.json').write_text('{not json', encoding='utf-8')
+        code, _ = run(self.project, '--apply')
+        self.assertEqual(code, 2)
+        self.assertEqual((d / 'settings.local.json').read_text(encoding='utf-8'), '{not json')
+        self.assertFalse((d / 'skills').exists())
+        self.assertFalse((self.project / 'CLAUDE.local.md').exists())
+
 
 if __name__ == '__main__':
     unittest.main()
