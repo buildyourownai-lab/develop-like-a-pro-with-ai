@@ -90,7 +90,7 @@ def main(argv=None)->int:
      atomic_write(p,b)
      info['files'][p.relative_to(root).as_posix()]={'installed_sha256':sha(b)}
     atomic_write(statep,json.dumps(info,ensure_ascii=False,indent=2).encode('utf-8'))
-   except Exception:
+   except BaseException:
     for path,b in backup.items():
      p=Path(path)
      try:
