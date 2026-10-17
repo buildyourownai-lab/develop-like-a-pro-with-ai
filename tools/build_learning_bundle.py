@@ -34,7 +34,7 @@ def prompts(text):
   blocks.append(value);i+=1
  return blocks
 
-def build(public,manuscript,output):
+def build(public,manuscript,output,include_support=False):
  # Never replace a previous release or follow a symlink at the output boundary.
  if output.is_symlink():raise ValueError('Symlink output is not allowed')
  # Resolve the caller-selected parent (macOS /var and /tmp are OS aliases).
@@ -109,6 +109,12 @@ def build(public,manuscript,output):
    add(f'services/{sid}{suffix}',raw,'service-card','application/json' if suffix=='.json' else 'text/markdown; charset=utf-8')
  registry_path=safe_path(public,'tutor/source-registry.json');source(registry_path,public,'reader-materials')
  add('source-registry.json',strict(registry_path).encode('utf-8'),'reference-registry')
+ if include_support:
+  support=safe_path(public,'support')
+  required={'studyailab.py','host-instructions.md','studyailab_core/__init__.py','studyailab_core/core.py'}
+  for name in sorted(required):
+   path=safe_path(support,name);raw=strict(path).encode('utf-8');source(path,public,'reader-materials')
+   add('support/'+name,raw,'support-code','text/x-python; charset=utf-8' if name.endswith('.py') else 'text/markdown; charset=utf-8')
  # Revision derives from bytes, independent of timestamps and output path.
  files=[{'path':p,'byte_length':len(v[0]),'byte_sha256':sha(v[0]),'role':v[1],'media_type':v[2]} for p,v in sorted(payload.items())]
  revision='develop-'+sha(canonical({'files':files,'inputs':sorted(inputs,key=lambda x:(x['repository'],x['path']))}))[:16]
@@ -116,6 +122,7 @@ def build(public,manuscript,output):
  for label,root in [('reader-materials',public),('manuscript',manuscript)]:
   manifest['source_git_revisions'][label]=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
  manifest['source_worktree_dirty']={label:bool(subprocess.check_output(['git','status','--porcelain'],cwd=root,text=True).strip()) for label,root in [('reader-materials',public),('manuscript',manuscript)]}
+ manifest['support_files_included']=include_support
  revision_input=dict(manifest);revision_input.pop('content_revision')
  revision='develop-'+sha(canonical(revision_input))[:16]
  manifest['content_revision']=revision
@@ -133,6 +140,6 @@ def build(public,manuscript,output):
  os.replace(staging,output)
  return manifest
 if __name__=='__main__':
- parser=argparse.ArgumentParser();parser.add_argument('--public-root',type=Path,required=True);parser.add_argument('--manuscript-root',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);args=parser.parse_args()
- manifest=build(args.public_root.resolve(),args.manuscript_root.resolve(),args.output.absolute())
+ parser=argparse.ArgumentParser();parser.add_argument('--public-root',type=Path,required=True);parser.add_argument('--manuscript-root',type=Path,required=True);parser.add_argument('--output',type=Path,required=True);parser.add_argument('--include-support',action='store_true');args=parser.parse_args()
+ manifest=build(args.public_root.resolve(),args.manuscript_root.resolve(),args.output.absolute(),args.include_support)
  print(json.dumps({'status':'candidate-built-not-runtime-verified','content_revision':manifest['content_revision'],'bundle_sha256':manifest['bundle_sha256'],'counts':manifest['counts']},ensure_ascii=False))

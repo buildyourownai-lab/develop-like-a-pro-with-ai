@@ -1,4 +1,4 @@
-import hashlib,importlib.util,json,tempfile,unittest,os
+import hashlib,importlib.util,json,tempfile,unittest,os,subprocess,sys
 from pathlib import Path
 spec=importlib.util.spec_from_file_location('bundle',Path(__file__).resolve().parents[1]/'build_learning_bundle.py')
 bundle=importlib.util.module_from_spec(spec);spec.loader.exec_module(bundle)
@@ -34,6 +34,16 @@ class ExtractionTests(unittest.TestCase):
    with self.assertRaises(ValueError):bundle.build(ROOT,ROOT,link)
 @unittest.skipUnless(MANUSCRIPT and MANUSCRIPT.is_dir(),'Set BOOK_MANUSCRIPT_ROOT for author-only parity test')
 class SourceParityTests(unittest.TestCase):
+ def test_bundled_support_runs_without_source_checkout(self):
+  with tempfile.TemporaryDirectory() as tmp:
+   output=Path(tmp).resolve()/'release';m=bundle.build(ROOT,MANUSCRIPT,output,include_support=True)
+   base=output/'books/develop/editions/development-2026'/m['content_revision']
+   self.assertTrue(m['support_files_included'])
+   self.assertEqual(sum(f['role']=='support-code' for f in m['files']),4)
+   command=[sys.executable,str(base/'support/studyailab.py'),'verify-bundle','--bundle',str(base/'manifest.json'),'--book','develop','--edition','development-2026']
+   result=subprocess.run(command,cwd=base,check=True,capture_output=True,text=True)
+   self.assertEqual(json.loads(result.stdout)['bundle_sha256'],m['bundle_sha256'])
+   self.assertFalse(list(base.rglob('__pycache__')))
  def test_deterministic_and_complete(self):
   with tempfile.TemporaryDirectory() as a,tempfile.TemporaryDirectory() as b:
    m=bundle.build(ROOT,MANUSCRIPT,Path(a));other=bundle.build(ROOT,MANUSCRIPT,Path(b))
