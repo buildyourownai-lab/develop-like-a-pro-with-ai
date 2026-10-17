@@ -26,7 +26,7 @@ describe("saveTokenFile", () => {
     expect(readFileSync(path, "utf8")).toContain("rt-1");
   });
 
-  it("restricts the file to owner-only read/write (0o600)", () => {
+  it.skipIf(process.platform === "win32")("restricts the file to owner-only read/write (0o600)", () => {
     const dir = mkdtempSync(join(tmpdir(), "ch19-token-test-"));
     const path = join(dir, "token.json");
 
@@ -48,7 +48,7 @@ describe("saveTokenFile", () => {
     expect(entries).toEqual(["token.json"]);
   });
 
-  it.skipIf(isRoot)("leaves no temp file behind when the write fails (target directory not writable)", () => {
+  it.skipIf(isRoot || process.platform === "win32")("leaves no temp file behind when the write fails (target directory not writable)", () => {
     const dir = mkdtempSync(join(tmpdir(), "ch19-token-test-"));
     const readonlyDir = join(dir, "readonly");
     mkdirSync(readonlyDir);

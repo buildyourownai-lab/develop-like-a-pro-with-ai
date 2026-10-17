@@ -46,7 +46,10 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - uses: FedericoCarboni/setup-ffmpeg@v3
-        if: ${{ matrix.chapter >= '16' }}
+        if: ${{ matrix.chapter >= '16' && runner.os != 'macOS' }}
+      - name: Install ffmpeg on macOS
+        if: ${{ matrix.chapter >= '16' && runner.os == 'macOS' }}
+        run: brew install ffmpeg
       - name: Test chapter project
         run: |
           cd chapters/ch${{ matrix.chapter }}/source/*/
@@ -74,7 +77,7 @@ jobs:
           cd chapters/ch${{ matrix.chapter }}/source/*/
           npm ci --no-audit --no-fund > install.log 2>&1 || { echo "::error title=INSTALL ch${{ matrix.chapter }} ${{ matrix.os }}::$(tail -n 20 install.log | tr '\n' '|' | cut -c1-1500)"; exit 1; }
           tc="skipped (no tsconfig)"
-          if [ -f tsconfig.json ]; then npx tsc --noEmit > tsc.log 2>&1 && tc="typecheck passed" || { echo "::error title=TYPECHECK ch${{ matrix.chapter }} ${{ matrix.os }}::$(tail -n 20 tsc.log | tr '\n' '|' | cut -c1-1500)"; exit 1; }; fi
+          if [ -f tsconfig.json ]; then (npx next typegen >/dev/null 2>&1 || true); npx tsc --noEmit > tsc.log 2>&1 && tc="typecheck passed" || { echo "::error title=TYPECHECK ch${{ matrix.chapter }} ${{ matrix.os }}::$(tail -n 20 tsc.log | tr '\n' '|' | cut -c1-1500)"; exit 1; }; fi
           # tests that call live services need the reader's own keys; fill placeholders so offline tests can run
           if [ -f .env.local.example ]; then sed -E 's/^([A-Za-z_0-9]+)=$/\1=dummy-key-for-ci/' .env.local.example > .env.local; fi
           rc=0; npm test > test.log 2>&1 || rc=$?
