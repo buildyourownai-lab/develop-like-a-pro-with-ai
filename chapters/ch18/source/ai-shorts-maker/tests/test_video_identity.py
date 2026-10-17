@@ -25,12 +25,12 @@ class IdentityTests(unittest.TestCase):
         self.video = self.root / 'video.mp4'
         self.video.write_bytes(b'file A')
         self.qa = self.root / 'qa.json'
-        self.plan = json.loads((ROOT / 'prototypes/youtube-shorts/chapter-18/upload-plan.json').read_text())
+        self.plan = json.loads((ROOT / 'prototypes/youtube-shorts/chapter-18/upload-plan.json').read_text(encoding="utf-8"))
         self.plan.update(channel_handle='@my-channel', video=str(self.video),
                          video_sha256=PUBLISHER.sha256(self.video), qa_report=str(self.qa))
 
     def qa_payload(self, digest):
-        self.qa.write_text(json.dumps({'status':'PASS', 'gate':'UPLOAD READY', 'video_sha256':digest}))
+        self.qa.write_text(json.dumps({'status':'PASS', 'gate':'UPLOAD READY', 'video_sha256':digest}), encoding="utf-8")
 
     def test_same_qa_file_identity_passes(self):
         self.qa_payload(self.plan['video_sha256'])
@@ -58,7 +58,7 @@ class IdentityTests(unittest.TestCase):
         policy=ROOT/'prototypes/youtube-shorts/chapter-17/review-policy.json'
         contact=self.root/'contact.png'
         contact.write_bytes(b'observed frames')
-        rules=json.loads(policy.read_text())
+        rules=json.loads(policy.read_text(encoding="utf-8"))
         payload={'reviewer':'test fixture', 'video_sha256':REVIEWER.sha256(self.video),
                  'policy_sha256':REVIEWER.sha256(policy),
                  'contact_sheet_sha256':REVIEWER.sha256(contact),
@@ -76,7 +76,7 @@ class IdentityTests(unittest.TestCase):
                 with self.subTest(field=field):
                     copy=dict(payload)
                     if field: copy[field]='0'*64
-                    visual.write_text(json.dumps(copy))
+                    visual.write_text(json.dumps(copy), encoding="utf-8")
                     result=REVIEWER.review_video(self.video,policy,self.root/'qa-out.json',contact,visual)
                     self.assertEqual(result['gate'], 'NOT READY' if field else 'UPLOAD READY')
                     self.assertEqual(result['video_sha256'], REVIEWER.sha256(self.video))

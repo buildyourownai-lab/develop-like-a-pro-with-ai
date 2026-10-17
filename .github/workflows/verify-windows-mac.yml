@@ -1,0 +1,71 @@
+name: verify-windows-mac
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/verify-windows-mac.yml"
+defaults:
+  run:
+    shell: bash
+jobs:
+  tutor:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: git config --global core.longpaths true
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Tutor unit tests and contract audit
+        run: |
+          cd tutor
+          python -m unittest discover -s tests
+          python tutor_runtime.py audit-contracts
+      - name: Installer smoke (omit --tool, apply twice)
+        run: |
+          mkdir -p "$RUNNER_TEMP/work"
+          cd tutor
+          python install_tutor.py --project "$RUNNER_TEMP/work" --apply
+          python install_tutor.py --project "$RUNNER_TEMP/work" --apply
+          test -f "$RUNNER_TEMP/work/.claude/skills/book-tutor/SKILL.md"
+          test ! -e "$RUNNER_TEMP/work/AGENTS.md"
+  python-chapters:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+        chapter: ["02", "03", "04", "05", "16", "17", "18"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: git config --global core.longpaths true
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - uses: FedericoCarboni/setup-ffmpeg@v3
+        if: ${{ matrix.chapter >= '16' }}
+      - name: Test chapter project
+        run: |
+          cd chapters/ch${{ matrix.chapter }}/source/*/
+          python -m pip install --quiet openpyxl pytest
+          if [ "${{ matrix.chapter }}" \< "06" ]; then python build_movie_report.py; fi
+          python -m pytest tests -q
+  node-chapters:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+        chapter: ["06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "19", "20", "21", "22"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: git config --global core.longpaths true
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Test chapter project
+        run: |
+          cd chapters/ch${{ matrix.chapter }}/source/*/
+          npm ci --no-audit --no-fund
+          npm test

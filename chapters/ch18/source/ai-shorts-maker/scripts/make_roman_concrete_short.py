@@ -66,7 +66,7 @@ def secret() -> str:
         return os.environ["GEMINI_API_KEY"]
     for p in [ROOT / ".secrets/chapter-16.env"]:
         if p.exists():
-            for line in p.read_text().splitlines():
+            for line in p.read_text(encoding="utf-8").splitlines():
                 if line.startswith("GEMINI_API_KEY="):
                     return line.split("=", 1)[1].strip().strip("\"'")
     raise SystemExit("GEMINI_API_KEY가 없습니다.")
@@ -655,7 +655,7 @@ def build(ds: list[float]) -> Path:
             f"drawtext=fontfile='{esc(font)}':text='{esc(cap)}':fontcolor=white:fontsize=60:x=(w-text_w)/2:y=1525:shadowcolor=black@0.8:shadowx=3:shadowy=3,format=yuv420p")
         subprocess.run([FFMPEG,"-y",*visual_args,"-i",str(frozen / scene_wav(i).relative_to(PROJECT)),"-vf",vf,"-af","atempo=1.25,afade=t=in:d=0.12,afade=t=out:st="+str(max(0.1,d-0.2))+":d=0.2","-t",str(d+.18),"-c:v","libx264","-crf","18","-preset","medium","-c:a","aac","-b:a","192k",str(clip)],check=True)
         clips.append(clip)
-    lst=work/"concat.txt"; lst.write_text("".join(f"file '{p}'\n" for p in clips))
+    lst=work/"concat.txt"; lst.write_text("".join(f"file '{p}'\n" for p in clips), encoding="utf-8")
 
     # 효과음: 클립에 실제 오디오가 있고 권리 기록과 함께 승인한 장면만 쓴다. 나머지는 이유와 함께 무음이다.
     sfx_status={}

@@ -353,7 +353,7 @@ class VoiceCacheTests(FixtureProject):
         self.approve(self.board)
 
     def test_imported_voice_never_falls_back_to_paid_synthesis(self):
-        MODULE.MANIFEST.write_text(json.dumps({"voice": {"origin": "imported"}}))
+        MODULE.MANIFEST.write_text(json.dumps({"voice": {"origin": "imported"}}), encoding="utf-8")
         for state in ("missing", "stale", "mixed"):
             with self.subTest(state=state):
                 if state != "missing":
@@ -370,7 +370,7 @@ class VoiceCacheTests(FixtureProject):
                         MODULE.tts()
 
     def test_complete_imported_voice_is_reused_without_secret(self):
-        MODULE.MANIFEST.write_text(json.dumps({"voice": {"origin": "imported"}}))
+        MODULE.MANIFEST.write_text(json.dumps({"voice": {"origin": "imported"}}), encoding="utf-8")
         self.write_voice(self.board, origin="imported")
         with mock.patch.object(MODULE, "secret", side_effect=AssertionError("secret reached")), \
                 mock.patch.object(MODULE, "synthesize", side_effect=AssertionError("paid synthesis reached")):
@@ -551,14 +551,14 @@ class AssemblyTests(FixtureProject):
 
         def mutate_before_report(path):
             if path.parent.parent.name == "staging":
-                changed = json.loads(MODULE.BOARD.read_text())
+                changed = json.loads(MODULE.BOARD.read_text(encoding="utf-8"))
                 changed["scenes"][0]["captions"] = ["changed after rendering"]
-                MODULE.BOARD.write_text(json.dumps(changed))
+                MODULE.BOARD.write_text(json.dumps(changed), encoding="utf-8")
             return real_probe(path)
 
         with mock.patch.object(MODULE, "probe_media", side_effect=mutate_before_report):
             MODULE.build([1.5] * 7)
-        report = json.loads((self.root / MODULE.REPORT_NAME).read_text())
+        report = json.loads((self.root / MODULE.REPORT_NAME).read_text(encoding="utf-8"))
         self.assertEqual(report["storyboard_sha256"], original_hash)
         self.assertNotEqual(report["storyboard_sha256"], MODULE.sha256_file(MODULE.BOARD))
 
@@ -573,25 +573,25 @@ class AssemblyTests(FixtureProject):
 
     def test_publish_helper_refuses_existing_target(self):
         a, b = self.root / "a", self.root / "b"
-        a.write_text("new"); b.write_text("old")
+        a.write_text("new", encoding="utf-8"); b.write_text("old", encoding="utf-8")
         with self.assertRaises(FileExistsError):
             MODULE.publish_no_overwrite(a, b)
-        self.assertEqual(b.read_text(), "old")
+        self.assertEqual(b.read_text(encoding="utf-8"), "old")
 
     def test_recover_preserves_orphan_report_and_refuses_completed_output(self):
         report = self.root / MODULE.REPORT_NAME
         data = json.dumps({"final": MODULE.FINAL_NAME, "final_sha256": "a" * 64})
-        report.write_text(data)
+        report.write_text(data, encoding="utf-8")
         archived = MODULE.recover_incomplete_publication()
         self.assertFalse(report.exists())
-        self.assertEqual((archived / MODULE.REPORT_NAME).read_text(), data)
-        report.write_text(data)
+        self.assertEqual((archived / MODULE.REPORT_NAME).read_text(encoding="utf-8"), data)
+        report.write_text(data, encoding="utf-8")
         final = self.root / MODULE.FINAL_NAME
         final.write_bytes(b"completed output")
         with self.assertRaises(SystemExit):
             MODULE.recover_incomplete_publication()
         self.assertEqual(final.read_bytes(), b"completed output")
-        self.assertEqual(report.read_text(), data)
+        self.assertEqual(report.read_text(encoding="utf-8"), data)
 
 
 if __name__ == "__main__":

@@ -84,6 +84,11 @@ class InstallFixes(unittest.TestCase):
         self.assertIn('작업 폴더의 전체 경로', text)
         self.assertIn('아직 없어도 정상', text)
 
+    def test_skill_never_tells_reader_unconfirmed_progress(self):
+        text = ins.content('claude')
+        self.assertIn('묻지 않고 스스로 정합니다', text)
+        self.assertIn('아직 시작 전입니다', text)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -31,7 +31,7 @@ Claude Desktop에서 Code 탭을 열고 내 컴퓨터의 폴더를 작업 폴더
 ~~~prompt
 이 책의 튜터를 지금 열어 둔 작업 폴더에 연결해줘.
 
-먼저 공식 자료 저장소(https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai)에서 tutor 폴더만 받아줘. 저장소 전체는 받지 마. 이 작업 폴더 안의 book-reference 폴더에 받고, 받기 전에 어디에 받을지 보여줘. 이미 받은 자료가 있으면 그대로 써줘. 받는 과정에서 만든 임시 파일은 남기지 말고 지워줘. 받지 못하면 화면에 나온 오류 메시지만 알려줘.
+먼저 공식 자료 저장소(https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai)에서 tutor 폴더만 받아줘. 저장소 전체는 받지 마. 이 작업 폴더 안의 book-reference 폴더에 받아줘. 이미 받은 자료가 있으면 그대로 써줘. 받는 과정에서 만든 임시 파일은 남기지 말고 지워줘. 받지 못하면 화면에 나온 오류 메시지만 알려줘.
 
 받은 tutor 폴더의 설치 도우미(install_tutor.py)로 연결해줘. 지금 이 대화를 하고 있는 AI 하나만 연결해줘. Python이 없으면 설치하지 말고 알려줘.
 

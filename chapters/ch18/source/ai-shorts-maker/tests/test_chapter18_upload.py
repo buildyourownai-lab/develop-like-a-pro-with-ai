@@ -4,6 +4,7 @@ import importlib.util
 import io
 import json
 import tempfile
+import os
 import unittest
 from contextlib import redirect_stderr, redirect_stdout
 from datetime import datetime, timedelta, timezone
@@ -1644,6 +1645,7 @@ class Chapter18AtomicWriteTest(Chapter18TestCase):
     """Covers the durable/atomic receipt write (secure_write) and the
     collision-safe archive filename reservation."""
 
+    @unittest.skipIf(os.name == "nt", "Windows does not keep POSIX owner-only mode bits")
     def test_write_receipt_sets_owner_only_permissions(self):
         target = self.directory / "sub" / "receipt.json"
         MODULE.write_receipt(target, {"a": 1})
