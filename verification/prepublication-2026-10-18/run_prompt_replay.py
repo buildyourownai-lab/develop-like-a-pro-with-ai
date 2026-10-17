@@ -30,6 +30,7 @@ ONLY = {int(x) for x in sys.argv[sys.argv.index('--only') + 1].split(',')} if '-
 KEYS = Path.home() / '.study-ai-keys'
 PROMPT_TIMEOUT = 2400
 BLOCK = re.compile(r'^(~{3,}|`{3,})prompt[^\n]*\n(.*?)\n\1[ \t]*$', re.S | re.M)
+ADD_DIR = None
 ENV = dict(os.environ, DISABLE_AUTOUPDATER='1', PYTHONIOENCODING='utf-8', PYTHONUTF8='1', CI='1')
 ALLOW = ['--permission-mode', 'acceptEdits', '--max-turns', '60', '--model', MODEL, '--allowedTools',
          'Bash(npm:*)', 'Bash(npx:*)', 'Bash(node:*)', 'Bash(python:*)', 'Bash(python3:*)', 'Bash(ls:*)', 'Bash(git status:*)',
@@ -125,7 +126,8 @@ def prepare(n, contract):
 
 
 def ask(work, text, first):
-    cmd = ['claude', '-p', text] + ([] if first else ['--continue']) + ALLOW
+    # A reader who is asked to allow reading the tutor folder next to the project says yes; a headless run cannot be asked.
+    cmd = ['claude', '-p', text] + ([] if first else ['--continue']) + ALLOW + (['--add-dir', str(ADD_DIR)] if ADD_DIR else [])
     try:
         done = subprocess.run(cmd, cwd=work, env=ENV, capture_output=True, text=True, encoding='utf-8', errors='replace',
                               timeout=PROMPT_TIMEOUT, stdin=subprocess.DEVNULL, shell=(os.name == 'nt'))
@@ -162,6 +164,7 @@ def run_checks(project_dir):
 
 
 def replay(n):
+    global ADD_DIR
     contract = json.loads((R1 / 'tutor/chapters' / f'ch{n:02}' / 'chapter.json').read_text(encoding='utf-8'))
     folder = OUT / f'ch{n:02}'
     folder.mkdir(parents=True, exist_ok=True)
@@ -172,6 +175,7 @@ def replay(n):
         state['start'] = how
     else:
         work = OUT / 'work' / f'ch{n:02}'
+    ADD_DIR = work
     prompts = prompts_of(n)
     for index, text in enumerate(prompts, 1):
         if ONLY and index not in ONLY:

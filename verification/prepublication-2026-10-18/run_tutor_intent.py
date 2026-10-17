@@ -18,6 +18,7 @@ OUT = Path(sys.argv[1])
 CHAPTERS = [int(x) for x in sys.argv[2].split(',')]
 ALLOW = ['--permission-mode', 'acceptEdits', '--max-turns', '14', '--allowedTools', 'Bash(python:*)', 'Bash(python3:*)',
          'Bash(ls:*)', 'PowerShell(python:*)', 'PowerShell(Get-ChildItem:*)', 'PowerShell(Test-Path:*)', 'PowerShell(Get-Location)']
+ADD_DIR = None
 ENV = dict(os.environ, DISABLE_AUTOUPDATER='1', PYTHONIOENCODING='utf-8', PYTHONUTF8='1')
 SKIP = {'.book-tutor-state', '.claude', '.agents', 'book-reference', 'AGENTS.md', 'CLAUDE.local.md', '.gitignore'}
 
@@ -49,7 +50,8 @@ def prepare(n, project):
 
 
 def ask(work, text, first):
-    cmd = ['claude', '-p', text] + ([] if first else ['--continue']) + ALLOW
+    # A reader who is asked to allow reading the tutor folder next to the project says yes; a headless run cannot be asked.
+    cmd = ['claude', '-p', text] + ([] if first else ['--continue']) + ALLOW + (['--add-dir', str(ADD_DIR)] if ADD_DIR else [])
     try:
         done = subprocess.run(cmd, cwd=work, env=ENV, capture_output=True, text=True, encoding='utf-8', errors='replace',
                               timeout=420, stdin=subprocess.DEVNULL, shell=(os.name == 'nt'))
@@ -67,6 +69,7 @@ for n in CHAPTERS:
     contract = json.loads((R1 / 'tutor/chapters' / f'ch{n:02}' / 'chapter.json').read_text(encoding='utf-8'))
     project = contract['project']
     work, existing = prepare(n, project)
+    ADD_DIR = work
     before = fingerprint(work)
     steps = [
         ('start', f'{n}장 시작해.'),
