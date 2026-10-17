@@ -63,6 +63,27 @@ class InstallFixes(unittest.TestCase):
         self.assertEqual(run(self.project, '--apply')[0], 0)
         self.assertIn('판단하거나 말하지 않고', (self.project / 'CLAUDE.local.md').read_text(encoding='utf-8'))
 
+    def test_omitted_tool_connects_only_the_ai_in_use(self):
+        out = io.StringIO()
+        with mock.patch.dict('os.environ', {}, clear=True), redirect_stdout(out):
+            self.assertEqual(ins.main(['--project', str(self.project), '--apply']), 0)
+        self.assertTrue((self.project / '.claude/skills/book-tutor/SKILL.md').exists())
+        self.assertFalse((self.project / 'AGENTS.md').exists())
+        self.assertFalse((self.project / '.agents').exists())
+
+    def test_omitted_tool_uses_codex_when_codex_is_detected(self):
+        out = io.StringIO()
+        with mock.patch.dict('os.environ', {'CODEX_HOME': 'x'}, clear=True), redirect_stdout(out):
+            self.assertEqual(ins.main(['--project', str(self.project), '--apply']), 0)
+        self.assertTrue((self.project / '.agents/skills/book-tutor/SKILL.md').exists())
+        self.assertFalse((self.project / '.claude').exists())
+
+    def test_skill_says_project_is_the_work_folder(self):
+        text = ins.content('claude')
+        self.assertIn('--project', text)
+        self.assertIn('작업 폴더의 전체 경로', text)
+        self.assertIn('아직 없어도 정상', text)
+
 
 if __name__ == '__main__':
     unittest.main()

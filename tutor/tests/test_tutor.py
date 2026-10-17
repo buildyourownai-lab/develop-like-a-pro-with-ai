@@ -131,7 +131,7 @@ class Installer(unittest.TestCase):
  def setUp(self):self.t=tempfile.TemporaryDirectory();self.p=Path(self.t.name)
  def tearDown(self):self.t.cleanup()
  def run_install(self,*args):
-  with contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(io.StringIO()):return ins.main(['--project',str(self.p),*args])
+  with contextlib.redirect_stdout(io.StringIO()),contextlib.redirect_stderr(io.StringIO()):return ins.main(['--project',str(self.p),*(args if '--tool' in args else ('--tool','both',*args))])
  def test_dryrun_writes_nothing(self):self.assertEqual(self.run_install(),0);self.assertEqual(list(self.p.iterdir()),[])
  def test_apply_two_tools(self):
   self.assertEqual(self.run_install('--apply'),0)

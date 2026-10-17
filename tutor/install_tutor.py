@@ -46,6 +46,8 @@ description: 이 책의 현재 장 시작·진도·힌트·완료 확인·다음
 
 이 컴퓨터나 프로그램이 되는지 안 되는지는 판단하거나 말하지 않습니다. 막히면 화면에 나온 오류 메시지만 알려줍니다.
 
+튜터 프로그램(`tutor_runtime.py`)의 `--project`에는 지금 열려 있는 작업 폴더의 전체 경로를 넣습니다. 장의 프로젝트 폴더(예: movie-report)는 아직 없어도 정상이며, 그 이름을 `--project`에 넣지 않습니다. 오류가 나면 독자에게 전하기 전에 `--project`가 작업 폴더인지 확인하고 다시 실행합니다.
+
 진도 계산은 `tutor_runtime.py`의 start/progress/next/verify를 사용합니다. 실제 확인 근거를 기록할 때만 record --apply를 사용합니다. “다음 요청문 보여줘”와 기존 “다음 명령문 보여줘”를 같은 조회 의도로 처리합니다. 다음 요청문을 요청하면 현재 장의 prompt-guide.json과 실제 진도를 대조하고 prompt-list/prompt로 정본 한 개를 조회합니다. “진행해”(“실행해”도 같은 뜻)는 직전에 제시한 요청 한 개만 수행하며 결과를 확인합니다. 대기 요청이 없거나 장·프로젝트가 달라졌다면 “진행해”만으로 실행하지 말고 대상을 확인합니다. 요청문 보기만으로 실행하거나 완료 기록을 만들지 않습니다. 힌트는 hints.md의 한 단계만 제공합니다. 설명 요청으로 실습 파일을 수정하지 않습니다.
 
 Skill 파일이 있다는 사실은 실제 {tool} 새 세션에서 발견·호출됐다는 증거가 아닙니다. 명시적 호출과 새 대화에서 연결을 확인합니다. 설치된 이름과 실제 참고 경로를 보여주고 없는 소스는 미연결로 알려줍니다.
@@ -55,16 +57,21 @@ def merge(text:str,block:str)->str:
  if n!=m or n>1:raise ValueError('기존 관리 블록이 손상됐습니다. 수동 확인 후 진행하세요.')
  if n==1:return re.sub(re.escape(BEGIN)+r'.*?'+re.escape(END),lambda _:block,text,flags=re.S)
  return text.rstrip()+'\n\n'+block+'\n'
+def detect_tool()->str:
+ """Connect only the AI in use when --tool is omitted; the book's default is Claude Code."""
+ if os.environ.get('CLAUDECODE') or os.environ.get('CLAUDE_CODE_ENTRYPOINT'):return 'claude'
+ if any(k.startswith('CODEX_') for k in os.environ):return 'codex'
+ return 'claude'
 def main(argv=None)->int:
  for stream in (sys.stdout,sys.stderr):
   if hasattr(stream,'reconfigure'):stream.reconfigure(errors='backslashreplace')
- ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--tool',choices=['claude','codex','both'],default='both');ap.add_argument('--apply',action='store_true');args=ap.parse_args(argv)
+ ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--project',required=True);ap.add_argument('--tool',choices=['claude','codex','both'],default=None,help='Omit to use the AI that is running this command (Claude Code unless Codex is detected).');ap.add_argument('--apply',action='store_true');args=ap.parse_args(argv)
  try:
   root=Path(args.project).expanduser().resolve(strict=True)
   if not root.is_dir() or root==Path(root.anchor):raise ValueError('실습 프로젝트 폴더가 필요합니다.')
   if not (BASE/'TUTOR.md').is_file():raise ValueError('튜터 정본이 없습니다.')
   statep=target(root,'.book-tutor-state/install.json');old=json.loads(statep.read_text(encoding='utf-8')) if statep.exists() else {'files':{}}
-  jobs=[];tools=['claude','codex'] if args.tool=='both' else [args.tool]
+  tool=args.tool or detect_tool();jobs=[];tools=['claude','codex'] if tool=='both' else [tool]
   for tool in tools:
    skillrel='.claude/skills/book-tutor/SKILL.md' if tool=='claude' else '.agents/skills/book-tutor/SKILL.md'
    sp=target(root,skillrel);new=content(tool).encode()

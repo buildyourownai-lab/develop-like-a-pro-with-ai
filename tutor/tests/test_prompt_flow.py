@@ -116,7 +116,7 @@ class PromptCLI(unittest.TestCase):
 
     def test_installer_connects_the_new_read_and_proceed_flow(self):
         with contextlib.redirect_stdout(io.StringIO()):
-            code = install_tutor.main(['--project', str(self.project), '--apply'])
+            code = install_tutor.main(['--project', str(self.project), '--tool', 'both', '--apply'])
         self.assertEqual(code, 0)
         for relative in ('.claude/skills/book-tutor/SKILL.md', '.agents/skills/book-tutor/SKILL.md'):
             content = (self.project / relative).read_text(encoding='utf-8')
