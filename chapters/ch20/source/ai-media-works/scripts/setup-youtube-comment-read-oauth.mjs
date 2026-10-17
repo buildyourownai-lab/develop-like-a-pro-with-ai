@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import { loadOAuthClient } from "./lib/client-json.mjs";
 import { generateCodeChallenge, generateCodeVerifier, generateState } from "./lib/pkce.mjs";
 import { startCallbackServer } from "./lib/callback-server.mjs";
@@ -157,7 +157,7 @@ async function main() {
   console.log(`부여된 scope: ${outcome.scope}`);
 }
 
-const isMainModule = import.meta.url === `file://${process.argv[1]}`;
+const isMainModule = Boolean(process.argv[1]) && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isMainModule) {
   main();
 }
