@@ -115,6 +115,23 @@ class InstallFixes(unittest.TestCase):
         self.assertFalse((d / 'skills').exists())
         self.assertFalse((self.project / 'CLAUDE.local.md').exists())
 
+    def test_runtime_works_however_it_is_launched(self):
+        import subprocess
+        script = str(Path(ins.__file__).resolve().parent / 'tutor_runtime.py')
+        forms = [
+            [sys.executable, script, 'hint', '--chapter', '3'],
+            [sys.executable, '-I', script, 'hint', '--chapter', '3'],
+            [sys.executable, '-c', "import runpy,sys;sys.argv=['t','hint','--chapter','3'];runpy.run_path(%r,run_name='__main__')" % script],
+        ]
+        for cmd in forms:
+            done = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', cwd=self.project)
+            self.assertEqual(done.returncode, 0, ' '.join(cmd[1:3]) + ' -> ' + done.stderr[-200:])
+
+    def test_skill_gives_the_exact_runtime_command(self):
+        text = ins.content('claude')
+        self.assertIn('--chapter <장 번호> --project', text)
+        self.assertIn('tutor_runtime.py', text)
+
 
 if __name__ == '__main__':
     unittest.main()

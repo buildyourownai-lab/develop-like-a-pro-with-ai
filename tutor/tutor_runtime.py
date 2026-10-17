@@ -6,6 +6,8 @@ from __future__ import annotations
 import argparse, datetime as dt, hashlib, json, os, re, sys, tempfile
 from pathlib import Path
 from typing import Any
+_HERE=str(Path(__file__).resolve().parent)
+if _HERE not in sys.path:sys.path.insert(0,_HERE)  # works under python -I, runpy and -c as well
 from prompt_reader import list_entries, read_prompt
 BASE=Path(__file__).resolve().parent
 STATE='.book-tutor-state'

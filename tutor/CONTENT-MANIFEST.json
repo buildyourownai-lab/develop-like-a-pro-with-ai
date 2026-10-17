@@ -177,7 +177,7 @@
     "chapters/ch22/verification.md": "61afc34f01e4eb5d3e1ecbef9ac972874ea3a911a25198155003fd75583a6dda",
     "glossary/README.md": "69d0f1e6c9264c0295621fd87e221a562835203dfc967adeea33e1fa44230395",
     "glossary/terms.json": "abd3a4f903af31ae7d2b31afdc3c3eccc061af4a89449af81a521e57ad1c1e05",
-    "install_tutor.py": "c316ff850ffc4df683acb5ce8562ab02ce3d6c14ac00d4d8ad776cf9b1400b13",
+    "install_tutor.py": "f453d32561a5e70afa8c051036451b06e2592c9da8950ec62155938d19f0123f",
     "prompt_reader.py": "05b51abbddbdf03de7182b3dafcf406017def21906d0c0796b54c0ca693930b7",
     "schemas/README.md": "5e7136bb66f7e437a34392d01ff16b97ce00fec2666a97a772454c0f1d71b4d8",
     "schemas/chapter.schema.json": "5b780196a1e699719b3eb001a72026d288c9e8eeddfe261634f751432f7709b5",
@@ -222,6 +222,6 @@
     "tests/test_prompt_flow.py": "5688514b9f09a4bcb360855390a7ac5d8ba3318ca6f0c18997dbdc3169a9c51e",
     "tests/test_prompt_reader.py": "3ae1269ca49ed797a8343b6bbbe7e6735a74f8318ad944e23b16aab014eb0311",
     "tests/test_tutor.py": "1d97b1ec9632948baa3621a2fcfdd8592d6a9d5806d233ab44e687594dd4856a",
-    "tutor_runtime.py": "a8359868726256aa20933194ae72fbc4392b916476f508c02045acb662877cdc"
+    "tutor_runtime.py": "1f55beaf80e8ebd0f9738febf0866bfcae308cdbdfedf35d6c2056fd6d6eb0a8"
   }
 }
