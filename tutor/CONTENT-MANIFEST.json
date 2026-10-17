@@ -221,7 +221,7 @@
     "tests/test_part6_binding.py": "215d3d567a663cf99cd71fb473ad5d347eddf5d7ca088dc3150a99c82a27bfaa",
     "tests/test_prompt_flow.py": "5688514b9f09a4bcb360855390a7ac5d8ba3318ca6f0c18997dbdc3169a9c51e",
     "tests/test_prompt_reader.py": "3ae1269ca49ed797a8343b6bbbe7e6735a74f8318ad944e23b16aab014eb0311",
-    "tests/test_tutor.py": "e2f53dd90cdae59e119a84b3f9f77d8f0f43eddbe8c12d2a19d5cba2e2b834a3",
+    "tests/test_tutor.py": "1d97b1ec9632948baa3621a2fcfdd8592d6a9d5806d233ab44e687594dd4856a",
     "tutor_runtime.py": "a8359868726256aa20933194ae72fbc4392b916476f508c02045acb662877cdc"
   }
 }

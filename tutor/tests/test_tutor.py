@@ -171,7 +171,7 @@ class Installer(unittest.TestCase):
    write(path,data)
   with patch.object(ins,'atomic_write',side_effect=fail_state):
    self.assertEqual(self.run_install('--apply'),2)
-  files={str(p.relative_to(self.p)):p.read_text() for p in self.p.rglob('*') if p.is_file()}
+  files={str(p.relative_to(self.p)):p.read_text(encoding='utf-8') for p in self.p.rglob('*') if p.is_file()}
   self.assertEqual(files,{'AGENTS.md':'USER_RULES'})
  def test_atomic_replace_failure_keeps_original_file(self):
   dest=self.p/'AGENTS.md';dest.write_bytes(b'ORIGINAL')

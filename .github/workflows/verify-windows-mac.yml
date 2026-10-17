@@ -1,9 +1,14 @@
 name: verify-windows-mac
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * 1"
   push:
     paths:
       - ".github/workflows/verify-windows-mac.yml"
+      - "tutor/**"
+      - "chapters/**"
+      - "chapters/getting-started/**"
 defaults:
   run:
     shell: bash
