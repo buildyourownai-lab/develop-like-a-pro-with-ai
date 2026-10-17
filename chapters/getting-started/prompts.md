@@ -31,7 +31,9 @@ Claude Desktop에서 Code 탭을 열고 내 컴퓨터의 폴더를 작업 폴더
 ~~~prompt
 이 책의 튜터를 지금 열어 둔 작업 폴더에 연결해줘.
 
-먼저 이 작업 폴더의 전체 경로와, 내가 받은 tutor 폴더(install_tutor.py가 들어 있는 곳)의 위치를 알려줘. tutor 폴더를 찾지 못하면 내려받지 말고 어디에 있는지 물어봐.
+먼저 공식 자료 저장소(https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai)를 받아줘. 이 작업 폴더 밖의 별도 참고 폴더에 받고, 받기 전에 어디에 받을지 보여줘. 이미 받은 자료가 있으면 그대로 써줘. 받지 못하면 화면에 나온 오류 메시지만 알려줘.
+
+받은 자료 안의 tutor 폴더에 있는 install_tutor.py로 연결할 거야. 이 작업 폴더의 전체 경로와 install_tutor.py의 위치를 알려줘.
 
 지금 쓰고 있는 AI 하나만 연결해줘. Claude면 --tool claude를, Codex면 --tool codex를 붙여줘. python3 명령이 안 되면 python으로 해줘. 둘 다 없으면 설치하지 말고 알려줘.
 
