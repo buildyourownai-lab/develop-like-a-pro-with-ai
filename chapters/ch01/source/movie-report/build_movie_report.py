@@ -17,9 +17,6 @@ from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 import sys
 
-# English-locale Windows pipes stdout as cp1252; keep Korean output from crashing the build.
-for _stream in (sys.stdout, sys.stderr):
-    getattr(_stream, "reconfigure", lambda **_: None)(errors="replace")
 
 SOURCE_URL = "https://www.kobis.or.kr/kobis/business/stat/offc/findYearlyBoxOfficeList.do"
 QUERY_YEAR = 2024
@@ -234,6 +231,14 @@ def main():
     wb.save(out_path)
     print(f"저장 완료: {out_path}")
 
+
+# This project assumes UTF-8 everywhere. If it was started without UTF-8 mode (for example on a
+# Windows PC whose default encoding is cp1252 or cp949), relaunch itself in UTF-8 mode.
+if __name__ == "__main__" and not sys.flags.utf8_mode:
+    import os
+    import subprocess
+    _env = {key: value for key, value in os.environ.items() if key != "PYTHONIOENCODING"}
+    raise SystemExit(subprocess.call([sys.executable, "-X", "utf8", *sys.argv], env=_env))
 
 if __name__ == "__main__":
     main()
