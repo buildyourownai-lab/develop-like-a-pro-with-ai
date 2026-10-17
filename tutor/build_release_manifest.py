@@ -17,5 +17,7 @@ def build():
  return {'schema_version':1,'release':RELEASE,'hash_input':'UTF-8 text with LF line endings','files':files}
 
 if __name__=='__main__':
- (ROOT/'release-manifest.json').write_text(json.dumps(build(),ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
- print(f'Public tutor integrity record: {len(build()["files"])} files')
+ record=build()
+ with open(ROOT/'release-manifest.json','w',encoding='utf-8',newline='\n') as stream:
+  stream.write(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+ print(f'Public tutor integrity record: {len(record["files"])} files')
