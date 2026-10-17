@@ -133,7 +133,6 @@
   "intentional_failure_policy": "기준 자료 자체를 잘못 가져오면 보고서와 기준 자료가 함께 틀릴 수 있습니다. 사람이 확인한 출처와 자동 비교한 범위를 따로 남깁니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch02",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H02-01",

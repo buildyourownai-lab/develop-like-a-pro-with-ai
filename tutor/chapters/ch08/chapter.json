@@ -159,7 +159,6 @@
   "intentional_failure_policy": "픽셀 단위 동일함이 아니라 정보 배치·가독성·완료 조건을 봅니다. 로컬 Secret 파일은 GitHub나 Vercel로 자동 전송되지 않습니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch08",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H08-01",

@@ -146,7 +146,6 @@
   "intentional_failure_policy": "이 장의 기본 완료는 비공개 업로드입니다. 공개를 명시하면 별도의 권한·플랫폼 조건을 확인해 같은 ID의 전환을 수행하며, 불가능하면 비공개 업로드까지의 사실만 보고합니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch18",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H18-01",

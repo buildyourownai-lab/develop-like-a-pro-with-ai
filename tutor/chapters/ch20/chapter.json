@@ -171,7 +171,6 @@
   "intentional_failure_policy": "격리된 시험 응답으로 오류를 주입합니다. 실계정 결과를 가장하지 않으며 실제 공개·게시·과금·삭제는 별도 승인 범위에서만 진행합니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch20",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H20-ZERO",

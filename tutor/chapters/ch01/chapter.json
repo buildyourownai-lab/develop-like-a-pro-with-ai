@@ -134,7 +134,6 @@
   "intentional_failure_policy": "API 키를 전권 공통으로 발급받는 장이 아닙니다. 공식 자료 접근 상태와 내려받은 파일을 구분합니다. 숫자가 맞는지는 다음 장에서 검증합니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch01",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H01-01",

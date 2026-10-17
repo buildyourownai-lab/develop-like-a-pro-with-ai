@@ -154,7 +154,6 @@
   "intentional_failure_policy": "키를 발급받았다는 것, 값이 저장됐다는 것, 인증이 성공했다는 것은 별개입니다. URL 인코딩을 오류 원인으로 미리 단정하지 않습니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch06",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H06-01",

@@ -142,7 +142,6 @@
   "intentional_failure_policy": "NOT READY가 목표인 사본이 있습니다. 정상·손상 입력의 ID와 검사 기준을 동일하게 유지합니다. 대표 화면 확인만으로 전체 재생을 대신하지 않습니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch17",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H17-01",

@@ -1,6 +1,6 @@
 [![Projects](https://img.shields.io/badge/Projects-6-D1495B)](#최종-프로젝트)
 [![Chapters](https://img.shields.io/badge/Chapters-22%2F22-7357D8)](chapters/)
-[![Prompts](https://img.shields.io/badge/Prompts-239-3A86FF)](chapters/)
+[![Prompts](https://img.shields.io/badge/Prompts-249-3A86FF)](chapters/)
 [![Verification](https://img.shields.io/badge/Verification-검증_자료-2A9D8F)](verification/)
 
 <p align="left"><img src="assets/brand/studyailab-logo.svg" alt="Study AI Lab 로고" width="13%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/book-title.svg" alt="프로처럼 AI로 코딩 없이 개발하기" width="49.6%"><img src="assets/brand/brand-divider.svg" alt="" width="4.1%"><img src="assets/brand/repository-title.svg" alt="공식 실습 자료" width="24.2%"></p>

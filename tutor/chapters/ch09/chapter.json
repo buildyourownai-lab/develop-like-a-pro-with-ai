@@ -147,7 +147,6 @@
   "intentional_failure_policy": "공식 API의 기준일과 화면을 연 날짜는 다를 수 있습니다. 현재 장의 진도는 사용자의 실제 프로젝트 기준으로 확인합니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch09",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H09-01",

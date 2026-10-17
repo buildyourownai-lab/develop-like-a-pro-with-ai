@@ -154,7 +154,6 @@
   "intentional_failure_policy": "기획의 실패 상태와 다음 행동을 문서로 정의합니다. 시험을 위해 제품 코드나 외부 상태를 바꾸지 않습니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch21",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H21-PLAN",

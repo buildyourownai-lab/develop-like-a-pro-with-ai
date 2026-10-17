@@ -140,7 +140,6 @@
   "intentional_failure_policy": "Mac이 없어 읽기만 한 경우를 실행 완료로 세지 않습니다. Android 완료와 iPhone 실행 검증은 별개입니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch15",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H15-01",

@@ -146,7 +146,6 @@
   "intentional_failure_policy": "아파트 이름만으로 자료를 합치지 않습니다. 실제 값은 시점에 따라 달라질 수 있으므로 저자 결과 건수를 정답으로 고정하지 않습니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch07",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H07-01",

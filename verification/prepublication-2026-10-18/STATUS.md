@@ -32,7 +32,12 @@ A 수정(튜터·설치기·스크립트) → B 동결 후 manifest 1회 → C �
 | A1 줄바꿈 | 완료 | 세 저장소에 `* text=auto eol=lf` 추가, R1에 .editorconfig 추가. R1·웹은 autocrlf=true 새 클론에서 전부 LF 확인. 책은 디스크 부족으로 클론 불가라 check-attr로만 확인. push: R1 1ba47e6, 웹 ff4c1bc, 책 a8a049e0 |
 | A1 확대 | 완료 | 책 관련 7개 저장소(ai-media-works, ai-shorts-maker, ai-stock-briefing, apartment-explorer, movie-report, studyailab-mcp, apartment-explorer-portfolio)에도 같은 LF 규칙과 .editorconfig 적용·push. 작업 폴더에 남은 튜터 설치기 산출물(AGENTS.md, .agents, .claude, .gitignore)은 건드리지 않음 |
 | A2 인코딩 | 완료 | 10개 저장소 비UTF-8 파일 0. BOM은 책 저장소 evidence 82개뿐(독자 무관, 그대로). ai-shorts-maker의 인코딩 미지정 파일 입출력 18곳을 UTF-8로 고치고 ch18 권한 테스트를 Windows에서 건너뜀. 이 PC에 ffmpeg가 없어 2개 테스트 모듈은 미실행 |
-| A3 금지어·점검 스크립트 | 대기 | check_reader.py 문법 오류 |
+| A3 점검 스크립트 | 완료 | check_reader.py 문법 오류 수정과 금지어 확대, compare_prompts.py(책=R1=웹 요청문 대조), run_tutor_ai.py(장별 AI 실행 시험기, 직전 장 프로젝트를 넣어 현실 상태로 시험) 추가 |
+| V1 요청문 대조 | 통과 | 책 249 = R1 249 블록 동일, 웹 47종류 전부 책에 있음, 웹 sha256 불일치 0 |
+| V1 원고 해시 | 통과 | 튜터 22장 manuscript_sha256 불일치 0 |
+| V7 운영 사이트 | 통과 | 준비편에 MCP 선택 단계 반영, SETUP.md·검증·해시·SHA 0건, /mcp/develop 200 |
+| 수정 | 완료 | 22개 chapter.json의 supported_environment_note(OS 재실행 미확인 문구) 제거, README의 Prompts 배지 239 -> 249(chapters/ 요청문 블록 실제 개수) |
+| 디스크 | 완료 | npm 캐시, ai-stock-briefing node_modules·.next, Playwright 캐시, 크래시 덤프 삭제로 여유 222MB -> 1,994MB |
 | B manifest | 대기 | |
 | C 검증 | 대기 | 독자 시험 3차, 요청문 AI 실행(대표 6장 먼저), 운영 재조회 |
 | D 감독관 | 대기 | |

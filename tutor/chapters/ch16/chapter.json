@@ -152,7 +152,6 @@
   "intentional_failure_policy": "생성 후보와 최종 승인본을 구분합니다. 자료 다운로드·생성 비용·크레딧 상한·저작권 조건이 달라지면 멈춰 확인합니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch16",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "supported_environment_note": "본문의 지원 범위를 따릅니다. 이 튜터 자료만으로 모든 OS·외부 계정에서 재실행이 확인된 것은 아닙니다.",
   "hint_topics": [
     {
       "id": "H16-01",
