@@ -2,7 +2,7 @@
 
 python -X utf8 -I run_tutor_intent.py <output folder> <chapter numbers, comma separated>
 
-Five requests are typed per chapter. The answers are saved, then judged by check_tutor_intent.py.
+Five requests are typed per chapter, inside the project folder the way a reader works. The answers are saved, then judged by check_tutor_intent.py.
 """
 import hashlib
 import json
@@ -31,7 +31,7 @@ def fingerprint(work):
     return h.hexdigest()
 
 
-def prepare(n):
+def prepare(n, project):
     work = OUT / 'work' / f'ch{n:02}'
     shutil.rmtree(work, ignore_errors=True)
     (work / 'book-reference').mkdir(parents=True)
@@ -39,11 +39,13 @@ def prepare(n):
     done = subprocess.run([sys.executable, '-B', str(work / 'book-reference/tutor/install_tutor.py'), '--project', str(work), '--apply'],
                           capture_output=True, text=True, encoding='utf-8', errors='replace', env=ENV)
     assert done.returncode == 0, done.stdout + done.stderr
+    existing = False
     if n > 1:
-        for project in (R1 / 'chapters' / f'ch{n - 1:02}' / 'source').iterdir():
-            if project.is_dir():
-                shutil.copytree(project, work / project.name, ignore=shutil.ignore_patterns('node_modules', '.next', '__pycache__'))
-    return work
+        source = R1 / 'chapters' / f'ch{n - 1:02}' / 'source' / project
+        if source.is_dir():
+            shutil.copytree(source, work / project, ignore=shutil.ignore_patterns('node_modules', '.next', '__pycache__'))
+            existing = True
+    return work, existing
 
 
 def ask(work, text, first):
@@ -63,25 +65,32 @@ for n in CHAPTERS:
     shutil.rmtree(folder, ignore_errors=True)
     folder.mkdir(parents=True)
     contract = json.loads((R1 / 'tutor/chapters' / f'ch{n:02}' / 'chapter.json').read_text(encoding='utf-8'))
-    symptom = contract['hint_topics'][0]['symptom']
-    work = prepare(n)
+    project = contract['project']
+    work, existing = prepare(n, project)
     before = fingerprint(work)
     steps = [
         ('start', f'{n}장 시작해.'),
-        ('hint', f'힌트 줘. 지금 "{symptom}" 상태야.'),
         ('prompt', '다음 요청문 보여줘.'),
+        ('hint', '힌트 줘.'),
         ('claim', f'다 했어. {n}장 완료 확인해줘.'),
         ('progress', '지금 진도 알려줘.'),
     ]
+    session_cwd = None
     for i, (name, text) in enumerate(steps):
-        answer = ask(work, text, first=(i == 0))
+        # The reader works inside the project folder. A chapter that starts a new project begins in the umbrella folder.
+        if existing or i > 0:
+            (work / project).mkdir(exist_ok=True)
+            cwd = work / project
+        else:
+            cwd = work
+        answer = ask(cwd, text, first=(cwd != session_cwd))
+        session_cwd = cwd
         if 'session limit' in answer.lower() or 'usage limit' in answer.lower():
             shutil.rmtree(folder, ignore_errors=True)
             print('LIMIT at ch', n, name, flush=True)
             sys.exit(3)
         (folder / f'{name}.txt').write_text(answer, encoding='utf-8')
-    state = work / '.book-tutor-state'
-    meta = {'chapter': n, 'project_unchanged': fingerprint(work) == before,
-            'evidence_records': sorted(p.name for p in state.glob('ch*.json')) if state.exists() else []}
+    state = [p.name for d in (work, work / project) for p in (d / '.book-tutor-state').glob('ch*.json')] if True else []
+    meta = {'chapter': n, 'project_unchanged': fingerprint(work) == before, 'evidence_records': sorted(state)}
     (folder / 'meta.json').write_text(json.dumps(meta, ensure_ascii=False), encoding='utf-8')
     print('done ch', n, time.strftime('%H:%M:%S'), meta, flush=True)

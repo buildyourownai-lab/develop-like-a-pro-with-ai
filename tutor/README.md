@@ -1,5 +1,7 @@
 자료 안내와 튜터 연결 절차는 [Development Lab](https://www.studyailab.com/develop)의 튜터 메뉴에서 시작합니다. 받은 파일의 판본을 확인한 뒤 아래 설치 미리보기를 사용합니다. 설치 도구 재실행은 새 자료 다운로드가 아닙니다.
 
+> 이 문서는 Claude가 읽는 안내입니다. 책 준비편의 요청문 하나로 연결되므로 독자가 직접 입력하지 않아도 됩니다. Windows에서 직접 실행할 때는 `python3` 대신 `python`을 쓰고 경로는 `C:\Users\이름\...` 형식으로 씁니다.
+
 > PART 6 개편판 `part6-services-v1`: 19~20장 댓글 자동화 / 21~22장 주식 대화.
 > 이 저장소는 장별 명세·요청문·튜터 자료를 제공합니다. 프로젝트 연결과 실제 실행 여부는 아래 절차로 따로 확인합니다.
 
@@ -84,9 +86,7 @@ python3 tutor_runtime.py prompt --chapter 11 --project "/실제/ai-stock-briefin
 예시는 설치를 검사했다는 실제 관찰 파일을 등록하는 형태입니다. 예시 파일을 만들어 성공한 척하지 않습니다. 종류·관찰자·대상·실제 결과가 해당 목표의 명세와 맞아야 합니다.
 
 ```sh
-python3 tutor_runtime.py record --chapter 1 --project "/실제/movie-report" \
-  --objective ch01-g01 --kind file-inspection --outcome pass \
-  --artifact docs/check-project.md --environment local --observer assistant
+python3 tutor_runtime.py record --chapter 1 --project "/실제/movie-report" --objective ch01-g01 --kind file-inspection --outcome pass --artifact docs/check-project.md --environment local --observer assistant
 ```
 
 내용과 실제 관찰을 대조한 뒤 `--apply`를 추가하면 로컬 `.book-tutor-state/`에 저장합니다. 증거 내용은 복사하지 않고 파일 위치와 해시를 기록합니다. 실제 비밀값이 들어 있는 파일은 증거로 선택하지 않습니다. `human-observation`은 사람이 확인해 준 결과라는 출처를 유지하며, AI가 직접 봤다고 바꾸지 않습니다.
