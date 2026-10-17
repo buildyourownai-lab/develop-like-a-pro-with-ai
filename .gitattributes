@@ -1,3 +1,6 @@
+# Text files are LF in every checkout, whatever core.autocrlf says (Windows and Mac read the same bytes).
+* text=auto eol=lf
+
 # PART 6 source snapshots are byte-hash verified by tutor/bind_sources.py.
 # Keep their Git bytes unchanged in Windows checkouts with core.autocrlf=true.
 chapters/ch19/source/** -text

@@ -1,0 +1,11 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+# Byte-hash verified source snapshots keep the line endings they were recorded with.
+[chapters/{ch19,ch20,ch21,ch22}/**]
+end_of_line = unset
+charset = unset
