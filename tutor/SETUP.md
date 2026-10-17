@@ -8,7 +8,7 @@ Claude에서는 **Code 탭 또는 Claude Code CLI**에서 작업 폴더를 열�
 
 ## 연결 순서
 
-1. 공식 자료 저장소를 작업 폴더 안의 `book-reference` 폴더에 받습니다. 받기 전에 위치를 사용자에게 보여 주고, 이미 받은 자료가 있으면 그대로 씁니다. 그 안의 `tutor` 폴더에 `install_tutor.py`가 있습니다. 작업 폴더의 경로와 `install_tutor.py`의 위치를 사용자에게 알려 줍니다.
+1. 공식 자료 저장소에서 `tutor` 폴더만 작업 폴더 안의 `book-reference` 폴더에 받습니다. 저장소 전체를 받지 않습니다. `git clone --depth 1 --filter=blob:none --sparse`로 받은 뒤 `git sparse-checkout set tutor`를 쓰면 됩니다. 받기 전에 위치를 사용자에게 보여 주고, 이미 받은 자료가 있으면 그대로 씁니다. 그 안의 `tutor` 폴더에 `install_tutor.py`가 있습니다. 작업 폴더의 경로와 `install_tutor.py`의 위치를 사용자에게 알려 줍니다.
 2. `python3`으로 실행합니다. 안 되면 `python`으로 실행합니다. 둘 다 없으면 설치하지 않고 사용자에게 알립니다.
 3. 먼저 `--apply` 없이 실행해서 만들거나 바꿀 파일 목록을 보여줍니다.
 4. 사용자가 승인하면 같은 명령에 `--apply`를 붙여 실행합니다.

@@ -31,13 +31,11 @@ Claude Desktop에서 Code 탭을 열고 내 컴퓨터의 폴더를 작업 폴더
 ~~~prompt
 이 책의 튜터를 지금 열어 둔 작업 폴더에 연결해줘.
 
-먼저 공식 자료 저장소(https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai)를 받아줘. 이 작업 폴더 안의 book-reference 폴더에 받고, 받기 전에 어디에 받을지 보여줘. 이미 받은 자료가 있으면 그대로 써줘. 받지 못하면 화면에 나온 오류 메시지만 알려줘.
+먼저 공식 자료 저장소(https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai)에서 tutor 폴더만 받아줘. 저장소 전체는 받지 마. 이 작업 폴더 안의 book-reference 폴더에 받고, 받기 전에 어디에 받을지 보여줘. 이미 받은 자료가 있으면 그대로 써줘. 받지 못하면 화면에 나온 오류 메시지만 알려줘.
 
-받은 자료 안의 tutor 폴더에 있는 install_tutor.py로 연결할 거야. 이 작업 폴더의 전체 경로와 install_tutor.py의 위치를 알려줘.
+받은 tutor 폴더의 설치 도우미(install_tutor.py)로 연결해줘. 지금 쓰고 있는 AI 하나만 연결해줘. Python이 없으면 설치하지 말고 알려줘.
 
-지금 쓰고 있는 AI 하나만 연결해줘. Claude면 --tool claude를, Codex면 --tool codex를 붙여줘. python3 명령이 안 되면 python으로 해줘. 둘 다 없으면 설치하지 말고 알려줘.
-
-install_tutor.py를 --apply 없이 먼저 실행해서 만들거나 바꿀 파일 목록을 보여줘. 변경은 이 작업 폴더 안에서만 해줘. 내가 승인한 뒤에만 연결해줘.
+먼저 만들거나 바꿀 파일 목록만 보여줘. 변경은 이 작업 폴더 안에서만 해줘. 내가 승인한 뒤에만 연결해줘.
 
 기존 지침, 다른 AI 설정, 실습 코드, 진도는 그대로 둬. 예제 프로그램이나 Hook은 실행하지 마. 실습 결과물을 미리 만들거나 완성본으로 덮어쓰지 마.
 
@@ -65,13 +63,11 @@ book-tutor의 연결 상태를 확인해줘. 현재 작업 폴더, 튜터 규칙
 ## 선택: 공개 자료 조회를 연결합니다
 
 ~~~prompt
-Study AI Lab MCP를 이 작업 폴더에 연결해줘.
+Study AI Lab MCP를 이 작업 폴더에 연결해줘. 서버 주소는 https://mcp.studyailab.com 이야.
 
-먼저 이미 연결돼 있는지 확인해줘. Claude면 claude mcp get studyailab을, Codex면 codex mcp list를 실행해줘. 연결돼 있으면 그대로 쓰고 새로 만들지 마. 같은 이름의 다른 서버가 있으면 덮어쓰지 말고 알려줘.
+먼저 이미 연결돼 있는지 확인해줘. 연결돼 있으면 그대로 쓰고 새로 만들지 마. 같은 이름의 다른 서버가 있으면 덮어쓰지 말고 알려줘.
 
-연결돼 있지 않으면 아래 명령을 실행할 계획을 먼저 보여줘. 내가 승인한 뒤에만 실행해줘.
-Claude: claude mcp add --scope local --transport http studyailab https://mcp.studyailab.com
-Codex: codex mcp add studyailab --url https://mcp.studyailab.com
+연결돼 있지 않으면 이름을 studyailab으로 하고, 이 작업 폴더에서만 쓰는 연결로 등록할 계획을 먼저 보여줘. 내가 승인한 뒤에만 등록해줘.
 
 개인 파일, 키, 진도는 MCP로 보내지 마. 내 컴퓨터나 프로그램이 되는지 안 되는지는 네가 판단해서 말하지 마. 막히면 화면에 나온 오류 메시지만 그대로 알려줘.
 
