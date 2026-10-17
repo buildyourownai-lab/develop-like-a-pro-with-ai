@@ -132,6 +132,8 @@ def hint(c:dict,topic:str|None,level:int)->dict:
  if level not in {1,2,3,4}:raise ValueError('단계는1~3, 명시한 정답은4입니다.')
  return {'id':h['id'],'level':level,'text':h['levels'][level-1] if level<4 else h['solution'],'modifies_project':False}
 def main(argv:list[str]|None=None)->int:
+ for s in (sys.stdout,sys.stderr):
+  if hasattr(s,'reconfigure'):s.reconfigure(encoding='utf-8')  # cp1252/cp949 consoles cannot print Korean
  a=argparse.ArgumentParser(description=__doc__);sub=a.add_subparsers(dest='command',required=True)
  for cmd in ['start','progress','next','verify','prompt-list','prompt']:
   p=sub.add_parser(cmd);p.add_argument('--chapter',type=int,required=True);p.add_argument('--project',required=True)

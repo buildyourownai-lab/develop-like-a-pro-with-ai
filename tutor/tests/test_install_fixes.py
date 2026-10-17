@@ -116,6 +116,13 @@ class InstallFixes(unittest.TestCase):
         self.assertFalse((d / 'skills').exists())
         self.assertFalse((self.project / 'CLAUDE.local.md').exists())
 
+    def test_runtime_prints_korean_on_a_cp1252_console(self):
+        import os, subprocess
+        script = str(Path(ins.__file__).resolve().parent / 'tutor_runtime.py')
+        env = {**os.environ, 'PYTHONIOENCODING': 'cp1252'}
+        done = subprocess.run([sys.executable, script, 'hint', '--chapter', '3'], capture_output=True, env=env, cwd=self.project)
+        self.assertEqual(done.returncode, 0, done.stderr[-200:])
+
     def test_runtime_works_however_it_is_launched(self):
         import subprocess
         script = str(Path(ins.__file__).resolve().parent / 'tutor_runtime.py')
