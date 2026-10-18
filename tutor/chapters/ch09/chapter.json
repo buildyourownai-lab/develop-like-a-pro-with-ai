@@ -5,7 +5,7 @@
   "number": 9,
   "title": "9장. 국내 증시와 궁금한 종목을 한눈에 봅니다",
   "manuscript": "book/14-chapter-09.md",
-  "manuscript_sha256": "35f22b101dc1446212fbcf7f698514f4667d86a00802d3ad0dc76527c2ad6d0b",
+  "manuscript_sha256": "a663cfe6b64afb587cac55ca113e775ab68e58486f407c6703c31b1e6ef5263c",
   "outcome": "공식 시세로 시장과 종목·차트 화면을 만듭니다.",
   "project": "ai-stock-briefing",
   "start_state": "별도 주식 프로젝트를 시작하며 아파트 결과물은 그대로 둡니다.",
