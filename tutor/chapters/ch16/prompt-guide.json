@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": 16,
   "project": "ai-shorts-maker",
-  "manuscript_sha256": "1060789be763598d96bd4cc00b2ca24095c2993d624803bbc7d48cde2290969b",
+  "manuscript_sha256": "40057f6062dc826ce2d51bc96cdbfbd8fc1aa0939d085232933d429c31174f5d",
   "entries": [
     {
       "id": "P16-01",
@@ -161,7 +161,7 @@
       "id": "P16-11",
       "source": "prompts.md",
       "block_index": 11,
-      "sha256": "2a033d82b7048352b25e045b5e5b6311f4a670c8c88bfbbc5324c18e34720886",
+      "sha256": "a150b7792992064b42179056da8c9aa79200c14cbbd796d4917b36d70de2450b",
       "title": "10. 커버를 고르고 다음 제작에 쓸 기록을 남깁니다",
       "target": "coding-assistant",
       "kind": "main",
