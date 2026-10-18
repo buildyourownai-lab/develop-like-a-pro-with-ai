@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": 9,
   "project": "ai-stock-briefing",
-  "manuscript_sha256": "a663cfe6b64afb587cac55ca113e775ab68e58486f407c6703c31b1e6ef5263c",
+  "manuscript_sha256": "84ec474d1f19848d86275719e2bb433bf23ff19ea60f49e7274ac75746089af7",
   "entries": [
     {
       "id": "P09-01",
@@ -21,13 +21,13 @@
       "id": "P09-02",
       "source": "prompts.md",
       "block_index": 2,
-      "sha256": "c38f8ecf6208b67d309ab717de95f1e102105032d3d114eda74cf2659b7e9111",
+      "sha256": "d9f0a8024f5d634d29c343ee2ecbebd296213700ff6edb197d4bf6aa99f73f60",
       "title": "새 프로젝트를 시작합니다",
       "target": "coding-assistant",
       "kind": "main",
       "when": "별도의 주식서비스 프로젝트와 기본 개발 환경을 시작할 때",
       "before": "독자가 ai-stock-briefing 폴더를 만들고 Code 탭 로컬 작업 폴더로 선택했는지 확인합니다. apartment-explorer는 그대로 보존합니다.",
-      "after": "TypeScript·Next.js 구조와 Git·비공개 저장소, 검사한 첫 정상 기록의 원격 전송을 확인합니다. 주식 기능은 아직 만들지 않습니다.",
+      "after": "TypeScript·Next.js 구조, AI가 고른 공식 지원 lint 도구와 이유·검사 범위, 설치 뒤 의존성 보안 점검·lint·타입·build의 실제 종료 결과를 확인합니다. 검사 도구 때문에 높은 위험이 남으면 공식 지원하는 다른 호환 구성을 먼저 검토하고, 바꾼 이유·검사 범위·달라지는 규칙을 설명한 뒤 검사를 전부 다시 실행합니다. 안전한 대안이 없거나 위험·실패가 그대로 남을 때만 첫 정상 기록과 원격 전송을 하지 않고 멈춥니다. 통과한 뒤에만 Git·비공개 저장소와 첫 정상 기록의 원격 전송을 확인합니다. 주식 기능은 아직 만들지 않습니다.",
       "objective_ids": [
         "ch09-g01"
       ]
