@@ -40,8 +40,9 @@ https://www.studyailab.com
 | 막혔을 때 | 상황별 도움과 단계별 힌트 | 다음 행동이 막힐 때 |
 | 소스·검증 | 해당 장의 완성 소스와 저자의 확인 기록 | 결과를 비교하거나 복구할 때 |
 
-부록과 문서 골격은 **자료실**, 튜터 설치·사용법은 **튜터 안내**, 변경 사항은
-**업데이트**에서 찾습니다. 실행 파일과 소스는 사이트가 연결한 저장소에서 받습니다.
+부록과 문서 골격은 **자료실**, 연결·학습 도움은 **[MCP](https://www.studyailab.com/develop/mcp)**, 변경 사항은
+**업데이트**에서 찾습니다. 튜터 기능은 Study AI Lab MCP에서 함께 사용하며 별도 튜터를 설치하지 않습니다.
+실행 파일과 소스는 사이트가 연결한 저장소에서 받습니다.
 책을 따라가기 위해 저장소의 폴더 구조를 먼저 외울 필요는 없습니다.
 
 ![화면 A-2 | 1장 자료 폴더 --- GitHub 본문의 `develop-like-a-pro-with-ai/chapters/ch01` 경로와 Source·README·요청문을 함께 확인합니다.](https://www.studyailab.com/develop/guides/appendix-a/screen-a-02-chapter-folder.png)
