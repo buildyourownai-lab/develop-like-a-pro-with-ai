@@ -245,7 +245,7 @@ class SupportTests(unittest.TestCase):
                 assemble_chunks(bad, "r1", digest(b"".join(data)), offset)
 
     def test_real_remote_sdk_chunk_snapshot_and_tampering(self):
-        fixture = json.loads((Path(__file__).parent / "remote-contract-chunks.json").read_text())
+        fixture = json.loads((Path(__file__).parent / "remote-contract-chunks.json").read_text(encoding="utf-8"))
         metadata, chunks = fixture["metadata"], fixture["chunks"]
         raw = assemble_chunks(chunks, metadata["content_revision"], metadata["data"]["byte_sha256"], metadata["data"]["byte_length"])
         self.assertEqual(json.loads(raw)["chapter_id"], "01")
@@ -263,7 +263,7 @@ class SupportTests(unittest.TestCase):
 
     def test_utf8_base64_and_mixed_wire_chunks_reconstruct_identical_bytes(self):
         import base64
-        fixture = json.loads((Path(__file__).parent / "remote-contract-chunks.json").read_text())
+        fixture = json.loads((Path(__file__).parent / "remote-contract-chunks.json").read_text(encoding="utf-8"))
         metadata, binary = fixture["metadata"], fixture["chunks"]
         utf8 = copy.deepcopy(binary)
         for envelope in utf8:

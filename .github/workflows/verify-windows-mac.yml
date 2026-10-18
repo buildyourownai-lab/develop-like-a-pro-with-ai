@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - ".github/workflows/verify-windows-mac.yml"
+      - "support/**"
       - "tutor/**"
       - "chapters/**"
       - "chapters/getting-started/**"
@@ -13,22 +14,53 @@ defaults:
   run:
     shell: bash
 jobs:
+  support:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      # Invocation-scoped Git config for every git process in this job (including checkout); no global/system config is modified.
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: core.longpaths
+      GIT_CONFIG_VALUE_0: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Support offline unit tests
+        run: |
+          rc=0
+          python -m unittest discover -s support/tests -v > support-test.log 2>&1 || rc=$?
+          tail -n 40 support-test.log
+          [ $rc -eq 0 ] || exit $rc
+          echo "::notice title=RESULT support ${{ matrix.os }}::offline support unit tests passed"
   tutor:
     strategy:
       fail-fast: false
       matrix:
         os: [windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
+    env:
+      # Invocation-scoped Git config for every git process in this job (including checkout); no global/system config is modified.
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: core.longpaths
+      GIT_CONFIG_VALUE_0: "true"
     steps:
-      - run: git config --global core.longpaths true
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: Tutor unit tests and contract audit
         run: |
           cd tutor
-          python -m unittest discover -s tests 2>&1 | tail -n 4
-          python tutor_runtime.py audit-contracts | tail -n 4
+          rc=0
+          python -m unittest discover -s tests > unit.log 2>&1 || rc=$?
+          tail -n 4 unit.log
+          [ $rc -eq 0 ] || exit $rc
+          python tutor_runtime.py audit-contracts > audit.log 2>&1 || rc=$?
+          tail -n 4 audit.log
+          [ $rc -eq 0 ] || exit $rc
       - name: Installer smoke (omit --tool, apply twice)
         run: |
           mkdir -p "$RUNNER_TEMP/work"
@@ -45,8 +77,12 @@ jobs:
         os: [windows-latest, macos-latest]
         chapter: ["02", "03", "04", "05", "16", "17", "18"]
     runs-on: ${{ matrix.os }}
+    env:
+      # Invocation-scoped Git config for every git process in this job (including checkout); no global/system config is modified.
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: core.longpaths
+      GIT_CONFIG_VALUE_0: "true"
     steps:
-      - run: git config --global core.longpaths true
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
@@ -72,8 +108,12 @@ jobs:
         os: [windows-latest, macos-latest]
         chapter: ["06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "19", "20", "21", "22"]
     runs-on: ${{ matrix.os }}
+    env:
+      # Invocation-scoped Git config for every git process in this job (including checkout); no global/system config is modified.
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: core.longpaths
+      GIT_CONFIG_VALUE_0: "true"
     steps:
-      - run: git config --global core.longpaths true
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
@@ -87,4 +127,4 @@ jobs:
           if [ -f .env.local.example ]; then sed -E 's/^([A-Za-z_0-9]+)=$/\1=dummy-key-for-ci/' .env.local.example > .env.local; fi
           rc=0; npm test > test.log 2>&1 || rc=$?
           last=$(grep -E "Tests +[0-9]|passed|failed|pass [0-9]|fail [0-9]" test.log | tail -n 2 | tr '\n' ' ')
-          if [ $rc -ne 0 ]; then echo "::warning title=TESTS ch${{ matrix.chapter }} ${{ matrix.os }}::$tc; tests failed: $last :: $(grep -E 'FAIL|Error' test.log | head -n 8 | tr -d '\r' | tr '\n' '|' | cut -c1-1500)"; else echo "::notice title=RESULT ch${{ matrix.chapter }} ${{ matrix.os }}::$tc; $last"; fi
+          if [ $rc -ne 0 ]; then echo "::error title=TESTS ch${{ matrix.chapter }} ${{ matrix.os }}::$tc; tests failed: $last :: $(grep -E 'FAIL|Error' test.log | head -n 8 | tr -d '\r' | tr '\n' '|' | cut -c1-1500)"; exit $rc; else echo "::notice title=RESULT ch${{ matrix.chapter }} ${{ matrix.os }}::$tc; $last"; fi
