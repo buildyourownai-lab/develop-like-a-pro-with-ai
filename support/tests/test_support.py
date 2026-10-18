@@ -261,6 +261,39 @@ class SupportTests(unittest.TestCase):
             with self.subTest(key=key), self.assertRaises(Invalid):
                 assemble_chunks(bad, metadata["content_revision"], metadata["data"]["byte_sha256"], metadata["data"]["byte_length"])
 
+    def test_verify_chunks_cli_accepts_saved_raw_responses_and_rejects_tampering(self):
+        import contextlib
+        import io
+        spec = importlib.util.spec_from_file_location("studyailab_cli", Path(__file__).resolve().parents[1] / "studyailab.py")
+        cli = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cli)
+        fixture = json.loads((Path(__file__).parent / "remote-contract-chunks.json").read_text(encoding="utf-8"))
+
+        def run(meta, chunks):
+            files = []
+            for name, value in [("meta.json", meta)] + [(f"c{i}.json", c) for i, c in enumerate(chunks)]:
+                (self.base / name).write_text(json.dumps(value, ensure_ascii=False), encoding="utf-8")
+                files.append(str(self.base / name))
+            raw, err = io.BytesIO(), io.StringIO()
+            out = io.TextIOWrapper(raw, encoding="utf-8")
+            with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
+                code = cli.main(["verify-chunks", "--metadata", files[0], "--chunks", *files[1:]])
+            out.flush()
+            return code, raw.getvalue().decode("utf-8")
+
+        code, out = run(fixture["metadata"], fixture["chunks"])
+        self.assertEqual(code, 0)
+        result = json.loads(out)
+        self.assertEqual((result["status"], result["byte_length"]), ("verified_chunks", 12291))
+        self.assertEqual(json.loads(result["contract_text"])["chapter_id"], "01")
+        bad = copy.deepcopy(fixture["chunks"])
+        bad[1]["data"]["chunk_sha256"] = "0" * 64
+        self.assertEqual(run(fixture["metadata"], bad)[0], 2)
+        self.assertEqual(run(fixture["metadata"], fixture["chunks"][:1])[0], 2)
+        bad = copy.deepcopy(fixture["chunks"])
+        bad[1]["bundle_sha256"] = "f" * 64
+        self.assertEqual(run(fixture["metadata"], bad)[0], 2)
+
     def test_utf8_base64_and_mixed_wire_chunks_reconstruct_identical_bytes(self):
         import base64
         fixture = json.loads((Path(__file__).parent / "remote-contract-chunks.json").read_text(encoding="utf-8"))

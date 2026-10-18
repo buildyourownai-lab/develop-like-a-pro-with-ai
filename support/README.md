@@ -21,7 +21,7 @@ python3 support/studyailab.py doctor --bundle <manifest.json> --book develop --e
 python3 support/studyailab.py prompt --bundle <manifest.json> --book develop --edition development-2026 --chapter 01 --prompt-id P01-02
 ```
 
-명령은 doctor, verify-bundle, inspect, prompt, hint, progress, record입니다. 책·판본·고정 manifest를 명시합니다. 조회는 상태를 만들거나 요청문을 실행하지 않습니다. 힌트4단계는 `--explicit-solution`으로 해답을 명시 요청해야 합니다.
+명령은 doctor, verify-bundle, verify-chunks, inspect, prompt, hint, progress, record입니다. `verify-chunks --metadata <chunked 응답 파일> --chunks <조각 응답 파일들>`은 MCP가 조각으로 돌려준 계약을 저장한 원본 응답으로 조각별 길이/SHA-256과 전체 UTF-8 길이/SHA-256을 대조하며(프로젝트·네트워크 접근 없음), 개발 AI는 통과한 `contract_text`만 사용합니다. 책·판본·고정 manifest를 명시합니다. 조회는 상태를 만들거나 요청문을 실행하지 않습니다. 힌트4단계는 `--explicit-solution`으로 해답을 명시 요청해야 합니다.
 
 record는 프로젝트 안의 비밀값을 제거한 관측 JSON을 읽고 기본적으로 미리보기만 합니다. 독자가 저장을 요청한 경우 `--apply`로 `.studyailab`에 추가합니다. 기존 관측을 덮어쓰지 않으며 복사·이동된 프로젝트의 위치 결합이 맞지 않으면 거부합니다. 실제 이동을 요청한 경우에만 `record --rebind`로 새 위치 결합을 미리 보고 `--apply`로 저장합니다. 이전 결합은 이력에 남으며 예전 실행 승인을 새 대화나 프로젝트로 옮기지 않습니다.
 
