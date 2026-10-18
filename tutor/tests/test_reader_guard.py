@@ -1,4 +1,4 @@
-"""Permanent guards: reader wording, encoding safety and tutor/MCP separation.
+"""Permanent guards: reader wording, encoding safety and legacy installer boundaries.
 
 These fail when a change reintroduces the kinds of problems that reached readers:
 technical options or environment-status wording in the setup requests, text file
@@ -14,7 +14,7 @@ import install_tutor as ins
 
 TUTOR = Path(__file__).resolve().parents[1]
 ROOT = TUTOR.parent
-BANNED = re.compile(r'Windows|macOS|검증|지원 환경|지원하는 환경|지원 목록|미확인|SHA|해시')
+BANNED = re.compile(r'Windows|macOS|검증 완료|지원 환경|지원하는 환경|지원 목록|SHA|해시')
 TECH = re.compile(r'--tool|--apply|--depth|--sparse|filter=blob|python3|sparse-checkout')
 
 
@@ -27,16 +27,43 @@ class ReaderWording(unittest.TestCase):
     def test_setup_requests_have_no_technical_options_or_status_wording(self):
         prompts = prep_prompts()
         self.assertGreaterEqual(len(prompts), 8)
-        for index in (4, 7):  # P-PREP-05 (tutor), P-PREP-08 (MCP)
+        for index in (4, 7):  # P-PREP-05 (single MCP), P-PREP-08 (local support)
             self.assertIsNone(TECH.search(prompts[index]), f'technical option in prompt {index + 1}')
             self.assertIsNone(BANNED.search(prompts[index]), f'status wording in prompt {index + 1}')
 
-    def test_tutor_request_never_mentions_mcp(self):
-        self.assertNotIn('MCP', prep_prompts()[4])
+    def test_single_mcp_connection_preserves_scope_and_secrets(self):
+        prompt = prep_prompts()[4]
+        self.assertIn('Study AI Lab MCP', prompt)
+        self.assertIn('https://mcp.studyailab.com', prompt)
+        for safeguard in ('같은 공식 주소가 있으면 재사용', '이 작업 폴더에만',
+                          '내가 승인한 뒤에만', '덮어쓰지 말고',
+                          '별도 튜터나 Skill을 설치하거나 예제 프로그램을 실행하지 마', '원격으로 보내지 마'):
+            self.assertIn(safeguard, prompt)
 
-    def test_setup_guide_the_ai_reads_has_no_status_wording(self):
+    def test_local_support_checks_integrity_and_requires_approval(self):
+        prompt = prep_prompts()[7]
+        for safeguard in ('/develop/mcp#support-files', '파일 검증에 실패하면 실행하지 말고',
+                          '내가 승인한 뒤에만', '덮어쓰지 말고',
+                          '별도 튜터나 Skill을 설치하지 마', '실제 파일 상태를 다시 점검', '완료로 기록하거나'):
+            self.assertIn(safeguard, prompt)
+
+    def test_missing_python_does_not_reinstall_or_block_public_lookup(self):
+        connect, support = prep_prompts()[4], prep_prompts()[7]
+        self.assertIn('Python이 없어도 자료 연결은 확인', connect)
+        self.assertIn('없다면 설치를 시작하지 말고', support)
+        self.assertIn('공개 자료 조회는 계속', support)
+
+    def test_setup_guide_uses_one_product_and_preserves_unverified_boundaries(self):
         text = (TUTOR / 'SETUP.md').read_text(encoding='utf-8')
-        self.assertIsNone(re.search(r'Windows 검증|macOS|지원 환경|미확인|SHA|MCP', text))
+        for boundary in ('https://mcp.studyailab.com', '/develop/mcp#connect',
+                         '/develop/mcp#support-files', '개인·조직 전체 설정으로 임의 변경하지',
+                         '파일 검증에 실패한 코드를 실행하지', '조회나 미리보기만으로 진도를 저장하지',
+                         '이전 진도를 추측하지', '별도 튜터나 필수 Skill을 설치하거나 두 번째 MCP를 등록하지'):
+            self.assertIn(boundary, text)
+        self.assertNotIn('install_tutor.py', text)
+        self.assertNotIn('claude --permission-mode', text)
+        self.assertIn('Claude Desktop Code 탭의 실제 지원·Windows 동작', text)
+        self.assertIn('완료를 뜻하지 않습니다', text)
 
     def test_installed_skill_never_tells_readers_unconfirmed(self):
         skill = ins.content('claude')

@@ -1,5 +1,11 @@
 # 6장. 아파트 실거래가와 위치 정보를 가져옵니다
 
+## 이 장을 시작할 때
+
+[Study AI Lab MCP 연결](https://www.studyailab.com/develop/mcp#connect) 후 개발 AI에게 **“6장 시작해”**라고 요청하세요. 별도 튜터 설치는 필요하지 않습니다. AI가 현재 장·판본·작업 폴더를 확인하고 다음 행동 하나를 안내합니다. 책 작업 공간에 `apartment-explorer`를 만들고 공식 데이터·API 준비부터 진행합니다. 앞 PART의 `movie-report`는 보존합니다.
+
+요청문·힌트 조회는 실행이나 완료 확인과 다릅니다. 실제 작업과 진도는 내 컴퓨터에서 확인하며, 필요한 [로컬 지원 파일](https://www.studyailab.com/develop/mcp#support-files)의 명령 옵션은 AI가 처리합니다. 아래 기존 검증 기록은 새 MCP 경로의 장별 전체 재현 완료를 뜻하지 않습니다.
+
 ## 이 장에서 만드는 것
 
 PART 2에서 만들 아파트 찾기 서비스의 재료를 준비합니다. 공식 기관과 지도 서비스가
