@@ -5,33 +5,25 @@
   "number": 17,
   "title": "17장. 올리기 전에 AI가 영상을 검사합니다",
   "manuscript": "book/24-chapter-17.md",
-  "manuscript_sha256": "977c47a500cc5e547976dcf65d6531d3bb628b44f8479cbb6defe1acf7e0011b",
-  "outcome": "검사 Skill이 정상 원본과 명백한 손상 사본을 구별함을 확인합니다.",
+  "manuscript_sha256": "c580d003d9d449031e97aaf793eeb339ff0a524aceefeeedac1ad3630b2d2137",
+  "outcome": "정상 원본과 손상 사본을 같은 기준으로 검사하고 전편 확인 근거와 함께 다음 장에 인계합니다.",
   "project": "ai-shorts-maker",
   "start_state": "16장의 최종 MP4와 제작 기록이 있습니다.",
   "previously_completed_features": "제작 Skill·승인된 영상",
-  "required_services": [
-    "gemini"
-  ],
-  "required_accounts_permissions": [
-    {
-      "service": "gemini",
-      "details": "../../services/gemini.json",
-      "readiness": "must_be_observed_not_assumed"
-    }
-  ],
+  "required_services": [],
+  "required_accounts_permissions": [],
   "tools_and_packages": [
     "Python",
     "FFmpeg",
     "video-upload-review"
   ],
-  "new_features": "프로그램 검사·화면 판단·prototypes/youtube-shorts/chapter-17/review-policy.json 기록·의도적 불량 검출",
+  "new_features": "현재 파일 고정, 기술·화면·동작·음성 검수, 정상·손상·정상 검사와18장 인계",
   "out_of_scope": "손상 사본을 자동 수정하거나 어느 영상도 자동 게시하지 않습니다.",
   "objectives": [
     {
       "id": "ch17-g01",
       "title": "검사 기준",
-      "criterion": "길이·비율·음성·검은 화면·자막 기준 정의",
+      "criterion": "대상 파일과 의도한 언어·길이·비율 및 기술·화면·동작·음성·사람 확인 기준 정의",
       "required": true,
       "depends_on": [],
       "evidence_types": [
@@ -41,13 +33,13 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "길이·비율·음성·검은 화면·자막 기준 정의. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "대상 파일과 의도한 언어·길이·비율 및 기술·화면·동작·음성·사람 확인 기준 정의. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
       "id": "ch17-g02",
       "title": "Skill 준비",
-      "criterion": "검사 전용 video-upload-review 확인",
+      "criterion": "검사 전용 video-upload-review의 수행 가능 범위와 미실시 처리 확인",
       "required": true,
       "depends_on": [
         "ch17-g01"
@@ -59,32 +51,33 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "검사 전용 video-upload-review 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "검사 전용 video-upload-review의 수행 가능 범위와 미실시 처리 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
       "id": "ch17-g03",
       "title": "정상 검사",
-      "criterion": "정상 원본 UPLOAD READY와 근거 확인",
+      "criterion": "정상 원본의 실제 기술·화면·동작·음성·사람 확인 근거와 판정 확인",
       "required": true,
       "depends_on": [
         "ch17-g02"
       ],
       "evidence_types": [
-        "test-run"
+        "test-run",
+        "human-observation"
       ],
       "expected_outcome": "pass",
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "정상 원본 UPLOAD READY와 근거 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다. 이 목표는 당시 단계의 수행 기록입니다. 이후 의도한 수정·복구·공개 전환으로 현재 상태가 달라졌다고 당시 관찰을 지우지 않습니다. 기록의 원본·대상·시점은 보존하고 최종 정상 상태는 별도 목표에서 확인합니다.",
+      "verify_instructions": "정상 원본의 실제 기술·화면·동작·음성·사람 확인 근거와 판정 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false,
       "evidence_semantics": "historical_learning_event"
     },
     {
       "id": "ch17-g04",
       "title": "사본 분리",
-      "criterion": "원본 보존 후 의도적 손상 사본 생성",
+      "criterion": "원본 해시를 보존하고 오디오 제거·긴 검은 구간·큰 잘림의 별도 손상 사본 세 개 생성",
       "required": true,
       "depends_on": [
         "ch17-g03"
@@ -96,13 +89,13 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "원본 보존 후 의도적 손상 사본 생성. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "원본 해시를 보존하고 오디오 제거·긴 검은 구간·큰 잘림의 별도 손상 사본 세 개 생성. 파일명으로 실패 처리하지 말고 실제 파일·정책·해시와 검출 항목을 확인한다. 미실시를 통과로 하지 않는다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
       "id": "ch17-g05",
       "title": "불량 검출",
-      "criterion": "사본 NOT READY와 실패 근거 확인",
+      "criterion": "같은 정책으로 세 사본 각각의 NOT READY와 의도한 결함의 실제 검출 근거 확인",
       "required": true,
       "depends_on": [
         "ch17-g04"
@@ -114,32 +107,33 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "사본 NOT READY와 실패 근거 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다. 이 목표는 당시 단계의 수행 기록입니다. 이후 의도한 수정·복구·공개 전환으로 현재 상태가 달라졌다고 당시 관찰을 지우지 않습니다. 기록의 원본·대상·시점은 보존하고 최종 정상 상태는 별도 목표에서 확인합니다.",
+      "verify_instructions": "같은 정책으로 세 사본 각각의 NOT READY와 의도한 결함의 실제 검출 근거 확인. 파일명으로 실패 처리하지 말고 실제 파일·정책·해시와 검출 항목을 확인한다. 미실시를 통과로 하지 않는다.",
       "external_side_effects_authorized_by_verify": false,
       "evidence_semantics": "historical_learning_event"
     },
     {
       "id": "ch17-g06",
       "title": "원본 재검사",
-      "criterion": "같은 기준으로 원본 다시 UPLOAD READY",
+      "criterion": "원본을 같은 기준으로 재검사하고 현재 파일 해시·사람 확인과18장 인계 근거 고정",
       "required": true,
       "depends_on": [
         "ch17-g05"
       ],
       "evidence_types": [
-        "test-run"
+        "test-run",
+        "human-observation"
       ],
       "expected_outcome": "pass",
       "scope": "project-and-artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "같은 기준으로 원본 다시 UPLOAD READY. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "원본을 같은 기준으로 재검사하고 현재 파일 해시·사람 확인과18장 인계 근거 고정. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     }
   ],
-  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "completion_rule": "All required objectives have accepted, current evidence; missing playback/listening remains unverified; preserve expected failure evidence; never auto-edit to pass.",
   "handoff": "18장으로 현재 프로젝트와 확인한 기록을 이어감",
-  "intentional_failure_policy": "NOT READY가 목표인 사본이 있습니다. 정상·손상 입력의 ID와 검사 기준을 동일하게 유지합니다. 대표 화면 확인만으로 전체 재생을 대신하지 않습니다.",
+  "intentional_failure_policy": "정상·손상·정상 순서로 검사합니다. 손상 NOT READY는 의도한 학습 결과입니다. 원본·손상 파일·정책·대표 화면 해시와 시점을 구분하고 기준을 낮추거나 자동 수정·게시하지 않습니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch17",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
   "hint_topics": [
@@ -162,19 +156,39 @@
         "자막 가독성·대상 잘림·연속 동작은 어디서 확인했는지 봅니다."
       ],
       "solution": "자동·화면·사람 전체 재생 결과를 구분해 남깁니다. 하나라도 확인 못 했으면 업로드 준비 완료로 확대하지 않습니다."
-    }
-  ],
-  "required_credentials": [
+    },
     {
-      "provider": "gemini",
-      "kind": "api-key-or-server-connection",
-      "new_in_this_project": false,
-      "do_not_repeat_existing_setup": true,
-      "actual_value": "never_store_here",
-      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
-      "official_procedure": "../../services/gemini.md"
+      "id": "H17-03",
+      "symptom": "움직이는 설명선이나 라벨이 어긋남",
+      "levels": [
+        "문제 컷과 시간을 특정합니다.",
+        "대상 앵커·선·문구·화살표를 분리해 봅니다.",
+        "시작·중간·끝과 가림 전후를 실제 재생하며 추적점·화살촉·라벨 충돌을 확인합니다."
+      ],
+      "solution": "영상 자체가 정상이면 설명 레이어만 수정하고 영향 구간과 전편을 다시 확인합니다."
+    },
+    {
+      "id": "H17-04",
+      "symptom": "소리 검사는 통과했는데 말투가 다름",
+      "levels": [
+        "소리 신호 검사와 실제 말 확인을 구분합니다.",
+        "대본과 실제 음성의 종결·발음·누락을 비교합니다.",
+        "장면별 실제 WAV를 듣고 합성본에서 배경음·생성 목소리 겹침도 확인합니다."
+      ],
+      "solution": "잘못된 음성·믹스 층만 수정하고 새 파일 해시로 검수합니다. 실제 청취가 없으면 미실시로 남깁니다."
+    },
+    {
+      "id": "H17-05",
+      "symptom": "수정본에 이전 PASS가 남음",
+      "levels": [
+        "현재 파일 해시와 검사 대상 해시를 비교합니다.",
+        "수정된 영상·음성·자막·믹스 층을 찾습니다.",
+        "새 파일에 필요한 회귀검사와 사람 전편 확인 기록을 대조합니다."
+      ],
+      "solution": "과거 결과는 보존하되 현재 파일의 통과 근거로 복사하지 않습니다. 빠진 확인부터 수행합니다."
     }
   ],
+  "required_credentials": [],
   "oauth_scope_requirements": [],
   "special_expected_states": [
     "정상 원본은 UPLOAD READY, 손상 사본은 NOT READY를 기대한다."
@@ -190,5 +204,7 @@
     "pixel_identity_required": false,
     "preload_future_features": false,
     "new_ui_in_this_chapter": false
-  }
+  },
+  "contract_revision": "rocket-workflow-2026-10-18",
+  "runtime_alignment_note": "복수 evidence_types는 AND 게이트가 아니다. g03/g06 통합 보고서의 기술·화면·동작·청취·사람 확인을 각각 수동 검토한 뒤 기록한다. 자동표시로 대체하지 않는다. 새 계약의 구현과 실제 정상/손상/정상 실행은 별도 검증 필요."
 }

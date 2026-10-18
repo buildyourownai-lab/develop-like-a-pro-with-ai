@@ -5,15 +5,14 @@
   "number": 16,
   "title": "16장. AI와 YouTube 영상을 만듭니다",
   "manuscript": "book/23-chapter-16.md",
-  "manuscript_sha256": "f1e8c50907afa2233c923a767d6fade293fc91ce4b93db17d0fe66ba04dc7785",
-  "outcome": "근거와 승인된 장면으로 영상·음성·자막을 완성합니다.",
+  "manuscript_sha256": "1060789be763598d96bd4cc00b2ca24095c2993d624803bbc7d48cde2290969b",
+  "outcome": "선택한 소재의 원화·영상·대본·음성과 동적 설명을 단계별 검수하여 최종 영상을 완성합니다.",
   "project": "ai-shorts-maker",
   "start_state": "주식 프로젝트를 보존하고 별도 ai-shorts-maker 폴더를 만들어 현재 프로젝트로 선택한 뒤 제작 목표를 정할 단계입니다.",
   "previously_completed_features": "공통 요청·검증·Secret·기록 방식",
   "required_services": [
     "gemini",
-    "video-generation",
-    "youtube-audio"
+    "video-generation"
   ],
   "required_accounts_permissions": [
     {
@@ -25,11 +24,6 @@
       "service": "video-generation",
       "details": "../../services/video-generation.json",
       "readiness": "must_be_observed_not_assumed"
-    },
-    {
-      "service": "youtube-audio",
-      "details": "../../services/youtube-audio.json",
-      "readiness": "must_be_observed_not_assumed"
     }
   ],
   "tools_and_packages": [
@@ -37,13 +31,13 @@
     "FFmpeg",
     "영상 뷰어"
   ],
-  "new_features": "조사·시나리오·장면·영상 후보·음성·편집·제작 Skill",
+  "new_features": "언어·소재 선택, 시각적 장면 설계, 기준 이미지, 스토리보드, 영상 연결본 확정, 대본·Charon 음성·동적 설명 합성, 재사용 Skill",
   "out_of_scope": "장면 승인·자료 사용 조건을 건너뛰거나 유료 생성·게시를 임의 실행하지 않습니다.",
   "objectives": [
     {
       "id": "ch16-g01",
       "title": "조사·시나리오",
-      "criterion": "주제 근거와 시나리오를 확인",
+      "criterion": "언어 설정과 독자가 선택한 소재의 근거·한 질문과 결론·시각적 사건을 확인",
       "required": true,
       "depends_on": [],
       "evidence_types": [
@@ -53,13 +47,13 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "주제 근거와 시나리오를 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "언어 설정과 독자가 선택한 소재의 근거·한 질문과 결론·시각적 사건을 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
       "id": "ch16-g02",
       "title": "장면 승인",
-      "criterion": "장면 구성·기준 이미지·후보를 검토",
+      "criterion": "번호별 독립 원화·실제 이미지 대응 스토리보드·영상 후보·연결 편집본의 승인을 확인",
       "required": true,
       "depends_on": [
         "ch16-g01"
@@ -71,16 +65,16 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "장면 구성·기준 이미지·후보를 검토. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "번호별 독립 원화·실제 이미지 대응 스토리보드·영상 후보·연결 편집본의 승인을 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
       "id": "ch16-g03",
       "title": "자료·권리",
-      "criterion": "사용 조건·생성 비용·다운로드 파일 확인",
+      "criterion": "이미지·영상 생성 전 현행 조건과 승인 범위, 이용 조건, 실제 다운로드 자산을 확인",
       "required": true,
       "depends_on": [
-        "ch16-g02"
+        "ch16-g01"
       ],
       "evidence_types": [
         "human-observation"
@@ -89,15 +83,16 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "사용 조건·생성 비용·다운로드 파일 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "이미지·영상 생성 전 현행 조건과 승인 범위, 이용 조건, 실제 다운로드 자산을 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
       "id": "ch16-g04",
       "title": "음성·편집",
-      "criterion": "음성·자막·소리를 조합해 최종 MP4 생성",
+      "criterion": "확정 연결 영상에 맞춘 대본·실제 음성·동적 설명과 소리를 합성해 최종 MP4 생성",
       "required": true,
       "depends_on": [
+        "ch16-g02",
         "ch16-g03"
       ],
       "evidence_types": [
@@ -107,13 +102,13 @@
       "scope": "project-and-artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "음성·자막·소리를 조합해 최종 MP4 생성. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "확정 연결 영상에 맞춘 대본·실제 음성·동적 설명과 소리를 합성해 최종 MP4 생성. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
       "id": "ch16-g05",
       "title": "전체 재생",
-      "criterion": "처음부터 끝까지 영상·음성·자막 확인",
+      "criterion": "전편의 영상·실제 음성·설명 추적과 겹침·마지막 소리를 재생 확인",
       "required": true,
       "depends_on": [
         "ch16-g04"
@@ -125,13 +120,13 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "처음부터 끝까지 영상·음성·자막 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "전편의 영상·실제 음성·설명 추적과 겹침·마지막 소리를 재생 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
       "id": "ch16-g06",
       "title": "제작 재사용",
-      "criterion": "제작 기록과 youtube-shorts-production 저장",
+      "criterion": "제작 Skill과 실제 입력·자산 대응·승인·미확인 사항을 저장하고17장에 인계",
       "required": true,
       "depends_on": [
         "ch16-g05"
@@ -143,13 +138,13 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "제작 기록과 youtube-shorts-production 저장. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "제작 Skill과 실제 입력·자산 대응·승인·미확인 사항을 저장하고17장에 인계. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     }
   ],
-  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "completion_rule": "All required objectives have accepted, current evidence; missing playback/listening remains unverified; preserve expected failure evidence; never auto-edit to pass.",
   "handoff": "17장으로 현재 프로젝트와 확인한 기록을 이어감",
-  "intentional_failure_policy": "생성 후보와 최종 승인본을 구분합니다. 자료 다운로드·생성 비용·크레딧 상한·저작권 조건이 달라지면 멈춰 확인합니다.",
+  "intentional_failure_policy": "생성 전 조건·승인을 확인합니다. 실제 자산과 승인된 결과를 구분하고, 영상 확정→대본 확정→TTS→합성을 지킵니다. 정상 자산은 보존하고 필요한 층만 수정합니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch16",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
   "hint_topics": [
@@ -172,13 +167,63 @@
         "해당 입력 파일과 조립 순서·길이를 대조합니다."
       ],
       "solution": "필요한 요소만 수정해 다시 조립하고 전체 재생합니다. 사용 조건을 확인하지 않은 음악으로 교체하지 않습니다."
+    },
+    {
+      "id": "H16-03",
+      "symptom": "소재를 정하기 전에 생성하려 함",
+      "levels": [
+        "지금 소재가 독자가 선택한 것인지 봅니다.",
+        "언어와 대중적 후보 비교까지만 진행했는지 봅니다.",
+        "후보의 근거·시각적 사건을 비교하고 독자의 선택을 기다립니다."
+      ],
+      "solution": "선택한 소재의 근거와 장면 설계부터 진행합니다. 로켓의16장이나81초를 다른 소재에 그대로 복사하지 않습니다."
+    },
+    {
+      "id": "H16-04",
+      "symptom": "배치 이미지가 콜라주이거나 비슷함",
+      "levels": [
+        "결과가 번호별 독립 이미지인지 봅니다.",
+        "장소·거리·시점·조명·행동이 실제로 다른지 비교합니다.",
+        "장면별 파일 대응과 이미지 프롬프트의 독립 출력 지시를 대조합니다."
+      ],
+      "solution": "필요한 장면만 다시 설계하고 비용·범위 승인 안에서 수정합니다."
+    },
+    {
+      "id": "H16-05",
+      "symptom": "요청한 영상 길이가 지원되지 않음",
+      "levels": [
+        "현재 계정의 실제 지원 길이를 봅니다.",
+        "사용할 편집 구간과 원본 생성 길이를 나눕니다.",
+        "현재 모델·출력 수·차감액을 확인하고 지원 길이 생성 후 트림 계획을 세웁니다."
+      ],
+      "solution": "임의 모델 변경이나 중복 배치 없이 확인된 조건과 기존 승인 범위 안에서 진행합니다."
+    },
+    {
+      "id": "H16-06",
+      "symptom": "TTS 말투나 발음이 어색함",
+      "levels": [
+        "문제 문장과 실제 음성 구간을 찾습니다.",
+        "대본의 존댓말 종결과 실제 발화를 따로 비교합니다.",
+        "영상 확정→대본 확정→TTS 순서와 생성된 WAV의 실제 길이를 확인합니다."
+      ],
+      "solution": "잘못된 음성 구간만 수정하고 실제 청취 후 다시 합성합니다. 자동 전사만으로 통과시키지 않습니다."
+    },
+    {
+      "id": "H16-07",
+      "symptom": "다른 브라우저에서 History가 없음",
+      "levels": [
+        "현재 로그인 프로필과 서비스를 봅니다.",
+        "작업했던 계정·프로젝트가 같은지 확인합니다.",
+        "기존 다운로드와 자산 대응표에서 실제 파일을 찾습니다."
+      ],
+      "solution": "빈 History를 삭제로 단정하지 않습니다. 확인된 기존 자산을 보존하고 승인 없이 재생성하지 않습니다."
     }
   ],
   "required_credentials": [
     {
       "provider": "gemini",
-      "kind": "api-key-or-server-connection",
-      "new_in_this_project": true,
+      "kind": "browser-account-or-explicitly-selected-api",
+      "new_in_this_project": false,
       "do_not_repeat_existing_setup": true,
       "actual_value": "never_store_here",
       "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
@@ -186,21 +231,12 @@
     },
     {
       "provider": "video-generation",
-      "kind": "account",
-      "new_in_this_project": true,
+      "kind": "browser-account-or-explicitly-selected-api",
+      "new_in_this_project": false,
       "do_not_repeat_existing_setup": true,
       "actual_value": "never_store_here",
       "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
       "official_procedure": "../../services/video-generation.md"
-    },
-    {
-      "provider": "youtube-audio",
-      "kind": "account",
-      "new_in_this_project": true,
-      "do_not_repeat_existing_setup": true,
-      "actual_value": "never_store_here",
-      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
-      "official_procedure": "../../services/youtube-audio.md"
     }
   ],
   "oauth_scope_requirements": [],
@@ -216,5 +252,7 @@
     "pixel_identity_required": false,
     "preload_future_features": false,
     "new_ui_in_this_chapter": false
-  }
+  },
+  "contract_revision": "rocket-workflow-2026-10-18",
+  "runtime_alignment_note": "이 명세 변경은 런타임 기능 검증이 아닙니다. 기존 목표 ID와 독자 기록을 보존하고 새 기준과 다른 구현은 별도 재현·검증합니다."
 }

@@ -2,39 +2,14 @@
 
 ## 이 장에서 만드는 것
 
-주제 한 줄에서 시작해 60초에 조금 못 미치는 YouTube Shorts 한 편을 완성합니다. 영상
-편집 프로그램을 배우지 않고, 무엇을 이야기할지와 어떤 소재·음악을 쓸지만 정합니다.
-실제 MP4를 만드는 일은 Claude가 맡습니다.
+선택한 소재의 원화·영상·대본·음성과 동적 설명을 단계별 검수하여 최종 영상을 완성합니다.
 
-```text
-주제를 정한다
-→ 사실을 확인하고 Storyboard를 받는다
-→ 영상 소재와 음악을 고른다
-→ Claude가 MP4를 만든다
-→ 처음부터 끝까지 재생해서 확인한다
-```
+Google의 이미지·영상 생성과 AI Studio 브라우저 음성을 예로, 먼저 시각적으로 다른 원화와 장면별 영상을 만듭니다. 연결 영상을 확인한 다음 실제 길이에 맞춘 대본·Charon 음성과 움직이는 설명을 합성합니다. 언어만 먼저 선택하고 대중적인 소재 후보 중 직접 고릅니다. 로켓의16장·81초는 사례의 결과이며 모든 영상의 필수 조건이 아닙니다. 좋은 원본 효과음과 배경음을 살리고 필요한 부분만 수정합니다.
 
-PART 5는 ai-shorts-maker라는 새 프로젝트에서 시작합니다. 이 장을 끝내면 1080×1920 세로
-화면에 한국어 목소리와 음악, 한글 자막이 들어간 MP4 한 편과, 다음 영상에서 다시 쓰는
-제작 절차 Skill이 생깁니다. 두 번째 영상부터는 이번과 달라질 점만 말하면 됩니다.
+## 프롬프트와 참고 자료
 
-## 프롬프트
+[prompts.md](prompts.md)에 본문 순서의 요청문을 제공합니다. [원화 16장 상세 예시](rocket-image-prompts.md)는 초기 실제 제작 입력과 이후 수정의 차이를 설명합니다. 현재 사용하는 Claude/Codex와 서비스 입력 위치를 구분하세요. 실제 사용 가능한 연결·계정·모델 조건을 확인합니다.
 
-[prompts.md](prompts.md)에 16장에서 입력하는 문장이 책의 순서대로 있습니다. 모두 Claude
-Code에 입력합니다.
+기존 [Source](source/ai-shorts-maker/)는 이전 제작 경로의 참고 자료입니다. 현재 로켓 제작·검수의 새 완성 구현이나 실제 재현 증거를 뜻하지 않습니다. 현재 프로젝트를 보존하고 [튜터 명세](../../tutor/chapters/ch16/README.md)와 제공 자료의 확보 상태를 확인하세요.
 
-## 장별 Source
-
-16장을 끝낸 상태는 [source/ai-shorts-maker/](source/ai-shorts-maker/)에 있습니다. 정상
-흐름에서 먼저 열어보는 정답지가 아니라, 아래 복구 방법으로도 해결하지 못했을 때 쓰는
-마지막 수단입니다. 이 Source로 다시 시작하면 16장의 남은 실습을 건너뛰고 17장부터
-이어가게 됩니다. PART 5(16~18장)를 모두 끝낸 완성 상태는
-[ch18/source/ai-shorts-maker/](../ch18/source/ai-shorts-maker/)에 있습니다.
-
-## 검증 결과
-
-[Development Lab의 검증 요약](https://www.studyailab.com/develop/chapters/16#sources)과 [공개 검증 자료](../../verification/chapter-16/)를 확인하세요.
-
-## 막혔을 때
-
-[Development Lab의 도움말](https://www.studyailab.com/develop/chapters/16#help)을 확인하세요. 실습 Source는 현재 작업을 보존한 뒤 복구의 마지막 수단으로 사용합니다.
+[학습 도움말](https://www.studyailab.com/develop/chapters/16#help)에서 다음 확인을 이어갈 수 있습니다.

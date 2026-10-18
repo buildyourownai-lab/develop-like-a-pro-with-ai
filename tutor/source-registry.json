@@ -164,7 +164,9 @@
       "start_expected": "새 프로젝트 또는 빈 시작 상태",
       "availability": "not_bound",
       "execution_verified": false,
-      "source_hash": null
+      "source_hash": null,
+      "contract_revision": "rocket-workflow-2026-10-18",
+      "binding_note": "로켓 전면 개편 계약. 과거 Source는 새 프롬프트의 재현 완료가 아님. 새 계약의 고정 구현·실행 검증 전에는 미연결 유지."
     },
     "ch17": {
       "project": "ai-shorts-maker",
@@ -174,7 +176,9 @@
       "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
       "availability": "not_bound",
       "execution_verified": false,
-      "source_hash": null
+      "source_hash": null,
+      "contract_revision": "rocket-workflow-2026-10-18",
+      "binding_note": "로켓 전면 개편 계약. 과거 Source는 새 프롬프트의 재현 완료가 아님. 새 계약의 고정 구현·실행 검증 전에는 미연결 유지."
     },
     "ch18": {
       "project": "ai-shorts-maker",

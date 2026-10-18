@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": 16,
   "project": "ai-shorts-maker",
-  "manuscript_sha256": "f1e8c50907afa2233c923a767d6fade293fc91ce4b93db17d0fe66ba04dc7785",
+  "manuscript_sha256": "1060789be763598d96bd4cc00b2ca24095c2993d624803bbc7d48cde2290969b",
   "entries": [
     {
       "id": "P16-01",
@@ -12,22 +12,22 @@
       "title": "시작 전 확인",
       "target": "coding-assistant",
       "kind": "tutor",
-      "when": "현재 장을 시작하거나 다시 이어갈 때",
-      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
-      "after": "목표·선행 상태·첫 행동 하나",
+      "when": "현재 장 시작·재개",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": []
     },
     {
       "id": "P16-02",
       "source": "prompts.md",
       "block_index": 2,
-      "sha256": "d0307272ca2c0c11648bce5ebf7b7cefbdcfc84ab4424da12caf7aa6b54585cf",
-      "title": "1. 영상으로 만들 소재를 찾습니다",
+      "sha256": "a24f9bb9e2b0deb3497d1053014602e8863ba14c96f98cf8151ac742f59fa484",
+      "title": "1. 언어를 정하고 소재는 후보에서 고릅니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "새 영상 소재 후보 탐구",
-      "before": "별도 ai-shorts-maker 폴더가 현재 프로젝트로 선택됐고 튜터가 연결됐는지 확인. 50초대 역사·과학 목표 확인.",
-      "after": "세 후보 비교표; 소재 선택 대기",
+      "when": "1. 언어를 정하고 소재는 후보에서 고릅니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
         "ch16-g01"
       ]
@@ -36,13 +36,13 @@
       "id": "P16-03",
       "source": "prompts.md",
       "block_index": 3,
-      "sha256": "13a5d37e21ba36c260235506743c33c9433a1765e87097e5a8a7f74a350b7429",
-      "title": "2. Claude가 조사한 결과로 시나리오를 씁니다",
+      "sha256": "0613097de77f1d55ef38863dd58d8547e96bc9b7140710d1e1440ec49d1c40c5",
+      "title": "2. 사실을 조사하고 시각 시나리오를 씁니다",
       "target": "coding-assistant",
-      "kind": "conditional",
-      "when": "로마 콘크리트를 선택한 경우 조사·시나리오",
-      "before": "독자의 실제 소재 선택이 로마 콘크리트인지 확인.",
-      "after": "원 논문·기관 해설·한계·50~55초 시나리오; 승인 대기",
+      "kind": "main",
+      "when": "2. 사실을 조사하고 시각 시나리오를 씁니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
         "ch16-g01"
       ]
@@ -51,30 +51,30 @@
       "id": "P16-04",
       "source": "prompts.md",
       "block_index": 4,
-      "sha256": "2dac779c2f5daf6b7f85f0a34a80a2605e3341137d3f1585b446c3b2a05cb7a4",
-      "title": "3. 시나리오를 검사하고 승인합니다",
+      "sha256": "cfda15dee5604d757b48e87b6edad44a04b9fa4494bbfa6dc15c338441717b54",
+      "title": "3. 물체·배경·조명을 정하고 기준 이미지를 만듭니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "작성한 시나리오 검사",
-      "before": "직전 시나리오와 출처 확보 확인.",
-      "after": "문장·사실·길이 검사와 수정 이유; 승인 대기",
+      "when": "3. 물체·배경·조명을 정하고 기준 이미지를 만듭니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
-        "ch16-g01"
+        "ch16-g02",
+        "ch16-g03"
       ]
     },
     {
       "id": "P16-05",
       "source": "prompts.md",
       "block_index": 5,
-      "sha256": "9d5f7016bf182c8a1071ee8286a6072dd603f6b2e3bcfdcfbd97cdcb853a777e",
-      "title": "3. 시나리오를 검사하고 승인합니다",
+      "sha256": "55d404fcd74504ed0b77dd0340404baf0fc9b5e94c47fd2bdbd17991a58741d7",
+      "title": "4. 실제 이미지에 맞춰 스토리보드를 고칩니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "시나리오 승인 후 장면 구성",
-      "before": "독자가 조사와 검사된 시나리오를 읽고 승인하려는지 확인.",
-      "after": "일곱 장면 표; 생성 전 구성 승인 대기",
+      "when": "4. 실제 이미지에 맞춰 스토리보드를 고칩니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
-        "ch16-g01",
         "ch16-g02"
       ]
     },
@@ -82,13 +82,13 @@
       "id": "P16-06",
       "source": "prompts.md",
       "block_index": 6,
-      "sha256": "01d6367d3bdf9703254100423663babf1547fa198dd9c20d2e445828d63a322a",
-      "title": "4. 일곱 장면을 확인합니다",
+      "sha256": "efbed405842e7bf34ef2ca3e93589bd91e999de1104969389fe2d52c78f5919f",
+      "title": "5. 가장 어려운 영상과 설명부터 시험합니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "일곱 장면 구성 확인 후 승인",
-      "before": "현재 대화의 실제 장면 구성표가 있고, 독자가 그 표의 장면·움직임·내레이션·자막·화풍을 확인했는지 확인. 저자의 예시 표를 독자의 승인된 결과로 간주하지 않음.",
-      "after": "승인한 장면 구성 보존; 생성 없음",
+      "when": "5. 가장 어려운 영상과 설명부터 시험합니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
         "ch16-g02",
         "ch16-g03"
@@ -98,14 +98,15 @@
       "id": "P16-07",
       "source": "prompts.md",
       "block_index": 7,
-      "sha256": "13ef1479d5108d09c5e4216a1e47e027793e6c5c447ff49dc7ba24a8346a416f",
-      "title": "5. Kling의 제작 조건과 예산을 확인합니다",
+      "sha256": "31f005e05e22fbca153f7bbc145906ed082700024a0a78392eaad53e74d7944f",
+      "title": "6. 나머지 영상을 만들고 좋은 부분을 살립니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "Kling 제작 조건 확인",
-      "before": "승인한 구성과 공식 화면·계정 조건을 확인. 미확인을 추측하지 않음.",
-      "after": "플랜·설정·권리·크레딧 표와 임시 제작 비용; 생성 없음",
+      "when": "6. 나머지 영상을 만들고 좋은 부분을 살립니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
+        "ch16-g02",
         "ch16-g03"
       ]
     },
@@ -113,269 +114,63 @@
       "id": "P16-08",
       "source": "prompts.md",
       "block_index": 8,
-      "sha256": "24af8f8ff6bbb7fa1cb02df7d47f7c00bbad996ad4ac66c5dcde66e7a1f78a6f",
-      "title": "5. Kling의 제작 조건과 예산을 확인합니다",
+      "sha256": "6585e974918be4e2af1c76d744d67ba37bf6a92d51a718716a214f14f806d8ef",
+      "title": "7. 먼저 영상의 흐름을 확정합니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "전체 제작 예산 지정",
-      "before": "독자가 실제 조건을 확인하고 전체 크레딧 상한을 정했는지 확인.",
-      "after": "Kling 제작 범위와 전체 차감 상한; 생성 없음",
+      "when": "7. 먼저 영상의 흐름을 확정합니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
-        "ch16-g03"
+        "ch16-g02",
+        "ch16-g04"
       ]
     },
     {
       "id": "P16-09",
       "source": "prompts.md",
       "block_index": 9,
-      "sha256": "c488e6f85ab72a84f50af3b7d8e51d4d3d1899935f30ae0110023f6d2198a6b1",
-      "title": "6. 기준 이미지를 먼저 만들고 승인합니다",
+      "sha256": "36b0839378b8109400f59d2f5adaa26582c89f57afa3ad4ad8f9fd3213fc25e5",
+      "title": "8. 확정된 화면에 맞춰 대본과 음성을 만듭니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "기준 이미지 계획",
-      "before": "공식 모델·9:16·승인 구성과 전체 예산 확인.",
-      "after": "이미지 설명·설정·횟수·결과 수·비용 표; 생성 없음",
+      "when": "8. 확정된 화면에 맞춰 대본과 음성을 만듭니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
+        "ch16-g04"
       ]
     },
     {
       "id": "P16-10",
       "source": "prompts.md",
       "block_index": 10,
-      "sha256": "14c28651020f41f3a16ef1442d32052d5a4318604f80e466f61e7add098fbbd2",
-      "title": "6. 기준 이미지를 먼저 만들고 승인합니다",
+      "sha256": "4c47473b4a9a17302c92b574314938f684d231af88ddb832b20d648794b657e5",
+      "title": "9. 움직이는 점·선·설명과 소리를 합칩니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "기준 이미지 생성 승인",
-      "before": "독자가 계획·단계 상한을 확인하고 배치를 승인했는지 확인.",
-      "after": "승인 배치의 실제 이미지·차감량·파일 연결",
+      "when": "9. 움직이는 점·선·설명과 소리를 합칩니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
+        "ch16-g04",
+        "ch16-g05"
       ]
     },
     {
       "id": "P16-11",
       "source": "prompts.md",
       "block_index": 11,
-      "sha256": "27d3d15bf7d4779219b3d4f6ea642a117ae2217750392af0c9745f73dea63b19",
-      "title": "6. 기준 이미지를 먼저 만들고 승인합니다",
+      "sha256": "2a033d82b7048352b25e045b5e5b6311f4a670c8c88bfbbc5324c18e34720886",
+      "title": "10. 커버를 고르고 다음 제작에 쓸 기록을 남깁니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "생성된 이미지 승인",
-      "before": "장면 번호와 실제 이미지 파일이 연결된 현재 비교 화면에서 독자가 일곱 이미지의 형태·자막 공간 등을 직접 확인했는지 확인. 책에 실린 저자 이미지를 독자의 생성·승인 결과로 간주하지 않음.",
-      "after": "승인 이미지 식별; 아직 영상 생성 없음",
+      "when": "10. 커버를 고르고 다음 제작에 쓸 기록을 남깁니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트와 입력 판본, 직전 승인·근거 및 실제 도구 연결을 확인",
+      "after": "요청한 실제 결과·확인 범위·남은 미확인과 다음 행동; 요청문에 명시된 대기 지점 준수",
       "objective_ids": [
-        "ch16-g02"
-      ]
-    },
-    {
-      "id": "P16-12",
-      "source": "prompts.md",
-      "block_index": 12,
-      "sha256": "5ecfe25981317845e027376e3a684b5849ef4b56c3d23644a62361c4e3464eab",
-      "title": "7. 영상 후보를 만들고 고릅니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "영상 후보 계획과 프롬프트 리뷰",
-      "before": "승인 이미지·전체 예산 확인. 구도·색·질감·빛·동작·카메라 충돌을 자체 리뷰.",
-      "after": "길이·사용 구간·native audio·비용·리뷰 표; 생성 없음",
-      "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
-      ]
-    },
-    {
-      "id": "P16-13",
-      "source": "prompts.md",
-      "block_index": 13,
-      "sha256": "4dd3ffc7163fd0a78f6739f295cfaf05bbcacfece03bd8de10f2e4d258835d73",
-      "title": "7. 영상 후보를 만들고 고릅니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "영상 후보 생성 승인",
-      "before": "독자가 실제 모델·설정·횟수·차감량·단계 상한을 확인하고 배치를 승인했는지 확인.",
-      "after": "승인 후보와 공식 다운로드·실제 비용 기록",
-      "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
-      ]
-    },
-    {
-      "id": "P16-14",
-      "source": "prompts.md",
-      "block_index": 14,
-      "sha256": "bde5f035fc58b1b5647041a5c292a62b728c8d2aa05947088aa4d5aeeebde9a6",
-      "title": "7. 영상 후보를 만들고 고릅니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "후보 파일과 사용 구간 선택",
-      "before": "독자가 실제 후보를 재생해 선택했는지 확인. 책의 예시를 독자 선택으로 간주하지 않음.",
-      "after": "파일·원본 구간·속도·내레이션 길이 표; 조립 없음",
-      "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
-      ]
-    },
-    {
-      "id": "P16-15",
-      "source": "prompts.md",
-      "block_index": 15,
-      "sha256": "983d22cad3da3bbef8c32dd755b650dd8c6e4c8c130472bf8d19c8a53946a303",
-      "title": "7. 영상 후보를 만들고 고릅니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "장면 선택 최종 승인",
-      "before": "실제 파일·사용 구간과 장면2·7 확대 계획을 독자가 확인했는지 확인.",
-      "after": "승인 파일과 편집 계획 고정; 조립 없음",
-      "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
-      ]
-    },
-    {
-      "id": "P16-16",
-      "source": "prompts.md",
-      "block_index": 16,
-      "sha256": "5f823383c7bd244f2ddbb6a44bbffbeb4888dc91d941e82f73af985b121d6a92",
-      "title": "8. 목소리와 소리를 준비합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "장면 선택 최종 승인",
-      "before": "실제 파일·사용 구간과 장면2·7 확대 계획을 독자가 확인했는지 확인.",
-      "after": "승인 파일과 편집 계획 고정; 조립 없음",
-      "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
-      ]
-    },
-    {
-      "id": "P16-17",
-      "source": "prompts.md",
-      "block_index": 17,
-      "sha256": "e3ccd86d47320e102d0a291ea40d12f5adc61d33841218d05d8307a38bb1577a",
-      "title": "8. 목소리와 소리를 준비합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "장면 선택 최종 승인",
-      "before": "최종 대본 검사 승인. 공식 AI Studio Charon WAV 또는 안전하게 인증한 API 경로 확인. 로그인과 API 인증을 구분.",
-      "after": "승인 파일과 편집 계획 고정; 조립 없음",
-      "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
-      ]
-    },
-    {
-      "id": "P16-18",
-      "source": "prompts.md",
-      "block_index": 18,
-      "sha256": "31b23bf9b79b56f843f3d22b69f0041ca53fd0a2fff7860b132361735b63fad1",
-      "title": "8. 목소리와 소리를 준비합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "장면 선택 최종 승인",
-      "before": "최종 대본 검사 승인. 공식 AI Studio Charon WAV 또는 안전하게 인증한 API 경로 확인. 로그인과 API 인증을 구분.",
-      "after": "승인 파일과 편집 계획 고정; 조립 없음",
-      "objective_ids": [
-        "ch16-g02",
-        "ch16-g03"
-      ]
-    },
-    {
-      "id": "P16-19",
-      "source": "prompts.md",
-      "block_index": 19,
-      "sha256": "5bd1f1dea40e12df0ad32cf6c65ccd44e86b388cefe99c41c3ca9f3a23eb48be",
-      "title": "8. 목소리와 소리를 준비합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "음성 전 대본·자막 검사",
-      "before": "최종 대본 검사 승인. 공식 AI Studio Charon WAV 또는 안전하게 인증한 API 경로 확인. 로그인과 API 인증을 구분.",
-      "after": "항목별 검사; 실패 시 음성 생성 금지",
-      "objective_ids": [
-        "ch16-g01",
-        "ch16-g04"
-      ]
-    },
-    {
-      "id": "P16-20",
-      "source": "prompts.md",
-      "block_index": 20,
-      "sha256": "4e34261a11b430a454445b3597ff7b824fb8f31156fd0e4bd29b6f6c4f20b066",
-      "title": "8. 목소리와 소리를 준비합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "음성 생성 승인",
-      "before": "최종 대본 검사 승인. 공식 AI Studio Charon WAV 또는 안전하게 인증한 API 경로 확인. 로그인과 API 인증을 구분.",
-      "after": "장면별 Charon 음성과 재생 시간; 영상 합치기 전",
-      "objective_ids": [
-        "ch16-g04"
-      ]
-    },
-    {
-      "id": "P16-21",
-      "source": "prompts.md",
-      "block_index": 21,
-      "sha256": "9127210c55136ffc31981b6f593be001bd3a7c0fd0c29f4bce5b3f23b8cb1b5d",
-      "title": "9. 한 편으로 조립하고 확인합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "내려받은 음악 정리",
-      "before": "독자가 Pulsar를 실제 다운로드했는지 확인. 라이선스 자리표시자는 실제 문구가 아니므로 문구를 확인하기 전 실행하지 않음.",
-      "after": "실제 음악 파일·아티스트·출처·라이선스 기록",
-      "objective_ids": [
-        "ch16-g03",
-        "ch16-g04"
-      ]
-    },
-    {
-      "id": "P16-22",
-      "source": "prompts.md",
-      "block_index": 22,
-      "sha256": "276c0ada0d6fa3890a5fd81d789e33409d65b65985b73ae2e23cb73fe4a9a0b3",
-      "title": "10. 확인한 제작 순서를 다음 영상에 재사용합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "선택 영상의 효과음 확인",
-      "before": "승인한 영상 후보 파일 확인.",
-      "after": "음악·목소리 제외와 사용할 주변 소리 목록",
-      "objective_ids": [
-        "ch16-g03",
-        "ch16-g04"
-      ]
-    },
-    {
-      "id": "P16-23",
-      "source": "prompts.md",
-      "block_index": 23,
-      "sha256": "dc99a07468518c8d8bf1e10a079c1df0e1e75cee709dc6f457e976e4abddd5d7",
-      "title": "10. 확인한 제작 순서를 다음 영상에 재사용합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "음성·음악·효과음 최종 승인",
-      "before": "독자가 일곱 음성을 듣고 라이선스와 효과음 목록을 확인했는지 확인.",
-      "after": "승인 파일·기록 요약; 아직 조립 없음",
-      "objective_ids": [
-        "ch16-g03",
-        "ch16-g04"
-      ]
-    },
-    {
-      "id": "P16-24",
-      "source": "prompts.md",
-      "block_index": 24,
-      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
-      "title": "10. 확인한 제작 순서를 다음 영상에 재사용합니다",
-      "target": "coding-assistant",
-      "kind": "main",
-      "when": "최종 MP4 조립",
-      "before": "장면·대본·음성·음악·효과음 승인과 실제 파일 확인.",
-      "after": "MP4 위치·기술 검사; 독자가 전체 재생 확인, 업로드 없음",
-      "objective_ids": [
-        "ch16-g04",
-        "ch16-g05"
+        "ch16-g05",
+        "ch16-g06"
       ]
     }
   ]
