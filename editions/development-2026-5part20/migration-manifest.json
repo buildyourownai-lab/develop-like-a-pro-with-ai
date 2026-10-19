@@ -1,0 +1,517 @@
+{
+  "schema_version": 1,
+  "kind": "reader-edition-migration-skeleton",
+  "book_id": "develop",
+  "edition_id": "development-2026-5part20",
+  "status": "static-contracts-synchronized-execution-unverified",
+  "old_paths_preserved": true,
+  "legacy_fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+  "local_execution_verified": false,
+  "mcp_multi_edition_ready": false,
+  "chapter_rows": [
+    {
+      "book_id": "develop",
+      "edition_id": "development-2026-5part20",
+      "chapter_id": "13",
+      "display_chapter": 13,
+      "lesson_id": "stock-chat-design",
+      "legacy_chapter": 21,
+      "legacy_contract_id": "ch21",
+      "legacy_book_edition": "22-chapter-part6-services-20260913",
+      "status": "static-contract-synced-execution-unverified",
+      "prompt_id_policy": "retain-original-semantic-id; display-chapter-is-separate",
+      "legacy_prompt_ids": [
+        "P21-01",
+        "P21-02",
+        "P21-03",
+        "P21-04",
+        "P21-05",
+        "P21-06",
+        "P21-07"
+      ],
+      "legacy_objective_ids": [
+        "ch21-plan-build-v2-g01",
+        "ch21-plan-build-v2-g02",
+        "ch21-plan-build-v2-g03",
+        "ch21-plan-build-v2-g04",
+        "ch21-plan-build-v2-g05",
+        "ch21-plan-build-v2-g06",
+        "ch21-plan-build-v2-g07"
+      ],
+      "new_objective_ids_status": "edition-prefixed; no legacy evidence inherited",
+      "legacy_provenance": [
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch21/source",
+          "git_tree_oid": "6905763d18ca21046c93234aebfc1193cdd25a7f",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch21/source",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "verification/chapter-21",
+          "git_tree_oid": "6d0ddf2736fff5cc2e8e1a74073f04444e53b29b",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/verification/chapter-21",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch21/start",
+          "git_tree_oid": "c27b23167a13928fbed48f35c5d70feef9fd00da",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch21/start",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        }
+      ],
+      "source_availability": "not_bound",
+      "execution_verified": false
+    },
+    {
+      "book_id": "develop",
+      "edition_id": "development-2026-5part20",
+      "chapter_id": "14",
+      "display_chapter": 14,
+      "lesson_id": "stock-chat-build",
+      "legacy_chapter": 22,
+      "legacy_contract_id": "ch22",
+      "legacy_book_edition": "22-chapter-part6-services-20260913",
+      "status": "static-contract-synced-execution-unverified",
+      "prompt_id_policy": "retain-original-semantic-id; display-chapter-is-separate",
+      "legacy_prompt_ids": [
+        "P22-01",
+        "P22-02",
+        "P22-03",
+        "P22-04",
+        "P22-05",
+        "P22-06",
+        "P22-07",
+        "P22-08",
+        "P22-09",
+        "C22-01",
+        "C22-02",
+        "C22-03",
+        "C22-04",
+        "C22-05"
+      ],
+      "legacy_objective_ids": [
+        "ch22-plan-build-v2-g01",
+        "ch22-plan-build-v2-g02",
+        "ch22-plan-build-v2-g03",
+        "ch22-plan-build-v2-g04",
+        "ch22-plan-build-v2-g05",
+        "ch22-plan-build-v2-g06",
+        "ch22-plan-build-v2-g07",
+        "ch22-plan-build-v2-g09"
+      ],
+      "new_objective_ids_status": "edition-prefixed; no legacy evidence inherited",
+      "legacy_provenance": [
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch22/source",
+          "git_tree_oid": "8ec6544eb0f0e5835fc6648bbbe899617b8140d6",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch22/source",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "verification/chapter-22",
+          "git_tree_oid": "d23156e9533002c1f1ba9255ff02675f2f345057",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/verification/chapter-22",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        }
+      ],
+      "source_availability": "not_bound",
+      "execution_verified": false
+    },
+    {
+      "book_id": "develop",
+      "edition_id": "development-2026-5part20",
+      "chapter_id": "15",
+      "display_chapter": 15,
+      "lesson_id": "mobile-plan",
+      "legacy_chapter": 13,
+      "legacy_contract_id": "ch13",
+      "legacy_book_edition": "22-chapter-tutor-revision",
+      "status": "static-contract-synced-execution-unverified",
+      "prompt_id_policy": "retain-original-semantic-id; display-chapter-is-separate",
+      "legacy_prompt_ids": [
+        "P13-01",
+        "P13-02",
+        "P13-03",
+        "P13-04",
+        "P13-05",
+        "P13-06"
+      ],
+      "legacy_objective_ids": [
+        "ch13-g01",
+        "ch13-g02",
+        "ch13-g03",
+        "ch13-g04",
+        "ch13-g05",
+        "ch13-g06"
+      ],
+      "new_objective_ids_status": "edition-prefixed; no legacy evidence inherited",
+      "legacy_provenance": [
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch13/source",
+          "git_tree_oid": "b07cee56b33035926fe862dde9ab9da204349276",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch13/source",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "verification/chapter-13",
+          "git_tree_oid": "bb67348bfb320a27a00e891e0f1e758da9ad9815",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/verification/chapter-13",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        }
+      ],
+      "source_availability": "not_bound",
+      "execution_verified": false,
+      "mobile_scope": {
+        "native": [
+          "market",
+          "stock-search",
+          "price-chart",
+          "filings",
+          "ai-briefing"
+        ],
+        "chatbot": "web-only; native-excluded",
+        "new_platform_execution_verified": false
+      }
+    },
+    {
+      "book_id": "develop",
+      "edition_id": "development-2026-5part20",
+      "chapter_id": "16",
+      "display_chapter": 16,
+      "lesson_id": "android-app",
+      "legacy_chapter": 14,
+      "legacy_contract_id": "ch14",
+      "legacy_book_edition": "22-chapter-tutor-revision",
+      "status": "static-contract-synced-execution-unverified",
+      "prompt_id_policy": "retain-original-semantic-id; display-chapter-is-separate",
+      "legacy_prompt_ids": [
+        "P14-01",
+        "P14-02",
+        "P14-03",
+        "P14-04",
+        "P14-05",
+        "P14-06",
+        "P14-07",
+        "P14-08",
+        "P14-09",
+        "P14-10"
+      ],
+      "legacy_objective_ids": [
+        "ch14-g01",
+        "ch14-g02",
+        "ch14-g03",
+        "ch14-g04",
+        "ch14-g05",
+        "ch14-g06"
+      ],
+      "new_objective_ids_status": "edition-prefixed; no legacy evidence inherited",
+      "legacy_provenance": [
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch14/source",
+          "git_tree_oid": "5c91eac1d95371f70b82d227228729c3f81a2cfa",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch14/source",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "verification/chapter-14",
+          "git_tree_oid": "1e0f61b7282b03047162e0afa5d7b0bd3ee299cb",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/verification/chapter-14",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        }
+      ],
+      "source_availability": "not_bound",
+      "execution_verified": false,
+      "mobile_scope": {
+        "native": [
+          "market",
+          "stock-search",
+          "price-chart",
+          "filings",
+          "ai-briefing"
+        ],
+        "chatbot": "web-only; native-excluded",
+        "new_platform_execution_verified": false
+      }
+    },
+    {
+      "book_id": "develop",
+      "edition_id": "development-2026-5part20",
+      "chapter_id": "17",
+      "display_chapter": 17,
+      "lesson_id": "iphone-app",
+      "legacy_chapter": 15,
+      "legacy_contract_id": "ch15",
+      "legacy_book_edition": "22-chapter-tutor-revision",
+      "status": "static-contract-synced-execution-unverified",
+      "prompt_id_policy": "retain-original-semantic-id; display-chapter-is-separate",
+      "legacy_prompt_ids": [
+        "P15-01",
+        "P15-02",
+        "P15-03",
+        "P15-04",
+        "P15-05",
+        "P15-06",
+        "P15-07",
+        "P15-08"
+      ],
+      "legacy_objective_ids": [
+        "ch15-g01",
+        "ch15-g02",
+        "ch15-g03",
+        "ch15-g04",
+        "ch15-g05",
+        "ch15-g06"
+      ],
+      "new_objective_ids_status": "edition-prefixed; no legacy evidence inherited",
+      "legacy_provenance": [
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch15/source",
+          "git_tree_oid": "185f611cb60baa0773f7e0bb2e665b2978b8d613",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch15/source",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "verification/chapter-15",
+          "git_tree_oid": "79629244abfa746ab5b946e422d1a079677a5ecb",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/verification/chapter-15",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        }
+      ],
+      "source_availability": "not_bound",
+      "execution_verified": false,
+      "mobile_scope": {
+        "native": [
+          "market",
+          "stock-search",
+          "price-chart",
+          "filings",
+          "ai-briefing"
+        ],
+        "chatbot": "web-only; native-excluded",
+        "new_platform_execution_verified": false
+      }
+    },
+    {
+      "book_id": "develop",
+      "edition_id": "development-2026-5part20",
+      "chapter_id": "18",
+      "display_chapter": 18,
+      "lesson_id": "shorts-plan",
+      "legacy_chapter": 16,
+      "legacy_contract_id": "ch16",
+      "legacy_book_edition": "22-chapter-tutor-revision",
+      "status": "static-contract-synced-execution-unverified",
+      "prompt_id_policy": "retain-original-semantic-id; display-chapter-is-separate",
+      "legacy_prompt_ids": [
+        "P16-01",
+        "P16-02",
+        "P16-03",
+        "P16-04",
+        "P16-05",
+        "P16-06"
+      ],
+      "legacy_objective_ids": [
+        "ch16-p5-01",
+        "ch16-p5-02",
+        "ch16-p5-03",
+        "ch16-p5-04",
+        "ch16-p5-05",
+        "ch16-p5-06"
+      ],
+      "new_objective_ids_status": "edition-prefixed; no legacy evidence inherited",
+      "legacy_provenance": [
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch16/source",
+          "git_tree_oid": "0f474052b761e05fa67e1eea0196236008e342dc",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch16/source",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "verification/chapter-16",
+          "git_tree_oid": "c35840785b6a4ef7a6c99b9d08a64053ee132ee0",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/verification/chapter-16",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        }
+      ],
+      "source_availability": "not_bound",
+      "execution_verified": false
+    },
+    {
+      "book_id": "develop",
+      "edition_id": "development-2026-5part20",
+      "chapter_id": "19",
+      "display_chapter": 19,
+      "lesson_id": "shorts-build",
+      "legacy_chapter": 17,
+      "legacy_contract_id": "ch17",
+      "legacy_book_edition": "22-chapter-tutor-revision",
+      "status": "static-contract-synced-execution-unverified",
+      "prompt_id_policy": "retain-original-semantic-id; display-chapter-is-separate",
+      "legacy_prompt_ids": [
+        "P17-01",
+        "P17-02",
+        "P17-03",
+        "C17-01",
+        "P17-04",
+        "C17-02",
+        "P17-05",
+        "C17-03",
+        "P17-06",
+        "C17-04",
+        "P17-07",
+        "P17-08",
+        "C17-05",
+        "P17-09",
+        "P17-10",
+        "P17-11"
+      ],
+      "legacy_objective_ids": [
+        "ch17-p5-01",
+        "ch17-p5-02",
+        "ch17-p5-03",
+        "ch17-p5-04",
+        "ch17-p5-05",
+        "ch17-p5-06"
+      ],
+      "new_objective_ids_status": "edition-prefixed; no legacy evidence inherited",
+      "legacy_provenance": [
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch17/source",
+          "git_tree_oid": "37ebd2f2c0aaccb1ef59768639de0901d8ac815a",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch17/source",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "verification/chapter-17",
+          "git_tree_oid": "f4394526a0b60b5f0e9c6135f22dc40790e1b28b",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/verification/chapter-17",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        }
+      ],
+      "source_availability": "not_bound",
+      "execution_verified": false
+    },
+    {
+      "book_id": "develop",
+      "edition_id": "development-2026-5part20",
+      "chapter_id": "20",
+      "display_chapter": 20,
+      "lesson_id": "shorts-finish",
+      "legacy_chapter": 18,
+      "legacy_contract_id": "ch18",
+      "legacy_book_edition": "22-chapter-tutor-revision",
+      "status": "static-contract-synced-execution-unverified",
+      "prompt_id_policy": "retain-original-semantic-id; display-chapter-is-separate",
+      "legacy_prompt_ids": [
+        "P18-01",
+        "P18-02",
+        "P18-03",
+        "P18-04",
+        "P18-05",
+        "P18-06",
+        "P18-07",
+        "P18-08",
+        "P18-09",
+        "P18-10",
+        "P18-11"
+      ],
+      "legacy_objective_ids": [
+        "ch18-p5-01",
+        "ch18-p5-02",
+        "ch18-p5-03",
+        "ch18-p5-04",
+        "ch18-p5-05",
+        "ch18-p5-06"
+      ],
+      "new_objective_ids_status": "edition-prefixed; no legacy evidence inherited",
+      "legacy_provenance": [
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "chapters/ch18/source",
+          "git_tree_oid": "06b03c94f8c85bbb1d1ac3c27701395eea759e25",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch18/source",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        },
+        {
+          "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+          "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+          "path": "verification/chapter-18",
+          "git_tree_oid": "96b4e969fc251e22b9b141a9a490fd0f00fb125e",
+          "url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/verification/chapter-18",
+          "role": "legacy-provenance-only",
+          "execution_verified_for_new_edition": false
+        }
+      ],
+      "source_availability": "not_bound",
+      "execution_verified": false,
+      "completion_states": [
+        "local-production-complete",
+        "publication-materials-prepared",
+        "optional-manual-youtube-studio"
+      ],
+      "automation_scope": "no-upload-or-first-comment-automation"
+    }
+  ],
+  "excluded_legacy_chapters": [
+    19,
+    20
+  ],
+  "unrelated_chapters_01_12": "preserve-current-authorized-work; no edits by this migration",
+  "author_private_dependencies": false,
+  "unchanged_chapters_01_12": {
+    "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
+    "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+    "contract_template": "tutor/chapters/chNN/chapter.json",
+    "prompt_guide_template": "tutor/chapters/chNN/prompt-guide.json",
+    "prompts_template": "tutor/chapters/chNN/prompts.md",
+    "execution_evidence_inherited": false,
+    "worktree_dirty_changes_included": false
+  }
+}

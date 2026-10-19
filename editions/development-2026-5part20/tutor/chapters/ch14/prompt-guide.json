@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "chapter": 14,
+  "project": "ai-stock-briefing",
+  "manuscript_sha256": "14a25aac87b6409c1ac2042c2113f4921b826246df9ef75b13edbc3d259b765f",
+  "entries": [
+    {
+      "id": "P22-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "f2b4a6231d98a2911f50563c48c4526237c8de030442dc42486aaba0e38766fc",
+      "title": "기획서와 기존 서비스를 함께 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P22-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "3192ac0b20aacb876bf1ce5cdbc3de8f192b3949f322de08aed83b7ea536eaf3",
+      "title": "대화창과 일반 설명부터 구현합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "대화창·일반 설명 구현",
+      "before": "13장 기획서와 기존 서비스·서버 Gemini 설정 확인.",
+      "after": "공통 대화창과 일반 설명; 기본 활성화와 기존 화면 보존",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g01",
+        "development-2026-5part20-ch22-plan-build-v2-g07"
+      ]
+    },
+    {
+      "id": "P22-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "03466e88672a0e0ea7dd1a9a3b89961b20b15206fe1b1786a1b609dc6aa484db",
+      "title": "기존 기능에 AI가 사용할 입구를 연결합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "현재 조회 연결표 차이 확인",
+      "before": "일반 질문을 서비스에서 확인했는지와 13장 연결표 확인.",
+      "after": "세 함수·가격 Adapter 필요 여부·SDK 호환과 상한 계획; 추가 제품 수정 없음",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g02"
+      ]
+    },
+    {
+      "id": "P22-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "a65071a5df48d9e52c711d96675a806d9ea5e8dbfd6722587f8348e13fa9c72b",
+      "title": "공시 질문 하나를 끝까지 연결합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "종목 찾기·공시 질문 구현",
+      "before": "확정한 연결표와 일반 설명 결과 확인.",
+      "after": "서버가 검증하는 세 기능 목록·공시 조회·출처·상한과 시험 결과",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g02",
+        "development-2026-5part20-ch22-plan-build-v2-g06"
+      ]
+    },
+    {
+      "id": "P22-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "6cfa4ea3e42f5171e234e1226fe202393c0aee144bac110d1eb3ecb53c02f656",
+      "title": "후보를 고른 뒤 원래 질문을 이어갑니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "후보 선택·대화 전환 구현",
+      "before": "공시 질문·모호한 이름의 실제 결과 확인.",
+      "after": "질문 유지·실제 후보 대조·대화 대상 전환·늦은 응답 차단",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g03"
+      ]
+    },
+    {
+      "id": "P22-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "943def8d0432372ee22d6ecfc378cc3fd5c9e58170d254774d09f8177832d8d1",
+      "title": "1년 자료에서 필요한 기간을 계산합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "가격 요약과 최근 종가 연결",
+      "before": "후보·대화 대상과 기존 가격 함수 확인.",
+      "after": "세 달력 기간·종가/흐름 구분·서버 계산·자료 부족 검사",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g04"
+      ]
+    },
+    {
+      "id": "P22-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "f7fb01e14ff4b28f9bc35a0bbf19ff82416f23a4c679ddcda2841de83ac74f5c",
+      "title": "필요한 기능만 썼는지 검사합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "대표 흐름·제한·회귀 검증",
+      "before": "공시·가격·복합 질문·후보 선택 흐름 준비 확인.",
+      "after": "상한 근거·악성 입력·실패·기존 기능 보존 검사",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g05"
+      ]
+    },
+    {
+      "id": "P22-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "b85d788e2ff4e43a3031d65feedad37c5aa59df86adb1bb2b0901e058a92d10e",
+      "title": "필요한 기능만 썼는지 검사합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "실제 자료·화면 최종 검증",
+      "before": "독자가 선택한 실제 종목과 API 설정·앞선 시험 결과 확인. 현행 정본은 별도 공개시험을 요청하지 않음.",
+      "after": "최소 실제 조회·데스크톱/모바일 웹·활성 상태·판본 기록과 미확인 범위",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g06",
+        "development-2026-5part20-ch22-plan-build-v2-g07",
+        "development-2026-5part20-ch22-plan-build-v2-g09"
+      ]
+    },
+    {
+      "id": "P22-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "이번 장의 완성을 확인합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "C22-01",
+      "source": "service-questions.md",
+      "block_index": 1,
+      "sha256": "979e84a8df3bcde0bcf5307f654370e89304b153b65e26ce2cdc92f6709d0bda",
+      "title": "대화창과 일반 설명부터 구현합니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "대화창의 일반 개념 답변 확인",
+      "before": "P22-02 구현 후 로컬 서비스 메인의 대화창을 엶. Code 탭에 입력하지 않음.",
+      "after": "종목 선택 없이 일반 설명, 자료 조회 없음",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g01"
+      ]
+    },
+    {
+      "id": "C22-02",
+      "source": "service-questions.md",
+      "block_index": 2,
+      "sha256": "54cefa71b139d3a5d7abccf14ee76cd911ac28bd81e3ab91c012eff65f84860c",
+      "title": "공시 질문 하나를 끝까지 연결합니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "메인에서 공시 질문 확인",
+      "before": "P22-04 구현 후 로컬 서비스 메인 대화창을 엶.",
+      "after": "실제 종목·최근 공시·DART 링크와 가격 조회 없음",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g02",
+        "development-2026-5part20-ch22-plan-build-v2-g06"
+      ]
+    },
+    {
+      "id": "C22-03",
+      "source": "service-questions.md",
+      "block_index": 3,
+      "sha256": "d948f5e56f63d0e7479294466d56c28eb33c2909070ae72753ab828fc8733586",
+      "title": "후보를 고른 뒤 원래 질문을 이어갑니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "모호한 이름의 후보 확인",
+      "before": "공시 흐름 확인 후 서비스 대화창 사용. 이후 P22-05에서 이어가기 동작 보강.",
+      "after": "실제 후보와 선택 전 자료 조회 없음",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g03"
+      ]
+    },
+    {
+      "id": "C22-04",
+      "source": "service-questions.md",
+      "block_index": 4,
+      "sha256": "e22c86b972a76233e8e557aa7e63dfe8ca369d7d61c838cd258c7c2a724b9625",
+      "title": "1년 자료에서 필요한 기간을 계산합니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "대화 대상의 3개월 흐름 확인",
+      "before": "P22-06 구현과 현재 대화 대상 확인. 서비스 대화창에서 입력.",
+      "after": "요청 기간·실제 첫/마지막 거래일·가격 계산",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g04"
+      ]
+    },
+    {
+      "id": "C22-05",
+      "source": "service-questions.md",
+      "block_index": 5,
+      "sha256": "e4b9f8e24577a011e70dfe24430adf1552bf45b57dae7bda924dfe992d636582",
+      "title": "1년 자료에서 필요한 기간을 계산합니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "최근 종가와 일반 설명 구분 확인",
+      "before": "종목 상세의 실제 대상·가격 필드가 종가인지 확인. 서비스 대화창에서 입력.",
+      "after": "확인된 종가·기준일과 일반 설명·표시 구분",
+      "objective_ids": [
+        "development-2026-5part20-ch22-plan-build-v2-g04",
+        "development-2026-5part20-ch22-plan-build-v2-g06"
+      ]
+    }
+  ],
+  "edition_id": "development-2026-5part20"
+}

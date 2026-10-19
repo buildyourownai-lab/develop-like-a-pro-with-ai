@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "chapter": 19,
+  "project": "ai-shorts-maker",
+  "manuscript_sha256": "746d9129a85fccfef7f519fdef6c8b836d20e3c7a729bf90f3da113859755384",
+  "entries": [
+    {
+      "id": "P17-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "7f086adad91bf89635d7a28ba9e24a5c5ddf7ff98314d23782a8217217ca4fd3",
+      "title": "",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "시작 전 확인 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P17-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "733fe4b3e6b4476c3231986dbf95ee545b60becb0cb45d0d99900b033b7227c2",
+      "title": "제작 스킬이 지금 할 일을 하나씩 꺼내게 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "제작 스킬이 지금 할 일을 하나씩 꺼내게 합니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-01"
+      ]
+    },
+    {
+      "id": "P17-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "70cd12e243c1dba094d98e1404baef64b39bcac7b6deb4cd78e996b0b99e3aa6",
+      "title": "제작 스킬이 지금 할 일을 하나씩 꺼내게 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "제작 스킬이 지금 할 일을 하나씩 꺼내게 합니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-01"
+      ]
+    },
+    {
+      "id": "C17-01",
+      "source": "service-questions.md",
+      "block_index": 1,
+      "sha256": "6f2ac760c1aecb1e59313d22f88da9d2c92cee38bf71fd40b938225e82ec4f26",
+      "title": "먼저 현재 Flow의 선택지를 확인합니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "먼저 현재 Flow의 선택지를 확인합니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "Google Flow: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-01"
+      ]
+    },
+    {
+      "id": "P17-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "c69ef857bc0691a77fee4dfc67b8ff24007c7066a59ecbb20e0b71015e7f69ee",
+      "title": "캐릭터는 사람 대신 같은 함선의 기준을 잡습니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "캐릭터는 사람 대신 같은 함선의 기준을 잡습니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-02"
+      ]
+    },
+    {
+      "id": "C17-02",
+      "source": "service-questions.md",
+      "block_index": 2,
+      "sha256": "738c794da7fb26c3d1c2601dd0ce7b35976a50a66e18fa5978fb5b59830f7f8c",
+      "title": "캐릭터는 사람 대신 같은 함선의 기준을 잡습니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "캐릭터는 사람 대신 같은 함선의 기준을 잡습니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "Google Flow: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-02"
+      ]
+    },
+    {
+      "id": "P17-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "d02bdcf3b0f861e3076439e22aae2a450f7d184d2fda80c160f42f697d32137f",
+      "title": "원화는 움직일 공간까지 담습니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "원화는 움직일 공간까지 담습니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-03"
+      ]
+    },
+    {
+      "id": "C17-03",
+      "source": "service-questions.md",
+      "block_index": 3,
+      "sha256": "0b3ed64dff9d6355a41c8e1ecb9a1f797cdef63000c956ed511c0d188eda19a3",
+      "title": "원화는 움직일 공간까지 담습니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "원화는 움직일 공간까지 담습니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "Google Flow: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-03"
+      ]
+    },
+    {
+      "id": "P17-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "458d15c90bdde8906b91a5673c0a00af438e86ab0849f3c199efbaeb52612e82",
+      "title": "좋은 구도는 남기고 틀린 부분만 고칩니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "좋은 구도는 남기고 틀린 부분만 고칩니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-04"
+      ]
+    },
+    {
+      "id": "C17-04",
+      "source": "service-questions.md",
+      "block_index": 4,
+      "sha256": "dd3964b820d2e343c5a7d03c27e37ba1d7b4d0e00460d39186ce143670bce695",
+      "title": "좋은 구도는 남기고 틀린 부분만 고칩니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "좋은 구도는 남기고 틀린 부분만 고칩니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "Google Flow: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-04"
+      ]
+    },
+    {
+      "id": "P17-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "0e5a49916df622d0e9ca7586278e15af7f2e26652d38a7dbd58505d584c573de",
+      "title": "두 원화가 비슷해도 한 번에 이어지지는 않습니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "두 원화가 비슷해도 한 번에 이어지지는 않습니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-04"
+      ]
+    },
+    {
+      "id": "P17-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "7be3cfcbe2e9609d271482a9f343bb4907bc75bc7af59226b19e516c64387359",
+      "title": "카메라는 빨리 지나간 뒤 멈춰 볼 시간을 줍니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "카메라는 빨리 지나간 뒤 멈춰 볼 시간을 줍니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-05"
+      ]
+    },
+    {
+      "id": "C17-05",
+      "source": "service-questions.md",
+      "block_index": 5,
+      "sha256": "ea643e7e4c11fb9f198e546603b0a31bdc6eed369921f53aa9b891ab0f6ec3e3",
+      "title": "카메라는 빨리 지나간 뒤 멈춰 볼 시간을 줍니다",
+      "target": "service-chat",
+      "kind": "main",
+      "when": "카메라는 빨리 지나간 뒤 멈춰 볼 시간을 줍니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "Google Flow: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-05"
+      ]
+    },
+    {
+      "id": "P17-09",
+      "source": "prompts.md",
+      "block_index": 9,
+      "sha256": "17324cff1afec6227b53f283d445c2a6ee188f523a8dc01ef23b29882c5a8a9b",
+      "title": "문제 있는 한 장면만 다시 다룹니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "문제 있는 한 장면만 다시 다룹니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-04",
+        "development-2026-5part20-ch17-p5-05"
+      ]
+    },
+    {
+      "id": "P17-10",
+      "source": "prompts.md",
+      "block_index": 10,
+      "sha256": "65b5aaa8cea48c40362b1a77726a2624b38b4d41dd08e350917d891816ec8696",
+      "title": "내려받은 파일에서 장면의 순서를 다시 정합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "내려받은 파일에서 장면의 순서를 다시 정합니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-06"
+      ]
+    },
+    {
+      "id": "P17-11",
+      "source": "prompts.md",
+      "block_index": 11,
+      "sha256": "1f1169979477df11ba9bdfdd819d896883f17550d7acee5f92b1cb965f36f2cd",
+      "title": "다음 장에는 실제 파일과 남은 선택을 넘깁니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "다음 장에는 실제 파일과 남은 선택을 넘깁니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": [
+        "development-2026-5part20-ch17-p5-06"
+      ]
+    }
+  ],
+  "edition_id": "development-2026-5part20"
+}

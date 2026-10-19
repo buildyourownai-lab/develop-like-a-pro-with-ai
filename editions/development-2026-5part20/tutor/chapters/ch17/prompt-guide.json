@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "chapter": 17,
+  "project": "ai-stock-briefing",
+  "manuscript_sha256": "449c9e346df8fcbdad3a4d806128319e6bebdf836276e765a6dda98ec1e2a07b",
+  "entries": [
+    {
+      "id": "P15-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "4a69ec3af7663767690bb86accecde3a61f984f2a537f6db6ae7ef92dfb53b96",
+      "title": "",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P15-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "b67408282724a5ba9028b7cdf9619e9119fa0c9d56d7631cde5cc4d1bb429fc1",
+      "title": "Xcode와 Simulator를 공식 경로로 준비합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Mac·Xcode 호환 조건 조사",
+      "before": "현재 기기가 Mac인지 확인. 다른 Mac에서 이어 가면 16장의 최신 Git 기록·미기록 파일·프로젝트 폴더와 로컬 설정 재준비 여부를 먼저 확인. Mac 미준비면 Simulator 실행 단계로 넘어가지 않음.",
+      "after": "필요한 경우 안전한 프로젝트 인계; 공식 도구·용량·계정·설치 승인 필요 여부",
+      "objective_ids": [
+        "development-2026-5part20-ch15-g01"
+      ]
+    },
+    {
+      "id": "P15-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "f8eb98a98d47c6644b8d872cf0e5d70ed6181c2c57a070812fb6ac2b01cb7a2c",
+      "title": "같은 기능은 재사용하고 달라진 환경만 새로 만듭니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "iPhone 앱 구현",
+      "before": "15장 계획·16장 검증 기능과 승인된 Mac 도구 준비 확인.",
+      "after": "서버 재사용과 Build·자동 검사·Simulator 준비",
+      "objective_ids": [
+        "development-2026-5part20-ch15-g03"
+      ]
+    },
+    {
+      "id": "P15-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "5bbddaf5bd69d5ec41f2a3e0a7f9a7b46a5b28c5d205bce2641a3f34b8490fb7",
+      "title": "iPhone Simulator에서 첫 화면을 엽니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "Simulator 설치·실행",
+      "before": "앱 Build와 공식 Simulator 준비 확인.",
+      "after": "실제 첫 화면·서버 자료와 독자의 확인 흐름",
+      "objective_ids": [
+        "development-2026-5part20-ch15-g02",
+        "development-2026-5part20-ch15-g04"
+      ]
+    },
+    {
+      "id": "P15-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "0d3f95377629ba894dd9a40b671a5a50e89aa6d41652bf37bba9558259558f8e",
+      "title": "개발 편의를 위해 실제 앱의 보안을 낮추지 않습니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "개발용·Release 연결 구분",
+      "before": "독자가 검색·차트·Safari 공시·브리핑을 확인했는지와 운영 주소 확인.",
+      "after": "보안을 낮추지 않은 Production HTTPS 응답",
+      "objective_ids": [
+        "development-2026-5part20-ch15-g04",
+        "development-2026-5part20-ch15-g05"
+      ]
+    },
+    {
+      "id": "P15-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "9598f380b5bce3ff087b3abfdcc73f483af26ab2005412ab0cf7fc428fe46ba0",
+      "title": "Secret과 기기 권한을 확인합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "iPhone 보안·실제 흐름 검사",
+      "before": "완성 앱과 Simulator 실행 상태 확인.",
+      "after": "Secret·불필요 권한·품질 및 실제 확인 범위",
+      "objective_ids": [
+        "development-2026-5part20-ch15-g05",
+        "development-2026-5part20-ch15-g06"
+      ]
+    },
+    {
+      "id": "P15-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "400b9315e4ea6ea1f91227b5efcee4ada25d61ffd82f6f3ce92916c96923fd4b",
+      "title": "Simulator와 실물 iPhone은 다릅니다",
+      "target": "coding-assistant",
+      "kind": "conditional",
+      "when": "독자가 기본 동네 또는 종목을 바꾸고 싶을 때만",
+      "before": "기본 실습을 마친 뒤 독자가 선택한 변경인지 확인. 이 변경 없이도 다음 장으로 진행할 수 있음.",
+      "after": "선택한 기본값 표시. 별도 기능이나 추가 검증·배포 절차를 요구하지 않음.",
+      "objective_ids": [
+        "development-2026-5part20-ch15-g03",
+        "development-2026-5part20-ch15-g04"
+      ]
+    },
+    {
+      "id": "P15-08",
+      "source": "prompts.md",
+      "block_index": 8,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "하나의 서비스를 세 환경에서 사용하게 됐습니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    }
+  ],
+  "edition_id": "development-2026-5part20"
+}

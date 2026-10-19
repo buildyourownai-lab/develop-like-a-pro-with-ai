@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "book_edition": "development-2026-5part20",
+  "id": "ch15",
+  "number": 15,
+  "title": "15장. 웹서비스를 앱으로 만들기 전에 알아야 할 것들",
+  "manuscript": "book/21-chapter-15.md",
+  "manuscript_sha256": "a971c023f5d2287d96ccfa4736004b85b85228d6c81876b6db23b82a0f6e2f9e",
+  "outcome": "앱에 넣을 기능과 재사용·보안·완료 기준을 결정합니다.",
+  "project": "ai-stock-briefing",
+  "start_state": "14장까지의 웹서비스와 서버를 이어갑니다. 앱은 9~12장에서 만든 시세·공시·브리핑 기능을 재사용하며 웹 챗봇은 포함하지 않습니다.",
+  "previously_completed_features": "시세·공시·브리핑·Database·Cache",
+  "required_services": [],
+  "required_accounts_permissions": [],
+  "tools_and_packages": [
+    "기존 프로젝트",
+    "설계 문서"
+  ],
+  "new_features": "앱 범위·화면 우선순위·공통 서버·개인정보 경계",
+  "out_of_scope": "아직 Android·iPhone 앱을 구현하거나 불필요한 로그인·알림·권한을 추가하지 않습니다.",
+  "objectives": [
+    {
+      "id": "development-2026-5part20-ch13-g01",
+      "title": "앱 필요 판단",
+      "criterion": "웹으로 충분한지와 앱 확장 목적 설명",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "웹으로 충분한지와 앱 확장 목적 설명. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch13-g02",
+      "title": "재사용 조사",
+      "criterion": "서버와 새 화면을 구분해 조사",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch13-g01"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "서버와 새 화면을 구분해 조사. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch13-g03",
+      "title": "범위 결정",
+      "criterion": "넣을 기능과 뺄 기능을 문서화",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch13-g02"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "넣을 기능과 뺄 기능을 문서화. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch13-g04",
+      "title": "화면 계획",
+      "criterion": "작은 화면의 우선순위·오류 상태 설계",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch13-g03"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "작은 화면의 우선순위·오류 상태 설계. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch13-g05",
+      "title": "보안 경계",
+      "criterion": "Secret은 서버에만·불필요 권한 제외",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch13-g04"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "Secret은 서버에만·불필요 권한 제외. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch13-g06",
+      "title": "완료 기준",
+      "criterion": "다음 두 앱의 실제 확인 기준 확정",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch13-g05"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "다음 두 앱의 실제 확인 기준 확정. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "16장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "기획 장은 문서와 판단의 완성이 결과입니다. 앱 파일이 없다는 이유로 미완료 처리하지 않습니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch15",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "hint_topics": [
+    {
+      "id": "H13-01",
+      "symptom": "완료 확인인데 앱 파일이 없음",
+      "levels": [
+        "이 장은 앱을 만드는 단계가 아닙니다.",
+        "범위·재사용·보안·화면 기준 문서를 봅니다.",
+        "다음 장의 구현 요청을 작성할 만큼 결정됐는지 확인합니다."
+      ],
+      "solution": "계획과 완료 조건이 갖춰졌으면 이 장은 완료 가능합니다. 앱은14·17장에서 만듭니다."
+    },
+    {
+      "id": "H13-02",
+      "symptom": "앱에 키도 넣어야 하나",
+      "levels": [
+        "앱과 기존 서버가 맡는 일을 구분합니다.",
+        "앱은 결과를 받고 서버가 외부 서비스와 연결하는 구조를 봅니다.",
+        "설정이 앱 번들로 복사되는 경로가 없는지 계획을 확인합니다."
+      ],
+      "solution": "서버 Secret을 유지하고 앱은 필요한 서버 주소와 결과만 사용하게 설계합니다."
+    }
+  ],
+  "required_credentials": [],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [
+    "이 장 완료에는 계획과 기준이 필요하며 앱 파일은 필요하지 않다."
+  ],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  },
+  "edition_id": "development-2026-5part20",
+  "legacy_chapter": 13,
+  "legacy_evidence_inherited": false,
+  "native_chatbot_scope": "excluded; chatbot is web only; native retains market/filings/briefing",
+  "carry_forward_state": "14장까지의 웹서비스와 서버를 이어갑니다. 앱은 9~12장에서 만든 시세·공시·브리핑 기능을 재사용하며 웹 챗봇은 포함하지 않습니다."
+}

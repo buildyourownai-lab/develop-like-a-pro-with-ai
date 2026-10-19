@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "book_edition": "development-2026-5part20",
+  "id": "ch16",
+  "number": 16,
+  "title": "16장. 만든 서비스를 Android 앱으로 만듭니다",
+  "manuscript": "book/22-chapter-16.md",
+  "manuscript_sha256": "dd1dca1251cc0ec768bb07070d764dc7be0625b09090725f795d09c5fadb1386",
+  "outcome": "기존 서버를 사용하는 Android 앱을 실행하고 확인합니다.",
+  "project": "ai-stock-briefing",
+  "start_state": "15장에서 앱 범위·화면·보안 기준을 정했습니다.",
+  "previously_completed_features": "웹·서버·DB·Cache·AI 기능",
+  "required_services": [
+    "android"
+  ],
+  "required_accounts_permissions": [],
+  "tools_and_packages": [
+    "Android Studio",
+    "Android Emulator",
+    "프로젝트 앱 도구"
+  ],
+  "new_features": "Android 화면·서버 연결·기기에서 사용 확인",
+  "out_of_scope": "서버 기능을 중복 구현하거나 키를 앱에 포함하지 않습니다.",
+  "objectives": [
+    {
+      "id": "development-2026-5part20-ch14-g01",
+      "title": "개발환경",
+      "criterion": "공식 설치·용량·Emulator 상태 확인",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "공식 설치·용량·Emulator 상태 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch14-g02",
+      "title": "범위 구현",
+      "criterion": "계획한 화면과 기능만 구현",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch14-g01"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "계획한 화면과 기능만 구현. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch14-g03",
+      "title": "주소 연결",
+      "criterion": "Emulator에서 접근 가능한 서버 주소 확인",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch14-g02"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "Emulator에서 접근 가능한 서버 주소 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch14-g04",
+      "title": "전체 사용",
+      "criterion": "검색·종목·차트·공시·브리핑 흐름 사용",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch14-g03"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "검색·종목·차트·공시·브리핑 흐름 사용. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch14-g05",
+      "title": "사용성·경계",
+      "criterion": "키보드·오류·권한·Secret 확인",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch14-g04"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "키보드·오류·권한·Secret 확인. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch14-g06",
+      "title": "회귀·기록",
+      "criterion": "웹과 앱 관련 검사와 완료 기록",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch14-g05"
+      ],
+      "evidence_types": [
+        "test-run"
+      ],
+      "expected_outcome": "pass",
+      "scope": "project-and-artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "웹과 앱 관련 검사와 완료 기록. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
+  "handoff": "17장으로 현재 프로젝트와 확인한 기록을 이어감",
+  "intentional_failure_policy": "Emulator의 localhost와 개발 PC의 localhost를 같다고 가정하지 않습니다. 웹이 표현 기준이어도 앱에 실제 반영됐는지 확인해야 합니다.",
+  "reference_binding": "../../source-registry.json#/chapters/ch16",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "hint_topics": [
+    {
+      "id": "H14-01",
+      "symptom": "웹은 되는데 Emulator는 연결 안 됨",
+      "levels": [
+        "어디에서 실행되는 localhost인지 봅니다.",
+        "PC·Emulator·운영 서버 주소를 구분합니다.",
+        "앱 설정의 서버 주소와 실제 네트워크 접근을 확인합니다."
+      ],
+      "solution": "해당 환경에서 도달 가능한 주소를 사용하고 실제 앱 요청을 검사합니다. 키를 앱에 넣어 우회하지 않습니다."
+    },
+    {
+      "id": "H14-02",
+      "symptom": "키보드가 화면을 가림",
+      "levels": [
+        "자동 Test와 실제 사용성 확인은 다릅니다.",
+        "같은 검색 동작을 직접 반복합니다.",
+        "입력 완료 뒤 키보드·스크롤·결과 위치를 확인합니다."
+      ],
+      "solution": "관련 UI만 수정한 뒤 같은 기기 흐름과 기존 기능을 다시 확인합니다."
+    }
+  ],
+  "required_credentials": [],
+  "oauth_scope_requirements": [],
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "이번 장 필수 목표를 정해진 근거로 확인",
+    "사용한 코드·환경·기준판을 식별",
+    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+  ],
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": true
+  },
+  "edition_id": "development-2026-5part20",
+  "legacy_chapter": 14,
+  "legacy_evidence_inherited": false,
+  "native_chatbot_scope": "excluded; chatbot is web only; native retains market/filings/briefing",
+  "carry_forward_state": "15장에서 앱 범위·화면·보안 기준을 정했습니다."
+}

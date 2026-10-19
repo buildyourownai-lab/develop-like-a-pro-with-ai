@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "book_edition": "development-2026-5part20",
+  "id": "ch19",
+  "number": 19,
+  "manuscript": "book/26-chapter-19.md",
+  "project": "ai-shorts-maker",
+  "reference_binding": "../../source-registry.json#/chapters/ch19",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  },
+  "title": "19장. 캐릭터와 원화로 움직이는 장면을 만듭니다",
+  "manuscript_sha256": "746d9129a85fccfef7f519fdef6c8b836d20e3c7a729bf90f3da113859755384",
+  "outcome": "기획을 같은 대상의 기준 이미지, 장면 원화, 실제 영상 클립과 러프컷으로 만들고 후반 작업에 넘깁니다.",
+  "start_state": "선택한 소재와 제목, 근거와 표현 한계, 시각 시나리오, 샷 카드, 대상·원화·영상 수량과 잠정 시간.",
+  "previously_completed_features": "18장의 독자 기획 스킬과 기획 묶음",
+  "required_services": [
+    "video-generation"
+  ],
+  "required_accounts_permissions": [],
+  "required_credentials": [],
+  "oauth_scope_requirements": [],
+  "tools_and_packages": [
+    "Google Flow 브라우저",
+    "다운로드 파일 확인 도구",
+    "영상 뷰어와 편집 도구"
+  ],
+  "new_features": "book-shorts-build, Flow 환경 확인, 캐릭터 기준, 독립 원화, 시작 이미지 영상, 부분 수정, 러프컷",
+  "out_of_scope": "음성·음향·동적 자막의 최종 합성과 게시를 미리 수행하지 않습니다. 실제 Flow 등록·생성은 독자가 합니다.",
+  "objectives": [
+    {
+      "id": "development-2026-5part20-ch17-p5-01",
+      "title": "제작 준비",
+      "criterion": "book-shorts-build를 공개 명세로 만들고 현재 기획 및 Flow의 실제 모델·직접 해상도·길이·개수·비용·참조 지원을 확인합니다.",
+      "required": true,
+      "depends_on": [],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "book-shorts-build를 공개 명세로 만들고 현재 기획 및 Flow의 실제 모델·직접 해상도·길이·개수·비용·참조 지원을 확인합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch17-p5-02",
+      "title": "반복 대상 기준",
+      "criterion": "필요한 대상만 캐릭터로 산정하고 이름·Character info·불변 특징·실제 기준 이미지와 참조 선택을 연결합니다.",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch17-p5-01"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "필요한 대상만 캐릭터로 산정하고 이름·Character info·불변 특징·실제 기준 이미지와 참조 선택을 연결합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch17-p5-03",
+      "title": "장면 원화",
+      "criterion": "장면 번호별 독립 원화와 실제 파일을 대응시키고 구도·시점·광원·색·재질·배경·움직일 공간·문자 없는 출력을 확인합니다.",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch17-p5-02"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "장면 번호별 독립 원화와 실제 파일을 대응시키고 구도·시점·광원·색·재질·배경·움직일 공간·문자 없는 출력을 확인합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch17-p5-04",
+      "title": "수정과 연결 판단",
+      "criterion": "관찰한 결함과 추측을 나누고 좋은 결과를 보존하며 문제 자산만 수정합니다. 시작·끝의 실제 연속성을 확인해 독립 클립 여부를 결정합니다.",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch17-p5-03"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "관찰한 결함과 추측을 나누고 좋은 결과를 보존하며 문제 자산만 수정합니다. 시작·끝의 실제 연속성을 확인해 독립 클립 여부를 결정합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch17-p5-05",
+      "title": "영상 클립",
+      "criterion": "채택 원화를 시작 Frames로 연결하고 지원 설정 안에서 카메라 가감속·시차·관찰 시간을 가진 실제 클립을 확보해 원화 번호와 대응합니다.",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch17-p5-04"
+      ],
+      "evidence_types": [
+        "human-observation"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "채택 원화를 시작 Frames로 연결하고 지원 설정 안에서 카메라 가감속·시차·관찰 시간을 가진 실제 클립을 확보해 원화 번호와 대응합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "development-2026-5part20-ch17-p5-06",
+      "title": "러프컷과 인계",
+      "criterion": "실제 다운로드 클립의 번호·채택 버전·길이·사용 구간·러프컷을 확인하고 발화 가능 창·음향 의도·미확인을 20장에 넘깁니다.",
+      "required": true,
+      "depends_on": [
+        "development-2026-5part20-ch17-p5-05"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "실제 다운로드 클립의 번호·채택 버전·길이·사용 구간·러프컷을 확인하고 발화 가능 창·음향 의도·미확인을 20장에 넘깁니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    }
+  ],
+  "completion_rule": "All required objectives need current accepted evidence. No publication, English version, or simulated result is required unless selected. Unobserved playback/listening remains unverified.",
+  "handoff": "20장에 실제 클립·러프컷·구간표·채택 버전·발화 창·음향 의도·미확인을 넘깁니다.",
+  "intentional_failure_policy": "정상 자산을 일부러 손상시키는 과제는 없습니다. 관찰한 문제와 추측을 구분하고 문제 있는 자산·레이어만 수정하며 실제 결과를 확인합니다.",
+  "special_expected_states": [],
+  "next_chapter_conditions": [
+    "기획을 같은 대상의 기준 이미지, 장면 원화, 실제 영상 클립과 러프컷으로 만들고 후반 작업에 넘깁니다.",
+    "미확인과 남은 선택을 다음 단계의 완료로 숨기지 않습니다."
+  ],
+  "contract_revision": "part5-plan-build-finish-2026-10-19",
+  "runtime_alignment_note": "새 수업 목표에는 새 ID를 사용합니다. 구판 목표의 완료 기록을 승계하거나 삭제하지 않습니다. 명세·정적 검사와 독자의 실제 제작 재현은 별도입니다. 한국어가 기본이며 영어는 독자가 선택했을 때만 목표에 포함합니다.",
+  "hint_topics": [
+    {
+      "id": "H17-P5-01",
+      "symptom": "다른 장면의 배가 달라짐",
+      "levels": [
+        "현재 캐릭터 참조 선택을 봅니다.",
+        "이름·실제 기준 이미지·불변 특징을 대조합니다.",
+        "원화 번호와 실제 자산 참조가 연결됐는지 확인합니다."
+      ],
+      "solution": "함선 외형 참조와 장면 구도 참조를 구분해 문제 장면만 수정합니다."
+    },
+    {
+      "id": "H17-P5-02",
+      "symptom": "원화나 영상이 서로 비슷함",
+      "levels": [
+        "거리·높이·방향을 나란히 비교합니다.",
+        "전경과 시각적 공개 사건을 비교합니다.",
+        "가속 뒤 관찰 시간이 있고 다른 장면과 역할이 다른지 봅니다."
+      ],
+      "solution": "차이를 구체적인 구도·빛·동작 명령으로 고치고 좋은 자산은 보존합니다."
+    },
+    {
+      "id": "H17-P5-03",
+      "symptom": "두 이미지가 자연스럽게 이어지지 않음",
+      "levels": [
+        "배 방향과 주변 물체를 비교합니다.",
+        "카메라 이동만으로 이어질 수 있는지 봅니다.",
+        "사람·받침·배경의 불연속을 확인합니다."
+      ],
+      "solution": "형태를 녹여 이어 붙이지 않고 각 채택 원화를 시작 이미지로 쓴 독립 클립을 준비합니다."
+    },
+    {
+      "id": "H17-P5-04",
+      "symptom": "글자나 현대식 배가 생김",
+      "levels": [
+        "문제 클립의 번호와 시간을 찾습니다.",
+        "대응 원화에도 같은 문제가 있는지 봅니다.",
+        "깨끗한 실제 구간과 재생성 범위·비용을 비교합니다."
+      ],
+      "solution": "문제가 있는 자산만 대상으로 재생성 또는 실제 구간 사용을 제안하고 사용자 생성 결과를 기다립니다."
+    }
+  ],
+  "edition_id": "development-2026-5part20",
+  "legacy_chapter": 17,
+  "legacy_evidence_inherited": false,
+  "carry_forward_state": "선택한 소재와 제목, 근거와 표현 한계, 시각 시나리오, 샷 카드, 대상·원화·영상 수량과 잠정 시간."
+}

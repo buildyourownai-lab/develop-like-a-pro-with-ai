@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "chapter": 13,
+  "project": "ai-stock-briefing",
+  "manuscript_sha256": "4cfaa566d1dc2dae3fea7fb221ebfb8069c4e8a722278c3f9dac8389af70d588",
+  "entries": [
+    {
+      "id": "P21-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "bb3b292a12afa21d7391944120d1d11424c76ad78c887301b2aa8c688ec5a3e0",
+      "title": "앞 장의 자료를 질문으로 이어갑니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "현재 장을 시작하거나 다시 이어갈 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표·선행 상태·첫 행동 하나",
+      "objective_ids": []
+    },
+    {
+      "id": "P21-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "d8fd0f356a97c2efdb9e18aca772e07b1b977afd8915b598646e3c090ecd6b8e",
+      "title": "어떤 질문을 해결할지 정합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "주식서비스 챗봇 기획 시작",
+      "before": "9~12장 자기 ai-stock-briefing 선택과 기존 서비스 확인. 뒤의 앱·영상 수업은 선행 조건이 아닙니다.",
+      "after": "기능·제외 범위·대표 질문을 기획서에 저장; 제품 코드 불변",
+      "objective_ids": [
+        "development-2026-5part20-ch21-plan-build-v2-g01",
+        "development-2026-5part20-ch21-plan-build-v2-g02"
+      ]
+    },
+    {
+      "id": "P21-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "69fc06fda23d9999cf742e706bc7820a9e4033d00f609900a4048e99e3fda861",
+      "title": "메인에서 질문부터 시작하게 합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "답변 구분·사용 흐름 기획",
+      "before": "같은 기획서의 기능·질문 결정 확인.",
+      "after": "두 답변 영역·모호한 대상·질문 보존·전환 흐름",
+      "objective_ids": [
+        "development-2026-5part20-ch21-plan-build-v2-g03"
+      ]
+    },
+    {
+      "id": "P21-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "24b4734e46f0700dfe3317812f6877cb6b4de25bcea3687fd3b6aa24798d9013",
+      "title": "버튼의 위치와 대화창의 모양을 정합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "기존 화면 기반 디자인 계획",
+      "before": "기존 실제 화면과 앞선 사용 흐름 확인.",
+      "after": "설계도·모바일·키보드·포커스 검사 계획; 실행 화면으로 표시하지 않음",
+      "objective_ids": [
+        "development-2026-5part20-ch21-plan-build-v2-g04"
+      ]
+    },
+    {
+      "id": "P21-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "38ccd6027bf38ffc4e04ff2b530e43db548e2e2a4e870aee239078c7627f221e",
+      "title": "기존 기능으로 효율적으로 구현할 방법을 찾습니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "기존 함수 연결 조사",
+      "before": "기획서 세 기능과 현재 코드 확인.",
+      "after": "재사용·Adapter·실패·Cache·공식 함수 호출 호환 연결표",
+      "objective_ids": [
+        "development-2026-5part20-ch21-plan-build-v2-g05"
+      ]
+    },
+    {
+      "id": "P21-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "bac58e5ffcba0165c84ecd9b882dc1ac28db33debe1e6e96a6b3e8a49fba6fd3",
+      "title": "구현 순서와 완료 조건까지 기획합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "기획서 구현 순서 확정",
+      "before": "범위·사용 흐름·화면·연결표와 독자 결정 확인.",
+      "after": "구현 단계·질문·결과·제한·미확인 목록; 제품 코드·Test 불변",
+      "objective_ids": [
+        "development-2026-5part20-ch21-plan-build-v2-g06",
+        "development-2026-5part20-ch21-plan-build-v2-g07"
+      ]
+    },
+    {
+      "id": "P21-07",
+      "source": "prompts.md",
+      "block_index": 7,
+      "sha256": "e1f34d31b17f39f406741070b1d300e2db9315a727ef1bac70c27f5c2c53244f",
+      "title": "구현 순서와 완료 조건까지 기획합니다",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "이번 장 완료 조건을 확인할 때",
+      "before": "현재 장과 실제 프로젝트를 확인. 기존에 확인한 맥락은 재사용.",
+      "after": "목표별 실제 근거와 미확인·실패·다음 행동 하나",
+      "objective_ids": []
+    }
+  ],
+  "edition_id": "development-2026-5part20"
+}
