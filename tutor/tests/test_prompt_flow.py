@@ -27,19 +27,27 @@ class PublishedGuides(unittest.TestCase):
                     result = prompts.read_prompt(chapter, entry['id'])
                     self.assertIn(result['text'], result['markdown'])
 
-    def test_upload_implementation_precedes_alternative_execution_paths(self):
+    def test_postproduction_prompts_end_at_preparation_not_forced_upload(self):
         entries = {e['id']: e for e in prompts.list_entries(18)}
-        bridge = prompts.read_prompt(18, 'P18-08')
-        private = prompts.read_prompt(18, 'P18-11')
-        public = prompts.read_prompt(18, 'P18-07')
-        self.assertLess(bridge['block_index'], private['block_index'])
-        self.assertLess(bridge['block_index'], public['block_index'])
-        self.assertIn('시험 응답', bridge['text'])
-        self.assertIn('공개로 전환하지 마', private['text'])
-        self.assertEqual(public['kind'], 'conditional')
-        self.assertIn('택일', public['before'])
-        self.assertIn('택일', private['before'])
+        composition = prompts.read_prompt(18, 'P18-09')
+        preparation = prompts.read_prompt(18, 'P18-10')
+        completion = prompts.read_prompt(18, 'P18-11')
+        self.assertLess(composition['block_index'], preparation['block_index'])
+        self.assertLess(preparation['block_index'], completion['block_index'])
+        self.assertIn('완성 영상을 만들어줘', composition['text'])
+        self.assertIn('실제 업로드/공개 설정은 바꾸지 마', preparation['text'])
+        self.assertIn('업로드는 별도 선택', completion['text'])
         self.assertEqual(len(entries), 11)
+
+    def test_flow_generation_inputs_are_separate_and_readable(self):
+        entries = prompts.list_entries(17)
+        flow = [entry for entry in entries if entry['source'] == 'service-questions.md']
+        self.assertEqual(len(flow), 5)
+        self.assertTrue(all(entry['target'] == 'service-chat' for entry in flow))
+        for entry in flow:
+            result = prompts.read_prompt(17, entry['id'])
+            self.assertTrue(result['text'])
+            self.assertTrue(all(oid.startswith('ch17-p5-') for oid in result['objective_ids']))
 
     def test_model_recovery_is_conditional(self):
         result = prompts.read_prompt(11, 'P11-15')

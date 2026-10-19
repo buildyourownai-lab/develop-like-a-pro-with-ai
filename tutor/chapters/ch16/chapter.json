@@ -3,133 +3,56 @@
   "book_edition": "22-chapter-tutor-revision",
   "id": "ch16",
   "number": 16,
-  "title": "16장. AI와 YouTube 영상을 만듭니다",
   "manuscript": "book/23-chapter-16.md",
-  "manuscript_sha256": "fc3f6baccf5ed9a37ff245e6c4eaa47618c82056c5205d537a05371b0941f178",
-  "outcome": "선택한 소재의 원화·영상·대본·음성과 동적 설명을 단계별 검수하여 최종 영상을 완성합니다.",
   "project": "ai-shorts-maker",
-  "start_state": "주식 프로젝트를 보존하고 별도 ai-shorts-maker 폴더를 만들어 현재 프로젝트로 선택한 뒤 제작 목표를 정할 단계입니다.",
-  "previously_completed_features": "공통 요청·검증·Secret·기록 방식",
-  "required_services": [
-    "gemini",
-    "video-generation"
-  ],
-  "required_accounts_permissions": [
-    {
-      "service": "gemini",
-      "details": "../../services/gemini.json",
-      "readiness": "must_be_observed_not_assumed"
-    },
-    {
-      "service": "video-generation",
-      "details": "../../services/video-generation.json",
-      "readiness": "must_be_observed_not_assumed"
-    }
-  ],
+  "reference_binding": "../../source-registry.json#/chapters/ch16",
+  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
+  "design_reference_policy": {
+    "preserve_existing_design": true,
+    "reference_finish_only_for_current_chapter": true,
+    "pixel_identity_required": false,
+    "preload_future_features": false,
+    "new_ui_in_this_chapter": false
+  },
+  "title": "16장. 질문 하나로 영상 제작을 설계합니다",
+  "manuscript_sha256": "53f0e772022d2ded42e45575e2de1fef56b1557735c2eadde5434726af510f63",
+  "outcome": "선택한 소재의 질문·결론, 근거, 화면 설계, 자산 수와 잠정 시간을 제작 인계로 묶습니다.",
+  "start_state": "앞의 주식 프로젝트를 보존하고 별도 영상 작업 폴더를 선택할 단계입니다.",
+  "previously_completed_features": "앞 장의 AI 요청·확인·기록 방식. 영상 생성 완료는 선행 조건이 아닙니다.",
+  "required_services": [],
+  "required_accounts_permissions": [],
+  "required_credentials": [],
+  "oauth_scope_requirements": [],
   "tools_and_packages": [
-    "Python",
-    "FFmpeg",
-    "영상 뷰어"
+    "프로젝트 파일을 읽고 쓸 수 있는 AI",
+    "출처 조사 환경"
   ],
-  "new_features": "언어·소재 선택, 시각적 장면 설계, 기준 이미지, 스토리보드, 영상 연결본 확정, 대본·Charon 음성·동적 설명 합성, 재사용 Skill",
-  "out_of_scope": "장면 승인·자료 사용 조건을 건너뛰거나 유료 생성·게시를 임의 실행하지 않습니다.",
+  "new_features": "book-shorts-plan, 소재 선택, 출처 조사, 시각적 장면 설계, 제작 인계",
+  "out_of_scope": "이미지·영상·음성 생성, Flow 실제 등록, 업로드를 수행하지 않습니다.",
   "objectives": [
     {
-      "id": "ch16-g01",
-      "title": "조사·시나리오",
-      "criterion": "언어 설정과 독자가 선택한 소재의 근거·한 질문과 결론·시각적 사건을 확인",
+      "id": "ch16-p5-01",
+      "title": "기획 스킬",
+      "criterion": "공개 본문 명세만으로 book-shorts-plan을 프로젝트 로컬에 만들고 실제 호출법 또는 일반 지침 대안을 확인합니다.",
       "required": true,
       "depends_on": [],
       "evidence_types": [
-        "human-observation"
+        "file-inspection"
       ],
       "expected_outcome": "pass",
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "언어 설정과 독자가 선택한 소재의 근거·한 질문과 결론·시각적 사건을 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
+      "verify_instructions": "공개 본문 명세만으로 book-shorts-plan을 프로젝트 로컬에 만들고 실제 호출법 또는 일반 지침 대안을 확인합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
-      "id": "ch16-g02",
-      "title": "장면 승인",
-      "criterion": "번호별 독립 원화·실제 이미지 대응 스토리보드·영상 후보·연결 편집본의 승인을 확인",
+      "id": "ch16-p5-02",
+      "title": "소재 선택",
+      "criterion": "후보의 중심 질문·결론·시각 사건·추천 제목을 비교하고 독자가 선택한 소재와 언어를 저장합니다.",
       "required": true,
       "depends_on": [
-        "ch16-g01"
-      ],
-      "evidence_types": [
-        "human-observation"
-      ],
-      "expected_outcome": "pass",
-      "scope": "artifact",
-      "environment": "local-or-manual",
-      "expiry_hours": null,
-      "verify_instructions": "번호별 독립 원화·실제 이미지 대응 스토리보드·영상 후보·연결 편집본의 승인을 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
-      "external_side_effects_authorized_by_verify": false
-    },
-    {
-      "id": "ch16-g03",
-      "title": "자료·권리",
-      "criterion": "이미지·영상 생성 전 현행 조건과 승인 범위, 이용 조건, 실제 다운로드 자산을 확인",
-      "required": true,
-      "depends_on": [
-        "ch16-g01"
-      ],
-      "evidence_types": [
-        "human-observation"
-      ],
-      "expected_outcome": "pass",
-      "scope": "artifact",
-      "environment": "local-or-manual",
-      "expiry_hours": null,
-      "verify_instructions": "이미지·영상 생성 전 현행 조건과 승인 범위, 이용 조건, 실제 다운로드 자산을 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
-      "external_side_effects_authorized_by_verify": false
-    },
-    {
-      "id": "ch16-g04",
-      "title": "음성·편집",
-      "criterion": "확정 연결 영상에 맞춘 대본·실제 음성·동적 설명과 소리를 합성해 최종 MP4 생성",
-      "required": true,
-      "depends_on": [
-        "ch16-g02",
-        "ch16-g03"
-      ],
-      "evidence_types": [
-        "test-run"
-      ],
-      "expected_outcome": "pass",
-      "scope": "project-and-artifact",
-      "environment": "local-or-manual",
-      "expiry_hours": null,
-      "verify_instructions": "확정 연결 영상에 맞춘 대본·실제 음성·동적 설명과 소리를 합성해 최종 MP4 생성. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
-      "external_side_effects_authorized_by_verify": false
-    },
-    {
-      "id": "ch16-g05",
-      "title": "전체 재생",
-      "criterion": "전편의 영상·실제 음성·설명 추적과 겹침·마지막 소리를 재생 확인",
-      "required": true,
-      "depends_on": [
-        "ch16-g04"
-      ],
-      "evidence_types": [
-        "human-observation"
-      ],
-      "expected_outcome": "pass",
-      "scope": "artifact",
-      "environment": "local-or-manual",
-      "expiry_hours": null,
-      "verify_instructions": "전편의 영상·실제 음성·설명 추적과 겹침·마지막 소리를 재생 확인. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
-      "external_side_effects_authorized_by_verify": false
-    },
-    {
-      "id": "ch16-g06",
-      "title": "제작 재사용",
-      "criterion": "제작 Skill과 실제 입력·자산 대응·승인·미확인 사항을 저장하고17장에 인계",
-      "required": true,
-      "depends_on": [
-        "ch16-g05"
+        "ch16-p5-01"
       ],
       "evidence_types": [
         "file-inspection"
@@ -138,121 +61,112 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "제작 Skill과 실제 입력·자산 대응·승인·미확인 사항을 저장하고17장에 인계. 실제 대상 파일·판본·해시·시점·검사 주체와 확인 범위, 미실시를 구분해 기록합니다. 예제의 결과나 승인 문구를 독자의 실행 증거로 사용하지 않습니다.",
+      "verify_instructions": "후보의 중심 질문·결론·시각 사건·추천 제목을 비교하고 독자가 선택한 소재와 언어를 저장합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-p5-03",
+      "title": "근거와 표현 한계",
+      "criterion": "직접 읽은 출처와 조회일·근거 위치를 보존하고 사실·차이·미확인·허용 재현·금지 요소를 구분합니다.",
+      "required": true,
+      "depends_on": [
+        "ch16-p5-02"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "직접 읽은 출처와 조회일·근거 위치를 보존하고 사실·차이·미확인·허용 재현·금지 요소를 구분합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-p5-04",
+      "title": "장면 설계",
+      "criterion": "시각적 공개 사건, 카메라 경로와 가감속·관찰 시간, 빛·색·재질·음향 의도·자막 여백을 장면별로 정하고 반복 구도를 비교합니다.",
+      "required": true,
+      "depends_on": [
+        "ch16-p5-03"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "시각적 공개 사건, 카메라 경로와 가감속·관찰 시간, 빛·색·재질·음향 의도·자막 여백을 장면별로 정하고 반복 구도를 비교합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-p5-05",
+      "title": "수량과 잠정 시간",
+      "criterion": "반복 대상의 수·이름·불변 특징과 기준 이미지·원화·클립·편집 구간을 구분해 수량과 잠정 시간을 산정합니다.",
+      "required": true,
+      "depends_on": [
+        "ch16-p5-04"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "반복 대상의 수·이름·불변 특징과 기준 이미지·원화·클립·편집 구간을 구분해 수량과 잠정 시간을 산정합니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
+      "external_side_effects_authorized_by_verify": false
+    },
+    {
+      "id": "ch16-p5-06",
+      "title": "제작 인계",
+      "criterion": "선택 내용·출처·장면 카드·수량·잠정 시간·참조 관계·미확인을 제작인계.md에 연결하고 17장에 넘깁니다.",
+      "required": true,
+      "depends_on": [
+        "ch16-p5-05"
+      ],
+      "evidence_types": [
+        "file-inspection"
+      ],
+      "expected_outcome": "pass",
+      "scope": "artifact",
+      "environment": "local-or-manual",
+      "expiry_hours": null,
+      "verify_instructions": "선택 내용·출처·장면 카드·수량·잠정 시간·참조 관계·미확인을 제작인계.md에 연결하고 17장에 넘깁니다. 실제 대상 파일·현재 해시·확인 시점·주체와 관찰 범위를 연결합니다. 예제 결과는 독자의 실행 근거가 아닙니다. 미실시는 미확인으로 남기고 완료 확인만으로 생성·결제·게시하지 않습니다.",
       "external_side_effects_authorized_by_verify": false
     }
   ],
-  "completion_rule": "All required objectives have accepted, current evidence; missing playback/listening remains unverified; preserve expected failure evidence; never auto-edit to pass.",
-  "handoff": "17장으로 현재 프로젝트와 확인한 기록을 이어감",
-  "intentional_failure_policy": "생성 전 조건·승인을 확인합니다. 실제 자산과 승인된 결과를 구분하고, 영상 확정→대본 확정→TTS→합성을 지킵니다. 정상 자산은 보존하고 필요한 층만 수정합니다.",
-  "reference_binding": "../../source-registry.json#/chapters/ch16",
-  "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
-  "hint_topics": [
-    {
-      "id": "H16-01",
-      "symptom": "생성이 멈춤",
-      "levels": [
-        "로그인 성공과 생성 완료는 다릅니다.",
-        "생성 상태·남은 이용량·다운로드 파일을 확인합니다.",
-        "어느 장면의 후보가 아직 없는지 제작 기록과 비교합니다."
-      ],
-      "solution": "미완성 단계를 해결한 뒤 다음 편집으로 넘어갑니다. 승인 없이 유료 요금제를 선택하지 않습니다."
-    },
-    {
-      "id": "H16-02",
-      "symptom": "최종 영상이 어색함",
-      "levels": [
-        "문제 장면과 시간부터 특정합니다.",
-        "화면·음성·자막·전환 중 어느 요소인지 나눕니다.",
-        "해당 입력 파일과 조립 순서·길이를 대조합니다."
-      ],
-      "solution": "필요한 요소만 수정해 다시 조립하고 전체 재생합니다. 사용 조건을 확인하지 않은 음악으로 교체하지 않습니다."
-    },
-    {
-      "id": "H16-03",
-      "symptom": "소재를 정하기 전에 생성하려 함",
-      "levels": [
-        "지금 소재가 독자가 선택한 것인지 봅니다.",
-        "언어와 대중적 후보 비교까지만 진행했는지 봅니다.",
-        "후보의 근거·시각적 사건을 비교하고 독자의 선택을 기다립니다."
-      ],
-      "solution": "선택한 소재의 근거와 장면 설계부터 진행합니다. 로켓의16장이나81초를 다른 소재에 그대로 복사하지 않습니다."
-    },
-    {
-      "id": "H16-04",
-      "symptom": "배치 이미지가 콜라주이거나 비슷함",
-      "levels": [
-        "결과가 번호별 독립 이미지인지 봅니다.",
-        "장소·거리·시점·조명·행동이 실제로 다른지 비교합니다.",
-        "장면별 파일 대응과 이미지 프롬프트의 독립 출력 지시를 대조합니다."
-      ],
-      "solution": "필요한 장면만 다시 설계하고 비용·범위 승인 안에서 수정합니다."
-    },
-    {
-      "id": "H16-05",
-      "symptom": "요청한 영상 길이가 지원되지 않음",
-      "levels": [
-        "현재 계정의 실제 지원 길이를 봅니다.",
-        "사용할 편집 구간과 원본 생성 길이를 나눕니다.",
-        "현재 모델·출력 수·차감액을 확인하고 지원 길이 생성 후 트림 계획을 세웁니다."
-      ],
-      "solution": "임의 모델 변경이나 중복 배치 없이 확인된 조건과 기존 승인 범위 안에서 진행합니다."
-    },
-    {
-      "id": "H16-06",
-      "symptom": "TTS 말투나 발음이 어색함",
-      "levels": [
-        "문제 문장과 실제 음성 구간을 찾습니다.",
-        "대본의 존댓말 종결과 실제 발화를 따로 비교합니다.",
-        "영상 확정→대본 확정→TTS 순서와 생성된 WAV의 실제 길이를 확인합니다."
-      ],
-      "solution": "잘못된 음성 구간만 수정하고 실제 청취 후 다시 합성합니다. 자동 전사만으로 통과시키지 않습니다."
-    },
-    {
-      "id": "H16-07",
-      "symptom": "다른 브라우저에서 History가 없음",
-      "levels": [
-        "현재 로그인 프로필과 서비스를 봅니다.",
-        "작업했던 계정·프로젝트가 같은지 확인합니다.",
-        "기존 다운로드와 자산 대응표에서 실제 파일을 찾습니다."
-      ],
-      "solution": "빈 History를 삭제로 단정하지 않습니다. 확인된 기존 자산을 보존하고 승인 없이 재생성하지 않습니다."
-    }
-  ],
-  "required_credentials": [
-    {
-      "provider": "gemini",
-      "kind": "browser-account-or-explicitly-selected-api",
-      "new_in_this_project": false,
-      "do_not_repeat_existing_setup": true,
-      "actual_value": "never_store_here",
-      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
-      "official_procedure": "../../services/gemini.md"
-    },
-    {
-      "provider": "video-generation",
-      "kind": "browser-account-or-explicitly-selected-api",
-      "new_in_this_project": false,
-      "do_not_repeat_existing_setup": true,
-      "actual_value": "never_store_here",
-      "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
-      "official_procedure": "../../services/video-generation.md"
-    }
-  ],
-  "oauth_scope_requirements": [],
+  "completion_rule": "All required objectives need current accepted evidence. No publication, English version, or simulated result is required unless selected. Unobserved playback/listening remains unverified.",
+  "handoff": "17장에 기획 묶음과 확정·잠정·미확인 조건을 넘깁니다.",
+  "intentional_failure_policy": "정상 자산을 일부러 손상시키는 과제는 없습니다. 관찰한 문제와 추측을 구분하고 문제 있는 자산·레이어만 수정하며 실제 결과를 확인합니다.",
   "special_expected_states": [],
   "next_chapter_conditions": [
-    "이번 장 필수 목표를 정해진 근거로 확인",
-    "사용한 코드·환경·기준판을 식별",
-    "남은 미확인이나 환경 제약을 다음 장의 준비 완료로 숨기지 않음"
+    "선택한 소재의 질문·결론, 근거, 화면 설계, 자산 수와 잠정 시간을 제작 인계로 묶습니다.",
+    "미확인과 남은 선택을 다음 단계의 완료로 숨기지 않습니다."
   ],
-  "design_reference_policy": {
-    "preserve_existing_design": true,
-    "reference_finish_only_for_current_chapter": true,
-    "pixel_identity_required": false,
-    "preload_future_features": false,
-    "new_ui_in_this_chapter": false
-  },
-  "contract_revision": "rocket-workflow-2026-10-18",
-  "runtime_alignment_note": "이 명세 변경은 런타임 기능 검증이 아닙니다. 기존 목표 ID와 독자 기록을 보존하고 새 기준과 다른 구현은 별도 재현·검증합니다."
+  "contract_revision": "part5-plan-build-finish-2026-10-19",
+  "runtime_alignment_note": "새 수업 목표에는 새 ID를 사용합니다. 구판 목표의 완료 기록을 승계하거나 삭제하지 않습니다. 명세·정적 검사와 독자의 실제 제작 재현은 별도입니다. 한국어가 기본이며 영어는 독자가 선택했을 때만 목표에 포함합니다.",
+  "hint_topics": [
+    {
+      "id": "H16-P5-01",
+      "symptom": "소재가 있지만 화면이 단조로움",
+      "levels": [
+        "중심 질문에 답하는 시각 사건을 찾습니다.",
+        "카메라 이동 전후 새로 드러나는 대상을 봅니다.",
+        "거리·높이·방향·전경과 관찰 시간을 장면별로 대조합니다."
+      ],
+      "solution": "사건을 먼저 배치한 뒤 장면 카드를 수정합니다. 길이를 먼저 고정하지 않습니다."
+    },
+    {
+      "id": "H16-P5-02",
+      "symptom": "자산 수와 길이가 헷갈림",
+      "levels": [
+        "반복 대상과 일회성 배경을 나눕니다.",
+        "기준 이미지·원화·클립·편집 구간을 따로 셉니다.",
+        "공개 시간·관찰 시간·발화와 침묵으로 잠정 길이를 계산합니다."
+      ],
+      "solution": "수량과시간.md에 근거와 실제 제작 후 바뀔 조건을 기록합니다."
+    }
+  ]
 }

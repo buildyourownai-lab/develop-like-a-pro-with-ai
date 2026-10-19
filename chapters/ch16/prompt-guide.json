@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "chapter": 16,
+  "project": "ai-shorts-maker",
+  "manuscript_sha256": "53f0e772022d2ded42e45575e2de1fef56b1557735c2eadde5434726af510f63",
+  "entries": [
+    {
+      "id": "P16-01",
+      "source": "prompts.md",
+      "block_index": 1,
+      "sha256": "a3df63496a2a7bd0416d8e73d15f4a8aed77026e650f08a60802d3d5bfb58737",
+      "title": "시작 전 확인",
+      "target": "coding-assistant",
+      "kind": "tutor",
+      "when": "시작 전 확인 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P16-02",
+      "source": "prompts.md",
+      "block_index": 2,
+      "sha256": "201d97baadb789288a7f90222e57f647546b52f65e2b83dab066b1c3dfccbd8b",
+      "title": "반복할 판단을 기획 스킬로 만듭니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "반복할 판단을 기획 스킬로 만듭니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P16-03",
+      "source": "prompts.md",
+      "block_index": 3,
+      "sha256": "7add92ea6e3a6ddff726ba2ea8d341995bd89ee3a3a505a865366947bb1d81e0",
+      "title": "소재와 제목을 함께 고릅니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "소재와 제목을 함께 고릅니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P16-04",
+      "source": "prompts.md",
+      "block_index": 4,
+      "sha256": "37054f0b3231f4df79aabc4376acaf0371a8e432edbcd52014e83eefd790bf46",
+      "title": "사실을 화면의 조건으로 바꿉니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "사실을 화면의 조건으로 바꿉니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P16-05",
+      "source": "prompts.md",
+      "block_index": 5,
+      "sha256": "f881da9572b21b66fa0b51c04b37ce349e294952d7843e5b5c80f3488d079730",
+      "title": "설명보다 먼저 보이는 사건을 배치합니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "설명보다 먼저 보이는 사건을 배치합니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": []
+    },
+    {
+      "id": "P16-06",
+      "source": "prompts.md",
+      "block_index": 6,
+      "sha256": "6a5945ccf82f5f16c67d0ec7bf52517227b937fc7a4564dca0ef0e2520555dc7",
+      "title": "다음 장에서 만들 수 있는 상태로 넘깁니다",
+      "target": "coding-assistant",
+      "kind": "main",
+      "when": "다음 장에서 만들 수 있는 상태로 넘깁니다 단계에서 앞 단계의 실제 결과를 확인한 뒤",
+      "before": "현재 프로젝트의 AI: 현재 프로젝트와 실제 입력·선택·자산을 확인한다. 유료 생성은 독자가 승인한 범위에서만 진행한다.",
+      "after": "실제 산출물·미확인·다음 인계를 구분한다. Flow 명령은 사용자가 실제 참조를 선택한 뒤 입력한다.",
+      "objective_ids": []
+    }
+  ]
+}

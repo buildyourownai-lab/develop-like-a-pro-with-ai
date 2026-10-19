@@ -79,12 +79,20 @@ class Runtime(unittest.TestCase):
   q=r.status(self.p,c)
   self.assertEqual(q['objectives'][1]['status'],'verified')
   self.assertTrue(q['chapter_complete'])
- def test_ch17_expected_damage_is_success_goal(self):
+ def test_ch17_current_production_goals_complete_with_current_evidence(self):
   c=r.contract(17);self.all(c);q=r.status(self.p,c);self.assertTrue(q['chapter_complete']);self.assertEqual(q['completed'],6)
- def test_ch17_plain_pass_does_not_replace_damage_detection(self):
-  c=r.contract(17)
-  for i in range(4):self.add(c,i)
-  self.add(c,4,outcome='pass');self.assertEqual(r.status(self.p,c)['objectives'][4]['status'],'failed')
+ def test_part5_old_objective_records_cannot_complete_new_contract(self):
+  for n in (16,17,18):
+   c=r.contract(n)
+   self.assertTrue(all(o['id'].startswith(f'ch{n}-p5-') for o in c['objectives']))
+   self.assertTrue(all(o['expected_outcome']=='pass' for o in c['objectives']))
+   with self.assertRaises(ValueError):self.add(c,0,oid=f'ch{n}-g01')
+   self.assertEqual(r.status(self.p,c)['completed'],0)
+ def test_ch18_can_complete_production_without_upload_account(self):
+  c=r.contract(18)
+  self.assertEqual(c['oauth_scope_requirements'],[])
+  self.assertTrue(all(o['environment']!='actual-account-or-service' for o in c['objectives']))
+  self.all(c);self.assertTrue(r.status(self.p,c)['chapter_complete'])
  def test_hint_returns_only_first_level(self):
   c=r.contract(11);h=c['hint_topics'][0];q=r.hint(c,h['id'],1);self.assertEqual(q['text'],h['levels'][0]);self.assertNotIn(h['solution'],q['text'])
  def test_hint_level4_is_explicit_solution_only(self):

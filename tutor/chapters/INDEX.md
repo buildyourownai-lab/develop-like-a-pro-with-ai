@@ -19,9 +19,9 @@
 |[13장](ch13/README.md)|13장. 웹서비스를 앱으로 만들기 전에 알아야 할 것들|`ai-stock-briefing`|6|
 |[14장](ch14/README.md)|14장. 만든 서비스를 Android 앱으로 만듭니다|`ai-stock-briefing`|6|
 |[15장](ch15/README.md)|15장. 같은 서비스를 iPhone 앱으로 만듭니다|`ai-stock-briefing`|6|
-|[16장](ch16/README.md)|16장. AI와 YouTube 영상을 만듭니다|`ai-shorts-maker`|6|
-|[17장](ch17/README.md)|17장. 올리기 전에 AI가 영상을 검사합니다|`ai-shorts-maker`|6|
-|[18장](ch18/README.md)|18장. 만든 영상을 실제 YouTube에 올립니다|`ai-shorts-maker`|6|
+|[16장](ch16/README.md)|16장. 질문 하나로 영상 제작을 설계합니다|`ai-shorts-maker`|6|
+|[17장](ch17/README.md)|17장. 캐릭터와 원화로 움직이는 장면을 만듭니다|`ai-shorts-maker`|6|
+|[18장](ch18/README.md)|18장. 음성·음향·자막을 합쳐 영상을 완성합니다|`ai-shorts-maker`|6|
 |[19장](ch19/README.md)|19장. AI가 내 유튜브 댓글을 읽고 답글을 준비합니다|`ai-media-works`|6|
 |[20장](ch20/README.md)|20장. 허용한 댓글에만 자동으로 답하게 합니다|`ai-media-works`|6|
 |[21장](ch21/README.md)|21장. 내 주식서비스의 챗봇을 기획합니다|`ai-stock-briefing`|7|

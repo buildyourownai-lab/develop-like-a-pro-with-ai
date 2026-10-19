@@ -165,8 +165,8 @@
       "availability": "not_bound",
       "execution_verified": false,
       "source_hash": null,
-      "contract_revision": "rocket-workflow-2026-10-18",
-      "binding_note": "로켓 전면 개편 계약. 과거 Source는 새 프롬프트의 재현 완료가 아님. 새 계약의 고정 구현·실행 검증 전에는 미연결 유지."
+      "contract_revision": "part5-plan-build-finish-2026-10-19",
+      "binding_note": "새 본문에서 독자가 기획·제작·완성 스킬과 자기 프로젝트를 만듭니다. 과거 Source는 이번 명세의 재현 완료가 아니며 실제 실행 검증 전에는 미연결을 유지합니다."
     },
     "ch17": {
       "project": "ai-shorts-maker",
@@ -177,8 +177,8 @@
       "availability": "not_bound",
       "execution_verified": false,
       "source_hash": null,
-      "contract_revision": "rocket-workflow-2026-10-18",
-      "binding_note": "로켓 전면 개편 계약. 과거 Source는 새 프롬프트의 재현 완료가 아님. 새 계약의 고정 구현·실행 검증 전에는 미연결 유지."
+      "contract_revision": "part5-plan-build-finish-2026-10-19",
+      "binding_note": "새 본문에서 독자가 기획·제작·완성 스킬과 자기 프로젝트를 만듭니다. 과거 Source는 이번 명세의 재현 완료가 아니며 실제 실행 검증 전에는 미연결을 유지합니다."
     },
     "ch18": {
       "project": "ai-shorts-maker",
@@ -188,7 +188,9 @@
       "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
       "availability": "not_bound",
       "execution_verified": false,
-      "source_hash": null
+      "source_hash": null,
+      "contract_revision": "part5-plan-build-finish-2026-10-19",
+      "binding_note": "새 본문에서 독자가 기획·제작·완성 스킬과 자기 프로젝트를 만듭니다. 과거 Source는 이번 명세의 재현 완료가 아니며 실제 실행 검증 전에는 미연결을 유지합니다."
     },
     "ch19": {
       "project": "ai-media-works",
