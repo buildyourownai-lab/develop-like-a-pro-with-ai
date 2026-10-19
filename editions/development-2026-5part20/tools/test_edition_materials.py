@@ -28,11 +28,23 @@ class EditionTests(unittest.TestCase):
  def test_stable_prompt_ids_do_not_follow_display_numbers(self):
   for n,pid in [(13,'P21-01'),(14,'C22-01'),(15,'P13-01'),(19,'C17-01'),(20,'P18-01')]:
    g=json.loads((EDITION/f'tutor/chapters/ch{n}/prompt-guide.json').read_text());self.assertIn(pid,[e['id'] for e in g['entries']])
+  settings=json.loads((EDITION/'tutor/chapters/ch19/prompt-guide.json').read_text())
+  env=next(e for e in settings['entries'] if e['id']=='C17-01')
+  self.assertEqual((env['source'],env['target']),('prompts.md','coding-assistant'))
  def test_production_scope_has_no_registration_or_comment_automation(self):
   d=EDITION/'tutor/chapters/ch20';c=json.loads((d/'chapter.json').read_text());g=json.loads((d/'prompt-guide.json').read_text())
   self.assertNotIn('P-FINISH-COMMENT-01',[e['id'] for e in g['entries']])
   self.assertFalse(any('first-comment' in o['id'] for o in c['objectives']))
   self.assertFalse((EDITION/'tools/first_comment.py').exists())
+  self.assertNotIn('19장의 댓글 도구',c['handoff'])
+ def test_explicit_part_sources_and_selection_prompt_are_preserved(self):
+  parts=json.loads((EDITION/'part-sources.json').read_text())
+  self.assertEqual([p['manuscript'] for p in parts['parts']],[f'book/part-{n:02d}.md' for n in range(1,6)])
+  self.assertEqual([n for p in parts['parts'] for n in p['chapters']],list(range(1,21)))
+  self.assertEqual(parts['parts'][0]['chapters'],[1,2,3,4,5])
+  self.assertEqual(parts['parts'][1]['chapters'],[6,7,8])
+  g=json.loads((EDITION/'tutor/chapters/ch18/prompt-guide.json').read_text())
+  self.assertEqual([e['id'] for e in g['entries']],['P16-01','P16-02','P16-03','P16-SELECT-01','P16-04','P16-05','P16-ADOPT-01','P16-06'])
  def test_sources_are_not_copied_or_execution_inherited(self):
   registry=json.loads((EDITION/'tutor/source-registry.json').read_text());self.assertEqual(len(registry['chapters']),20)
   for n in range(13,21):

@@ -121,6 +121,15 @@ def build(public,manuscript,output,include_support=False,legacy_revision=None):
    count+=1
   add(f'{prefix}/contract.json',canonical(contract)+b'\n','chapter-contract')
   chapters.append(cid);goals+=len(original['objectives'])
+ part_path=safe_path(public,f'editions/{EDITION}/part-sources.json')
+ part_map=read(part_path)
+ if [p['part'] for p in part_map['parts']]!=list(range(1,6)):raise ValueError('PART source mapping mismatch')
+ for part in part_map['parts']:
+  pm=safe_path(manuscript,part['manuscript'])
+  if sha(pm.read_bytes())!=part['manuscript_sha256']:raise ValueError('PART manuscript revision mismatch')
+  source(pm,manuscript,'manuscript')
+ source(part_path,public,'reader-materials')
+ add('part-sources.json',strict(part_path).encode('utf-8'),'source-mapping')
  finale=safe_path(public,f'editions/{EDITION}/chapters/part-05-finale')
  fg=read(finale/'prompt-guide.json');fm=safe_path(manuscript,fg['manuscript'])
  if sha(fm.read_bytes())!=fg['manuscript_sha256']:raise ValueError('Finale manuscript revision mismatch')

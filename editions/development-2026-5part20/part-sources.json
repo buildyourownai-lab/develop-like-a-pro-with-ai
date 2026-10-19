@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "book_id": "develop",
+  "edition_id": "development-2026-5part20",
+  "role": "manuscript-source-mapping-only",
+  "full_manuscripts_included": false,
+  "parts": [
+    {
+      "part": 1,
+      "manuscript": "book/part-01.md",
+      "title": "PART 1. Claude에게 일을 맡기는 법부터 배웁니다",
+      "manuscript_sha256": "3e9e2c734e3e428591a6749cbb7f5cadc29642b17e0fb129f162cfc09461a00c",
+      "chapters": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "part": 2,
+      "manuscript": "book/part-02.md",
+      "title": "PART 2. AI로 부동산을 분석합니다",
+      "manuscript_sha256": "a5c94291bfb35a082253374c1bd6e9994dfd74ae11319e78376e76e8cd9419a6",
+      "chapters": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "part": 3,
+      "manuscript": "book/part-03.md",
+      "title": "PART 3. 내 주식서비스가 자료를 보여 주고 질문에 답합니다",
+      "manuscript_sha256": "2123c64cd8c37daf256a9636af6564cc2438990a9a836d070e0cb34939a8a4a3",
+      "chapters": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    {
+      "part": 4,
+      "manuscript": "book/part-04.md",
+      "title": "PART 4. 만든 웹서비스를 Android와 iPhone 앱으로 확장합니다",
+      "manuscript_sha256": "fb669b8d0356026ea6f2074b58bd5b284702a9cddabc8d8678f64a5abb8dc116",
+      "chapters": [
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "part": 5,
+      "manuscript": "book/part-05.md",
+      "title": "PART 5. AI로 기획하고 만드는 YouTube 영상",
+      "manuscript_sha256": "8218cccb6105aa3de2b2c029051712810d51fce0bd81cf618a57518d051a2e65",
+      "chapters": [
+        18,
+        19,
+        20
+      ]
+    }
+  ]
+}

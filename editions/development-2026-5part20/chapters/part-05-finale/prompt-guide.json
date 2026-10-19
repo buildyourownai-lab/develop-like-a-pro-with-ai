@@ -2,7 +2,7 @@
   "schema_version": 1,
   "edition_id": "development-2026-5part20",
   "manuscript": "book/28-part-05-finale.md",
-  "manuscript_sha256": "f72c7e022e185c49a96e7b6fc29e9e94a555cc469898d83f3def6f8588b0b475",
+  "manuscript_sha256": "217b8435585a3acc834b64334a5728da0b0d79a3d9e0c798187b2d6542a875dd",
   "entries": [
     {
       "id": "P-PART05-01",
@@ -13,7 +13,7 @@
       "when": "새 소재를 독립 프로젝트에서 기획하려고 선택했을 때",
       "before": "기존 영상 프로젝트와 미디어·계정·진행 기록을 보존합니다.",
       "after": "공개 기획명세로 다음 소재 후보만 제안하고 멈춥니다.",
-      "sha256": "6614e8fca2361132b2157bfa7d64e8ba3bed582940df6064c8d44436f80a2c92",
+      "sha256": "407923f323db4d405f022a273a8f55584849e5232b4a276382cb7a71b73a62ca",
       "objective_ids": []
     }
   ]

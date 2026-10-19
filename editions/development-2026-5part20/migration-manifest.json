@@ -373,7 +373,11 @@
         }
       ],
       "source_availability": "not_bound",
-      "execution_verified": false
+      "execution_verified": false,
+      "additional_prompt_ids": [
+        "P16-SELECT-01",
+        "P16-ADOPT-01"
+      ]
     },
     {
       "book_id": "develop",
@@ -513,5 +517,6 @@
     "prompts_template": "tutor/chapters/chNN/prompts.md",
     "execution_evidence_inherited": false,
     "worktree_dirty_changes_included": false
-  }
+  },
+  "part_source_mapping": "part-sources.json"
 }

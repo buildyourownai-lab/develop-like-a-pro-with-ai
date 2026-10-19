@@ -15,9 +15,9 @@
     "new_ui_in_this_chapter": false
   },
   "title": "18장. 질문 하나로 영상 제작을 설계합니다",
-  "manuscript_sha256": "2acf4665ed222589de5f5b574e55b88f0f405430bb2494e849419725fff28522",
+  "manuscript_sha256": "97eef2dcb7bda8894573699db5936a1f1ffae53f357896fe7899f56b677642aa",
   "outcome": "선택한 소재의 질문·결론, 근거, 화면 설계, 자산 수와 잠정 시간을 제작 인계로 묶습니다.",
-  "start_state": "앞의 주식 프로젝트를 보존하고 별도 영상 작업 폴더를 선택할 단계입니다.",
+  "start_state": "Windows 파일 탐색기 또는 Mac Finder에서 ai-shorts-maker 새 폴더를 직접 만들고, Claude Desktop Code 탭의 로컬에서 엽니다. 기존 폴더가 있으면 작업을 확인하고 이어 사용합니다. 튜터는 학습 순서를 안내하고 Code 탭 AI가 프로젝트 하위 폴더와 파일을 만듭니다.",
   "previously_completed_features": "앞 장의 AI 요청·확인·기록 방식. 영상 생성 완료는 선행 조건이 아닙니다.",
   "required_services": [],
   "required_accounts_permissions": [],
