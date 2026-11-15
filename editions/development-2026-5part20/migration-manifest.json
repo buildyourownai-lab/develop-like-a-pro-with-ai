@@ -511,12 +511,16 @@
   "author_private_dependencies": false,
   "unchanged_chapters_01_12": {
     "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
-    "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+    "fixed_revision": "333e4785cab317cc63086e07e23a8e84d8f8b86e",
     "contract_template": "tutor/chapters/chNN/chapter.json",
     "prompt_guide_template": "tutor/chapters/chNN/prompt-guide.json",
     "prompts_template": "tutor/chapters/chNN/prompts.md",
     "execution_evidence_inherited": false,
-    "worktree_dirty_changes_included": false
+    "worktree_dirty_changes_included": false,
+    "previous_fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+    "authorized_delta_chapters": [
+      5
+    ]
   },
   "part_source_mapping": "part-sources.json"
 }
