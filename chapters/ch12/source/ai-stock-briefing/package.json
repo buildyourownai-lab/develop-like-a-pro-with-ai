@@ -13,11 +13,15 @@
     "verify:stock-price": "NODE_OPTIONS=--conditions=react-server tsx scripts/verify-stock-price-api.ts",
     "verify:supabase-connection": "NODE_OPTIONS=--conditions=react-server tsx scripts/verify-supabase-connection.ts",
     "cleanup:expired-cache": "NODE_OPTIONS=--conditions=react-server tsx scripts/cleanup-expired-cache.ts",
-    "verify:upstash-connection": "NODE_OPTIONS=--conditions=react-server tsx scripts/verify-upstash-connection.ts"
+    "verify:upstash-connection": "NODE_OPTIONS=--conditions=react-server tsx scripts/verify-upstash-connection.ts",
+    "build:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare populateCache local",
+    "preview:cloudflare": "node scripts/cloudflare/wrangler.mjs dev",
+    "deploy:cloudflare": "node scripts/cloudflare/wrangler.mjs deploy",
+    "test:offline": "vitest run --config vitest.offline.config.mts"
   },
   "dependencies": {
     "@upstash/redis": "^1.38.3",
-    "next": "16.3.3",
+    "next": "16.4.6",
     "postgres": "^3.4.9",
     "react": "19.2.8",
     "react-dom": "19.2.8",
@@ -30,9 +34,11 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.3",
+    "eslint-config-next": "16.4.6",
     "tsx": "^4.23.12",
     "typescript": "^5",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.11",
+    "@opennextjs/cloudflare": "1.20.17",
+    "wrangler": "4.162.0"
   }
 }

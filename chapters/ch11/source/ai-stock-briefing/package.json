@@ -11,10 +11,14 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "verify:stock-price": "NODE_OPTIONS=--conditions=react-server tsx scripts/verify-stock-price-api.ts",
-    "verify:briefing-input": "NODE_OPTIONS=--conditions=react-server tsx scripts/verify-briefing-input.ts"
+    "verify:briefing-input": "NODE_OPTIONS=--conditions=react-server tsx scripts/verify-briefing-input.ts",
+    "build:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare populateCache local",
+    "preview:cloudflare": "node scripts/cloudflare/wrangler.mjs dev",
+    "deploy:cloudflare": "node scripts/cloudflare/wrangler.mjs deploy",
+    "test:offline": "vitest run --config vitest.offline.config.mts"
   },
   "dependencies": {
-    "next": "16.3.3",
+    "next": "16.4.6",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "recharts": "^3.10.1",
@@ -26,9 +30,11 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.3",
+    "eslint-config-next": "16.4.6",
     "tsx": "^4.23.12",
     "typescript": "^5",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.11",
+    "@opennextjs/cloudflare": "1.20.17",
+    "wrangler": "4.162.0"
   }
 }

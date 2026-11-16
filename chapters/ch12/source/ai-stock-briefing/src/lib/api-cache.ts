@@ -1,7 +1,8 @@
+import { readRestCache, writeRestCache, cleanupExpiredRestCache } from "./api-cache-rest";
 import "server-only";
 import type postgres from "postgres";
 import { getDb, toSafeDbError } from "@/lib/db";
-import { isSupabaseDatabaseConfigured } from "@/lib/server-env";
+import { getCacheTransport, isSupabaseDatabaseConfigured } from "@/lib/server-env";
 
 export const CACHE_TTL_SECONDS = {
   // 최신 거래 기준일을 찾은 결과 — 장중에는 "오늘 데이터가 아직 없다"는
@@ -42,6 +43,7 @@ function getTableReady(): Promise<void> {
 }
 
 async function readCache<T>(key: string): Promise<T | undefined> {
+  if (getCacheTransport() === "rest") return readRestCache<T>(key);
   const sql = getDb();
   const rows = await sql<{ payload: T }[]>`
     select payload from api_cache
@@ -56,6 +58,7 @@ async function writeCache<T>(
   value: T,
   ttlSeconds: number
 ): Promise<void> {
+  if (getCacheTransport() === "rest") return writeRestCache(key, value, ttlSeconds);
   const sql = getDb();
   await sql`
     insert into api_cache (cache_key, payload, expires_at)
@@ -73,6 +76,7 @@ async function writeCache<T>(
 
 // 만료된 캐시만 지운다 — 아직 유효한 캐시나 다른 테이블은 건드리지 않는다.
 export async function cleanupExpiredCache(): Promise<number> {
+  if (getCacheTransport() === "rest") return cleanupExpiredRestCache();
   const sql = getDb();
   const deleted = await sql`
     delete from api_cache where expires_at <= now() returning cache_key
@@ -104,7 +108,7 @@ export async function withCache<T>(
   }
 
   try {
-    await getTableReady();
+    if (getCacheTransport() === "postgres") await getTableReady();
     const cached = await readCache<T>(key);
     if (cached !== undefined) {
       return cached;

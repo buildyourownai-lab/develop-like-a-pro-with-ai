@@ -91,3 +91,7 @@ Test를 실행하려면 자기 인증키가 필요합니다.
 빈 폴더에 이 Source만 놓고 준비와 Test 실행까지 확인했습니다. Test 100개가 모두
 통과했고 그중 52개가 11장에서 새로 생겼습니다. 근거는
 [verification/chapter-11/](../../../../verification/chapter-11/)에 있습니다.
+
+## Cloudflare Workers (OpenNext)
+
+이 Source는 Pages가 아닌 Workers에 배포합니다. Node 로컬 개발은 기존 `npm run dev`, `npm run build`, `npm start`를 그대로 사용합니다. `npm run build:cloudflare` 후 `npm run preview:cloudflare`로 Worker를 확인하고, 본인 계정에서 `npm run deploy:cloudflare`를 실행합니다. `wrangler.jsonc`의 name은 본인 Worker 이름으로 바꾸세요. ASSETS, IMAGES, CF_VERSION_METADATA binding은 설정에 포함되어 있습니다. API 키는 코드/vars에 쓰지 말고 로컬 `.env.local`, Worker 로컬 `.dev.vars`, 운영 `wrangler secret put <이름>`에 설정합니다. 배포/로그인은 자동 검증에 포함되지 않습니다.

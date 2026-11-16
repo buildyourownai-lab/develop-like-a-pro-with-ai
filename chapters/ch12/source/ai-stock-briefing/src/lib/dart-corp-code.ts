@@ -1,3 +1,4 @@
+import { fetchDart } from "./dart-fetch";
 import "server-only";
 import zlib from "node:zlib";
 import { getOpenDartApiKey } from "./server-env";
@@ -68,7 +69,7 @@ function parseStockCodeToCorpCode(xml: string): Map<string, string> {
 
 async function loadCorpCodeByStockCode(): Promise<Map<string, string>> {
   const apiKey = getOpenDartApiKey();
-  const res = await fetch(
+  const res = await fetchDart(
     `${CORP_CODE_ENDPOINT}?${new URLSearchParams({ crtfc_key: apiKey })}`
   );
   const buf = Buffer.from(await res.arrayBuffer());
@@ -76,13 +77,7 @@ async function loadCorpCodeByStockCode(): Promise<Map<string, string>> {
   // 인증키가 잘못됐거나 호출에 실패하면 zip이 아니라 JSON 오류를 준다.
   const contentType = res.headers.get("content-type") ?? "";
   if (contentType.includes("json")) {
-    const json = JSON.parse(buf.toString("utf8")) as {
-      status?: string;
-      message?: string;
-    };
-    throw new Error(
-      `OpenDART corpCode 조회 실패: ${json.status} ${json.message ?? ""}`
-    );
+    throw new Error("OpenDART corpCode 조회 실패");
   }
 
   const xml = unzipSingleEntry(buf).toString("utf8");

@@ -106,4 +106,10 @@ Test를 실행해서 결과를 보여줘.
 통과했고 그중 13개가 12장에서 새로 생겼습니다. 근거는
 [verification/chapter-12/](../../../../verification/chapter-12/)에 있습니다.
 
-Database와 Cache 연결값은 로컬과 Vercel에 같은 이름으로 등록합니다: SUPABASE_DATABASE_URL, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN. 연동 서비스가 다른 이름으로 등록한 값도 이 세 이름으로 맞추며, 실제 값은 대화나 Git에 남기지 않습니다.
+Node 직접 연결에서는 Database와 Cache 연결값을 다음 이름으로 등록합니다: SUPABASE_DATABASE_URL, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN. 연동 서비스가 다른 이름으로 등록한 값도 이 세 이름으로 맞추며, 실제 값은 대화나 Git에 남기지 않습니다.
+
+## Cloudflare Workers (OpenNext)
+
+이 Source는 Pages가 아닌 Workers에 배포합니다. Node 로컬 개발은 기존 `npm run dev`, `npm run build`, `npm start`를 그대로 사용합니다. `npm run build:cloudflare` 후 `npm run preview:cloudflare`로 Worker를 확인하고, 본인 계정에서 `npm run deploy:cloudflare`를 실행합니다. `wrangler.jsonc`의 name은 본인 Worker 이름으로 바꾸세요. ASSETS, IMAGES, CF_VERSION_METADATA binding은 설정에 포함되어 있습니다. API 키는 코드/vars에 쓰지 말고 로컬 `.env.local`, Worker 로컬 `.dev.vars`, 운영 `wrangler secret put <이름>`에 설정합니다. 배포/로그인은 자동 검증에 포함되지 않습니다.
+
+Workers에서는 `FSC_SNAPSHOT_TRANSPORT=rest`, `SUPABASE_URL`, `SUPABASE_SECRET_KEY`를 서버에 설정합니다. 먼저 Supabase SQL Editor에서 `supabase/api-cache.sql`을 실행하세요. REST는 DDL을 실행하지 않습니다. 기존 `api_cache`의 cache_key/payload/expires_at/created_at, 1시간/24시간 TTL, 만료행만 삭제하는 규칙을 유지합니다. Node의 기본 postgres 경로와 `SUPABASE_DATABASE_URL`은 유지합니다. REST 설정에는 DB URL이 필요하지 않습니다. Upstash URL/Token 설정은 기존과 같습니다. secret key는 브라우저에 전달하지 마세요.

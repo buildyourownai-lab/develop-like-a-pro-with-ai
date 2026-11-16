@@ -1,3 +1,4 @@
+import { fetchDart } from "./dart-fetch";
 import "server-only";
 import { getOpenDartApiKey } from "./server-env";
 import { findCorpCodeByStockCode } from "./dart-corp-code";
@@ -114,14 +115,14 @@ async function fetchDisclosurePage(
     ...(disclosureType ? { pblntf_ty: disclosureType } : {}),
   });
 
-  const res = await fetch(`${DISCLOSURE_LIST_ENDPOINT}?${params.toString()}`);
-  const json = (await res.json()) as DartListResponse;
+  const res = await fetchDart(`${DISCLOSURE_LIST_ENDPOINT}?${params.toString()}`);
+  const json = (await res.json().catch(() => { throw new Error("OpenDART 응답 형식이 올바르지 않습니다."); })) as DartListResponse;
 
   // "013"은 OpenDART가 조회 결과 0건일 때 쓰는 상태 코드다(오류가 아니다).
   if (json.status === "013") return { items: [], totalCount: 0, totalPage: 0 };
   if (json.status !== "000") {
     throw new Error(
-      `OpenDART 공시검색 호출 실패: ${json.status} ${json.message ?? ""}`
+      "OpenDART 공시검색 호출 실패"
     );
   }
 

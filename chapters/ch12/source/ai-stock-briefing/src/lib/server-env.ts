@@ -55,7 +55,9 @@ export function getSupabaseDatabaseUrl(): string {
 }
 
 export function isSupabaseDatabaseConfigured(): boolean {
-  return Boolean(getSupabaseDatabaseUrlIfSet());
+  return getCacheTransport() === "rest"
+    ? Boolean(process.env.SUPABASE_URL && process.env.SUPABASE_SECRET_KEY)
+    : Boolean(getSupabaseDatabaseUrlIfSet());
 }
 
 export function redactSupabaseDatabaseUrl(message: string): string {
@@ -91,4 +93,21 @@ export function isUpstashRedisConfigured(): boolean {
 export function redactUpstashRedisSecrets(message: string): string {
   const withoutToken = redactSecret(message, getUpstashRedisRestTokenIfSet());
   return redactSecret(withoutToken, getUpstashRedisRestUrlIfSet());
+}
+
+export function getCacheTransport(): "rest" | "postgres" {
+  const value = process.env.FSC_SNAPSHOT_TRANSPORT;
+  if (!value || value === "postgres") return "postgres";
+  if (value === "rest") return "rest";
+  throw new Error("FSC_SNAPSHOT_TRANSPORT must be rest or postgres");
+}
+export function getSupabaseRestConfig(): { url: URL; key: string } {
+  const key = process.env.SUPABASE_SECRET_KEY;
+  let url: URL;
+  try { url = new URL(process.env.SUPABASE_URL ?? ""); }
+  catch { throw new Error("Invalid SUPABASE_URL"); }
+  if (url.protocol !== "https:" || url.username || url.password || url.search || url.hash || url.pathname !== "/" || !key) {
+    throw new Error("Invalid Supabase REST configuration");
+  }
+  return { url, key };
 }
