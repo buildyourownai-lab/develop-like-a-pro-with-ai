@@ -1,3 +1,4 @@
+import { fetchKakao } from "./kakao-transport";
 import { requestWithRetry } from "./externalRequest";
 
 const BASE_URL = "https://dapi.kakao.com";
@@ -47,6 +48,7 @@ async function getJson(url: URL) {
   const headers = authHeaders();
   const res = await requestWithRetry({
     label: LABEL,
+    fetcher: fetchKakao,
     url: url.toString(),
     init: { headers, cache: "no-store" },
     retryDelays: RETRY_DELAYS_MS,

@@ -1,0 +1,38 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "apartment-explorer",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-13",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  "workers_dev": true,
+  "vars": {
+    "CLOUDFLARE_KAKAO_BATCH": "1"
+  },
+  "services": [
+    {
+      "binding": "KAKAO_BATCH",
+      "service": "apartment-explorer-kakao"
+    }
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "images": {
+    "binding": "IMAGES"
+  },
+  "version_metadata": {
+    "binding": "CF_VERSION_METADATA"
+  },
+  "previews": {
+    "version_metadata": {
+      "binding": "CF_VERSION_METADATA"
+    },
+    "images": {
+      "binding": "IMAGES"
+    }
+  }
+}

@@ -63,3 +63,30 @@
 빈 폴더에 이 Source만 놓고 준비와 Test 실행까지 확인했습니다. Test 39개가 모두
 통과했습니다. 근거는
 [verification/chapter-08/](../../../../verification/chapter-08/)에 있습니다.
+
+## Cloudflare Workers에서 실행하기
+
+이 Source는 정적 Pages가 아니라 OpenNext로 Next.js 서버를 Workers에 올립니다.
+Node의 `npm run dev`는 기존 직접 호출을 유지합니다. Workers에서는 Kakao 요청을
+비공개 서비스 바인딩 `KAKAO_BATCH`로 보냅니다. 화면과 검색 규칙은 같습니다.
+
+```sh
+npm ci
+npm test
+npm run lint
+npm run build:cloudflare
+npm run preview:cloudflare
+```
+
+로컬 Worker용 값은 Git에서 제외된 `.dev.vars`에 `MOLIT_SERVICE_KEY`와
+`KAKAO_REST_API_KEY`로 준비합니다. `.env.local`을 Worker가 자동으로 읽는다고
+가정하지 않습니다. 국토교통부 키의 인코딩은 `.env.example` 안내를 따릅니다.
+완성 서비스가 `DATA_GO_KR_SERVICE_KEY`라는 이름을 쓰더라도 여기서는 같은 키를
+`MOLIT_SERVICE_KEY`로 읽으며 새 키를 발급받는 것이 아닙니다.
+
+실제 배포는 별도 작업입니다. `wrangler.jsonc`의 주 Worker 이름과 서비스 바인딩,
+`wrangler.kakao.jsonc`의 비공개 Worker 이름을 함께 맞춘 뒤 자기 계정으로 로그인합니다.
+주 Worker에 두 키를 Secret으로 등록하고, `npm run deploy:cloudflare`로 비공개 Worker를
+먼저 올린 뒤 주 Worker를 올립니다. 비공개 Worker에는 공개 경로를 만들지 않습니다.
+Git 연동 자동 배포를 선택하면 빌드 명령과 두 Worker의 배포 순서를 함께 설정해야 합니다.
+빌드 성공과 실제 주소에서의 검색 성공은 따로 확인합니다.

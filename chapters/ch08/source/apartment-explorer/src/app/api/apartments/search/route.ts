@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { withKakaoTransport } from "@/lib/kakao-transport";
 import { searchApartments } from "@/lib/apartmentSearch";
 
 function requireNumber(searchParams: URLSearchParams, key: string): number | null {
@@ -38,7 +39,7 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const outcome = await searchApartments({
+  const outcome = await withKakaoTransport(() => searchApartments({
     region,
     minAreaSqm,
     maxAreaSqm,
@@ -46,7 +47,7 @@ export async function GET(request: NextRequest) {
     maxPriceManwon,
     maxSubwayDistanceMeters,
     maxSchoolDistanceMeters,
-  });
+  }));
 
   return NextResponse.json(outcome);
 }

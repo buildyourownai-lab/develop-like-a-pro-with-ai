@@ -7,13 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "build:cloudflare": "opennextjs-cloudflare build && opennextjs-cloudflare populateCache local",
+    "preview:cloudflare": "wrangler dev --config wrangler.jsonc --config wrangler.kakao.jsonc",
+    "deploy:cloudflare": "wrangler deploy --config wrangler.kakao.jsonc && wrangler deploy",
+    "login:cloudflare": "wrangler login"
   },
   "dependencies": {
     "fast-xml-parser": "^5.11.1",
-    "next": "16.3.3",
+    "next": "16.4.6",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "@opennextjs/cloudflare": "1.20.17"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",
@@ -23,9 +28,10 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.3",
+    "eslint-config-next": "16.4.6",
     "jsdom": "^30.0.1",
     "typescript": "^5",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.11",
+    "wrangler": "4.162.0"
   }
 }

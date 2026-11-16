@@ -25,6 +25,7 @@ export interface RetryingRequest {
   label: string;
   url: string;
   init?: RequestInit;
+  fetcher?: (url: string, init: RequestInit) => Promise<Response>;
   /** 시도마다 앞에 두는 대기 시간. 길이가 시도 횟수다. */
   retryDelays: number[];
   /** 시도 하나가 아니라 재시도 전체에 주는 시간이다. 사용자가 기다리는 시간의 상한이 된다. */
@@ -50,6 +51,7 @@ export async function requestWithRetry({
   url,
   init,
   retryDelays,
+  fetcher = fetch,
   deadlineMs,
   fail,
 }: RetryingRequest): Promise<Response> {
@@ -59,7 +61,7 @@ export async function requestWithRetry({
     const lastAttempt = attempt === retryDelays.length - 1;
     let response: Response;
     try {
-      response = await fetch(url, { ...init, signal });
+      response = await fetcher(url, { ...init, signal });
     } catch (error) {
       // 예산을 다 쓴 뒤에는 남은 대기 시간을 더 태우지 않는다.
       if (lastAttempt || signal.aborted) {
