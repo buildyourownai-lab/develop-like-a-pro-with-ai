@@ -5,7 +5,7 @@
   "number": 17,
   "title": "17장. 같은 서비스를 iPhone 앱으로 만듭니다",
   "manuscript": "book/23-chapter-17.md",
-  "manuscript_sha256": "449c9e346df8fcbdad3a4d806128319e6bebdf836276e765a6dda98ec1e2a07b",
+  "manuscript_sha256": "9f638566f81b44043a842bcb0785f6ecdacab2e5264121ec5a77d9cd2a2d3c2c",
   "outcome": "같은 핵심 기능을 iPhone Simulator에서 확인합니다.",
   "project": "ai-stock-briefing",
   "start_state": "공통 앱 계획과 기존 서버가 있으며 Mac 실행 환경을 준비합니다.",

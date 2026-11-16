@@ -5,7 +5,7 @@
   "number": 12,
   "title": "12장. 더 빠르고 비용은 적게 드는 서비스로 개선합니다",
   "manuscript": "book/17-chapter-12.md",
-  "manuscript_sha256": "c56ebc070461780190393dfdd3bbb136e21bdb56b0e46e4f40f60784dcf86be1",
+  "manuscript_sha256": "83df3a365705c87ad6a634694a148c40f3817fd794e4dffe3dab0fe9e9e48555",
   "outcome": "자료와 브리핑을 저장·재사용해 호출을 줄이고 품질을 유지합니다.",
   "project": "ai-stock-briefing",
   "start_state": "11장의 운영 서비스와 근거 검증이 있습니다.",
@@ -13,7 +13,7 @@
   "required_services": [
     "supabase",
     "upstash",
-    "vercel",
+    "cloudflare",
     "gemini"
   ],
   "required_accounts_permissions": [
@@ -28,8 +28,8 @@
       "readiness": "must_be_observed_not_assumed"
     },
     {
-      "service": "vercel",
-      "details": "../../services/vercel.json",
+      "service": "cloudflare",
+      "details": "../../services/cloudflare.json",
       "readiness": "must_be_observed_not_assumed"
     },
     {
@@ -176,9 +176,9 @@
       "levels": [
         "로컬과 배포 환경의 변수 이름을 비교합니다.",
         "자동 연결이 만든 Name과 코드가 찾는 Name을 나눕니다.",
-        "SUPABASE_DATABASE_URL, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN이 로컬과 Vercel에 같은 이름으로 등록되어 있는지 값 노출 없이 확인합니다."
+        "로컬 Node의 SUPABASE_DATABASE_URL과 Worker의 FSC_SNAPSHOT_TRANSPORT=rest·SUPABASE_URL·SUPABASE_SECRET_KEY를 구분하고, 두 환경의 Upstash URL·Token 이름을 값 노출 없이 확인합니다."
       ],
-      "solution": "Vercel에 프로젝트가 사용하는 세 이름으로 연결값을 등록하고 새 배포 후 저장·재조회까지 검증합니다. 무료 플랜을 임의 가정하지 않습니다."
+      "solution": "Worker에 Supabase URL·서버 Secret Key와 Upstash URL·Token을 Secret으로 등록하고 FSC_SNAPSHOT_TRANSPORT=rest를 설정합니다. api_cache 스키마 준비와 새 배포 후 저장·재조회까지 검증합니다. 무료 플랜을 임의 가정하지 않습니다."
     },
     {
       "id": "H12-MODEL",
@@ -211,13 +211,13 @@
       "official_procedure": "../../services/upstash.md"
     },
     {
-      "provider": "vercel",
+      "provider": "cloudflare",
       "kind": "account",
       "new_in_this_project": false,
       "do_not_repeat_existing_setup": true,
       "actual_value": "never_store_here",
       "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
-      "official_procedure": "../../services/vercel.md"
+      "official_procedure": "../../services/cloudflare.md"
     },
     {
       "provider": "gemini",

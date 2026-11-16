@@ -7,7 +7,7 @@
 |ch08-g01|입력과 검색 결과를 기존 기능에 연결|test-run|pass|
 |ch08-g02|로딩·0건·입력 오류·외부 오류 구분|human-observation|pass|
 |ch08-g03|Secret과 외부 API 호출이 서버에 남음|file-inspection|pass|
-|ch08-g04|대상 저장소와 코드 변수명을 Vercel에 대응|human-observation|pass|
+|ch08-g04|대상 저장소와 코드 변수명을 Cloudflare Workers에 대응|human-observation|pass|
 |ch08-g05|실제 주소에서 전체 검색 흐름 확인|live-api, live-ui|pass|
 |ch08-g06|작은 변경을 검사하고 새 배포를 다시 확인|external-confirmation|pass|
 

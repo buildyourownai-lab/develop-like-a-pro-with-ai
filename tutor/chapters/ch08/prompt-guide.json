@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": 8,
   "project": "apartment-explorer",
-  "manuscript_sha256": "84ddf4231b050c7972568d8a2ab7df55aa8d1e48b1f30ad23a3910fb501d02be",
+  "manuscript_sha256": "6da8f5ad1fa25f7e9dd4bfd9b7af5bb539149bd0261fb0aa8ac52798af7b7bfa",
   "entries": [
     {
       "id": "P08-01",
@@ -68,13 +68,13 @@
       "id": "P08-05",
       "source": "prompts.md",
       "block_index": 5,
-      "sha256": "22bc8cd84a7853ddd8214f61da6d18d18a8dc7f2c4b8bb79c13eb462dc30687b",
+      "sha256": "79ae8b3a8eda833012d2d8daa6b63e2e034e526485321de55b7aaacc74f330c1",
       "title": "이제 인터넷에 공개합니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "로컬 검사를 마친 웹 프로젝트를 Vercel 연결 전에 GitHub로 보낼 때",
-      "before": "apartment-explorer의 로컬 검색·Secret·관련 Test 결과와 연결한 비공개 저장소를 확인합니다.",
-      "after": "Test·빌드·비밀값 검사와 실제 GitHub 전송을 확인합니다. 다음은 독자의 Vercel 로그인·GitHub 저장소 접근 허용·Import입니다.",
+      "when": "로컬 검사를 마친 웹 프로젝트를 Cloudflare Workers 연결 전에 GitHub로 보낼 때",
+      "before": "apartment-explorer의 학습 단계·검색 규칙·현재 Next.js 구조와 비공개 저장소를 확인합니다.",
+      "after": "OpenNext·Wrangler 설정, 서비스 바인딩이 필요한 검색 경계, 관련 Test·Cloudflare 빌드를 확인합니다. 실제 배포·GitHub 전송은 하지 않습니다.",
       "objective_ids": [
         "ch08-g04"
       ]
@@ -83,13 +83,13 @@
       "id": "P08-06",
       "source": "prompts.md",
       "block_index": 6,
-      "sha256": "14f507070d8f35d27285fa7e250ea278f535d02d8eaaa5677660ce8cf2162c86",
-      "title": "Vercel에도 Secret을 등록합니다",
+      "sha256": "ed33f2058f0ae9390f0335fe0e12d0120c869b189d8a849d19882b69362bbc5f",
+      "title": "Cloudflare Workers에도 Secret을 등록합니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "Vercel에 가져온 프로젝트의 환경변수 이름을 확인할 때",
-      "before": "독자가 Vercel에 로그인하고 필요한 apartment-explorer 저장소만 접근 허용한 뒤 Import했는지 확인합니다. 로컬 Secret은 자동 전송되지 않습니다.",
-      "after": "코드가 쓰는 두 변수 이름을 확인하고 독자가 Vercel Key·Value에 직접 입력하도록 안내합니다. 이후 Deploy·Ready·실제 주소 확인 순서를 안내합니다.",
+      "when": "Cloudflare Workers에 가져온 프로젝트의 환경변수 이름을 확인할 때",
+      "before": "대상 Worker와 현재 코드의 설정 이름을 확인합니다. 로컬 Secret은 자동 전송되지 않습니다.",
+      "after": "실제로 읽는 이름·사용 Worker·입력 위치를 안내하고 공개 빌드 설정과 실행 중 Secret을 구분합니다. 실제 값은 출력하지 않습니다.",
       "objective_ids": [
         "ch08-g03",
         "ch08-g04"

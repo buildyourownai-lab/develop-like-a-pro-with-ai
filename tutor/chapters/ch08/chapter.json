@@ -5,14 +5,14 @@
   "number": 8,
   "title": "8장. 누구나 사용할 수 있는 아파트 찾기 서비스를 만듭니다",
   "manuscript": "book/12-chapter-08.md",
-  "manuscript_sha256": "84ddf4231b050c7972568d8a2ab7df55aa8d1e48b1f30ad23a3910fb501d02be",
+  "manuscript_sha256": "6da8f5ad1fa25f7e9dd4bfd9b7af5bb539149bd0261fb0aa8ac52798af7b7bfa",
   "outcome": "검색 기능을 웹 화면에 연결하고 실제 인터넷 주소에서 확인합니다.",
   "project": "apartment-explorer",
   "start_state": "7장의 검색 기능과 Test가 있으며 웹 화면은 아직 없습니다.",
   "previously_completed_features": "두 API·검색·집계·예외 처리",
   "required_services": [
     "github",
-    "vercel",
+    "cloudflare",
     "data-go-kr",
     "kakao"
   ],
@@ -23,8 +23,8 @@
       "readiness": "must_be_observed_not_assumed"
     },
     {
-      "service": "vercel",
-      "details": "../../services/vercel.json",
+      "service": "cloudflare",
+      "details": "../../services/cloudflare.json",
       "readiness": "must_be_observed_not_assumed"
     },
     {
@@ -100,7 +100,7 @@
     {
       "id": "ch08-g04",
       "title": "배포 설정",
-      "criterion": "대상 저장소와 코드 변수명을 Vercel에 대응",
+      "criterion": "대상 저장소와 코드 변수명을 Cloudflare Workers에 대응",
       "required": true,
       "depends_on": [
         "ch08-g03"
@@ -112,7 +112,7 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "대상 저장소와 코드 변수명을 Vercel에 대응. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "대상 저장소와 코드 변수명을 Cloudflare Workers에 대응. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
@@ -156,7 +156,7 @@
   ],
   "completion_rule": "All required objectives have accepted, current evidence; intentional failures use explicit expected_outcome; never auto-edit to pass.",
   "handoff": "9장으로 현재 프로젝트와 확인한 기록을 이어감",
-  "intentional_failure_policy": "픽셀 단위 동일함이 아니라 정보 배치·가독성·완료 조건을 봅니다. 로컬 Secret 파일은 GitHub나 Vercel로 자동 전송되지 않습니다.",
+  "intentional_failure_policy": "픽셀 단위 동일함이 아니라 정보 배치·가독성·완료 조건을 봅니다. 로컬 Secret 파일은 GitHub나 Cloudflare Workers로 자동 전송되지 않습니다.",
   "reference_binding": "../../source-registry.json#/chapters/ch08",
   "start_finish_policy": "Continue own project; START/FINISH only for comparison or explicitly selected restart. No future feature preload.",
   "hint_topics": [
@@ -165,8 +165,8 @@
       "symptom": "로컬은 되는데 배포 후 실패",
       "levels": [
         "같은 코드라도 실행 환경의 설정은 별개입니다.",
-        "Vercel 프로젝트·적용 환경·현재 배포를 확인합니다.",
-        "코드가 읽는 변수 이름과 Vercel Name이 같은지 봅니다."
+        "Cloudflare Workers 프로젝트·적용 환경·현재 배포를 확인합니다.",
+        "코드가 읽는 변수 이름과 Worker Secret 이름이 같은지 봅니다."
       ],
       "solution": "실제 값은 공식 화면에 직접 넣고 새 배포 후 각 API가 필요한 검색을 다시 확인합니다."
     },
@@ -192,13 +192,13 @@
       "official_procedure": "../../services/github.md"
     },
     {
-      "provider": "vercel",
+      "provider": "cloudflare",
       "kind": "account",
       "new_in_this_project": true,
       "do_not_repeat_existing_setup": true,
       "actual_value": "never_store_here",
       "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
-      "official_procedure": "../../services/vercel.md"
+      "official_procedure": "../../services/cloudflare.md"
     },
     {
       "provider": "data-go-kr",

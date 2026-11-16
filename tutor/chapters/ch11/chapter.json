@@ -5,14 +5,14 @@
   "number": 11,
   "title": "11장. 주가부터 공시까지, AI가 한 번에 브리핑합니다",
   "manuscript": "book/16-chapter-11.md",
-  "manuscript_sha256": "850f5d5838848eff35470bb4cf429fab395d1326a519a78600e5bfb0e0a2f0dc",
+  "manuscript_sha256": "3b139051ec360292b2b01dc03c64004aa615dfef97b75632ee9da631cf8844f2",
   "outcome": "확인한 사실과 근거 안에서 생성한 AI 브리핑을 검증해 공개합니다.",
   "project": "ai-stock-briefing",
   "start_state": "9~10장의 시세·차트·공시·원문 경로가 작동합니다.",
   "previously_completed_features": "금융위·OpenDART·주식 화면",
   "required_services": [
     "gemini",
-    "vercel",
+    "cloudflare",
     "github",
     "data-go-kr",
     "opendart"
@@ -24,8 +24,8 @@
       "readiness": "must_be_observed_not_assumed"
     },
     {
-      "service": "vercel",
-      "details": "../../services/vercel.json",
+      "service": "cloudflare",
+      "details": "../../services/cloudflare.json",
       "readiness": "must_be_observed_not_assumed"
     },
     {
@@ -143,7 +143,7 @@
     {
       "id": "ch11-g06",
       "title": "배포 연결",
-      "criterion": "실제 코드 변수명과 Vercel 환경 대응",
+      "criterion": "실제 코드 변수명과 Cloudflare Workers 환경 대응",
       "required": true,
       "depends_on": [
         "ch11-g05"
@@ -155,7 +155,7 @@
       "scope": "artifact",
       "environment": "local-or-manual",
       "expiry_hours": null,
-      "verify_instructions": "실제 코드 변수명과 Vercel 환경 대응. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
+      "verify_instructions": "실제 코드 변수명과 Cloudflare Workers 환경 대응. 실제 대상·환경·확인한 내용·미확인 범위를 구분해 기록합니다.",
       "external_side_effects_authorized_by_verify": false
     },
     {
@@ -186,7 +186,7 @@
   "hint_topics": [
     {
       "id": "H11-01",
-      "symptom": "Vercel 변수명이 헷갈림",
+      "symptom": "Cloudflare Workers 변수명이 헷갈림",
       "levels": [
         "Name과 Value를 먼저 구분합니다.",
         "서버 코드가 어떤 설정 이름으로 세 키를 읽는지 봅니다.",
@@ -236,13 +236,13 @@
       "official_procedure": "../../services/gemini.md"
     },
     {
-      "provider": "vercel",
+      "provider": "cloudflare",
       "kind": "account",
       "new_in_this_project": true,
       "do_not_repeat_existing_setup": true,
       "actual_value": "never_store_here",
       "environment_variable_name": "read_from_current_project_code; do_not_copy_example_blindly",
-      "official_procedure": "../../services/vercel.md"
+      "official_procedure": "../../services/cloudflare.md"
     },
     {
       "provider": "github",

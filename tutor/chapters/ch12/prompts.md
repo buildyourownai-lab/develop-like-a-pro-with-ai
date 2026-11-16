@@ -14,12 +14,17 @@
 ai-stock-briefing 프로젝트에서 이번 장에 쓸 Secret 입력창을 실행해줘.
 
 입력칸은 `Supabase Database URL`, `Upstash Redis REST URL`,
-`Upstash Redis REST Token` 세 개로 만들고, 앞 장에서 이미 넣은 인증키도
+`Upstash Redis REST Token`으로 만들어줘. 앞 장에서 이미 넣은 인증키도
 같은 화면에서 다시 넣을 수 있게 해줘. 빈칸으로 두고 저장하면 그 값은
 기존 것을 그대로 남겨줘.
 
 세 입력칸의 값은 순서대로 `SUPABASE_DATABASE_URL`,
 `UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN` 이름으로 저장해줘.
+Workers용 `SUPABASE_URL`, `SUPABASE_SECRET_KEY`는 이 입력창에 추가하지 말고,
+뒤에서 Cloudflare Secret으로 따로 등록할 수 있게 이름과 역할을 알려줘.
+서버 연결 방식은 비밀값이 아닌 `FSC_SNAPSHOT_TRANSPORT` 설정으로 구분하고,
+Workers에서는 `rest`, 로컬 Node에서는 기존 PostgreSQL 연결을 유지해줘.
+이미 저장한 올바른 값은 다시 요구하거나 덮어쓰지 마.
 
 브라우저의 내 컴퓨터 주소에서만 열고, 입력값은 Git에서 제외된
 `.env.local`에 저장해줘. 실제 값은 대화와 실행 결과에 출력하지 마.
@@ -31,10 +36,18 @@ ai-stock-briefing 프로젝트에서 이번 장에 쓸 Secret 입력창을 실�
 국내 주식 한눈에 서비스에 Supabase Database를 연결해줘.
 
 실제 연결 정보는 내가 안전한 입력 위치에 직접 넣을게. 대화창에 값을
-붙여 넣으라고 하지 말고 `SUPABASE_DATABASE_URL` 환경변수로만 읽어줘.
+붙여 넣으라고 하지 말고 로컬 Node 서버는 `SUPABASE_DATABASE_URL`로 읽어줘.
 
-Secret이 코드, Git, 브라우저, 로그와 오류 메시지에 노출되지 않는지도
-검사해줘.
+Workers에서는 `FSC_SNAPSHOT_TRANSPORT=rest`일 때 같은 Database를
+`SUPABASE_URL`과 `SUPABASE_SECRET_KEY`로 HTTPS 조회·저장하게 해줘.
+두 전송 방식은 같은 `api_cache` 테이블의 `cache_key`, `payload`,
+`expires_at`, `created_at`을 사용하고 저장 키·TTL을 같게 유지해줘.
+새 Database라면 현재 스키마에 맞는 테이블·기본키·RLS·만료시간 인덱스를
+먼저 준비해줘. REST 연결만 설정하고 테이블이 생겼다고 가정하지 마.
+기존 Database의 유효한 자료나 다른 테이블은 바꾸지 마.
+
+연결값은 서버에서만 사용하고 브라우저·로그·오류에 내보내지 마.
+별도 Secret 스캔은 실행하지 마.
 ~~~
 
 ## P12-04 · Database를 언제 다시 확인할지도 정합니다
@@ -64,8 +77,8 @@ API에서 다시 확인해줘.
 코드에 붙여 넣지 말고 `UPSTASH_REDIS_REST_URL`과
 `UPSTASH_REDIS_REST_TOKEN` 환경변수로만 읽어줘.
 
-URL과 Token이 Git, 브라우저, 로그, 오류 메시지와 검증 결과에 노출되지
-않는지도 검사해줘.
+URL과 Token은 서버에서만 사용하고 브라우저·로그·오류·검증 결과에
+내보내지 마. 별도 Secret 스캔은 실행하지 마.
 ~~~
 
 ## P12-06 · 같은 조건일 때만 Cache를 다시 사용합니다
@@ -148,8 +161,8 @@ Cache에서 구조화 브리핑을 꺼낸 뒤에도 핵심·시장·가격·공�
 대표 공시, 사용 모델과 출처가 그대로 유지되는지 확인해줘. AI 단계가
 실패하면 프로그램이 확인한 사실 다음에 오류가 표시되는지도 확인해줘.
 
-Secret이 코드, Git, 브라우저, 로그와 오류 메시지에 노출되지 않는지도
-확인해줘.
+연결값은 서버에서만 사용하고 브라우저·로그·오류에 내보내지 마.
+별도 Secret 스캔은 실행하지 마.
 
 필요한 Test와 기존 기능 Regression을 확인한 뒤 문제가 없으면 완료했다고
 알려줘.
@@ -174,15 +187,21 @@ Cache에 저장했다가 다시 꺼낸 뒤에도 구조화된 다섯 목록과 �
 ~~~prompt
 이번 작업을 마무리하고 GitHub 저장소에도 보내줘.
 
-Vercel에도 로컬과 같은 `SUPABASE_DATABASE_URL`, `UPSTASH_REDIS_REST_URL`,
-`UPSTASH_REDIS_REST_TOKEN` 이름으로 연결값을 등록했어.
-보내기 전에 서버가 이 세 이름을 사용하는지 확인해줘. 실제 값은 출력하지 마.
+Cloudflare Worker에 `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `UPSTASH_REDIS_REST_URL`,
+`UPSTASH_REDIS_REST_TOKEN`을 Secret으로 등록하고,
+일반 설정 `FSC_SNAPSHOT_TRANSPORT=rest`도 준비했어.
+로컬 Node의 PostgreSQL 연결과 Worker의 HTTPS 연결을 구분해 확인해줘.
+서버가 읽는 이름과 Database 활성 조건, 필요한 테이블이 맞는지 확인하되
+실제 값은 출력하지 마. 별도 Secret 스캔은 실행하지 마.
 
-배포된 주소에서 같은 종목 화면을 두 번 열고, 매번 AI 브리핑 만들기 버튼을
-눌러 응답까지 확인해줘. 같은 근거 자료와 Cache 유효시간 안에서 진행해줘.
+관련 Test와 Cloudflare 빌드가 통과했는지 확인해줘.
+배포된 현재 HTTPS 주소에서 같은 종목 화면을 두 번 열고, 매번
+AI 브리핑 만들기 버튼을 눌러 응답까지 확인해줘.
+같은 근거 자료와 Cache 유효시간 안에서 진행해줘.
 첫 번째 요청의 생성·재사용 여부를 구분하고, 두 번째 요청에서 저장한 데이터와
 브리핑을 다시 썼는지, 금융위원회와 Gemini의 추가 호출이 없었는지
 서버의 처리 기록으로 확인해서 알려줘. 비밀값은 출력하지 마.
+실패하거나 실제로 확인하지 못한 항목이 있으면 완료했다고 하지 마.
 ~~~
 
 ## P12-11 · 기본값 바꾸기 · 선택

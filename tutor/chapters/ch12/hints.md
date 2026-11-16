@@ -20,9 +20,9 @@
 
 **2단계 — 범위:** 자동 연결이 만든 Name과 코드가 찾는 Name을 나눕니다.
 
-**3단계 — 위치·원인 후보:** SUPABASE_DATABASE_URL, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN이 로컬과 Vercel에 같은 이름으로 등록되어 있는지 값 노출 없이 확인합니다.
+**3단계 — 위치·원인 후보:** 로컬 Node의 SUPABASE_DATABASE_URL과 Worker의 FSC_SNAPSHOT_TRANSPORT=rest·SUPABASE_URL·SUPABASE_SECRET_KEY를 구분하고, 두 환경의 Upstash URL·Token 이름을 값 노출 없이 확인합니다.
 
-**정답을 요청했을 때:** Vercel에 프로젝트가 사용하는 세 이름으로 연결값을 등록하고 새 배포 후 저장·재조회까지 검증합니다. 무료 플랜을 임의 가정하지 않습니다.
+**정답을 요청했을 때:** Worker에 Supabase URL·서버 Secret Key와 Upstash URL·Token을 Secret으로 등록하고 FSC_SNAPSHOT_TRANSPORT=rest를 설정합니다. api_cache 스키마 준비와 새 배포 후 저장·재조회까지 검증합니다. 무료 플랜을 임의 가정하지 않습니다.
 
 **검증 주의:** 이 설명만으로 원인이 확인됐거나 수정됐다고 말하지 않습니다. 현재 프로젝트의 근거를 먼저 대조합니다.
 

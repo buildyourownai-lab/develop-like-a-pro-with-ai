@@ -9,7 +9,7 @@
 |ch11-g03|해당 근거로 실제 모델 응답을 받음|live-api, live-ui|pass|
 |ch11-g04|구조·근거 ID·알 수 없는 것·금지 표현 검사|test-run|pass|
 |ch11-g05|AI 실패에도 시세·공시 원래 기능 유지|test-run|pass|
-|ch11-g06|실제 코드 변수명과 Vercel 환경 대응|human-observation|pass|
+|ch11-g06|실제 코드 변수명과 Cloudflare Workers 환경 대응|human-observation|pass|
 |ch11-g07|Production에서 시세→공시→브리핑→근거 확인|live-api, live-ui|pass|
 
 ## 다시 확인할 때

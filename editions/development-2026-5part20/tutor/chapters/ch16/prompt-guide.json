@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": 16,
   "project": "ai-stock-briefing",
-  "manuscript_sha256": "dd1dca1251cc0ec768bb07070d764dc7be0625b09090725f795d09c5fadb1386",
+  "manuscript_sha256": "3a2e46beeef6eb18445f9d91251618373cff81c9708812d0cbfc13104411a3b9",
   "entries": [
     {
       "id": "P14-01",
@@ -36,7 +36,7 @@
       "id": "P14-03",
       "source": "prompts.md",
       "block_index": 3,
-      "sha256": "8479b8051d039f1e76170b99eabde5dcd4a1aad51f5c20a719674f1284cfeb13",
+      "sha256": "0fc670d0f80becf8d6d3d4cbe1f61974cf029704b81c04af32ef71c2d8c7d74d",
       "title": "Claude에게 Android 앱 구현을 맡깁니다",
       "target": "coding-assistant",
       "kind": "main",
@@ -67,12 +67,12 @@
       "id": "P14-05",
       "source": "prompts.md",
       "block_index": 5,
-      "sha256": "20c2cc2503e6540b47770b5e2573ce59b8aa588554a5e9fe9df807659f2e356a",
+      "sha256": "72a0404614e9b1cc3815990cfd0d14aac77a6c6a207cf269834d0a4cc7d8ad66",
       "title": "연습용 연결과 실제 서비스 연결을 모두 확인합니다",
       "target": "coding-assistant",
       "kind": "main",
       "when": "개발용·Release 서버 연결",
-      "before": "Emulator 실행과 현재 저장소·Vercel 배포 확인.",
+      "before": "Emulator 실행과 현재 저장소·Cloudflare Workers 배포 확인.",
       "after": "Production HTTPS 응답과 필요한 서버 변경 배포 반영",
       "objective_ids": [
         "development-2026-5part20-ch14-g03"
@@ -113,7 +113,7 @@
       "id": "P14-08",
       "source": "prompts.md",
       "block_index": 8,
-      "sha256": "263c39ca73f820ec6e9526d89aa4c894e9586c31aabe71a3501641eb55530e9a",
+      "sha256": "5968d7276ed94c99d75da8be8456dc1142ed5a60c0c525c7a475b15ca9949ca9",
       "title": "앱에 Secret과 불필요한 권한이 없는지 확인합니다",
       "target": "coding-assistant",
       "kind": "main",

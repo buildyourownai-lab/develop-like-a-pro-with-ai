@@ -39,10 +39,9 @@ Gemini에는 우리가 금융위원회와 OpenDART에서 확인한 자료만 제
 
 Development Lab의 이 책 기준판·11장 모델 안내를 확인해줘.
 https://www.studyailab.com/develop/resources/model-guide
-안내의 모델 ID와 현재 공식 지원·내 계정의 이용 조건을 대조해줘.
-확인한 모델 ID·비용·호출 한도를 보여주고 내 선택을 기다려.
-안내가 없거나 확인할 수 없으면 모델을 추측하지 말고 멈춰줘.
-내가 선택한 ID를 AI 브리핑에 사용해줘.
+이번 기준판의 모델 ID는 `gemini-3.5-flash-lite`야. 이 ID를 사용하고
+현재 공식 지원·내 계정의 이용 조건·비용·호출 한도를 확인해줘.
+확인할 수 없는 조건은 미확인으로 알려줘. 다른 모델을 추측해 대체하지 마.
 모델은 나중에 바꾸기 쉽도록 한곳에서 관리해줘.
 
 그 모델을 사용할 수 없으면
@@ -167,25 +166,35 @@ DART 원문 확인 경로가 유지되는지, Gemini 실패 시 기존 주가·�
 ## P11-11 · 완성한 서비스를 인터넷에 공개합니다
 
 ~~~prompt
-Vercel에 키를 넣기 전에 현재 ai-stock-briefing 서버 코드를 조사해줘.
+현재 ai-stock-briefing을 Cloudflare Workers에서 실행할 수 있게 준비해줘.
+현재 Next.js 구조와 기존 기능을 유지하고 OpenNext·Wrangler 설정과
+의존성·lockfile·빌드 및 배포 스크립트를 맞춰줘. 정적 Pages로 바꾸지 마.
+Git 연동의 명령은 `npm run build:cloudflare`와 `npm run deploy:cloudflare`야.
+다른 프로젝트의 계정 ID·도메인·내부 Worker를 그대로 복사하지 마.
+
 금융위원회·OpenDART·Gemini 각각에 대해 실제로 읽는 환경변수 이름과
 그 이름을 읽는 파일·위치를 표로 알려줘. SDK가 자동으로 읽는 이름도 확인해줘.
-.env나 인증 파일의 실제 값은 출력하지 말고, 코드를 실행하거나 바꾸지도 마.
+Workers 실행 중 Secret과 빌드 때 필요한 공개 설정을 구분해줘.
+.env나 인증 파일의 실제 값은 출력하지 마. 별도 Secret 스캔은 실행하지 마.
 예제와 이름이 다르더라도 바로 바꾸지 말고 현재 코드에서 쓰는 이름을 기준으로 해.
 어느 서비스인지 확정할 수 없는 이름은 추측하지 말고 따로 표시해줘.
+
+관련 Test와 Cloudflare 빌드를 확인하되 실제 배포는 아직 하지 마.
+내가 등록할 Secret과 직접 해야 할 로그인·권한 확인을 알려줘.
 ~~~
 
 ## P11-12 · 실제 주소에서 처음부터 다시 확인합니다
 
 ~~~prompt
-Vercel Production 주소에서 지금까지 만든 전체 흐름을 실제 브라우저에서
+Cloudflare Workers에 연결된 실제 운영 HTTPS 주소에서 지금까지 만든 전체 흐름을 실제 브라우저에서
 처음부터 실행해줘.
 
 시장 화면 → 종목 검색 → SK하이닉스 상세 → 최근 1년 차트 → 최근 공시 →
 전체 공시 → OpenDART 공식 유형 필터 → 차트 공시 마커 → DART 원문 → AI
 브리핑 → 브리핑의 근거와 출처 확인 순서로 검사해줘.
 
-기존 Test와 Secret 검사, lint와 production build도 다시 실행해줘.
+기존 Test와 lint, Cloudflare build도 확인해줘. 별도 Secret 스캔은 실행하지 마.
+비밀값은 서버에서만 사용하고 브라우저 응답이나 오류에 내보내지 마.
 
 기존에 잘되던 기능까지 문제가 없을 때 완료했다고 알려줘.
 ~~~

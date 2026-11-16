@@ -2,7 +2,7 @@
   "schema_version": 1,
   "chapter": 11,
   "project": "ai-stock-briefing",
-  "manuscript_sha256": "850f5d5838848eff35470bb4cf429fab395d1326a519a78600e5bfb0e0a2f0dc",
+  "manuscript_sha256": "3b139051ec360292b2b01dc03c64004aa615dfef97b75632ee9da631cf8844f2",
   "entries": [
     {
       "id": "P11-01",
@@ -51,13 +51,13 @@
       "id": "P11-04",
       "source": "prompts.md",
       "block_index": 4,
-      "sha256": "f8ae538aff869667fd391074a54560a46838354867c9742c5ed10f16547b46db",
+      "sha256": "07b52480a7e215268059a1069b50f5ab925e83561a9e984472b340e233975420",
       "title": "Gemini는 우리 서버를 통해 부릅니다",
       "target": "coding-assistant",
       "kind": "main",
       "when": "브리핑 서버 호출 구현",
-      "before": "온라인 책 기준판의 모델 안내·현재 공식 지원·계정 한도 확인, 정확한 ID와 비용 제시 뒤 독자 선택 대기.",
-      "after": "선택한 ID로 서버 연결; 지원/안내 미확인은 추측하지 않고 중지. 실제 호출 결과는 별도 확인.",
+      "before": "이 책 기준판의 gemini-3.5-flash-lite와 현재 공식 지원·계정 이용 조건·비용·호출 한도를 확인합니다.",
+      "after": "고정 모델로 서버 연결. 확인하지 못한 조건은 미확인으로 남기고 사용 불가 시 알립니다. 다른 모델로 자동 대체하지 않습니다.",
       "objective_ids": [
         "ch11-g03"
       ]
@@ -159,13 +159,13 @@
       "id": "P11-11",
       "source": "prompts.md",
       "block_index": 11,
-      "sha256": "a2bc2625dc0563c5659c1fd7059d6de075250db733fd924d378545df2b87f165",
+      "sha256": "ab4f0e254b9a0541016344007f12d6f1ebfbbbb6cea41252fe9476dfc5a0e84a",
       "title": "완성한 서비스를 인터넷에 공개합니다",
       "target": "coding-assistant",
       "kind": "main",
-      "when": "Vercel 입력 전에 변수 이름 조사",
-      "before": "현재 저장소 전송과 Vercel 프로젝트 Import 상태 확인. 입력할 키 값은 요구하지 않음.",
-      "after": "코드가 읽는 이름·파일·입력 위치 표; 수동 등록은 별도",
+      "when": "Cloudflare Workers 입력 전에 변수 이름 조사",
+      "before": "현재 Next.js 기능과 환경변수 사용 위치를 확인합니다. 실제 키 값은 요구하지 않습니다.",
+      "after": "OpenNext·Wrangler 설정, 설정 이름·파일·입력 위치, 관련 Test·Cloudflare 빌드를 확인합니다. 실제 배포와 별도 Secret 스캔은 하지 않습니다.",
       "objective_ids": [
         "ch11-g06"
       ]
@@ -174,13 +174,13 @@
       "id": "P11-12",
       "source": "prompts.md",
       "block_index": 12,
-      "sha256": "407244a1e8e1e59d4843781dbd00213dd0d8c37c18bdf9fd83459dd12e9122ff",
+      "sha256": "e7b0f2a2663ba4307f0e261ae8e886370709f31408a394873427467de5e7e72b",
       "title": "실제 주소에서 처음부터 다시 확인합니다",
       "target": "coding-assistant",
       "kind": "main",
       "when": "Production 전체 흐름 검증",
-      "before": "독자가 세 서비스 키를 Production에 등록하고 배포가 끝났는지 확인.",
-      "after": "실제 시장부터 브리핑까지 흐름 및 검사 결과",
+      "before": "독자가 Worker Secret을 등록하고 현재 운영 HTTPS 배포가 끝났는지 확인합니다.",
+      "after": "시장부터 브리핑·근거까지 실제 브라우저 흐름과 기존 Test·lint·Cloudflare build 결과를 구분해 확인합니다.",
       "objective_ids": [
         "ch11-g07"
       ]
