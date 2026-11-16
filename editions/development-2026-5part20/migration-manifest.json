@@ -511,16 +511,21 @@
   "author_private_dependencies": false,
   "unchanged_chapters_01_12": {
     "repository": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai",
-    "fixed_revision": "333e4785cab317cc63086e07e23a8e84d8f8b86e",
+    "fixed_revision": "c67d920ae954b18e43786f169a42d2ec30ed810c",
     "contract_template": "tutor/chapters/chNN/chapter.json",
     "prompt_guide_template": "tutor/chapters/chNN/prompt-guide.json",
     "prompts_template": "tutor/chapters/chNN/prompts.md",
     "execution_evidence_inherited": false,
     "worktree_dirty_changes_included": false,
-    "previous_fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+    "previous_fixed_revision": "333e4785cab317cc63086e07e23a8e84d8f8b86e",
     "authorized_delta_chapters": [
-      5
-    ]
+      5,
+      8,
+      11,
+      12
+    ],
+    "initial_legacy_provenance_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db",
+    "revision_reason": "Verified current Cloudflare Source8/11/12 and exact public tutor prompts; execution_evidence_inherited remains false. Legacy chapter13–20 reference provenance unchanged."
   },
   "part_source_mapping": "part-sources.json"
 }
