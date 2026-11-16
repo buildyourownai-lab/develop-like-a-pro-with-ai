@@ -15,7 +15,7 @@
     "new_ui_in_this_chapter": false
   },
   "title": "20장. 음성·음향·자막을 합쳐 영상을 완성합니다",
-  "manuscript_sha256": "278e278440afd3f05a94d98b5c44179583754eb5ab5a394311f323fc49b1de43",
+  "manuscript_sha256": "c6f7cfac6cb59aee740200ce03ae33d1b167bc3a5d02531d89b3b9ecb195498c",
   "outcome": "선택한 언어의 음성·음향·동적 자막을 합성한 MP4와 편집 소스, 표지·게시 자료를 완성합니다. 실제 업로드는 별도 선택입니다.",
   "start_state": "원본 클립, 무음 러프컷, 실제 사용 구간표, 장면별 사건과 근거, 남은 문제 기록.",
   "previously_completed_features": "19장의 독자 제작 스킬·채택 원화와 영상·러프컷",
