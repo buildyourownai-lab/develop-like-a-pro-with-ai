@@ -98,7 +98,7 @@
     },
     "ch09": {
       "project": "ai-stock-briefing",
-      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch09/source",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/786c9f48f6cce63a9b13bc74a5db3672fe66cc69/chapters/ch09/source",
       "finish_local_path": null,
       "start_local_path": null,
       "start_expected": "새 프로젝트 또는 빈 시작 상태",
@@ -106,11 +106,11 @@
       "execution_verified": false,
       "source_hash": null,
       "legacy_evidence_inherited": false,
-      "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db"
+      "fixed_revision": "786c9f48f6cce63a9b13bc74a5db3672fe66cc69"
     },
     "ch10": {
       "project": "ai-stock-briefing",
-      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch10/source",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/786c9f48f6cce63a9b13bc74a5db3672fe66cc69/chapters/ch10/source",
       "finish_local_path": null,
       "start_local_path": null,
       "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
@@ -118,11 +118,11 @@
       "execution_verified": false,
       "source_hash": null,
       "legacy_evidence_inherited": false,
-      "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db"
+      "fixed_revision": "786c9f48f6cce63a9b13bc74a5db3672fe66cc69"
     },
     "ch11": {
       "project": "ai-stock-briefing",
-      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch11/source",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/786c9f48f6cce63a9b13bc74a5db3672fe66cc69/chapters/ch11/source",
       "finish_local_path": null,
       "start_local_path": null,
       "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
@@ -130,11 +130,11 @@
       "execution_verified": false,
       "source_hash": null,
       "legacy_evidence_inherited": false,
-      "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db"
+      "fixed_revision": "786c9f48f6cce63a9b13bc74a5db3672fe66cc69"
     },
     "ch12": {
       "project": "ai-stock-briefing",
-      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/41a346a05922e884073d2d2f37c3011a6a88a6db/chapters/ch12/source",
+      "finish_expected_url": "https://github.com/buildyourownai-lab/develop-like-a-pro-with-ai/tree/786c9f48f6cce63a9b13bc74a5db3672fe66cc69/chapters/ch12/source",
       "finish_local_path": null,
       "start_local_path": null,
       "start_expected": "같은 프로젝트의 앞 장 완료 상태 (장 번호·판본을 확인)",
@@ -142,7 +142,7 @@
       "execution_verified": false,
       "source_hash": null,
       "legacy_evidence_inherited": false,
-      "fixed_revision": "41a346a05922e884073d2d2f37c3011a6a88a6db"
+      "fixed_revision": "786c9f48f6cce63a9b13bc74a5db3672fe66cc69"
     },
     "ch13": {
       "project": "ai-stock-briefing",
