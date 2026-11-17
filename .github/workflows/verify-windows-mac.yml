@@ -137,14 +137,36 @@ jobs:
           rc=0; npm test "${test_args[@]}" > test.log 2>&1 || rc=$?
           last=$(grep -E "Tests +[0-9]|passed|failed|pass [0-9]|fail [0-9]" test.log | tail -n 2 | tr '\n' ' ')
           if [ $rc -ne 0 ]; then echo "::error title=TESTS ch${{ matrix.chapter }} ${{ matrix.os }}::$tc; tests failed: $last :: $(grep -E 'FAIL|Error' test.log | head -n 8 | tr -d '\r' | tr '\n' '|' | cut -c1-1500)"; exit $rc; else echo "::notice title=RESULT ch${{ matrix.chapter }} ${{ matrix.os }}::$tc; $last"; fi
+      - name: Stage npm install failure logs
+        if: ${{ failure() && steps.node_checks.outputs.install-failed == 'true' }}
+        env:
+          NPM_CACHE_DIR: ${{ steps.node_checks.outputs.npm-cache }}
+          CHAPTER: ${{ matrix.chapter }}
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          import path from 'node:path';
+          const source = path.join('chapters', `ch${process.env.CHAPTER}`, 'source');
+          const project = fs.readdirSync(source, { withFileTypes: true }).find(entry => entry.isDirectory());
+          const installLog = path.join(source, project.name, 'install.log');
+          const staging = '.ci-npm-install-logs';
+          fs.mkdirSync(staging, { recursive: true });
+          fs.copyFileSync(installLog, path.join(staging, 'install.log'));
+          // Stage only the debug log named by this failed install, not old cache logs.
+          const content = fs.readFileSync(installLog, 'utf8');
+          const match = /_logs[\\/]([^\\/\r\n]+-debug-\d+\.log)/.exec(content);
+          if (match && process.env.NPM_CACHE_DIR) {
+            const debugLog = path.join(process.env.NPM_CACHE_DIR, '_logs', match[1]);
+            if (fs.existsSync(debugLog)) fs.copyFileSync(debugLog, path.join(staging, match[1]));
+            else console.log('Referenced npm debug log is unavailable; preserving install.log.');
+          }
+          JS
       - name: Preserve npm install failure logs
         if: ${{ failure() && steps.node_checks.outputs.install-failed == 'true' }}
         uses: actions/upload-artifact@v4
         with:
           name: npm-install-ch${{ matrix.chapter }}-${{ matrix.os }}
           retention-days: 7
-          # Explicit log paths only; include-hidden-files permits macOS .npm/_logs.
+          # A single staging root avoids Windows workspace D: / npm cache C: conflicts.
           include-hidden-files: true
-          path: |
-            chapters/ch${{ matrix.chapter }}/source/*/install.log
-            ${{ steps.node_checks.outputs.npm-cache }}/_logs/*-debug-0.log
+          path: .ci-npm-install-logs/
