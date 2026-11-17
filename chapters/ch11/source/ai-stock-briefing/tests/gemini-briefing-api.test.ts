@@ -123,9 +123,9 @@ describe("callGemini의 정상 경로 (generateStockBriefing을 통해 확인)",
     expect(body).not.toHaveProperty("tools");
     expect(body.contents[0].parts[0].text).toContain("headline은 전체를 한 문장으로 요약하되 숫자를 넣지 말 것");
     expect(body.generationConfig.responseMimeType).toBe("application/json");
-    expect(body.generationConfig.responseJsonSchema.required).toContain("headline");
-    expect(body.generationConfig.responseJsonSchema.properties.headline.description).toContain("숫자를 쓰지 않는다");
-    expect(body.generationConfig.responseJsonSchema.required).toContain("unknowns");
+    expect(body.generationConfig.responseSchema.required).toContain("headline");
+    expect(body.generationConfig.responseSchema.properties.headline.description).toContain("숫자를 쓰지 않는다");
+    expect(body.generationConfig.responseSchema.required).toContain("unknowns");
     // 키는 헤더로만 보내고, URL 쿼리스트링에는 넣지 않는다(로그에 남지
     // 않게 하려는 조치) — x-goog-api-key로만 전달된다.
     expect(String(url)).not.toContain(TEST_KEY);
@@ -180,7 +180,8 @@ describe("오류 화면에 API 키 값이 남지 않는다", () => {
     const err = await captureError(generateStockBriefing(sampleFacts));
     expect(err.message).not.toContain(TEST_KEY);
     expect(err.message).not.toContain("not valid");
-    expect(err.message).toContain("API Key가 올바르게 설정됐는지 확인해 주세요");
+    expect(err.message).toContain("요청 형식·응답 스키마·API Key 설정");
+    expect(err.message).not.toContain("인증에 실패");
   });
 
   it("한도(429)와 일시적인 실패는 다시 눌러 보라고 알려준다", async () => {

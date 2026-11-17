@@ -23,7 +23,10 @@ function redactSecret(text: string, secret: string): string {
 // 알 수 없다 -- 그래서 상태 코드만 보고 사람이 읽는 안내를 만든다. 안내에는
 // 다음에 할 일(키를 확인한다 / 잠시 뒤 다시 누른다)이 반드시 들어간다.
 function userFacingHttpErrorMessage(status: number): string {
-  if (status === 400 || status === 401 || status === 403) {
+  if (status === 400) {
+    return "Gemini 요청을 처리할 수 없습니다. 요청 형식·응답 스키마·API Key 설정을 확인해 주세요.";
+  }
+  if (status === 401 || status === 403) {
     return "Gemini 인증에 실패했습니다. API Key가 올바르게 설정됐는지 확인해 주세요.";
   }
   if (status === 404) {
@@ -67,7 +70,7 @@ function evidenceNumber(value: number): string {
 }
 
 const ITEM_SCHEMA = {
-  type: "OBJECT", additionalProperties: false,
+  type: "OBJECT",
   properties: { text: { type: "STRING" }, evidenceIds: { type: "ARRAY", minItems: 1, maxItems: 4, items: { type: "STRING" } } },
   required: ["text", "evidenceIds"],
 };
@@ -77,7 +80,7 @@ const ITEM_ARRAY_SCHEMA = {
 };
 
 const BRIEFING_RESPONSE_SCHEMA = {
-  type: "OBJECT", additionalProperties: false,
+  type: "OBJECT",
   properties: {
     headline: { type: "STRING", description: "근거 범위를 넘지 않는 짧은 한국어 제목. 숫자를 쓰지 않는다." },
     highlights: { ...ITEM_ARRAY_SCHEMA, minItems: 2 },
@@ -235,7 +238,7 @@ export function briefingText(briefing: StructuredBriefing): string {
 
 export function isRetryableGeminiError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
-  return !/인증에 실패|API Key|모델을 사용할 수 없|모델 이름/.test(message);
+  return !/인증에 실패|API Key|모델을 사용할 수 없|모델 이름|요청 형식|응답 스키마/.test(message);
 }
 
 export async function generateStockBriefing(input: EvidencePacket | BriefingFacts): Promise<StructuredBriefing> {
@@ -245,7 +248,7 @@ export async function generateStockBriefing(input: EvidencePacket | BriefingFact
   const raw = await callGemini(apiKey, prompt, {
     temperature: 0.2,
     responseMimeType: "application/json",
-    responseJsonSchema: BRIEFING_RESPONSE_SCHEMA,
+    responseSchema: BRIEFING_RESPONSE_SCHEMA,
   });
   return parseStructuredBriefing(raw, packet);
 }
@@ -310,7 +313,7 @@ export async function verifyStockBriefing(
   const raw = await callGemini(apiKey, prompt, {
     temperature: 0,
     responseMimeType: "application/json",
-    responseJsonSchema: VERIFICATION_RESPONSE_SCHEMA,
+    responseSchema: VERIFICATION_RESPONSE_SCHEMA,
   });
 
   let verdict: unknown;

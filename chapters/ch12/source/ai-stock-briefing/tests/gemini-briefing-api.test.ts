@@ -180,7 +180,8 @@ describe("오류 화면에 API 키 값이 남지 않는다", () => {
     const err = await captureError(generateStockBriefing(sampleFacts));
     expect(err.message).not.toContain(TEST_KEY);
     expect(err.message).not.toContain("not valid");
-    expect(err.message).toContain("API Key가 올바르게 설정됐는지 확인해 주세요");
+    expect(err.message).toContain("요청 형식·응답 스키마·API Key 설정");
+    expect(err.message).not.toContain("인증에 실패");
   });
 
   it("한도(429)와 일시적인 실패는 다시 눌러 보라고 알려준다", async () => {
