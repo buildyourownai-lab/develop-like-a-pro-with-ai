@@ -6,6 +6,7 @@ on:
   push:
     paths:
       - ".github/workflows/verify-windows-mac.yml"
+      - ".github/ci/**"
       - "support/**"
       - "tutor/**"
       - "chapters/**"
@@ -118,13 +119,32 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: "22" }
       - name: Install, typecheck, test
+        id: node_checks
         run: |
           cd chapters/ch${{ matrix.chapter }}/source/*/
-          npm ci --no-audit --no-fund > install.log 2>&1 || { echo "::error title=INSTALL ch${{ matrix.chapter }} ${{ matrix.os }}::$(tail -n 20 install.log | tr -d '\r' | tr '\n' '|' | cut -c1-1500)"; exit 1; }
+          echo "npm-cache=$(npm config get cache | tr -d '\r')" >> "$GITHUB_OUTPUT"
+          npm ci --no-audit --no-fund > install.log 2>&1 || { echo "install-failed=true" >> "$GITHUB_OUTPUT"; echo "::error title=INSTALL ch${{ matrix.chapter }} ${{ matrix.os }}::$(tail -n 20 install.log | tr -d '\r' | tr '\n' '|' | cut -c1-1500)"; exit 1; }
           tc="skipped (no tsconfig)"
           if [ -f tsconfig.json ]; then (npx next typegen >/dev/null 2>&1 || true); npx tsc --noEmit > tsc.log 2>&1 && tc="typecheck passed" || { echo "::error title=TYPECHECK ch${{ matrix.chapter }} ${{ matrix.os }}::$(tail -n 20 tsc.log | tr -d '\r' | tr '\n' '|' | cut -c1-1500)"; exit 1; }; fi
-          # tests that call live services need the reader's own keys; fill placeholders so offline tests can run
-          if [ -f .env.local.example ]; then sed -E 's/^([A-Za-z_0-9]+)=$/\1=dummy-key-for-ci/' .env.local.example > .env.local; fi
-          rc=0; npm test > test.log 2>&1 || rc=$?
+          # Do not invent service credentials. Keep normal test discovery and
+          # npm's pretest build, explicitly skipping live checks in stock chapters.
+          test_args=()
+          if [[ "${{ matrix.chapter }}" > "08" && "${{ matrix.chapter }}" < "16" ]]; then
+            node "$GITHUB_WORKSPACE/.github/ci/prepare-no-key-vitest.mjs"
+            test_args=(-- --config .ci-vitest.config.mts)
+            echo "::notice title=LIVE CHECKS ch${{ matrix.chapter }}::FSC/DART/viewer checks skipped in no-key CI; offline tests and build remain enabled"
+          fi
+          rc=0; npm test "${test_args[@]}" > test.log 2>&1 || rc=$?
           last=$(grep -E "Tests +[0-9]|passed|failed|pass [0-9]|fail [0-9]" test.log | tail -n 2 | tr '\n' ' ')
           if [ $rc -ne 0 ]; then echo "::error title=TESTS ch${{ matrix.chapter }} ${{ matrix.os }}::$tc; tests failed: $last :: $(grep -E 'FAIL|Error' test.log | head -n 8 | tr -d '\r' | tr '\n' '|' | cut -c1-1500)"; exit $rc; else echo "::notice title=RESULT ch${{ matrix.chapter }} ${{ matrix.os }}::$tc; $last"; fi
+      - name: Preserve npm install failure logs
+        if: ${{ failure() && steps.node_checks.outputs.install-failed == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: npm-install-ch${{ matrix.chapter }}-${{ matrix.os }}
+          retention-days: 7
+          # Explicit log paths only; include-hidden-files permits macOS .npm/_logs.
+          include-hidden-files: true
+          path: |
+            chapters/ch${{ matrix.chapter }}/source/*/install.log
+            ${{ steps.node_checks.outputs.npm-cache }}/_logs/*-debug-0.log
