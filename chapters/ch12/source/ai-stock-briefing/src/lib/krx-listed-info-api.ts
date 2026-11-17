@@ -77,7 +77,7 @@ export async function searchListedStocksWithBaseDate(
   if (!trimmed) return { baseDate: "", results: [] };
 
   const basDt = await findListedInfoBaseDate();
-  const isCodeQuery = /^\d+$/.test(trimmed);
+  const isCodeQuery = /^\d+$/.test(trimmed) || /^(?=.*\d)[A-Z0-9]{6}$/.test(trimmed);
   const { items } = await withCache(
     `listed-info:${basDt}:${isCodeQuery ? "code" : "name"}:${trimmed}`,
     CACHE_TTL_SECONDS.confirmedMarketData,

@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { searchListedStocks } from "@/lib/krx-listed-info-api";
 import {
   getLatestStockPriceByCode,
@@ -43,10 +43,30 @@ describe("실제 주식시세정보로 종목 상세를 가져온다", () => {
     }
   });
 
-  it("이력이 짧은 종목은 1년치를 다 채우지 않는다", async () => {
-    // 13번에서 실제로 확인한, 최근 며칠치만 있는 종목.
-    const yearly = await getYearlyDailyPrices("0220W0");
-    expect(yearly.bars.length).toBeGreaterThan(0);
-    expect(yearly.bars.length).toBeLessThan(50);
+  it("상장 이력이 짧은 응답은 없는 거래일을 채워 넣지 않는다 (고정 응답)", async () => {
+    // 실제 종목은 시간이 흐르면 50거래일을 넘는다. 짧은 이력 처리 자체는
+    // 날짜와 제공자 응답을 고정해 검사하고, 위의 시세·연간 검사는 실제 API로 유지한다.
+    // Fixture tests provider parsing without calling the real external cache.
+    vi.stubEnv("DATA_GO_KR_SERVICE_KEY", "offline-fsc-key");
+    vi.stubEnv("SUPABASE_DATABASE_URL", "");
+    vi.stubEnv("SUPABASE_URL", "");
+    vi.useFakeTimers({ toFake: ["Date"] });
+    vi.setSystemTime(new Date("2026-08-27T12:00:00+09:00"));
+    const dates = ["20260825", "20260826", "20260827"];
+    vi.stubGlobal("fetch", vi.fn().mockImplementation(async () => Response.json({
+      response: { header: { resultCode: "00" }, body: { totalCount: 3, items: { item:
+        dates.map(basDt => ({ basDt, srtnCd: "0220W0", mkp: "10000", hipr: "11000", lopr: "9000", clpr: "10500", trqu: "100", trPrc: "1050000" }))
+      } } },
+    })));
+    try {
+      const yearly = await getYearlyDailyPrices("0220W0");
+      expect(yearly.requestedBeginBasDt).toBe("20250827");
+      expect(yearly.bars.map(bar => bar.basDt)).toEqual(dates);
+      expect(yearly.bars.every(bar => bar.close === 10500)).toBe(true);
+    } finally {
+      vi.unstubAllGlobals();
+      vi.useRealTimers();
+      vi.unstubAllEnvs();
+    }
   });
 });
