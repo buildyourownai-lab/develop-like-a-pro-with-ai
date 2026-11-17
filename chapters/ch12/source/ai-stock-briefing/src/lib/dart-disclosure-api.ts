@@ -1,5 +1,5 @@
-import { fetchDart } from "./dart-fetch";
 import "server-only";
+import { fetchDart } from "./dart-fetch";
 import { getOpenDartApiKey } from "./server-env";
 import { findCorpCodeByStockCode } from "./dart-corp-code";
 

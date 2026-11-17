@@ -1,5 +1,5 @@
-import { fetchDart } from "./dart-fetch";
 import "server-only";
+import { fetchDart } from "./dart-fetch";
 import zlib from "node:zlib";
 import { getOpenDartApiKey } from "./server-env";
 
