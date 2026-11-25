@@ -5,7 +5,7 @@
   "number": 15,
   "title": "15장. 웹서비스를 앱으로 만들기 전에 알아야 할 것들",
   "manuscript": "book/21-chapter-15.md",
-  "manuscript_sha256": "a971c023f5d2287d96ccfa4736004b85b85228d6c81876b6db23b82a0f6e2f9e",
+  "manuscript_sha256": "e685369dbab343a056e48c765cd5c264ed24d4b62f75b2a4d31036a6e073f5fd",
   "outcome": "앱에 넣을 기능과 재사용·보안·완료 기준을 결정합니다.",
   "project": "ai-stock-briefing",
   "start_state": "14장까지의 웹서비스와 서버를 이어갑니다. 앱은 9~12장에서 만든 시세·공시·브리핑 기능을 재사용하며 웹 챗봇은 포함하지 않습니다.",

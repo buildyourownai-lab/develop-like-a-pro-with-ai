@@ -5,7 +5,7 @@
   "number": 13,
   "title": "13장. 내 주식서비스의 챗봇을 기획합니다",
   "manuscript": "book/18-chapter-13.md",
-  "manuscript_sha256": "4cfaa566d1dc2dae3fea7fb221ebfb8069c4e8a722278c3f9dac8389af70d588",
+  "manuscript_sha256": "85a3a3d224d7862046f495f9fcf05ebf3b8764d8c13b15af481eb460a4d26b14",
   "project": "ai-stock-briefing",
   "required_services": [],
   "required_accounts_permissions": [],

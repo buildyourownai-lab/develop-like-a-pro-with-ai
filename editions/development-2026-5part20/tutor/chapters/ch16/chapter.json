@@ -5,7 +5,7 @@
   "number": 16,
   "title": "16장. 만든 서비스를 Android 앱으로 만듭니다",
   "manuscript": "book/22-chapter-16.md",
-  "manuscript_sha256": "3a2e46beeef6eb18445f9d91251618373cff81c9708812d0cbfc13104411a3b9",
+  "manuscript_sha256": "1c06698130b16998cc6712fadee94d245e7177741994510fe0c9c1d98d3f9134",
   "outcome": "기존 서버를 사용하는 Android 앱을 실행하고 확인합니다.",
   "project": "ai-stock-briefing",
   "start_state": "15장에서 앱 범위·화면·보안 기준을 정했습니다.",
